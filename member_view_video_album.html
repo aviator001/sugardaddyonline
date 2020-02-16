@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    	body{
+    background:#eee;    
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+h2 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;background:aliceblue
+}
+
+.font-bigger{
+	font-size:15px
+}
+    </style>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script>
+	dinit()
+
+	
+	function dinit() {
+	
+		var url = 'https://lushmatch.com/x_get_user_info.php?member_id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					msg=JSON.parse(msg)
+										console.log(msg)
+
+					if ((msg.filename_1.indexOf('png')>=0) || (msg.filename_1.indexOf('jpg')>=0)) {
+						var type='photo'
+					} else {
+						var type='video'
+					}
+					if (type=='photo') {
+						$$('mv').innerHTML=''
+						$$('user_photo').src='https://lushmatch.com/sb/'+msg.filename_1
+						$$('user_photo').style.display='block'
+					} else {
+						$$('user_photo').style.display='none'
+						var video = document.createElement('video');
+						$$('mv').innerHTML=''
+						video.controls = false;
+						video.muted=true
+						video.autoplay=true
+						video.className='col-xs-3 www_box'
+						video.style.cssText='object-fit:cover;width:100px;height:100px;border-radius:100px;;border:none;margin:0;padding:0;border:5px solid #f0f0f0;margin-top:-25px'
+						$$('mv').appendChild(video);
+						video.id=id
+						video.load()
+						video.src='https://lushmatch.com/sb/'+msg.filename_1
+						video.loop=true
+						video.play()
+					}
+				}
+			})			
+	}
+	function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: '<span style="font-family:tahoma">Select Source!</span>',
+				content: '<span style="font-family:tahoma">You can either take a brand new video or photo using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?</span>',
+				buttons: {
+					camera: function () {
+						window.top.location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						window.top.location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+
+			
+		</script>	
+</head>
+<body>
+<div class="container mt-5"> 
+    <div class="row">
+        <div class="col-lg-4 pb-5">
+            <div class="author-card pb-3">
+                <div class="author-card-cover" style="background-image: url(images/b5.jpg);background-size:cover"></div>
+                <div class="author-card-profile">
+					<div id="mv"></div><img src="https://bootdey.com/img/Content/avatar/avatar1.png" style="width:100px;height:100px;border-radius:100px;margin-top:-20px" id="user_photo">
+                    <div class="author-card-details">
+						<div style="width:200px;position:absolute;opacity:1;background:white!Important;z-index:9999;margin-top:-25px;margin-left:5px;font-size:21px;background:aliceblue"><b>VIEWING VIDEO ALBUM</b></div>
+						<div style="width:100%;position:absolute;opacity:1;background:white!Important;z-index:9999;margin-top:5px;margin-left:5px;font-size:18px;background:aliceblue" id="an"></div>
+                    </div>
+                </div>
+				<div style="display:none;padding:5px;font-size:15px">
+					<table style="width:100%;font-size:14px;color:#000">
+						<tr>
+							<td>
+								<b>MODIFY PRICE</b>
+							</td>
+							<td style="width:50%"></b>
+								<b>SET PRIVACY
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input class="jco form-group" type="text" placeholder="Price" style="padding-left:2px;width:50px;height:30px" id="album_price">
+							</td>
+							<td>
+								<img id="pv" onclick="toggle_private()" src="images/exit_0.png" style="position:absolute;width:25px;margin-top:-25px"><div style="position:absolute;width:20px;margin-left:30px;margin-top:-25px;width:125px;font-size:15px">PRIVATE ALBUM?</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<b>USE PASSCODE</b>
+							</td>
+							<td style="width:50%"></b>
+								<b>USE PATTERN
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input class="jco form-group" type="password" placeholder="Passcode" style="padding-left:2px;width:50px;height:30px" id="pass">
+							</td>
+							<td>
+								<button class="btn"><IMG SRC="http://visuallock.com/pattern.png" STYLE="width:20px"> Visualock&trade;</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div style="padding:10px;padding-top:2px;padding-bottom:10px;font-size:15px">Tap any video file to preview</div>
+            </div>
+			<div style="position:absolute;opacity:1;background:white!Important;z-index:9999;margin-top:-25px;margin-left:5px"><b>ALBUM CONTENTS</b></div>
+			
+            <div class="wizard" style="background:white">
+                <nav id="media" class="list-group list-group-flush">
+					<a id="profile" class="list-group-item" href="javascript:choose_upload()()" STYLE="background:aliceblue">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div class="d-inline-block font-weight-medium text-uppercase">+ UPLOAD</div>
+                            </div><span class="badge badge-secondary"></span>
+                        </div>
+                    </a>
+				</nav>
+            </div>
+		</div>
+    </div>
+</div>
+ 	</body>
+	<script>
+		var album_private=false
+		var start
+		var albums=[]
+		var counts=[]
+		var currObj=$$('profile')
+		var ab='0'
+		var str=''
+		var content=[]
+		var presence=[]
+
+		function goback() {
+			history.go(-1)
+		}
+
+		function preview_profile() {
+			location.href='profile.html?id='+getCookie('mid')
+		}
+		
+
+		function load_media() {
+			console.log('x_get_media.php?mid='+getCookie('mid')+'&type='+qs('type')+'&album_id='+qs('album_id'))
+			var url='https://sugardaddylocal.com/x_get_member_album_videos.php?album_id='+qs('album_id')
+			var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					var content=JSON.parse(msg)
+					var str=''
+					var display
+					for (var i=0; i<content.length; i++) {
+						str+='<a style="display:'+display+'" id="'+content[i].id+'" class="list-group-item d-flex justify-content-between align-items-center font-weight-medium text-lowercase font-bigger" href="javascript:view_video(\'https://lushmatch.com/sb/' + content[i].filename_1 + '\')"><div style="width:35px;height:35px;border-radius:35px;padding:5px;border:1px solid black;text-align:center">'+(i+1) +'</div><span style="color:#333;position:absolute;left:70px;">' + content[i].filename_1 + '</span></a>'						
+					}
+					<!-- if (qs('type')=='photo') { -->
+						<!-- str+='<a style="background:aliceblue" class="list-group-item d-flex justify-content-between align-items-center font-weight-medium text-uppercase font-bigger"><button onclick="location.href=\''+qs('type')+'_albums.html\'" class="btn btn-default">ALBUMS</button> <button onclick="location.href=\'gallery.html?album_id='+qs('album_id')+'&type='+qs('type')+'\'" class="btn btn-default">PREVIEW</button> <button onclick="choose_upload()" class="btn btn-default">UPLOAD</button></a>' -->
+					<!-- } else { -->
+						<!-- str+='<a style="background:aliceblue" class="list-group-item d-flex justify-content-between align-items-center font-weight-medium text-uppercase font-bigger"><button onclick="location.href=\''+qs('type')+'_albums.html\'" class="btn btn-default">ALBUMS</button> <button onclick="location.href=\'preview_video_album.html?album_id='+qs('album_id')+'&type='+qs('type')+'\'" class="btn btn-default">PREVIEW</button> <button onclick="choose_upload()" class="btn btn-default">UPLOAD</button></a>' -->
+					<!-- } -->
+					$('#media').html(str)
+				}
+			})			
+		}
+		function view_video(fn) {
+			$.dialog({content:'<video style="width:100%" muted autoplay controls src="'+fn+'"></video>',theme:'supervan',title:''})
+		}
+		
+		
+		function add_to_album(fid) {
+			console.log('x_add_to_album.php?mid='+getCookie('mid')+'&type='+qs('type')+'&album_id='+qs('album_id')+'&media_id='+fid) 
+			var url='https://sugardaddylocal.com/x_add_to_album.php?mid='+getCookie('mid')+'&type='+qs('type')+'&album_id='+qs('album_id')+'&media_id='+fid
+			var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					load_media()
+				}
+			})			
+		}
+
+		function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: 'Select Source!',
+				content: 'You can either take a brand new photo or video using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?',
+				buttons: {
+					camera: function () {
+						location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+		
+		function add_album() {
+			var str='<div style="padding:30px;background:white;border-radius:10px">'
+			str+='<div style="color:#000;text-align:left">Album Name</div>'
+			str+='<div style="color:#000;text-align:left"><input class="jco form-group" type="text" placeholder="Required Album Name" style="padding-left:10px" id="albumname"></div>'
+			str+='<div style="color:#000;text-align:left">Album Description</div>'
+			str+='<div style="color:#000;text-align:left"><input class="jco form-group" type="text" placeholder="Optional Description" style="padding-left:10px" id="album_desc"></div>'
+			str+='<div style="color:#000;text-align:left">Album Price</div>'
+			str+='<div style="color:#000;text-align:left"><input class="jco form-group" type="text" placeholder="Optional Price" style="padding-left:10px" id="album_price"></div>'
+			str+='<div style="color:#000;text-align:left;font-size:18px"><img id="pv" onclick="toggle_private()" src="images/exit_0.png" style="width:30px"> PRIVATE ALBUM?</div>'
+			str+='</div>'
+			$.confirm({
+				theme: 'supervan',
+				title: '<span style="color:black;font-weight:300;font-family:Open Sans;text-shadow:1px 1px 1px #fff">ADD PHOTO ALBUM</span>',
+				content: str,
+				buttons: {
+					Save: {
+						text: 'Save Album',
+						btnClass: 'btn-info',
+						action: function () {
+							if($$('albumname').value=="") {
+								alert('Album Name cannot be blank')
+								return false
+							} else {
+								add_photo_album($$('albumname').value,$$('album_desc').value,album_private,$$('album_price').value)
+							}
+						}
+					},
+					Save2: {
+						text: 'Cancel',
+						btnClass: 'btn-danger',
+						action: function () {
+						}
+					}
+				}
+			});
+		}
+		
+		function add_photo_album(a,b,c,d) {
+				url='https://sugardaddylocal.com/x_add_album.php?type=photo&album_name='+a+'&album_desc='+b+'&album_private='+c+'&album_price='+d+'&mid='+getCookie('mid')
+				console.log(url)
+				$.ajax({url:url,success:function(data){
+					if (!data) {
+						$.confirm({
+							theme: 'modern',
+							type: 'green',
+							title: 'Add Photo Album!',
+							content: 'Album Saved Succesfully',
+							buttons: {
+									add: {
+										text: 'Add More',
+										btnClass: 'btn-info',
+										action: function () {
+											
+											}
+										},
+									back: {
+										text: 'View Albums',
+										btnClass: 'btn-info',
+										action: function () {
+											location.href='photo_albums.html?x='+Math.random()*100000000000000000									
+										}
+									}
+								}
+							});
+						}
+					}
+				})
+			console.log(a,b,c,d)
+		}
+		
+		function toggle_private() {
+			if ($$('pv').src.indexOf('images/exit_0.png')>0) {
+				album_private=true
+				ab='1'
+				$$('pv').src="images/exit.png"
+			} else {
+				album_private=false
+				ab='0'
+				$$('pv').src="images/exit_0.png"
+			}
+		}
+		
+		function $$(objid) {
+			return document.getElementById(objid)
+		}
+		function show_catalog(){
+			window.parent.frames['eCatalog'].style.display='block'
+		}
+		function hide_catalog(){
+			window.parent.frames['eCatalog'].style.display='none'
+		}
+		function hide_search(){
+			window.parent.frames['ebay'].style.display='none'
+		}
+		$$('an').innerHTML=qs('album_name').toUpperCase()
+		load_media()
+	</script>
+
+	<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+	<script src="https://sugardaddylocal.com/js/wait.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    	body{
+    background:#eee;
+font-family:Open Sans!Important	
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+.f-big, .font-weight-heavy {
+	font-size:18px!Important; color:#333; text-shadow:1px 1px 1px #fff;font-family:Orbitron;font-weight:300
+}
+.font-weight-medium {
+	font-size:14px!Important; color:#666; text-shadow:1px 1px 1px #fff;font-family:Open Sans;font-weight:300
+}
+h2 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;background:white
+}
+h3 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;font-size:24px
+}
+.tmRegular{
+	font-size:16px!Important
+}
+.tmIcon{
+	min-width:25px!Important
+}
+* {
+	font-family:Open Sans
+}
+.jconfirm-bg {
+	background:white!Important;opacity:1!Important;color:black!Important
+}
+d-inline-block {
+margin-left:15px;font-family:Orbitron!Important;;font-size:16px!Important
+}
+    </style>
+<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredoka+One|Megrim|Orbitron|Special+Elite&display=swap" rel="stylesheet">	
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script>
+	dinit()
+	
+	function preview_profile() {
+		location.href="profile.html?id="+getCookie('mid')+'&type=preview'
+	}
+
+	
+	function dinit() {
+	
+		var url = 'https://lushmatch.com/x_get_user_info.php?member_id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					msg=JSON.parse(msg)
+										console.log(msg)
+
+					if ((msg.filename_1.indexOf('png')>=0) || (msg.filename_1.indexOf('jpg')>=0)) {
+						var type='photo'
+					} else {
+						var type='video'
+					}
+				}
+			})			
+	}
+	function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: '<span style="font-family:tahoma">Select Source!</span>',
+				content: '<span style="font-family:tahoma">You can either take a brand new video or photo using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?</span>',
+				buttons: {
+					camera: function () {
+						window.top.location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						window.top.location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+	function $$(oo) {
+		return document.getElementById(oo)
+	}
+				var general_info
+
+		var imt,br,bkg='background: #fff',yes_pd=0
+		if (window_width()<=500) {
+			var mw=window_width()+'px'
+			var mh=mw
+			var pt='0px'
+			var mtop=40
+			var mt=0
+			var tb='bottom'
+			var cph=window.innerHeight-window.innerWidth-120
+			var gip=cph+40
+			var hh=window_height() * 0.15
+			var btm=200
+		} else {
+			var mh='500px'
+			var mw='500px'
+			var pt='5px'
+			var mtop=610
+			var mt=80
+			var tb='top'
+			var cph=200
+			var hh=800
+			var btm=window_height()*0.7 - 610
+		}
+		if (window_height()<=500) {
+			mh='150px'
+			br=150
+			imt=30
+			bkg='background:url(https://sugardaddylocal.com/b3.jpg) center; background-size:cover'
+			yes_pd=10
+		}
+		var mgt=window_height()/20-15
+		var tt='400px'
+		if (window.screen.height<window.screen.width) {
+			var showw='none'
+			var tt='300px'
+		}
+			
+		</script>	
+</head>
+<body>
+<div class="container mt-5" style="background:#000;color:white;max-width:800px"> 
+			<div style="background:#000;color:white"><h3>ADMIN CONTROL PANEL</h3>					
+            </div>        </div>
+            <div class="wizard" style="border-bottom:5px solid white;max-width:800px;margin:auto">
+                <nav class="list-group list-group-flush">
+
+					<a id="media" style="background:aliceblue" class="list-group-item" href="turbo.html">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div id="media_caption" > TURBO BROWSER!</div>
+                            </div><span class="badge badge-secondary">7</span>
+                        </div>
+                    </a> 					
+
+					<a id="media" style="background:aliceblue" class="list-group-item" href="multi_view.html">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div id="media_caption" > ALL USER FEEDS</div>
+                            </div><span class="badge badge-secondary">7</span>
+                        </div>
+                    </a> 					
+
+					<a id="media" style="background:aliceblue" class="list-group-item" href="chat.html">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div id="media_caption" > LIVE CHATROOM!</div>
+                            </div><span class="badge badge-secondary">7</span>
+                        </div>
+                    </a> 					
+					<a id="media" style="background:aliceblue" class="list-group-item" href="javascript:toggle_children('media')">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div id="media_caption" > + My Media</div>
+                            </div><span class="badge badge-secondary">7</span>
+                        </div>
+                    </a> 
+					<span id="media_children" style="display:none">
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_albums.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block text-uppercase" style="margin-left:25px">My Albums</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='show_uploads.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">My Uploads</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="upload" class="list-group-item" href="javascript:choose_upload()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Upload Photos and Videos</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="upload" class="list-group-item" href="javascript:preview_photo_gallery()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Preview Gallery - All Photos</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="upload" class="list-group-item" href="javascript:preview_video_gallery()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Preview Gallery - All Videos</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+					</span>
+					
+					
+					
+					<a id="my_tokens" style="background:aliceblue;display:none;" class="list-group-item" href="javascript:toggle_children('my_tokens')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+								<div id="my_profile_caption" class=""> + Tokens</div>
+							</div><span class="badge badge-secondary">17</span>
+						</div>
+					</a>  
+					<span id="my_tokens_children" style="display:none">
+						<a style="background:#" id="redeem_tokens" style="background:white" id="profile" class="list-group-item" href="frame_profile.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px"> Redeem Tokens</div>
+								</div><span class="badge badge-secondary">7</span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="manage_tokens" style="background:white" id="profile" class="list-group-item" href="frame_profile.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px"> Buy Tokens</div>
+								</div><span class="badge badge-secondary">7</span>
+							</div>
+						</a> 
+						<a style="background:#fbfbfb" id="billing_history" class="list-group-item" href="javascript:preview_profile()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">History</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>					
+					</span>
+					<a id="my_profile" style="background:aliceblue" class="list-group-item" href="javascript:toggle_children('my_profile')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+								<div id="my_profile_caption" class=""> + My Profile</div>
+							</div><span class="badge badge-secondary">7</span>
+						</div>
+					</a>  
+					<span id="my_profile_children" style="display:none">
+						<a style="background:#fbfbfb" style="background:white" id="profile" class="list-group-item" href="frame_profile.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px"> Edit Profile</div>
+								</div><span class="badge badge-secondary">7</span>
+							</div>
+						</a> 
+						<a style="background:#fbfbfb" id="upload" class="list-group-item" href="javascript:preview_profile()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Preview My Profile</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>					
+					</span>
+					<a id="wishlist" style="background:aliceblue" class="list-group-item" href="javascript:toggle_children('wishlist')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-tag mr-1 text-muted"></i>
+								<div id="wishlist_caption" class="" style="">+ My WishList</div>
+							</div><span class="badge badge-secondary">2</span>
+						</div>
+					</a>
+					<span id="wishlist_children" style="display:none">
+						<a style="background:#fbfbfb" id="albums1" class="list-group-item" href="javascript:window.top.location.href='frame_wish.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-heart mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">My Wishlist</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums2" class="list-group-item" href="javascript:preview_wishlist()">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-heart mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">My Offers</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="profile3" class="list-group-item" href="javascript:location.href='frame_price.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Preview My Wishlist</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>                    
+						<a style="background:#fbfbfb" id="profile4" class="list-group-item" href="javascript:location.href='frame_price.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Preview My Offers</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>                    
+					</span>
+					<a id="account" style="display:none;background:aliceblue" class="list-group-item" href="javascript:toggle_children('account')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+								<div id="account_caption" class="font-weight-heavy text-uppercase f-big"> + My Account</div>
+							</div><span class="badge badge-secondary">11</span>
+						</div>
+					</a> 
+					<span id="account_children" style="display:none">
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_canned.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Canned Messages</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_sms.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">SMS Settings</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_blocked.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Blocked Users</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='userHotLists.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Account History</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_payments.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Payments Received</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<a style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='frame_billing.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Billing and Subscription</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+					</span>
+					<a id="matches" style="background:aliceblue" id="profile" class="list-group-item" href="javascript:toggle_children('matches')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+								<div id="matches_caption" class=""> + My Matches</div>
+							</div><span class="badge badge-secondary">7</span>
+						</div>
+					</a>   
+					<span id="matches_children" style="display:none">
+						<a  style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='userHotLists.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Members I Like</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>	
+						<a   style="background:#fbfbfb"id="albums" class="list-group-item" href="javascript:window.top.location.href='userHotLists_alt.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Members that Like Me</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>	
+						<a  style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='favourites.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">My Favourites</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<span style="margin:0px;background:#fff;">
+							<div style="width:100%;background:#fff;padding:20px;padding-left:50px;" class="d-inline-block font-weight-light">
+								<div id="_favs">
+									
+								</div>
+							</div>
+						</span>							
+						<!-- <a id="albums" class="list-group-item" href="javascript:window.top.location.href='browse.html'"> -->
+							<!-- <div class="d-flex justify-content-between align-items-center"> -->
+								<!-- <div><i class="fe-icon-tag mr-1 text-muted"></i> -->
+									<!-- <div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Browse for More Members</div> -->
+								<!-- </div><span class="badge badge-secondary"></span> -->
+							<!-- </div> -->
+						<!-- </a> -->
+						<a  style="background:#fbfbfb" id="albums" class="list-group-item" href="javascript:window.top.location.href='search.html'">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px">Search for New Matches</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+					</span>
+					<a id="support" style="background:aliceblue" id="profile" class="list-group-item" href="javascript:toggle_children('support')">
+						<div class="d-flex justify-content-between align-items-center">
+							<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+								<div id="matches_caption" class=""> + Support</div>
+							</div><span class="badge badge-secondary">7</span>
+						</div>
+					</a> 
+
+						<!-- <a id="" style="background:red;color:white;" class="list-group-item" href="javascript:toggle_children('support')"> -->
+						<!-- <div class="d-flex justify-content-between align-items-center"> -->
+							<!-- <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i> -->
+								<!-- <div id="my_profile_caption" class="d-inline-block font-weight-medium text-uppercase f-big " style="color:white;text-shadow:none"> + My Tokens</div> -->
+							<!-- </div><span class="badge badge-secondary">7</span> -->
+						<!-- </div> -->
+					<!-- </a>  						<!-- <a id="" style="background:red;color:white;" class="list-group-item" href="javascript:toggle_children('support')"> -->
+						<!-- <div class="d-flex justify-content-between align-items-center"> -->
+							<!-- <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i> -->
+								<!-- <div id="my_profile_caption" class="d-inline-block font-weight-medium text-uppercase f-big " style="color:white;text-shadow:none"> + My Tokens</div> -->
+							<!-- </div><span class="badge badge-secondary">7</span> -->
+						<!-- </div> -->
+					<!-- </a>   -->
+					
+					<span id="support_children" style="display:none">
+						<a id="faqs" style="background:#fbfbfb" id="profile" class="list-group-item" href="frame_faqs.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:10px;font-family:Orbitron;font-size:16px!Important">1. FAQS</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<span style="margin:0px;background:#fff;">
+							<div style="width:100%;background:#fff;padding:20px" class="d-inline-block font-weight-light">
+								Answers to hot topics that will really help you use the app effeciently and effectively.<br><br>
+								Remember, you can just send an SMS anytime to 1.424.9999945 with a quick question, suggestions, or idea.
+							</div>
+							<div id="rfq" style="width:100%;background:#fff;padding:10px" class="d-inline-block font-weight-light">
+							</div>
+						</span>												
+						<a style="background:#fbfbfb" id="kb" class="list-group-item" href="frame_knowledgebase.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:10px;font-family:Orbitron;font-size:16px!Important">2. How To Videos</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<span style="margin:0px;background:#fff;">
+							<div style="width:100%;background:#fff;padding:20px;padding-left:50px;" class="d-inline-block font-weight-light">
+								An invaluable resource to get familiar with app and all its functions. Check back often - we plan to add training videos very frequently.<br><br>
+								<p>
+									<b>
+										<strong>
+											Topic 1: General Tour of App
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/SDLocalApp.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 2: Navigating the App
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/train/how_02.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 3: Settings
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/train/how_03.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 4: Photos, Videos and Albums
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/train/how_04.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 5: Live Feed
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/train/how_05.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 6: Browse for Matches - Using Filters
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="" style="width:92%;height:200px" controls></video>
+								</div>
+								<p>
+									<b>
+										<strong>
+											Topic 7: Searching for Matches
+										</strong>
+									</b>
+								</p>
+								<div>
+									<video src="https://sugardaddylocal.com/train/how_06.mp4" style="width:92%;height:200px" controls></video>
+								</div>
+							</div>
+						</span>
+						<a style="background:#fbfbfb" id="tickets" class="list-group-item" href="frame_tickets.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px;font-family:Orbitron">Live Support</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>
+						<span style="margin:0px;background:#fff;">
+							<div style="width:100%;background:#fff;padding:20px;padding-left:50px;" class="d-inline-block font-weight-light">
+								We are going all out to make sure your experience is a good one.<br><br>Despite stiff internal resistance, we have decided to publish our lead developers mobile number right here - in plain view, so that you may text him if you need help.
+								<br><br>
+								<p><b><strong>Mobile for 24/7 Support from Developer via SMS:</b></strong>
+								<div style="background:lightyellow;padding:5px">+1(424) 999-9945</div>
+								</p>
+								<div>
+									This developer is based in Hermosa Breach, CA (Pacific Time) - feel free to send an SMS any time day or night.
+								</div>
+							</div>
+						</span>
+						<a style="background:#fbfbfb" id="contact" class="list-group-item" href="frame_contact.html">
+							<div class="d-flex justify-content-between align-items-center">
+								<div><i class="fe-icon-tag mr-1 text-muted"></i>
+									<div class="d-inline-block font-weight-medium text-uppercase" style="margin-left:25px;;font-family:Orbitron">Contact Us</div>
+								</div><span class="badge badge-secondary"></span>
+							</div>
+						</a>					
+						<span style="margin:0px;background:#fff;">
+							<div style="width:100%;background:#fff;padding:20px;padding-left:50px;" class="d-inline-block font-weight-light">
+								For all other questions and concerns, please contact us directly via SMS<br><br>
+								<p><b><strong>Mobile for 24/7 Billing, Marketing, Legal and General Support:</b></strong>
+								<div style="background:lightyellow;padding:5px">+1(424) 999-9925</div>
+								</p>
+								<div>
+									We are based in Hermosa Breach, CA (Pacific Time<br><br>Feel free to send in an SMS if you need help, have a comment, suggestion, feature request, death threat or wish to partner with us.
+								</div>
+							</div>
+						</span>
+					</span>
+				</nav>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- Profile Settings-->
+	</body>
+		<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+		<script>
+		var start
+		var currObj=$$('profile')
+		
+			function preview_photo_gallery() {
+				location.href='member_preview_all_photos.html?mid='+getCookie('mid')
+			}
+			
+			function preview_video_gallery() {
+				location.href='member_preview_all_videos.html?mid='+getCookie('mid')
+			}
+			
+			function toggle_children(objz) {
+				if ($$(objz+'_children').style.display=='none') {
+					$$(objz+'_children').style.display='block'
+					$$(objz+'_caption').innerHTML=' - ' + objz.substr(0,1).toUpperCase() + objz.substr(1,objz.length-1)
+				} else {
+					$$(objz+'_children').style.display='none'
+					$$(objz+'_caption').innerHTML=' + ' + objz.substr(0,1).toUpperCase() + objz.substr(1,objz.length-1)
+				}
+			}
+			
+			function goback() {
+				history.go(-1)
+			}
+
+			function preview_wishlist() {
+				location.href='member_wishlist.html?mid='+getCookie('mid')
+			}
+		
+		<!-- var u,i1,i2,u1,u2,u3,u4,u5 -->
+				<!-- <!-- u1='https://sugardaddylocal.com/master_menu.php?mid='+getCookie('mid')+ '&path=settings' --> -->
+				<!-- u2='https://sugardaddylocal.com/master_menu.php?mid='+getCookie('mid')+ '&path=faqs' -->
+				<!-- <!-- u3='https://sugardaddylocal.com/master_menu.php?mid='+getCookie('mid')+ '&path=members' --> -->
+				<!-- <!-- u4='https://sugardaddylocal.com/master_menu.php?mid='+getCookie('mid')+ '&path=videos' --> -->
+				<!-- <!-- u5='https://sugardaddylocal.com/master_menu.php?mid='+getCookie('mid')+ '&path=favs' --> -->
+				<!-- setTimeout(function(){ -->
+					<!-- <!-- $.ajax({url:u1,success:function(data1){ --> -->
+						<!-- <!-- $$('_settings').innerHTML=data1 --> -->
+					<!-- <!-- } --> -->
+					<!-- <!-- $.ajax({url:u2,success:function(data2){ --> -->
+						<!-- <!-- $$('_faqs').innerHTML=data2 --> -->
+					<!-- <!-- } --> -->
+					<!-- <!-- $.ajax({url:u3,success:function(data3){ --> -->
+						<!-- <!-- $$('_members').innerHTML=data3 --> -->
+					<!-- <!-- } --> -->
+					<!-- <!-- $.ajax({url:u4,success:function(data4){ --> -->
+						<!-- <!-- $$('_videos').innerHTML=data4 --> -->
+					<!-- <!-- } --> -->
+					<!-- <!-- $.ajax({url:u5,success:function(data5){ --> -->
+						<!-- <!-- $$('_favs').innerHTML=data5 --> -->
+					<!-- <!-- } --> -->
+				<!-- },1000) -->
+			<!-- })		 -->
+
+			function preview_profile() {
+				location.href='profile.html?id='+getCookie('mid')
+			}
+			
+			function choose_upload() {
+				$.confirm({
+					theme: 'modern',
+					title: 'Select Source!',
+					content: 'You can either take a brand new photo or video using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?',
+					buttons: {
+						camera: function () {
+							location.href='uploadPhoto.html'
+						},
+						gallery: function () {
+							location.href='upload_photo.html'
+						}
+					}
+				});
+			}
+
+		function loadFrame(frameSrc) {
+			setCookie('frameSrc',frameSrc)
+			currObj.className='list-group-item'
+			currObj.style.fontWeight=''
+			window.top.frames['fc'].src='frame_'+frameSrc+'.html'
+			if (start==1) {
+				$('#return').hide()
+				start=0
+			} else {
+				hide_all()
+			}
+			$('#'+frameSrc).show()
+			$$(frameSrc).className='list-group-item active'
+			$$(frameSrc).style.fontWeight='bold'
+			$$("return").style.background='aliceblue'
+			currObj=$$(frameSrc)
+		}
+		function $$(objid) {
+			return document.getElementById(objid)
+		}
+		function show_all() {
+			setCookie('frameSrc','')
+			$('#profile').show()
+			$('#price').show()
+			$('#wish').show()
+			$('#favorites').show()
+			$('#albums').show()
+			$('#reviews').show()
+			$('#canned').show()
+			$('#videos').show()
+			$('#sms').show()
+			$('#blocked').show()
+			$('#history').show()
+			$('#payments').show()
+			$('#billing').show()
+			$('#settings').show()
+			$('#upload').show()
+			$('#return').hide()
+		}
+		
+		function hide_all() {
+			$('#profile').hide()
+			$('#price').hide()
+			$('#wish').hide()
+			$('#favorites').hide()
+			$('#albums').hide()
+			$('#reviews').hide()
+			$('#canned').hide()
+			$('#videos').hide()
+			$('#sms').hide()
+			$('#blocked').hide()
+			$('#history').hide()
+			$('#payments').hide()
+			$('#billing').hide()
+			$('#settings').hide()
+			$('#upload').hide()
+			$('#return').show()
+		}
+
+		<!-- if (getCookie('frameSrc')) { -->
+			<!-- start=0 -->
+			<!-- if (getCookie('frameSrc')) hide_all() -->
+			<!-- loadFrame(getCookie('frameSrc'))  -->
+		<!-- } else { -->
+			<!-- start=1 -->
+			<!-- loadFrame('profile')  -->
+		<!-- } -->
+		function hide_search(){
+			window.parent.frames['ebay'].style.display='none'
+		}
+		
+		setTimeout(function(){
+			$.ajax({url:'https://sugardaddyone.com/x_faq.php',success:function(data){$$('rfq').innerHTML=data}})
+		},100)
+		
+	</script>
+	<script src="https://m.sugardaddylocal.com/custom_menu_updated.js"></script>
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+	<script src="https://sugardaddylocal.com/js/wait.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</body>
+</html>

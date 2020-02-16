@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    	body{
+    background:#eee;    
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+h2 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;background:aliceblue
+}
+
+.font-bigger{
+	font-size:15px
+}
+    </style>
+	<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script>
+
+	function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: '<span style="font-family:tahoma">Select Source!</span>',
+				content: '<span style="font-family:tahoma">You can either take a brand new video or photo using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?</span>',
+				buttons: {
+					camera: function () {
+						window.top.location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						window.top.location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+
+			
+		</script>	
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 pb-5">
+            <!-- Account Sidebar-->
+            <div class="author-card pb-3">
+				<h2>ITEM DETAILS<a id="rw" style="position:absolute;color:black;right:10px;width:35px;height:35px;border-radius:35px;background:white;font-size:0.7em;padding:5px" href='ebay_search.html'>X</a></h2>
+                <div class="author-card-cover" style="background-image: url(images/b5.jpg);background-size:cover"></div>
+                <div class="author-card-profile">
+                    <div class=""><img id="user_photo" style="width:120px;height:120px;margin-top:-25px;border-radius:125px;border:10px solid white">
+                    </div>
+                    <div id="bb" class="author-card-details">
+                        <button onclick="addWishList()" class="btn">Add To My Wishlist</button>
+                    </div>
+                </div>
+            </div>
+            <div class="wizard">
+                <nav id="inav" class="list-group list-group-flush">
+					<a id="item" class="list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger">
+						
+                    </a>
+  					<a id="price" class="list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger">
+						
+                    </a>                    
+  					<a id="condition" class="list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger">
+						
+                    </a>                    
+  					<a id="sku" style="display:none">
+						
+                    </a>                    
+                </nav>
+            </div>
+		</div>
+    </div>
+</div>
+<script type="text/javascript">
+	var pics=''
+	var data
+	var item
+	var galleryURL
+	var conditionDisplayName
+	var currentPrice
+	var description
+	var itemID
+	var sku
+	var title
+	var primaryCategoryName
+	var pictureURL=[]
+	var specifics
+	var imgs=[]
+	var image
+	var parameters=[]
+	var p
+	
+	function view_item_detail(iid) {
+		var request = $.ajax({
+			url: "https://sugardaddylocal.com/x_get_item_detail.php?itemID="+iid,
+			type: "GET",
+			cache: false,
+			success: function(msg) {
+				data=JSON.parse(msg)
+				item=data.Item
+				galleryURL=item.GalleryURL
+				conditionDisplayName=item.ConditionDisplayName
+				currentPrice = item.CurrentPrice.Value
+				description=item.Description
+				itemID=item.ItemID
+				sku=item.SKU
+				title=item.Title
+				primaryCategoryName=item.PrimaryCategoryName
+				pictureURL=[]
+				specifics=new Object
+				pictureURL=item.PictureURL
+				imgs=[]
+				$.each(pictureURL, function (index, value) {
+					var pic='<img src="'+value+'" class="col-xs-3" style="width:48%;max-width:200px;border:5px solid #f0f0f0">'
+					imgs.push(value)
+					pics += pic
+				});
+				image=imgs[0]
+				$$('user_photo').src=imgs[0]
+				$('#item').html('<table><tr><td>ITEM</td></tr><tr><td><span class="desc font-weight-light">'+item.Title+'</span></td></tr></table>')
+				$('#price').html('<div>price</div><div class="desc font-weight-light">$'+currentPrice+'</div>')
+				$('#condition').html('condition<div class="desc font-weight-light">'+conditionDisplayName+'</div>')
+				if (sku !==undefined) {
+					$('#sku').show()
+					$('#sku').html('sku<div class="desc font-weight-light">'+sku+'</div>')
+					$$('sku').className='list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger'
+				}
+				specifics=item.ItemSpecifics.NameValueList
+				str=''
+				p=''
+				$.each(specifics, function (index, value) {
+					if ((value.Value[0] !==undefined) && (value.Value[0].toLowerCase() !=='not applicable')) {
+						str +='<a class="list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger" href="frame_profile.html">'
+						str +='<div style="min-width:70%">'+value.Name+'</div><div style="text-align:right;max-width:30%;word-wrap:break-word" class="desc font-weight-light">'+value.Value[0]+'</div>'
+						str +='</a>'
+						var a=value.Name
+						var b=value.Value[0]
+						p+=a+':'+b+','
+					}
+				});
+				p=p.substr(0,p.length-1)
+				$$('inav').innerHTML+=str
+				str='<a id="pics" class="list-group-item d-flex justify-content-between align-items-center  font-weight-medium text-uppercase font-bigger" href="frame_profile.html"><table><tr><td>PHOTOS</td></tr><tr><td><span class="desc font-weight-light">'+pics+'</span></td></tr></table></a>'
+				$$('inav').innerHTML+=str
+			}
+		})
+	}
+function cssStringify(myObject) {
+    var result = "";
+    var stringObjs = JSON.stringify(myObject).split(",");
+    $.each(stringObjs, function(val) {
+        var pair = val.split(":");
+        result = result + pair[0] + ":" + pair[1] + ";\n";
+    });
+    return result;
+}
+
+	function addWishList() {
+		var params='mid='+getCookie('mid')+'&itemID='+itemID+'&title='+title+'&price='+currentPrice+'&condition='+conditionDisplayName+'&sku='+sku+'&image='+image+'&url='+galleryURL+'&photos='+JSON.stringify(imgs)+'&category='+primaryCategoryName+'&parameters='+p
+		var url='https://sugardaddylocal.com/x_add_wishlist.php?'+params
+		console.log(url)
+		$.ajax({url:url,success:function(data){
+				if (data=='') {
+					$.confirm({
+						theme: 'modern',
+						title: 'Wishlist Updated Successfully',
+						content: 'Your wish was added to you wishlist successfully!',
+						buttons: {
+							Ok: function () {
+								location.href='frame_wish.html'
+							}
+						}
+					});
+				}
+			}
+		})
+	}
+
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+	
+	function update(o) {
+		var v=o.value
+		var f=o.id
+		var t = 'dt_members'
+		var url = 'https://lushmatch.com/x_update_table.php?table=' + t + '&field=' + f + '&value=' + v + '&id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					if (!msg) {
+						if (o.id !== 'gender') {
+							$.alert('Done. Update completed.')
+						}
+					} else {
+					}
+				}
+			})			
+	}
+
+	setTimeout(function(){
+		view_item_detail(qs('iid'))	
+		if (qs('return')) {
+			if (qs('return')=='member_wishlist') {
+				$$('rw').href='member_wishlist.html?mid='+ qs('mid')
+				$('#bb').html('<a href="member_wishlist.html?mid='+ qs('mid')+'"><button class="btn">Back to Wishlist</button></a>')
+			} else {
+				$$('rw').href='frame_wish.html'
+				$('#bb').html('<button onclick="location.href=\'frame_wish.html\'" class="btn">Back to My Wishlist</button>')
+			}
+		} else {
+			$('#bb').html('<button onclick="addWishList()" class="btn">Add To My Wishlist</button>')
+		}
+	},100)
+</script>	
+<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+<script src="https://sugardaddylocal.com/js/wait.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</body>
+</html>

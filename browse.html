@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a Sugar Daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>Sugar Daddy & Sugar Baby Dating | lushmatch.com</title>
+		<link rel="canonical" href="">
+		<link rel="icon" href="https://lushmatch.com/assets/img/favicon.png">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet" >
+		<link href="https://lushmatch.com/assets/css/jquery-confirm.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/shadows.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/menu.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/animate.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/login.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet"> 
+		<link href="https://sugardaddylocal.com/rangeslider.css" rel="stylesheet"> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300' rel='stylesheet' type='text/css'>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<style>
+
+.rangeslider,
+.rangeslider__fill {
+  transition: background 0.3s;
+}
+
+.rangeslider--is-lowest-value {
+  background-color: white;
+}
+
+.rangeslider--is-highest-value .rangeslider__fill {
+  background-color: hotpink;
+}
+
+  </style>
+
+		<div class="page-loader">
+			<img src="https://lushmatch.com/assets/img/loader.gif" alt="">
+		</div>
+	<section class="page-wrapper bot0">
+		<div id="sc" class="text-center" style="width:100%;position:fixed;top:20px;text-align:center;background:#f0f0f0;padding-top:3px">
+			<ul class="portfolio-filter-list">
+				<table style="width:100%">
+					<tr>
+						<td style="width:21%;text-align:center">
+							<a style="background:white" id="popular" class="hand" onclick="_getPhotoGallery('popular')"><div style="font-size:1em">POP</div></a>
+						</td>
+						<td style="width:19%;text-align:center">
+							<a style="background:white" id="new" class="hand" onclick="_getPhotoGallery('new')"><div style="font-size:1em">NEW</div></a>
+						</td>
+						<td style="width:25%;text-align:center">
+							<a style="background:white" id="local" class="hand" onclick="_getPhotoGallery('local')"><div style="font-size:1em">LOCAL</div></a>
+						</td>
+						<td style="width:35%;text-align:center">
+							<a style="background:white" id="new_local" class="hand" onclick="_getPhotoGallery('new_local')"><div style="width:100%;font-size:1em">NEW LOCAL</div></a>
+						</td>
+					</tr>
+				</table>
+			</ul>
+		</div>
+		<div id="scc" class="container" style="text-align:center;margin-top:-40px;max-width:500px">
+			<h4 class="title" id="browse_summary" style="display:none;font-size:1em"></h4>
+			<div class="row" id="photoGallery">
+
+			</div>
+		</div>
+	</section>
+<div id="rr" style="height:95px;position:fixed;bottom:40px;width:500px;text-align:center;left:0;right:0;margin:auto;padding:5%;background:aliceblue;padding-top:3%">
+<table style="max-height:30px;width:100%">
+	<tbody>
+		<tr>
+			<td style="width:30%">
+				<input id="bBtn" type="button" value="PREV" style="width:90%;padding:5px;border-radius:6px;background:#f0f0f0;border:1px solid silver;height:100%;font-size:15px" onclick="prevPage()">
+			</td>
+			<td style="width:40%">
+				<input onclick="showGB()"  value="1" id="txtProfile" style="font-size:18px;text-align:center;width:80%;border-radius:6px;height:100%;border:1px solid silver;height:35px" type="text">
+			</td>
+			<td style="width:30%">
+				<input id="nBtn" type="button" value="NEXT" style="width:90%;padding:5px;border-radius:6px;background:antiquewhite;border:1px solid silver;height:100%;font-size:15px" onclick="nextPage()">
+				<input id="gBtn" type="button" value="GO" style="background:gold;display:none;width:90%;padding:5px;border-radius:6px;border:1px solid silver;height:100%;font-size:15px" onclick="gp()">
+			</td>
+		</tr>
+		<tr style="min-height:30px;"><td colspan=3><br style="line-height:1.9em"><input id="range" type="range" min="0" max="50" />
+</td></tr>
+	</tbody>
+</table>
+</div>	
+<div id="send_sms" onkeyup="deduct()" class="modal_window" style="font-size:0.8em;padding:10px;border-radius:6px;position:absolute;z-index:9999999999999;display:none;background:#f0f0f0;top:50px;left:0;right:0;margin:auto;width:320px;max-width:320px;height:500px;font-family:Open Sans;font-size:24px;"><span id="tip" style='color:brown;font-family:Open Sans'>SEND ANONYMOUS SMS<br><br><span style="font-size:18px;color:#333;font-family:Open Sans">1. Your number will not be revealed</span></span><br><div contentEditable onblur='fill_txt()' onclick='erase_txt()' id='message_text' style='word-wrap:break-word;font-family:Open Sans;font-size:24px;contentEditable:true;color:#0093D9;cursor:hand;cursor:pointer;border-radius:4px;border:3px solid lightblue;height:170px;max-height:170px;color:#333;overflow-y:scroll;overflow-x:hidden;color:grey;background:#fff;padding:20px;background:#fff'>Type Message Here</div><div><span style="left:20px;position:absolute">CHARACTERS REMAINING: <b><span id="cr">160</span></b></span></div><br><br><div style='margin-top:10px'><span style="font-size:16px"  class="btn btn-info" onclick='send_sms()' id="send_mail">SEND</span>&nbsp;<span style="font-size:16px"  class="btn btn-danger" onclick="document.all.modal_text.style.display='none'" id="">GO BACK</span></div></div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://lushmatch.com/assets/js/jquery-ui.js"></script>
+<script src="https://lushmatch.com/assets/js/common.js"></script>
+<script src="https://lushmatch.com/assets/js/events.js"></script>
+<script src="https://lushmatch.com/assets/js/bootstrap.min.js"></script>
+<script src="https://lushmatch.com/assets/js/scripts.js"></script>
+<script src="https://lushmatch.com/assets/js/fb.js"></script>
+<script src="https://lushmatch.com/custom_js/wait.js"></script>
+<script src="https://lushmatch.com/assets/js/jquery-confirm.min.js"></script>
+<script src="https://sugardaddylocal.com/jsSocketNode.js"></script> <script src="track.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-pdjniiApMjAV7j92Nfn5zgd3k2s3ze4&libraries=places" type="text/javascript"></script>
+<script src="https://lushmatch.com/assets/js/jquery.geocomplete.js"></script>
+<script>
+	var tmr2,type,start
+	var start=0
+	var start_local=qs('start')*1
+	var start_new=qs('start')*1
+	var start_new_local=qs('start')*1
+	var start_popular=qs('start')*1
+	setCookie('start_local',0)
+	setCookie('start_popular',0)
+	setCookie('start_new_local',0)
+	setCookie('start_new',0)
+	
+	function _getPhotoGallery(type) {
+		start=getCookie("start_"+type)
+		resetRange(0)
+		getPhotoGallery(type)
+	}
+	
+	function gotoP(pg) {
+		clearTimeout(tmr2)
+		setC(pg)
+	}
+	
+	function showGB() {
+		$('#nBtn').hide()
+		$('#gBtn').show()
+	}
+	
+	function hideGB() {
+		$('#nBtn').show()
+		$('#gBtn').hide()
+	}
+
+	function gp() {
+		setC($('#txtProfile').val()) 
+		hideGB()
+		goToProfile($('#txtProfile').val())
+	}
+	
+	
+	
+	setTimeout(function(){
+
+		if (window_width()>500) {
+			$$('rr').style.padding='10px'
+			$$('sc').style.cssText='width:500px;position:fixed;top:0px;text-align:center;background:#f0f0f0;padding-top:3px;left:0;right:0;margin:auto'
+			$$('scc').style.marginTop='30px'
+		}
+		
+		if (window_width()<=320) {
+			document.body.style.fontSize='10px'
+			$$('popular').style.padding='7px'
+			$$('new').style.padding='7px'
+			$$('local').style.padding='7px'
+			$$('new_local').style.padding='7px'
+			$$('rr').style.width=w_w+'px'
+		}		
+		if (window_width()<=500) {
+			$$('rr').style.width=window_width()+'px'
+		}
+	},500)
+
+
+	$$('sc').style.width='500px'
+	var w_w,ww
+	var data1=[]
+	var x_start=0,saved=''
+	var miles=getCookie('x_miles')
+	if (!miles) miles=100
+	var no=9
+	var currUR
+	ww=window_width()
+
+	if (getCookie('isMobile')=='mobile') {
+		w_w=window_width()/3-5
+		$$('sc').style.width=ww+'px'
+		$$('sc').style.marginTop='-20px'
+		$$('scc').style.marginTop='-40px'
+	} else {
+		w_w=500/3-5
+		$$('sc').style.marginTop='40px'
+		$$('scc').style.marginTop='-40px'
+	}
+	var url
+	var set_mx_once=false
+
+	function getPhotoGallery(type) {
+		setCookie('x_start',0)
+		if (!type) {
+			type=getCookie('type')
+		} else {
+			setCookie('type',type)
+		}
+		$$('popular').style.backgroundColor='#fff'
+		$$('new').style.backgroundColor='#fff'
+		$$('local').style.backgroundColor='#fff'
+		$$('new_local').style.backgroundColor='#fff'
+		
+		$$('popular').style.color='#000'
+		$$('new').style.color='#000'
+		$$('local').style.color='#000'
+		$$('new_local').style.color='#000'
+		
+		$$(type).style.backgroundColor='#20b2aa'
+		$$(type).style.color='white'
+		
+		if (!type) type=getCookie('browse')
+			else setBrowse(type)
+		if (!getCookie('gender')) setCookie('gender','Sugar Daddy')
+		if (getCookie('gender')=='Sugar Baby') {
+			looking_for='Sugar Daddies'
+		} else {
+			looking_for='Sugar Babies'
+		}
+	//	$('#browse_summary').html('Showing ' + type.replace('_',' ').toUpperCase() + ' ' + looking_for.toUpperCase())
+	//	$('#showGen').html(looking_for.toUpperCase())
+	//	$$('photoGallery').style.opacity='0.2'
+		//if (ox)	ox.className='active hand'
+	//	wait()
+
+		start_popular=getCookie('start_popular')*no
+		start_local=getCookie('start_local')*no
+		start_new=getCookie('start_new')*no
+		start_new_local=getCookie('start_new_local')*no
+		if (type=='local') {
+			url='https://sugardaddylocal.com/x_browse_local.php?start='+start_local+'&type=browse&count='+no+'&gender='+getCookie('gender')+'&mid='+qs('id')+'&browse='+type
+		} else if (type=='new') {
+			url='https://sugardaddylocal.com/x_browse_new.php?start='+start_new+'&type=browse&count='+no+'&gender='+getCookie('gender')+'&mid='+qs('id')+'&browse='+type
+		} else if (type=='new_local') {
+			url='https://sugardaddylocal.com/x_browse_new_local.php?start='+start_new_local+'&type=browse&count='+no+'&gender='+getCookie('gender')+'&mid='+qs('id')+'&browse='+type
+		} else if (type=='popular') {
+			url='https://sugardaddylocal.com/x_browse_popular.php?start='+start_popular+'&user_rights='+currUR+'&type=browse&count='+no+'&gender='+getCookie('gender')+'&mid='+qs('id')+'&browse='+type
+		}
+		var bc=[]
+		bc=['lavender','lightcyan','skyblue','peachpuff','lightyellow','#37C8A7','thistle','pink','white']
+		console.log(url)
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$$('photoGallery').innerHTML='<div class="container"><div class="row"><div id="pg">'
+				$$('photoGallery').style.opacity='1'			
+				var m=[]
+				m=JSON.parse(msg)
+				cnt=m.count
+				data=m.data
+				setMax(Math.floor(cnt/no))
+				if (set_mx_once===false) {
+					set_mx_once=true
+				}
+				console.log(data)
+				data.reverse()
+				var lx=data.length
+				var lt=-700
+				for (var i=0;i<data.length;i++) {
+					if (data[i]) {
+						id=data[i].id
+						imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3 www_box2',data[i].id)
+						imgG.style='width:'+w_w+'px!Important;height:100%;padding:0;margin:2px'
+						imgG.id='img_'+type+'_'+id
+						var dpg=document.createElement("div")
+						var banner_top=document.createElement("div")
+						var banner_bottom=document.createElement("div")
+						var banner_text_top=document.createElement("div")
+						var banner_text_bottom=document.createElement("div")
+						banner_top.style.cssText='height:25px;margin:0;width:100%;maxWidth:' + (w_w)+'px;background:'+bc[Math.ceil(Math.random()*bc.length)-1]+';opacity:0.7;position:absolute;top:0;left:2px'
+						banner_bottom.style.cssText='height:25px;margin:0;width:100%;maxWidth:' + (w_w)+'px;background:transparent;opacity:1;position:absolute;top:0;left:0'
+						banner_text_top.className='col-md-3 col-xs-1'
+						banner_text_top.style.cssText='height:25px;margin:0;width:100%;maxWidth:' + (w_w)+'px;padding:2px;background:transparent;opacity:1;position:absolute;top:0;left:0;color:black;text-shadow:0 0 1px #fff; font-family:tahoma; font-size:12px'
+						banner_text_top.innerHTML=data[i].location
+						banner_text_bottom.className='col-md-3 col-xs-1'
+						banner_text_bottom.style.cssText='height:25px;margin:0;width:100%;maxWidth:' + (w_w)+'px;padding:2px;background:transparent;opacity:1;position:absolute;bottom:-8px;left:0;color:white;font-family:tahoma; font-size:12px'
+						banner_text_bottom.innerHTML='<b>' + Math.round(data[i].distance) + '</b> Miles'
+						dpg.className='col-md-3 col-xs-1'
+						dpg.style.position='relative'
+						dpg.style.width='200px'
+						dpg.style.height='200px'
+						dpg.style.margin='5px'
+						dpg.style.maxWidth=(w_w)+'px'
+						dpg.style.width=(w_w)+'px'
+						dpg.style.height=(w_w)+'px'
+						dpg.style.margin='2px'
+						dpg.style.padding='0'
+						dpg.style.cursor='pointer'
+						dpg.appendChild(imgG)
+						dpg.appendChild(banner_top)
+						dpg.appendChild(banner_text_top)
+						dpg.appendChild(banner_text_bottom)
+						var ad=document.createElement("img")
+						ad.src="https://lushmatch.com/assets/images/ed_trash.png"
+						ad.style.display='none'
+						ad.style.cssText='width:50px;opacity:0.8;margin-top:-100px'
+						if ((getCookie('login')=='gauts')||(getCookie('login')=='davidking')) {
+							//ad.style.display=''
+							//dpg.appendChild(ad)
+						}
+						lt=lt+120
+						ad.id='admin_'+id
+						ad.onclick=admin_del
+						$$('photoGallery').style.maxWidth='500px'
+						$$('pg').style.maxWidth='500px'
+						$$('pg').appendChild(dpg)
+						imgG.className=''
+					}
+				}
+				//$('#txtProfile').val(start/no)
+				<!-- var apn=document.createElement('div') -->
+				<!-- apn.innerHTML='</div></div><div><br><table style="width:100%"><tr><td><input type="button" value="BACK" style="width:100px;padding:5px;border-radius:12px;background:transparent;border:2px solid silver;height:50px" onclick="prevPage()"></td><td><input value="1" id="txtProfile" style="text-align:center;width:100px;border-radius:5px;height:50px;border:1px solid silver;margin-left:10px;margin-right:10px;" type="text"></td><td><input type="button" value="NEXT" style="width:100px;padding:5px;border-radius:12px;background:transparent;border:2px solid silver;height:50px" onclick="nextPage()"></td></tr></table><br><br><br><br></div>' -->
+				<!-- $$('photoGallery').appendChild(apn) -->
+				$("html, body").animate({
+					scrollTop: 0
+				}, 600);
+			}
+		})
+	}
+	var type
+	function nextPage() {
+		type=getCookie('type')
+		if (type=='local') {
+			start_local=start_local+no
+			start=start_local
+		} else if (type=='new') {
+			start_new=start_new+no
+			start=start_new
+		} else if (type=='new_local') {
+			start_new_local=start_new_local+no
+			start=start_new_local
+		} else if (type=='popular') {
+			start_popular=start_popular+no
+			start=start_popular
+		}
+	//	getPhotoGallery(type)
+		setCookie('start_'+type,Math.floor(start/no))
+		setC(Math.floor(start/no))
+		
+	}
+	
+	function prevPage() {
+		type=getCookie('type')
+		if (type=='local') {
+			if (start_local-no > 0) {
+				start_local=start_local-no
+			} else {
+				start_local=1
+			}
+			start=start_local
+		} else if (type=='new') {
+			if (start_new-no > 0) {
+				start_new=start_new-no
+			} else {
+				start_new=1
+			}
+			start=start_new
+		} else if (type=='new_local') {
+			if (start_new_local-no > 0) {
+				start_new_local=start_new_local-no
+			} else {
+				start_new_local=1
+			}
+			start=start_new_local
+		} else if (type=='popular') {
+			if (start_popular-no > 0) {
+				start_popular=start_popular-no
+			} else {
+				start_popular=1
+			}
+			start=start_popular
+		}
+		setCookie('start_'+type,Math.floor(start/no))
+		setC(Math.floor(start/no))
+	}
+	
+	function goToProfile(pg) {
+		alert(pg)
+		type=getCookie('type')
+		if (type=='local') {
+			start_local=pg
+			start=start_local
+			setCookie('start_local',Math.floor(pg/no))
+		} else if (type=='new') {
+			start_new=pg
+			start=start_new
+			setCookie('start_new',Math.floor(pg/no))
+		} else if (type=='new_local') {
+			start_new_local=pg
+			start=start_new_local
+			setCookie('start_new_local',Math.floor(pg/no))
+		} else if (type=='popular') {
+			start_popular=pg
+			start=start_popular
+			setCookie('start_popular',Math.floor(pg/no))
+		}
+		setCookie(type,pg)
+		getPhotoGallery(type)
+	}
+	
+	function retard() {
+	
+	}
+	
+	function admin_del(e) {
+		var url='admin_x_delete_photo.php?member_id='+e.target.id.split('_')[1]
+		console.log(url)
+		var tp='popular'
+		$.ajax({'url':url,'success':function(x){setTimeout('getPhotoGallery()',1)}})
+	}
+	
+	$( document ).ready( readyFn );
+	
+	function readyFn() {
+		type=getCookie('type')
+		if (!type) type='popular'
+		setTimeout('setC(0)',500)
+		//setTimeout('getPhotoGallery('+type+')',2500)
+		//setC(1)
+	}
+
+	function back() {
+		history.go(0)
+	}	
+	
+	var bgx=["whitesmoke","aliceblue","lavenderblush","lightcyan","linen","lightyellow","papayawhip","mistyrose","lavender"]
+	var ct=0, smids=[]
+
+	window.onclick=view_profile
+	function view_profile(e) {
+		if (e.target.id) {
+			if (e.target.id.indexOf('img_')>-1) {
+				var sp=e.target.id.split('_')
+				location.href='profileBrowse.html?id='+sp[sp.length-1]+'&type=browse&browse='+getCookie('type')+'&start=' + (start*1)
+			}
+			if (e.target.id.indexOf('search_')>-1) {
+				location.href='profileSearch?id='+e.target.id.split('_')[1]+'&type=search&search='+$$('searchLocation').value+'&x_start=' + (start*1-no)
+			}
+		}
+	}
+
+	function view_search_profile(a) {
+		currMID=a.target.id.split('div_')[1]
+		setCookie('currMID',currMID)
+	   location.href='profile?id=' + currMID + '&type=search&search='+$$('searchLocation').value
+	}
+	
+
+	function getBlog() {
+		var request = $.ajax({
+			url: 'https://lushmatch.com/php/x_blog.php?x_start_blog='+getCookie('x_start_blog'),
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$$('blog').innerHTML=msg
+			}
+		})
+	}
+	
+	var ctr=0
+	function makeImg(src, alt, title, className, id) {
+		var img =  document.createElement('img');
+		img.src = src;
+		img.id='img_'+id
+		if ( alt != null ) img.alt = alt;
+		if ( title != null ) img.title = title;
+		if ( className != null ) img.className = className;
+		ctr++
+		img.onerror = fix
+		return img;
+	}
+	
+	function fix(e) {
+		e.target.src='https://lushmatch.com/assets/img/no_img.png'
+		e.target.style.width='64px'
+		e.target.style.height='80px'
+		e.target.style.opacity='0.8'
+		e.target.style.margin='20px'
+	}
+	function setBrowse(type) {
+		setCookie('browse',type)
+		$$('popular').className='hand'
+		$$('new').className='hand'
+		$$('local').className='hand'
+		if ($$(type)) $$(type).className='active hand'
+	}
+
+	$("#searchLocation").autocomplete({
+		source: "x_ac_location.php",
+		minLength: 1,
+		select: function( event, ui ) {
+			$('#search').val( ui.item.value);
+		}
+	});
+	$("#quickSearchTerm").autocomplete({
+		position: { my : "left top", at: "left top", of: ".portfolio-filter-list" },
+		source: "x_ac_location.php",
+		minLength: 1,
+		select: function( event, ui ) {
+			$('#quickSearchTerm').val( ui.item.value);
+		}
+	});
+	$( "#quickSearchTerm" ).autocomplete( "option", "appendTo", "#xresults" );
+	
+	setTimeout(function(){
+		if (qs('ext')=='1' && qs('type')) {
+			type=qs('type')
+		} else {
+			type=getCookie('type')
+		}
+		$('#'+type).click()
+	},500)
+
+</script>
+<script src="https://sugardaddylocal.com/custom_menu_no_header.js"></script>
+<script src='js/jquery.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script>
+<script>
+
+var ptr,tmr
+      $(function () {
+  const cssClasses = [
+  'rangeslider--is-lowest-value',
+  'rangeslider--is-highest-value'];
+
+  $('input[type=range]').
+  rangeslider({
+    polyfill: false,
+		onSlideEnd: function(position, value) {
+			showP(value)
+			setV(value)
+		},
+		onSlide: function(position, value) {
+		},
+	})
+});
+ 
+function setMin(min) {
+	$('input[type=range]').attr({min:min})
+	updateRange()
+}
+
+function setMax(max) {
+	$('input[type=range]').attr({max:max})
+	updateRange()
+}
+
+function resetRange(ptr) {
+	$('#range').val(ptr)
+	updateRange()
+	setV(ptr+1)
+}
+
+function setC(ptr) {
+	if (ptr<0) ptr=0
+	ptr=Math.floor(ptr)
+	$('#range').val(ptr)
+	setV(ptr+1)
+	showP(ptr)
+	updateRange()
+}
+
+function updateRange() {
+	$('input[type=range]').rangeslider('update', true);
+}
+
+var tmr
+function showP(value) {
+	start=value*no
+	clearTimeout(tmr)
+	tmr=setTimeout('goToProfile('+start+')',400)
+}
+
+function setV(v) {
+	v=Math.floor(v)
+	if (document.getElementById('txtProfile')) document.getElementById('txtProfile').value=v
+	if (document.getElementById('txtProfile').value=='0') setC(1)
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a sugar daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>sugar daddy dating | lushmatch.com</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="icon" href="https://lushmatch.com/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://lushmatch.com/assets/css/stream.css"/>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<style>
+			html,body {
+				margin: 0 0;
+				width: 100%;
+				overflow: none;
+				-webkit-overflow-scrolling: touch;
+				max-width:500px!Important;
+			}	
+			li {padding:5px;color:#666;border-top:1px solid rgba(10,10,10,0.9);background:#111}
+			.dropdown-menu {padding:5px;opacity:1;border-radius:2px}
+			.mm{border-radius:0 0 5px 5px;position:fixed;width:200px;height:100%;left:0px;top:55px;padding:0px;z-index:99999999999999999999999;text-align:left;display:block}
+			iframe { width: 100%; }
+			.lm {padding:10px;font-family:Open Sans;font-size:20px;color:#111;left:10px;margin:0}
+			li {background:#f0f0f0}
+			.tspacer {
+				background:#fff;
+				opacity:0.7;
+				font-family:Open Sans;
+				font-size:18px
+			}
+			.tspacer1 {
+				background:#fff;
+				opacity:0.7;
+				font-family:Open Sans;
+				font-size:18px;
+				height:32px;
+			}		
+			.tspacer2 {
+				background:#000;
+				opacity:0.5;
+				font-family:Open Sans;
+				font-size:22px;
+				height:50px;
+				color:#fff;
+				padding-top:10px;
+			}
+			.tspacer3 {
+				background:red;
+				opacity:0.6;
+				font-family:Open Sans;
+				font-size:22px;
+				height:50px;
+				color:#fff;
+				padding-top:10px;
+			}
+			.homeImg{
+				width:80px;
+				height:33px!Important;
+			}
+			.hh {
+				font-size:21px;
+				font-weight: 300;
+			}
+			.hhh {
+				font-size:24px;
+				font-weight: 300;
+			}
+			html,body,div,span,p,table,td,tr,section,label,tbody, input,iframe, button,select, slide {
+				font-family:Open Sans!Important;
+			}
+			h1,h2,h3,h4,h5,h6,h7 {
+				font-family:Poiret One!Important;
+			}
+			.dropzone dz-preview{
+			  border: 5px solid silver;
+			  height:300px;
+			  width:100%;
+			  border-radius: 0px;
+			  background: blue;
+			  padding: 0px;
+			  margin:0px;  background-color: aliceblue;border:10px solid white;
+			}
+
+			.dropzone .dz-preview.dz-image-preview {
+				background-color: aliceblue;border:10px solid white;
+			}
+			.dropzone .dz-default .dz-message {
+			  opacity: 1;
+			  -ms-filter: none;
+			  filter: none;
+			  -webkit-transition: opacity 0.3s ease-in-out;
+			  -moz-transition: opacity 0.3s ease-in-out;
+			  -o-transition: opacity 0.3s ease-in-out;
+			  -ms-transition: opacity 0.3s ease-in-out;
+			  transition: opacity 0.3s ease-in-out;
+			  background: #f0f0f0;
+			  position: absolute;
+			  width: 100%;
+			  height: 100%;
+			  margin:0;
+			  position:fixed;
+			  left:0;
+			  top:0;
+			}
+
+		</style>
+		<script src="cordova.js"></script>
+		<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+		<script src="https://lushmatch.com/custom_js/wait.js"></script>
+		<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
+		<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+		<script src="js/common.js"></script>
+		<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+		<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+	</head>
+	<body class="stretched" style="background:">
+	<div class="container"  style="position:absolute;left:0;top:0;right:0;bottom:0;width:100%;height:100%;background:#f0f0f0">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;margin:20px;padding:20px;font-weight:300;font-family:Open Sans;font-size:16px;color:#000;text-shadow: 1px 1px 1px solid white">
+				<div style="font-size:24px;font-weight:300;color:white"><br></div><form action="http://lushmatch.com/self_uploads.php"  style="width:100%;border:none;background:none" class="dropzone dz-preview" id="member"></form>
+			</div>
+			<div class="col-md-12" style="text-align:center;position:absolute;bottom:60px;width:100%">
+				By default your photo will be viewed once for 120 seconds before it self destructs.
+				<a href="javascript:change_count()"><br>Change viewed <b>count</b></a><br>
+				<a href="javascript:change_duration()">Change display <b>duration</b></a><br>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	Dropzone.autoDiscover=false
+	var sites
+	var imagesUploaded
+	var r,k,c,t2,t3,t4,intr=50,currImg
+	var rat=1
+	var rx=0, t, ext
+	var set=false
+	var usr_img=[]
+	function guid(){
+		j=16
+		var op=''
+		var arr=new Array('a','b','c','d','e','f','i','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,0,0,1,2,3,4,5,6,7,8,9,0)
+		for (k=0;k<j;k++) {
+			var inx=randomIntFromInterval(0,arr.length-1)
+			op += arr[inx]
+		}
+		return op;
+	}
+		
+		function qs(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+
+		function getCookie(cname)	{
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0; i<ca.length; i++) {
+		  var c = ca[i].trim();
+		  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+		}
+		return "";
+	}
+	var url="https://lushmatch.com/self_uploads.php"
+	var myDropzone, tfiles=0
+	if (!myDropzone) {
+		myDropzone = new Dropzone("form#member", { 
+			url: url,
+			maxFilesize: 1000000000,
+			dictDefaultMessage: "<div id='xe' style='background:;color:#fff;font-family:Open sans;color:#fff;font-weight:300;top:0;position:fixed;width:100%;left:0;top:7%;right:0;margin:auto;height:75%;z-index:99999999999999999;color:black'><br><br><br>TO SEND A<BR><B>SELF DESTRUCT PHOTO</B><BR> FROM YOUR GALLERY TAP HERE<br><br><img style='' src='https://lushmatch.com/stopwatch6.png'></div>",
+            init: function() {
+                this.on("sending", function(file, xhr, formData){
+					formData.append("mid", getCookie('mid'));
+					formData.append("login", getCookie('login'));
+					formData.append("email", getCookie('email'));
+					formData.append("attach_id",guid());
+					formData.append("count",1);
+					formData.append("secs",120);
+					formData.append("to_member_id", qs('to_member_id'));
+                });
+            }			
+		});
+		
+	}
+	myDropzone.on("addedfile", function(file) {
+		if (file.size>100000000) {
+			alert('too big')
+			abort=true
+			return false
+		} else {
+			abort=false
+		}
+		if (abort===true) return false
+		setCookie('attach_id',guid())
+		tfiles++
+		if (file.type.indexOf('png')>=0) ext='png'
+		if (file.type.indexOf('jpg')>=0) ext='jpg'
+		if (file.type.indexOf('gif')>=0) ext='gif'
+		if (file.type.indexOf('tif')>=0) ext='tif'
+		if (file.type.indexOf('bmp')>=0) ext='bmp'
+		if (file.type.indexOf('psd')>=0) ext='psd'
+		if (file.type.indexOf('eps')>=0) ext='eps'
+		if (file.type.indexOf('jpeg')>=0) ext='jpg'
+		if((file.type=='video/x-ms-wmv')||(file.type=='video/avi')) {
+			alert('Only .mpg .mpeg and .mp4 files allowed for now')
+			return false
+		}
+		currImg=file.name
+		usr_img.push(currImg)
+		imagesUploaded=usr_img.toString()
+		console.log(imagesUploaded)
+	});
+
+		
+	myDropzone.on("complete", function(file) {
+		tfiles--
+		var message=file.name
+		var from_u=getCookie('mid')
+		console.log(url)
+		if (tfiles==0) win()
+	});
+
+	function setCookie(cname,cvalue,exdays)	{
+		var d = new Date();
+		d.setTime(d.getTime()+(exdays*24*60*60*1000));
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	 }	
+	
+	function print_blocks(ppx) {
+		if (ppx=='undefined') return false
+		ppx=ppx.toString()
+		var f
+		var px=''
+		var x=''
+		if (ppx*1<10) x='00'+ppx
+		if ((ppx*1>9) && (ppx*1<100)) x='0'+ppx
+		if (ppx*1==100) x=ppx
+			
+		if (!wd) var wd='20px'
+		for (f=0;f<=x.length-1;f++) {
+			var dg=x.substring(f,f+1)
+			if (dg !== '.')
+				px=px+'<span><img src="https://gaysugardaddyfinder.com/assets/img/' + dg + '.png" style="width:'+wd+'"></span>'
+		}
+		return '<span style="padding-top:5px">'+px+'</span>'
+	}
+	
+	var done=false
+
+		function win() {
+			if (done===true) return false
+			$.alert({
+				title: 'Success',
+				content: 'Self destruct photo has been sent. Whats next?',
+				btnClose:true,
+				buttons: {
+					b1: {
+						text: 'Go Back',
+						btnClass: 'btn-white',
+						action: function(){
+							history.go(-1)
+						}
+					},
+					b2: {
+						text: 'Send Another',
+						btnClass: 'btn-white',
+						action: function(){
+							location.href=location.href
+						}
+					}
+				}
+			});
+			done=true
+		}
+
+		function fail(error) {
+			alert("An error has occurred: "+error)
+		}	
+
+		var currPage='self_destruct_photo.html'
+
+		function fs(el) {
+		if (!el) el = document.documentElement
+		, rfs = // for newer Webkit and Firefox
+			   el.requestFullScreen
+			|| el.webkitRequestFullScreen
+			|| el.mozRequestFullScreen
+			|| el.msRequestFullScreen
+		;
+		if(typeof rfs!="undefined" && rfs){
+		  rfs.call(el);
+		} else if(typeof window.ActiveXObject!="undefined"){
+		  // for Internet Explorer
+		  var wscript = new ActiveXObject("WScript.Shell");
+		  if (wscript!=null) {
+			 wscript.SendKeys("{F11}");
+		  }
+		}
+		}
+	setTimeout('fs()',1000)
+	function guid() {
+	  function s4() {
+		return Math.floor((1 + Math.random()) * 0x10000)
+		  .toString(16)
+		  .substring(1);
+	  }
+	  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+		s4() + '-' + s4() + s4() + s4();
+	}
+	var sa=[]
+	var ra=[]
+	function saveSite(s) {
+		sites=$('.select-1').val().toString()
+		console.log(sites)
+	}
+	
+			function generateRandomString(j){
+				if (!j) j=16
+				var op=''
+				var arr=new Array('a','b','c','d','e','f','i','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,0,0,1,2,3,4,5,6,7,8,9,0)
+				for (k=0;k<j;k++) {
+					var inx=randomIntFromInterval(0,arr.length-1)
+					op += arr[inx]
+				}
+				return op;
+			}
+			function guid() {
+			  function s4() {
+				return Math.floor((1 + Math.random()) * 0x10000)
+				  .toString(16)
+				  .substring(1);
+			  }
+			  return s4() + '-' + s4();
+			}
+
+			function wait(txt) {
+				if (!txt) var txt='Please wait...'
+				var tx=document.createElement('div')
+				var md=document.createElement('div')
+				var im=document.createElement("img")
+				tx.id='tx'
+				md.id='md'
+				im.id='im'
+				im.src="https://gaysugardaddyfinder.com/assets/images/load.gif"
+				im.style.cssText='width:40px;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:999999999999999999999'
+				md.style.cssText='width:100%;height:100%;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:999999999999999999999;background:#000;opacity:0.3'
+				tx.style.cssText='color:#fff;width:300px;height:50px;text-align:center;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99999999999999999999999;padding-top:100px'
+				tx.textContent=txt
+				document.documentElement.appendChild(md)
+				document.documentElement.appendChild(im)
+				document.documentElement.appendChild(tx)
+			}
+			function wait_alt(txt) {
+				if (!txt) var txt='Please wait...'
+				var tx=document.createElement('div')
+				var md=document.createElement('div')
+				var im=document.createElement("img")
+				tx.id='tx'
+				md.id='md'
+				im.id='im'
+				im.src="https://gaysugardaddyfinder.com/assets/images/load.gif"
+				im.style.cssText='width:40px;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99'
+				md.style.cssText='width:100%;height:100%;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99;background:#000;opacity:0.3'
+				tx.style.cssText='color:#fff;width:300px;height:50px;text-align:center;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99;padding-top:100px'
+				tx.textContent=txt
+				document.documentElement.appendChild(md)
+				document.documentElement.appendChild(tx)
+			}
+	
+			function hide() {
+				$$('im').style.display='none'
+				$$('tx').style.display='none'
+				$$('md').style.display='none'
+			}		
+		function $$(obj) {
+			return document.getElementById(obj)
+		}		
+	
+	function delCookie(cname) {
+		var d = new Date();
+		d.setTime(d.getTime());
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + "" + "; " + expires;
+	 } 
+
+	function setCookie(cname,cvalue,exdays)	{
+		var d = new Date();
+		d.setTime(d.getTime()+(exdays*24*60*60*1000));
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	 }
+	function c_us() {
+		window.top.contactUs()
+	}
+
+	function $$(objID) {
+		return document.getElementById(objID)
+	}
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+	
+</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>		
+	</body>
+</html>

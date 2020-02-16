@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+body{
+    background:#eee;    
+}
+*{font-family:Open Sans;}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+.f-big {
+	font-size:16px!Important; color:#333; text-shadow:1px 1px 1px #fff
+}
+h2 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;background:white
+}
+h3 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;font-size:24px
+}
+    </style>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script>
+	dinit()
+	
+	function preview_profile() {
+		location.href="profile.html?id="+getCookie('mid')+'&type=preview'
+	}
+
+	
+	function dinit() {
+	
+		var url = 'https://lushmatch.com/x_get_user_info.php?member_id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					msg=JSON.parse(msg)
+										console.log(msg)
+
+					if ((msg.filename_1.indexOf('png')>=0) || (msg.filename_1.indexOf('jpg')>=0)) {
+						var type='photo'
+					} else {
+						var type='video'
+					}
+					if (type=='photo') {
+						$$('mv').innerHTML=''
+						$$('user_photo').src='https://lushmatch.com/sb/'+msg.filename_1
+						$$('user_photo').style.display='block'
+					} else {
+						$$('user_photo').style.display='none'
+						var video = document.createElement('video');
+						$$('mv').innerHTML=''
+						video.controls = false;
+						video.muted=true
+						video.autoplay=true
+						video.className='col-xs-3 www_box'
+						video.style.cssText='object-fit:cover;width:100px;height:100px;border-radius:100px;;border:none;margin:0;padding:0;border:5px solid #f0f0f0;margin-top:-25px'
+						$$('mv').appendChild(video);
+						video.load()
+						video.src='https://lushmatch.com/sb/'+msg.filename_1
+						video.loop=true
+						video.play()
+					}
+				}
+			})			
+	}
+	function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: '<span style="font-family:tahoma">Select Source!</span>',
+				content: '<span style="font-family:tahoma">You can either take a brand new video or photo using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?</span>',
+				buttons: {
+					camera: function () {
+						window.top.location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						window.top.location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+	function $$(oo) {
+		return document.getElementById(oo)
+	}
+				var general_info
+
+		var imt,br,bkg='background: #fff',yes_pd=0
+		if (window_width()<=500) {
+			var mw=window_width()+'px'
+			var mh=mw
+			var pt='0px'
+			var mtop=40
+			var mt=0
+			var tb='bottom'
+			var cph=window.innerHeight-window.innerWidth-120
+			var gip=cph+40
+			var hh=window_height() * 0.15
+			var btm=200
+		} else {
+			var mh='500px'
+			var mw='500px'
+			var pt='5px'
+			var mtop=610
+			var mt=80
+			var tb='top'
+			var cph=200
+			var hh=800
+			var btm=window_height()*0.7 - 610
+		}
+		if (window_height()<=500) {
+			mh='150px'
+			br=150
+			imt=30
+			bkg='background:url(https://sugardaddylocal.com/b3.jpg) center; background-size:cover'
+			yes_pd=10
+		}
+		var mgt=window_height()/20-15
+		var tt='400px'
+		if (window.screen.height<window.screen.width) {
+			var showw='none'
+			var tt='300px'
+		}
+			
+		</script>	
+</head>
+<body>
+<div class="container mt-5"> 
+    <div class="row">
+        <div class="col-lg-4 pb-5" style="padding:0">
+            <div class="author-card pb-3" style="background: url(https://sugardaddylocal.com/bg/fav_bg_00.jpg);background-size:cover">
+				<div style="width:100%;opacity:1;background:white;!Important;z-index:9999"><h2 style="margin-left:100px">MY SHORTLIST</h2></div>
+
+                
+                <div class="author-card-profile">
+					<div id="mv"></div><img src="https://bootdey.com/img/Content/avatar/avatar1.png" style="border:10px solid white;width:130px;height:130px;border-radius:130px;margin-top:-50px" id="user_photo">
+                </div>
+
+            </div>
+            <div class="wizard" style="border-bottom:5px solid white">
+
+							<table style="width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;background:#f0f0f0">
+
+								<tr style="display:">
+									<td colspan=3>
+										<br><div style="display:none;background:#f0f0f0!Important;" id="ne"><img style="height:60px;display:none" src="https://lushmatch.com/assets/img/l4.gif"></div>
+									</td>
+								</tr>
+								<tr style="display:">
+									<td colspan=3>
+										<div id="sp" style="background:aliceblue"><br><br><br><br><br><br><br></div>
+									</td>
+								</tr>
+							</table>
+						
+			<div id="tr2" style="background:#000;display:none;position:fixed;bottom:54px">
+
+			</div>	
+
+<span id="main_table"></span>
+
+			
+<script src = "https://sugardaddylocal.com/js/jquery.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://lushmatch.com/assets/js/common.js"></script>
+<script src="https://lushmatch.com/custom_js/wait.js"></script>
+<script src="https://lushmatch.com/assets/js/events.js"></script>
+<script src="https://lushmatch.com/assets/js/bootstrap.min.js"></script>
+<script src="https://lushmatch.com/assets/js/scripts.js"></script>
+<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet">
+<link href="https://lushmatch.com/css/shadows.css" rel="stylesheet">
+<style>
+	.genActive{background: gold;border:none;opacity:1!Important}
+</style>
+ 		<script>
+			wait()
+			var currPage='home'
+			if (getCookie('currPage')) {
+				setCookie('prevPage',getCookie('currPage'))
+			}
+			setCookie('currPage',currPage)
+
+			var winH, winW
+			function video_call() {
+				location.href='https://lushmatch.com/v.html?login='+getCookie('login')
+			}
+			function window_height() {
+				if (document.body) {
+				 winH = document.body.offsetHeight;
+				}
+
+				if (document.compatMode=='CSS1Compat' &&
+					document.documentElement &&
+					document.documentElement.offsetHeight ) {
+					winH = document.documentElement.offsetHeight;
+					return winH
+				}
+
+				if (window.innerHeight && window.innerHeight) {
+					 winH = window.innerHeight;
+					 return winH;
+				}
+			}		
+				
+			function window_width() {
+				if (document.body) {
+				 winW = document.body.offsetWidth;
+				}
+
+				if (document.compatMode=='CSS1Compat' &&
+					document.documentElement &&
+					document.documentElement.offsetWidth ) {
+					winW = document.documentElement.offsetWidth;
+					return winW
+				}
+
+				if (window.innerWidth && window.innerWidth) {
+					 winW = window.innerWidth;
+					 return winW;
+				}
+			}
+
+			
+			function ri(min, max) {
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}		
+
+			function switchGender(obj, objALT, gen, looking) {
+			}
+			
+			function init() {
+			}
+			
+			var x_start_new_local=0
+			var no		
+
+			var max_img_width, max_img_height,hy
+			function fetchNextNewLocal() {
+				x_start_new_local=x_start_new_local+no
+				getProfilesNewLocal()
+			}
+
+			setTimeout(function(){
+				max_img_width=(window_width()/2)-20
+				max_img_height=max_img_width
+				hy=max_img_width
+				hy=hy-140
+				no=(screen.height/max_img_height)*2
+				no=Math.floor(no)
+				per_page=no
+				x_start_new_local=0
+				$('#ne').show()
+				getShortlist()
+			},1000)
+			
+			function list_view(){
+				view='list'
+				getShortlist_list()
+			}
+			
+			function gallery_view() {
+				view='gallery'
+				getShortlist()
+			}
+			
+			window.onclick=view_profile
+			function view_profile(e) {
+				if (e.target.id) {
+					if (e.target.id.indexOf('img_popular_')>-1) {
+						location.href='profileBrowse.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]+'&start='+x_start_popular
+					}
+					if (e.target.id.indexOf('img_local_')>-1) {
+						location.href='profileBrowse.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]+'&start='+x_start_local
+					}
+					if (e.target.id.indexOf('img_latest_')>-1) {
+						location.href='profileView.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]+'&start='+x_start_new
+					}
+					if (e.target.id.indexOf('img_newest_')>-1) {
+						location.href='profileView.html?id='+e.target.id.split('_')[2]+'&type=browse&browse=new_local'+'&start='+x_start_new_local
+					}
+				}
+			}
+			var view 
+			var ids
+			
+					function getfile() {
+				var ii='img/bg/fav_bg_0' + (Math.floor(Math.random() * 7) + 1)
+				ii = ii + '.jpg'
+				return ii
+			}
+
+			
+			function getShortlist() {
+				setCookie('view_result','gallery')
+				$$('img_gallery').src='images/gallery_selected.png'
+				$$('img_list').src='img/view_list.png'
+				$$('img_gallery').style.width='30px'
+				$$('img_list').style.width='20px'
+				max_img_width=(window_width()/2)
+				max_img_height=max_img_width
+				hy=max_img_width
+				hy=hy-100
+				no=(screen.height/max_img_height)*2
+				no=10
+				var x_start=0,cStr=''
+				var url = 'https://sugardaddylocal.com/x_shortlist.php?list='+getCookie('shortlist')+'&lat='+getCookie('lat')+'&lng='+getCookie('lng')
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						if(msg=='null') {
+							hide()
+							$.confirm({
+								title:'',
+								content:'You do not have any profiles shortlisted at this time.',
+								buttons: {
+									heyThere: {
+										text: 'Go Back', // With spaces and symbols
+										action: function () {
+											history.go(-1)
+										}
+									}
+								}
+							});						
+						}
+						$$('ne').innerHTML=''
+						var data=JSON.parse(msg)
+						data.reverse()
+						var lx=data.length
+						var lt=-700
+							for (var i=0;i<data.length;i++) {
+							hide()
+							if (data[i]) {
+								id=data[i].id
+								ids += data[i].id + ','
+								imgB=document.createElement('img')
+								imgB.src=getfile()  
+								imgB.style='width:100%;height:40%;border-radius:5px 5px 0 0 ;position:absolute;padding:0;margin:0px;top:0'
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3')
+								imgG.style='width:60%;border-radius:60%;position:absolute;padding:0;margin:0px;border:5px solid white;left:0;right:0'
+								imgG.id='img_newest_'+id+'|'+x_start_new_local
+								imgG.style.position='absolute'
+								imgG.style.margin='auto'
+								imgG.style.left='0'
+								imgG.style.right='0'
+								imgG.style.marginTop='20%'
+								var cr=''
+								var corner=document.createElement('img')
+								var dpg=document.createElement("div")
+								var cStr=document.createElement('div')
+								dpg.className='col-md-3 col-xs-1'
+								dpg.style.margin='0px'
+								dpg.style.background='#fff'
+								dpg.style.border='none'
+								if (getCookie('isMobile')) {
+									dpg.style.maxWidth=max_img_width+'px'
+									dpg.style.width =((window_width()*0.45)) + 'px'
+									dpg.style.height=((window_width()*0.5)+70) + 'px'
+									imgG.style.width=((window_width()*0.45)-60) + 'px'
+									imgG.style.height=((window_width()*0.45)-60) + 'px'
+									dpg.style.margin='2%'
+									dpg.style.boxShadow='1px 1px 2px #fff'
+									dpg.style.borderRadius='5px'
+								} else {
+									dpg.style.maxWidth=(500/5-5)+'px'
+									dpg.style.height=(500/5-5)+'px'
+								}
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								dpg.style.position='relative'
+								cr+='<table style="position:absolute;bottom:80px;max-height:30px;width:100%;margin-top:-30;border-radius:0 0 5px 5px;background:none"><tr>'
+								cr+='<tr><td colspan=4 style="text-align:center;width:100%;padding:5px;color:#000;font-size:18px">'+data[i].login.substr(0,10).toUpperCase()+'</div><div style="font-size:15px">' + data[i].age + ', ' + (data[i].gender)+'</div><div style="font-size:15px"><span style="margin:auto;color:maroon"><b>'+data[i].distance+' Miles</b></span></td></tr><tr>'
+								cr+='<td style="text-align:center;width:25%;padding:5px;margin-top:-10px"><img onclick="send_mail('+id+')" style="width:20px;margin-bottom:5px" src="img/new_chat.png"></td>'
+								cr+='<td style="text-align:center;width:25%;padding:5px;margin-top:-10px"><img onclick="videoCall(\''+data[i].login+'\')" style="width:20px;margin-bottom:5px" src="img/new_video_chat.png"></td>'
+								cr+='<td style="text-align:center;width:25%;padding:5px;margin-top:-10px"><img onclick="wishlist('+id+')" style="width:20px;margin-bottom:5px" src="img/new_wish.png"></td>'
+								cr+='<td style="text-align:center;width:25%;padding:5px;margin-top:-10px"><img onclick="view_offers('+id+')" style="width:25px;margin-bottom:5px" src="images/bid.png"></td>'
+								cr+='</tr></table>'
+								cStr.innerHTML=cr
+								dpg.appendChild(imgB)
+								dpg.appendChild(imgG)
+								dpg.appendChild(corner)
+								dpg.appendChild(cStr)
+								corner.outerHTML='<a onclick="shortlist('+id+')"><img src="images/corner.png" id="corner_'+id+'" style="position: absolute; top: 0px; right: 0px; width: 75px; height: 75px; z-index: 99;"></a>'
+								$$('ne').appendChild(dpg)
+							}
+						}
+						setTimeout('update_shortlist()',10)
+					}
+				})				
+			}
+	
+	function send_mail(id) {
+		setCookie('chatting_with',id)
+		location.href='sendMail.html?to_member_id='+id
+	}
+	
+	function send_sms() {
+		location.href='sendSMS.php?to_member_id='+qs('id')
+	}
+	function view_img(io){
+		var pid=io.id.replace('imgProfile','')
+		currMID=pid
+		location.href='viewAlbum.html?member_id='+pid
+	}
+
+			function getShortlist_list() {
+				max_img_width=(window_width()-10)
+				max_img_height=max_img_width
+				hy=40
+				no=(screen.height/max_img_height)*2
+				no=20
+				var x_start=0,cStr=''
+				var url = 'https://sugardaddylocal.com/x_shortlist.php?list='+getCookie('shortlist')
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						if(msg=='null') {
+							hide()
+							$.confirm({
+								title:'',
+								content:'You do not have any profiles shortlisted at this time.',
+								buttons: {
+									heyThere: {
+										text: 'Go Back', // With spaces and symbols
+										action: function () {
+											history.go(-1)
+										}
+									}
+								}
+							});						
+						}
+						$$('ne').innerHTML=''
+						var pad=document.createElement("div")
+						pad.className='col-md-6'
+						pad.style.margin='0px'
+						pad.style.height='40px'
+						pad.style.width='100%'
+						pad.style.fontSize='18px'
+						pad.style.background='lightyellow'
+						pad.style.fontFamily='Open Sans'
+						pad.style.padding='10px'
+						pad.style.paddingLeft='5px'
+						pad.innerHTML='<b>Here are your shortlisted profiles...</b>'
+						$$('ne').appendChild(pad)
+						var data=JSON.parse(msg)
+						data.reverse()
+						var lx=data.length
+						var lt=-700
+						for (var i=0;i<data.length;i++) {
+							hide()
+							if (data[i]) {
+								id=data[i].id
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3')
+								imgG.style='width:40px;height:40px;padding:0;margin:0px'
+								imgG.id='img_newest_'+id
+								var cr=''
+								var corner=document.createElement('img')
+								var dpg=document.createElement("div")
+								var cStr=document.createElement('div')
+								var spc=document.createElement('div')
+								dpg.className='col-md-6'
+								dpg.style.margin='0px'
+								dpg.style.width='100%'
+								dpg.style.background='#fff'
+								dpg.style.borderBottom='1px solid #f0f0f0'
+								if (getCookie('isMobile')) {
+									dpg.style.maxWidth=max_img_width+'px'
+								} else {
+									dpg.style.maxWidth=(500/5-5)+'px'
+									dpg.style.height=(500/5-5)+'px'
+								}
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								var gender=(data[i].gender=='Sugar Baby')?'F':'M';
+								cr='<table><tr><td ><img src="https://lushmatch.com/sb/'+data[i].filename_1+'" style="width:45px;border:5px solid #f0f0f0"></td>'
+								cr+='<td style="width:60%"><table><tr><td style="text-align:left;width:100%;padding:2px;color:#000;font-size:14px;font-family:Open Sans;font-weight:"><b><strong>'+ data[i].login.toUpperCase() + '</b>, ' + data[i].age + gender + '</td></tr><tr><td style="color:silver;font-size:14px;font-family:Open Sans;font-weight:900">' + data[i].location+'</td></tr></table></td>'
+								cr+='<td><table><tr rowspan=2><td><img onclick="send_mail('+id+')" src="img/mobile.png" style="width:20px;margin:5px;margin-right:10px"></td><td><img onclick="videoCall(\''+data[i].login+'\')" src="img/video.png" style="width:20px;margin:5px"></td><td><img onclick="wishlist('+id+')" src="img/gift.png" style="width:20px;margin:5px;margin-left:10px"></td></tr></table></td>'
+								cr+='</tr></table>'
+								<!-- cStr.innerHTML=cr -->
+								dpg.innerHTML=cr
+								spc.innerHTML='<br><br><br><br>'
+								<!-- dpg.appendChild(corner) -->
+								$$('ne').appendChild(dpg)
+							}
+						}
+						var pad=document.createElement("div")
+						pad.className='col-md-6 col-xs-2'
+						pad.style.margin='0px'
+						pad.style.height='100px'
+						pad.style.width='100%'
+						pad.style.background='red'
+						$$('ne').appendChild(pad)
+						$$('ne').appendChild(spc)
+						$$('ne').style.paddingBottom='50px'
+						setTimeout('update_shortlist()',10)
+					}
+				})				
+			}		
+			var slist=[ ]
+			function update_shortlist(id) {
+				if (getCookie('shortlist')) {
+					slist=JSON.parse(getCookie('shortlist'))
+				}
+				$$('shortlist_count').innerHTML='<b>'+slist.length+'</b>'
+				$.each(slist, function(i, el){
+					$$('corner_'+el).src='images/added.png'					
+				});
+				
+			}
+			var bg,ht,tmr,intval,alpha
+			function flash_header() {
+				ht=50
+				bg='white'
+				intval=1
+				alpha=1
+				start_flash()
+			}
+			function start_flash() {
+				if (ht>=40) {
+					$$('table_header').style.background=bg
+					$$('table_header').style.height=ht+'px'
+					$$('table_header').style.boxShadow='0 20px 30px rgba(255,255,255,'+alpha+')'
+					if (bg=='black') bg='grey'
+						else bg='black'
+					ht--
+					intval=intval+2
+					alpha=alpha-(1/10)
+					tmr=setTimeout('start_flash()',intval)
+				} else {
+					clearTimeout(tmr)
+					$$('table_header').style.background='black'
+					return
+				}
+			}
+	function wishlist(mid) {
+		location.href='member_wishlist.html?mid='+mid
+	}
+
+	function shortlist(id) {
+				if (getCookie('shortlist')) {
+					slist=JSON.parse(getCookie('shortlist'))
+				}
+				if (slist.indexOf(id)>=0) {
+					slist.splice(slist.indexOf(id),1)
+					$$('corner_'+id).src='images/corner.png'
+					history.go(0)
+				} else {
+					slist.push(id*1)
+					slist=removeDuplicates(slist)
+					$$('corner_'+id).src='images/added.png'
+				}
+				setCookie('shortlist',JSON.stringify(slist))
+				$$('shortlist_count').innerHTML='<b>'+slist.length+'</b>'
+				flash_header()
+			}
+
+			function removeDuplicates(arr) {
+				var uniqueNames = [];
+				$.each(arr, function(i, el){
+					if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+				});
+				return uniqueNames
+			}
+			
+			var ctr=0
+			function makeImg(src, alt, title, className) {
+				var img =  document.createElement('img');
+				img.src = src;
+				if ( alt != null ) img.alt = alt;
+				if ( title != null ) img.title = title;
+				if ( className != null ) img.className = className;
+				ctr++
+				img.onerror = fix
+				return img;
+			}
+	
+			function fix(e) {
+				e.target.src='https://lushmatch.com/assets/img/no_img.png'
+				e.target.style.margin='auto'
+				e.target.style.marginTop='20px'
+			}
+	
+
+setTimeout('init()',1000)
+</script>
+
+<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+<script src="https://sugardaddylocal.com/jsSocketNode.js"></script> <script src="track.js"></script>
+</html>

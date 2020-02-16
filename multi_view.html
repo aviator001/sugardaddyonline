@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a Sugar Daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+		<link rel="canonical" href="https://sugardaddylocal.com"
+		<link rel="icon" href="favicon.png">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet" >
+		<link href="https://lushmatch.com/assets/css/jquery-confirm.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/shadows.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/menu.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/animate.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet"> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script>
+			var wl = window.location.href;
+			var mob = (window.location.href.indexOf('file://')>=0);
+			function getCookie(cname)	{ 
+				if (mob===true) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+			if (getCookie('mid')=='') location.href='index.html?force=login'
+			setTimeout(function(){
+				delCookie('nextMID')
+			},1)
+	</script>	
+	</head>
+	<body style="background:url(https://lushmatch.com/assets/images/b1e2.jpg)center;background-size:cover;">
+	<div id="notify" style="display:none;opacity:0.8;right:10px;top:100px;z-index:99999999999999;background:#333;box-shadow:0 0 20px #000;width:250px;height:40px;position:fixed;border-radius:4px">
+		<span id="notify_txt"  style="padding:5px;color:#f0f0f0"></span>
+	</div>
+	<script>
+		function upload_photos() {
+			if(!getCookie('mid')) location.href='index?force=login'
+				else location.href='uploadPhotos.html?member_id='+getCookie('mid')
+		}
+		function view_profile() {
+			if(!getCookie('mid')) location.href='index.html?force=login'
+				else location.href='profile.html?member_id='+getCookie('mid')
+		}
+		function view_album() {
+			if(!getCookie('mid')) location.href='index.html?force=login'
+				else location.href='viewAlbum.html?member_id='+getCookie('mid')
+		}
+		function qs(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+
+	function delCookie(cname) {
+		if (mob===true) {
+			window.localStorage.removeItem(cname);
+		} else {
+			var d = new Date();
+			d.setTime(d.getTime());
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" + "" + "; " + expires;
+		}
+	}
+	
+	function clear_all() {
+		if (mob===true) {
+			 window.localStorage.clear();
+		} else {
+			document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+		}	
+	}		
+
+  function checkHistory() {
+	  var a=window.location+''
+	  if ((a.split('?')[1].split('&')[0].split('=')[1])=='members_home') {
+			if (document.getElementById('bback')) document.getElementById('bback').style.display='none'
+	  } else {
+		if (document.getElementById('bback')) document.getElementById('bback').style.display='block'
+	  }
+  }
+
+
+		var iih=(screen_dimensions()[1])
+		var iiw=(screen_dimensions()[0])
+		var sr1h=iih
+		iih=iih*1-150;
+		var ttx=iiw*1/4
+		ttx=Math.round(ttx,0)
+		if (document.getElementById('iit1')) {
+			document.getElementById('iit1').style.position='fixed'
+			document.getElementById('iit1').style.top='-100px'
+		}
+		for (r=0;r<=9;r++) {
+			if (document.getElementById('ii'+r)) {
+			}
+		}
+		var ar=[]
+		var mr=[]
+
+		function show_accounts() {
+			setTimeout('hide_mm(3)',5000)
+			document.getElementById('iit5').style.display='none'
+			document.getElementById('iit4').style.display='none'
+			document.getElementById('iit2').style.display='none'
+		}
+		function show_people() {
+			setTimeout('hide_mm(2)',5000)
+			document.getElementById('iit5').style.display='none'
+			document.getElementById('iit4').style.display='none'
+			document.getElementById('iit3').style.display='none'
+		}
+		function show_activity() {
+			setTimeout('hide_mm(4)',5000)
+			document.getElementById('iit5').style.display='none'
+			document.getElementById('iit3').style.display='none'
+			document.getElementById('iit2').style.display='none'
+			document.getElementById('iit4').style.left='160px'
+		}
+		function show_connect() {
+			setTimeout('hide_mm(5)',5000)
+			document.getElementById('iit5').style.display='block'
+			document.getElementById('iit4').style.display='none'
+			document.getElementById('iit3').style.display='none'
+			document.getElementById('iit2').style.display='none'
+			document.getElementById('iit5').style.left='240px'
+		}
+		function hide_mm(w) {
+			document.getElementById('iit'+w).style.display='none'
+		}
+
+		function screen_dimensions() {
+			var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			return new Array(w, h)
+		}
+
+</script>
+<style>
+.m10 {
+	margin-left:-40px;
+	width:100px;
+}
+</style>
+			<div id="sr1" style="top:0;bottom:0;height:100%;width:100%;position:fixed;bottom:0px;max-width:500px;left:0;right:0;margin:auto;z-index:999;background:url(https://gaysugardaddyfinder.com/assets/images/b38.jpg); background-size:cover;font-family:Open Sans Condensed!Important">
+				<table STYLE="WIDTH:100%"><tr>
+					<td colspan=2 style="width:100%;font-family:Open Sans;text-align:center;font-size:20px;color:#333;text-shadow:0px 0px 1px #fff">
+						<br><br>
+						<span id="sxx" style="display:none;font-family:Open Sans Condensed;font-size:18px">
+						<span>YOUR <b>ANONYMOUS</b> MOBILE NUMBER:</span>
+						<div id="lc" style="font-size:18px;background:#fff;padding:3px;border-radius:0px"></div>							
+						<span><button id="sms_button" onclick="change_sms()" class="btn btn-xs btn-danger" style="position:absolute;right:10px;margin-top:-25px">Disable SMS</button></span>
+						<div style="font-family:Open Sans Condensed;font-size:18px" id="info">Any time you message someone on this site, the user instantly receives your message because all messages are delivered via SMS using anonymous callerIds.</div>						
+						</span>
+							<div style="font-size:12px;width:100%;position:fixed;background:#f0f0f0;opacity:0.8;padding:2px;margin-top:-2px;padding-top:3px" id="ver"></div>	
+							<table style="width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;text-align:center!Important">
+								<tr style="background:gold">
+									<td colspan=2 style="text-align:left;width:80%">
+										<h3>
+											<span style="margin-left:10px"><b>FEATURED</b> PROFILES</span>
+										</h3>
+									</td>
+									<td>
+										<button onclick="fetchNextFeatured()" style="margin-right:10px" class="btn btn-xs btn-danger">Fetch Next 5</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan=3>
+										<div style="margin-top:-10px" id="fp"><img style="height:60px" src="https://lushmatch.com/assets/img/l4.gif"></div>
+									</td>
+								</tr>
+							</table>
+							<table style="width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;margin-top:-15px">
+								<tr style="background:#fff">
+									<td colspan=2 style="text-align:left;width:80%">
+										<h3>
+											<span style="margin-left:10px">MEMBERS <b>NEAR</b> ME</span>
+										</h3>
+									</td>
+									<td>
+										<button onclick="fetchNextLocal()" style="margin-right:10px" class="btn btn-xs btn-danger">Fetch Next 20</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan=3>
+										<div style="margin-top:-10px" id="lp"><img style="height:60px" src="https://lushmatch.com/assets/img/l4.gif"></div>
+									</td>
+								</tr>
+							</table>
+							<table id="np_header" style="width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;margin-top:-15px">
+								<tr style="background:#fff">
+									<td colspan=2 style="text-align:left;width:80%">
+										<h3>
+											<span style="margin-left:10px"><b>NEW</b> MEMBERS</span>
+										</h3>
+									</td>
+									<td>
+										<button onclick="fetchNextNew()" style="margin-right:10px" class="btn btn-xs btn-danger">Fetch Next 20</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan=3>
+										<div style="margin-top:-10px" id="np"><img style="height:60px" src="https://lushmatch.com/assets/img/l4.gif"></div>
+									</td>
+								</tr>
+							</table>
+							<table style="width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;margin-top:-15px">
+								<tr style="background:#fff">
+									<td colspan=2 style="text-align:left;width:80%">
+										<h3>
+											<span style="margin-left:10px"><b>NEW</b> MEMBERS <b>NEAR</b> ME</span>
+										</h3>
+									</td>
+									<td>
+										<button onclick="fetchNextNewLocal()" style="margin-right:10px" class="btn btn-xs btn-danger">Fetch Next 20</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan=3>
+										<div style="margin-top:-10px" id="ne"><img style="height:60px" src="https://lushmatch.com/assets/img/l4.gif"></div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+			
+			</div>
+<script src = "https://onesugardaddy.com/js/jquery.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://lushmatch.com/assets/js/common.js"></script>
+<script src="https://lushmatch.com/assets/js/events.js"></script>
+<script src="https://lushmatch.com/assets/js/bootstrap.min.js"></script>
+<script src="https://lushmatch.com/assets/js/scripts.js"></script>
+<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet">
+<style>
+	.genActive{background: gold;border:none;opacity:1!Important}
+</style>
+ 		<script>
+		
+			var currPage='home'
+			if (getCookie('currPage')) {
+				setCookie('prevPage',getCookie('currPage'))
+			}
+			setCookie('currPage',currPage)
+
+			var winH, winW
+			function video_call() {
+				location.href='https://lushmatch.com/v.html?login='+getCookie('login')
+			}
+			function window_height() {
+				if (document.body) {
+				 winH = document.body.offsetHeight;
+				}
+
+				if (document.compatMode=='CSS1Compat' &&
+					document.documentElement &&
+					document.documentElement.offsetHeight ) {
+					winH = document.documentElement.offsetHeight;
+					return winH
+				}
+
+				if (window.innerHeight && window.innerHeight) {
+					 winH = window.innerHeight;
+					 return winH;
+				}
+			}		
+				
+			function window_width() {
+				if (document.body) {
+				 winW = document.body.offsetWidth;
+				}
+
+				if (document.compatMode=='CSS1Compat' &&
+					document.documentElement &&
+					document.documentElement.offsetWidth ) {
+					winW = document.documentElement.offsetWidth;
+					return winW
+				}
+
+				if (window.innerWidth && window.innerWidth) {
+					 winW = window.innerWidth;
+					 return winW;
+				}
+			}
+
+			
+	function viewMessageDetail(xid,xlogin) {
+		setCookie('chatting_with',xid)
+		setCookie('chatting_with_login',xlogin)
+		location.href='viewMessage.html?xid='+xid
+	}
+	
+		if (window.screen.height<640) {
+			for (i=1;i<10;i++) {
+			//	$$('nx'+i).style.width='50px'
+			//	$$('nx'+i).style.height='50px'
+			}
+			$$('np_header').style.display='none'
+			$$('np').style.display='none'
+			$$('sxx').style.display='none'
+		}
+			function cbg() {
+				ctr=ri(1,9)
+				x_bg='url(https://lushmatch.com/assets2/fav_bg_0'+ctr+'.jpg)'
+				document.getElementById('dbg').style.background=x_bg
+				setTimeout('cbg()',1000)
+			}
+
+			function ri(min, max) {
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}		
+				//setTimeout('cbg()',1000)
+
+			function switchGender(obj, objALT, gen, looking) {
+				<!-- $$(obj).className='genActive' -->
+				<!-- $$(objALT).className='genPassive' -->
+				<!-- setCookie('gender',looking) -->
+				<!-- setCookie('looking_for',gen) -->
+			}
+			
+			function init() {
+
+				<!-- if ((getCookie('gender')=='Sugar Daddy')||(getCookie('gender')=='Sugar+Daddy')) { -->
+					<!-- console.log('looking for baby') -->
+					<!-- $$('selSB').className='genActive' -->
+					<!-- $$('selSD').className='genPassive' -->
+				<!-- } else { -->
+					<!-- console.log('looking for daddy') -->
+					<!-- $$('selSD').className='genActive' -->
+					<!-- $$('selSB').className='genPassive' -->
+				<!-- } -->
+				//print(getCookie('long_code','lc'))
+				<!-- var lco=getCookie('long_code') -->
+				<!-- lco=1+'('+lco.substr(1,3)+') ' + lco.substr(4,3)+'-'+lco.substr(7,4) -->
+				<!-- $('#lc').html(lco) -->
+				getProfilesFeatured()
+				getProfilesLocal()
+				getProfilesNew()
+				getProfilesNewLocal()
+			}
+			
+			var x_start_featured=0
+			var x_start_local=0
+			var x_start_new=0
+			
+			function fetchNextFeatured() {
+				x_start_featured=x_start_featured+4
+				$$('fp').innerHTML=''
+				getProfilesFeatured()
+			}
+			
+			function fetchNextLocal() {
+				x_start_local=x_start_local+20
+				$$('lp').innerHTML=''
+				getProfilesLocal()
+			}
+			
+			function fetchNextNew() {
+				x_start_new=x_start_new+20
+				$$('np').innerHTML=''
+				getProfilesNew()
+			}
+			
+			function fetchNextNewLocal() {
+				x_start_new_local=x_start_new_local+20
+				$$('ne').innerHTML=''
+				getProfilesNewLocal()
+			}
+			
+			function getProfilesFeatured() {
+				var x_start=0
+				var per_page=5
+				var url = 'https://lushmatch.com/x_get_home_featured.php?w_w=' + window_width()+'&x_start='+x_start_featured+'&gender='+getCookie('gender')+'&type=popular&ip='+getCookie('ip')+'&location='+getCookie('location')+'&per_page='+per_page
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						$$('fp').innerHTML=''
+						var data=JSON.parse(msg)
+						var lx=data.length
+						var lt=-700
+						for (var i=0;i<data.length;i++) {
+							if (data[i]) {
+								id=data[i].member_id
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3 www_box2')
+								imgG.style='width:100%;height:100%;padding:0;margin:2px'
+								imgG.id='img_popular_'+id
+								var dpg=document.createElement("div")
+								dpg.className='col-md-3 col-xs-1 www_box2'
+								dpg.style.width='200px'
+								dpg.style.height='200px'
+								dpg.style.margin='5px'
+								dpg.style.width='100%'
+								dpg.style.maxWidth=(window_width()/per_page-5)+'px'
+								dpg.style.height=(window_width()/per_page-5)+'px'
+								dpg.style.margin='2px'
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								dpg.appendChild(imgG)
+								dpg.id='bx'+i
+								$$('fp').appendChild(dpg)
+							}
+						}
+						$$('bx0').innerHTML='<a href="store_01.html"><img src="https://lushmatch.com/PP.png"></a>'
+					}
+				})			
+			}
+ 
+			window.onclick=view_profile
+			function view_profile(e) {
+				if (e.target.id) {
+					if (e.target.id.indexOf('img_popular_')>-1) {
+						location.href='profileBrowse.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]
+					}
+					if (e.target.id.indexOf('img_local_')>-1) {
+						location.href='profileBrowse.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]
+					}
+					if (e.target.id.indexOf('img_latest_')>-1) {
+						location.href='profileBrowse.html?id='+e.target.id.split('_')[2]+'&type=browse&browse='+e.target.id.split('_')[1]
+					}
+					if (e.target.id.indexOf('img_newest_')>-1) {
+						location.href='profileBrowseNewLocal.html?id='+e.target.id.split('_')[2]+'&type=browse&browse=local'
+					}
+				}
+			}
+
+			
+			function getProfilesLocal() {
+				var x_start=0
+				var url = 'https://lushmatch.com/x_get_home_local.php?w_w=' + window_width()+'&x_start='+x_start_local+'&gender='+getCookie('gender')+'&type=local&ip='+getCookie('ip')+'&location='+getCookie('location')+'&per_page=20'
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						$$('lp').innerHTML=''
+						var data=JSON.parse(msg)
+						console.log(data)
+						var lx=data.length
+						var lt=-700
+						for (var i=0;i<data.length;i++) {
+							if (data[i]) {
+								id=data[i].member_id
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3 www_box2')
+								imgG.style='width:100%;height:100%;padding:0;margin:2px'
+								imgG.id='img_local_'+id
+								var dpg=document.createElement("div")
+								dpg.className='col-md-3 col-xs-1 www_box2'
+								dpg.style.width='200px'
+								dpg.style.height='200px'
+								dpg.style.margin='5px'
+								dpg.style.width='100%'
+								dpg.style.maxWidth=(window_width()/10-5)+'px'
+								dpg.style.height=(window_width()/10-5)+'px'
+								dpg.style.margin='2px'
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								dpg.appendChild(imgG)
+								$$('lp').appendChild(dpg)
+							}
+						}
+					}
+				})				
+			}
+			function getProfilesNew() {
+				var x_start=0
+				var url = 'https://lushmatch.com/x_get_home_new.php?w_w=' + window_width()+'&x_start='+x_start_new+'&gender='+getCookie('gender')+'&type=latest&ip='+getCookie('ip')+'&location='+getCookie('location')+'&per_page=20'
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						$$('np').innerHTML=''
+						var data=JSON.parse(msg)
+						var lx=data.length
+						var lt=-700
+						for (var i=0;i<data.length;i++) {
+							if (data[i]) {
+								id=data[i].member_id
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3 www_box2')
+								imgG.style='width:100%;height:100%;padding:0;margin:2px'
+								imgG.id='img_latest_'+id
+								var dpg=document.createElement("div")
+								dpg.className='col-md-3 col-xs-1 www_box2'
+								dpg.style.width='200px'
+								dpg.style.height='200px'
+								dpg.style.margin='5px'
+								dpg.style.width='100%'
+								dpg.style.maxWidth=(window_width()/10-5)+'px'
+								dpg.style.height=(window_width()/10-5)+'px'
+								dpg.style.margin='2px'
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								dpg.appendChild(imgG)
+								$$('np').appendChild(dpg)
+							}
+						}
+					}
+				})				
+			}
+			function getProfilesNewLocal() {
+				var x_start=0
+				var url = 'https://lushmatch.com/x_get_home_new_local.php?w_w=' + window_width()+'&x_start='+x_start_new+'&gender='+getCookie('gender')+'&type=local&ip='+getCookie('ip')+'&location='+getCookie('location')+'&per_page=20'
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html",
+					cache: false,
+					success: function(msg) {
+						$$('ne').innerHTML=''
+						var data=JSON.parse(msg)
+						var lx=data.length
+						var lt=-700
+						for (var i=0;i<data.length;i++) {
+							if (data[i]) {
+								id=data[i].member_id
+								imgG=makeImg('https://lushmatch.com/sb/'+data[i].filename_1, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, data[i].gender + ' ' + data[i].login + ' in ' + data[i].location, 'col-md-3 www_box2')
+								imgG.style='width:100%;height:100%;padding:0;margin:2px'
+								imgG.id='img_newest_'+id
+								var dpg=document.createElement("div")
+								dpg.className='col-md-3 col-xs-1 www_box2'
+								dpg.style.width='200px'
+								dpg.style.height='200px'
+								dpg.style.margin='5px'
+								dpg.style.width='100%'
+								dpg.style.maxWidth=(window_width()/10-5)+'px'
+								dpg.style.height=(window_width()/10-5)+'px'
+								dpg.style.margin='2px'
+								dpg.style.padding='0'
+								dpg.style.cursor='pointer'
+								dpg.appendChild(imgG)
+								$$('ne').appendChild(dpg)
+							}
+						}
+					}
+				})				
+			}
+
+			var ctr=0
+			function makeImg(src, alt, title, className) {
+				var img =  document.createElement('img');
+				img.src = src;
+				if ( alt != null ) img.alt = alt;
+				if ( title != null ) img.title = title;
+				if ( className != null ) img.className = className;
+				ctr++
+				img.onerror = fix
+				return img;
+			}
+	
+			function fix(e) {
+				e.target.src='https://lushmatch.com/assets/img/no_img.png'
+				e.target.style.margin='0px'
+			}
+	
+			function hide_options() {
+				if (document.getElementById('so_01')) {
+					for (s=1;s<=5;s++) {
+						document.getElementById('so_0'+s).style.display='none'
+					}
+				}
+			}
+			var s=''
+			function print(str, objID) {
+				for (i=0;i<str.length;i++) {
+					if ((i==1)||(i==4)||(i==7)) {
+						s += '<img style="width:10px" src="https://lushmatch.com/assets/images/blank.png">'
+						s += '<img style="width:20px" src="https://lushmatch.com/assets/images/'+str.substr(i,1)+'.png">'
+					} else {
+						s += '<img style="width:20px" src="https://lushmatch.com/assets/images/'+str.substr(i,1)+'.png">'
+					}
+				}
+				$('#lc').html(s)
+				console.log(s)
+			}
+		function take_photo() {
+			navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+		}
+
+		function onSuccess(imageURI) {
+			var image = document.getElementById('myImage');
+			image.src = imageURI;
+			uploadPhoto(imageURI)		
+		}
+
+		function onFail(message) {
+			alert('Failed because: ' + message);
+		}
+
+        function uploadPhoto(imageURI) {
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+ 
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+ 
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "https://lushmatch.com/x_upload.php", win, fail, options);
+        }
+ 
+        function win(r) {
+            console.log("Code = " + r.responseCode);
+            console.log("Response = " + r.response);
+            console.log("Sent = " + r.bytesSent);
+            alert(r.response);
+        }
+ 
+        function fail(error) {
+            alert("An error has occurred: Code")
+        }
+
+function send_note() {
+
+}
+
+function preview_profile() {
+	location.href="profile.html?id="+getCookie('mid')
+}
+function cancel_note() {
+	$('#hp').hide()
+	$('#img_hp').show()
+}
+
+function sss(xc) {
+	for (var i=1;i<=3;i++) {
+		document.getElementById('hp'+i).style.display='block'
+		document.getElementById('hp'+i+'s').style.display='none'
+		document.getElementById('tp'+i).style.display='none'
+	}
+	document.getElementById('hp'+xc).style.display='none'
+	document.getElementById('hp'+xc+'s').style.display='block'
+	document.getElementById('tp'+xc).style.display='block'
+}
+setTimeout('init()',1000)
+</script>
+<script src="https://onesugardaddy.com/custom_menu_updated.js"></script>
+<script src="https://onesugardaddy.com/jsSocketNode.js"></script>
+</html>

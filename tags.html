@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Converts HTML input/textarea into Tags component">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://onesugardaddy.com/tagify.css">
+        <script src="https://onesugardaddy.com/tagify.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://lushmatch.com/tags/jQuery.tagify.min.js"></script>
+<style>
+	* {font-family:Open Sans!Important;font-size:12px!Important;overflow:hidden}
+</style>
+    <body>
+<input style="background:white;font-family:Open Sans;font-size:12px;" name='tags3' id='tags3' value='allowance'>
+<script data-name="advance-options">
+	var wl  = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+
+	function setCookie(cname,cvalue)	{
+		window.localStorage.setItem(cname, cvalue);
+		if (mob===true) { 
+				window.localStorage.setItem(cname, cvalue);
+		} else { 
+			var d = new Date(); 
+			d.setTime(d.getTime()+(1*24*60*60*1000)); 
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" + cvalue + "; " + expires; 
+		}
+	} 
+var xtags=[ ]
+	function getCookie(cname)	{ 
+		if (mob===true) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+
+	function delCookie(cname) {
+		if (mob===true) {
+			window.localStorage.removeItem(cname);
+		} else {
+			var d = new Date();
+			d.setTime(d.getTime());
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" + "" + "; " + expires;
+		}
+	}
+	
+	function clear_all() {
+		if (mob===true) {
+			 window.localStorage.clear();
+		} else {
+			document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+		}	
+	}
+	 
+		function qs(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+
+		
+if (qs('gender')=='Sugar Baby') {
+	$('#tags3').val('allowance needed,pleaser')
+} else {
+	$('#tags3').val('$1000 monthly,seeking princess')
+}
+if (qs('tags')) {
+	var gt=qs('tags').replace(/\|/g,',')
+	$('#tags3').val(gt)
+	xtags.push(gt.split(','))
+}
+(function(){
+var input = document.querySelector('input[name=tags3]'),
+    tagify = new Tagify(input, {
+        pattern             : /^.{0,20}$/,  // Validate typed tag(s) by Regex. Here maximum chars length is defined as "20"
+        delimiters          : ",|;",        // add new tags when a comma or a space character is entered
+        keepInvalidTags     : false,         // do not remove invalid tags (but keep them marked as invalid)
+        editTags            : 10,            // single click to edit a tag
+        maxTags             : 5,
+        transformTag        : transformTag,
+        backspace           : "edit",
+        placeholder         : "",
+        dropdown : {
+            enabled: 1,
+        }
+    })
+
+// generate a random color (in HSL format, which I like to use)
+function getRandomColor(){
+    function rand(min, max) {
+        return min + Math.random() * (max - min);
+    }
+
+    var h = rand(300, 360)|0,
+        s = rand(40, 70)|0,
+        l = rand(65, 72)|0;
+
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}
+
+function transformTag( tagData ){
+    tagData.style = "--tag-bg:" + getRandomColor();
+
+    if( tagData.value.toLowerCase() == 'shit' )
+       tagData.value = 's??t'
+}
+
+tagify.on('add', function(e){
+	xtags.push(e.detail.data.value)
+	setCookie('tags',xtags)
+	window.parent.postMessage(xtags, "*");
+});
+tagify.on('remove', function(e){
+	xtags.splice(xtags.indexOf(e.detail.data.value),1)
+	setCookie('tags',xtags)
+	window.parent.postMessage(xtags, "*");
+
+});
+
+tagify.on('invalid', function(e){
+    console.log(e, e.detail);
+});
+
+})()
+</script>
+
+
+    </body>
+</html>

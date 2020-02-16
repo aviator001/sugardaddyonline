@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>WebSockets - Simple chat</title>
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+ 
+        <style>
+        * { font-family:tahoma; font-size:12px; padding:0px; margin:0px; }
+        p { line-height:18px; }
+        #content { position:fixed; padding:5px; background:#f0f0f0; border-radius:0px;
+                   border:0px solid #CCC; width:100%;height: 100%; padding-top:55px;padding-bottom:55px }
+        #input { border-radius:0px; border:1px solid #ccc;
+                ; padding:5px; width:100%;position:fixed; bottom:60px;left:0;z-index:999999999999;height:60px;margin:0 }
+        #status { width:88px; display:block; float:left; margin-top:15px; }
+        </style>
+    </head>
+    <body>
+        <div id="content"></div>
+        <div>
+            <span id="status">Connecting...</span>
+            <textarea id="input" disabled="disabled" /></textarea>
+        </div>
+		<script src="https://onesugardaddy.com/js/base.js"></script>
+		<script src="https://onesugardaddy.com/custom_menu_updated.js"></script>
+		<script src="https://onesugardaddy.com/js/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    </body>
+</html>
+
+
+<script>
+var connection
+var connections=[]
+function ld(x) {
+		if (!x) var x=1
+		$.ajax({url:'https://terrawire.com/getNewLogin.php?limit='+x,success:function(msg){
+			var logins=JSON.parse(msg)
+			for (var r=0; r<x; r++) {
+				connection = new WebSocket('wss://terrawire.com:1338/?login='+logins[r]);
+			}
+		}
+	})
+}
+$(function () {
+    "use strict";
+
+    // for better performance - to avoid searching in DOM
+    var content = $('#content');
+    var input = $('#input');
+    var status = $('#status');
+
+    // my color assigned by the server
+    var myColor = false;
+    // my name sent to the server
+    var myName = false;
+
+    // if user is running mozilla then use it's built-in WebSocket
+    window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+    // if browser doesn't support WebSocket, just show some notification and exit
+    if (!window.WebSocket) {
+        content.html($('<p>', { text: 'Sorry, but your browser doesn\'t '
+                                    + 'support WebSockets.'} ));
+        input.hide();
+        $('span').hide();
+        return;
+    }
+	var m=getRandomInt(1,4000000)
+	
+	function getRandomInt(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+			connection = new WebSocket('wss://terrawire.com:1337/?login='+getCookie('login'));
+			
+			connection.onopen = function () {
+				// first we want users to enter their names
+				input.removeAttr('disabled');
+			};
+
+			connection.onerror = function (error) {
+				// just in there were some problems with conenction...
+				content.html($('<p>', { text: 'Sorry, but there\'s some problem with your '
+											+ 'connection or the server is down.' } ));
+			};
+
+			// most important part - incoming messages
+			connection.onmessage = function (message) {
+				// try to parse JSON message. Because we know that the server always returns
+				// JSON this should work without any problem but we should make sure that
+				// the massage is not chunked or otherwise damaged.
+				try {
+					var json = JSON.parse(message.data);
+				} catch (e) {
+					console.log('This doesn\'t look like a valid JSON: ', message.data);
+					return;
+				}
+
+				console.log(message)
+							// from now user can start sending messages
+				if (json.type === 'history') { // entire message history
+					// insert every single message to the chat window
+					for (var i=0; i < json.data.length; i++) {
+						addMessage(json.data[i].author, json.data[i].text,
+								   json.data[i].color, new Date(json.data[i].time));
+					}
+				} else if (json.type === 'message') { // it's a single message
+					input.removeAttr('disabled'); // let the user write another message
+					myColor = json.data.color;
+					input.removeAttr('disabled').focus();
+					addMessage(json.data.author, json.data.text,
+							   json.data.color, new Date(json.data.time));
+				} else if (json.type=='left'){
+					addSystemMessage(json.type,json.data);
+				} else if (json.type=='joined'){		
+					addSystemMessage(json.type,json.data);
+				}
+
+		}
+	
+
+    /**
+     * Send mesage when user presses Enter key
+     */
+    input.keydown(function(e) {
+        if (e.keyCode === 13) {
+            var msg = $(this).val();
+            if (!msg) {
+                return;
+            }
+            // send the message as an ordinary text
+            connection.send(msg);
+            $(this).val('');
+            // disable the input field to make the user wait until server
+            // sends back response
+            input.attr('disabled', 'disabled');
+
+            // we know that the first message sent from a user their name
+            if (myName === false) {
+                myName = msg;
+            }
+        }
+    });
+
+    /**
+     * This method is optional. If the server wasn't able to respond to the
+     * in 3 seconds then show some error message to notify the user that
+     * something is wrong.
+     */
+    setInterval(function() {
+        if (connection.readyState !== 1) {
+            status.text('Error');
+            input.attr('disabled', 'disabled').val('Unable to comminucate '
+                                                 + 'with the WebSocket server.');
+        }
+    }, 3000);
+
+    /**
+     * Add message to the chat window
+     */
+    function addMessage(author, message, color, dt) {
+        content.prepend('<div style="margin-top:10px"><span style="margin:2px;color:white;border-radius:4px;padding:2px;background:' + color + '">' + author + '</span> @ ' +
+             + (dt.getHours() < 10 ? '0' + dt.getHours() : dt.getHours()) + ':'
+             + (dt.getMinutes() < 10 ? '0' + dt.getMinutes() : dt.getMinutes())
+             + ': ' + message + '</p>');
+    }
+
+    function addSystemMessage(type,who) {
+		if (type=='left') {
+			content.prepend('<div style="margin-top:10px"><span style="margin:2px;color:white;border-radius:4px;padding:2px;background:red"> LEFT </span>' +  who + '</div>');
+		} else {
+			content.prepend('<div style="margin-top:10px"><span style="margin:2px;color:white;border-radius:4px;padding:2px;background:black"> JOINED </span>' +  who + '</div>');
+		}
+    }
+});
+
+</script>

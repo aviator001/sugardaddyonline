@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Review Sugar Daddys and Suagr Babies</title>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+	<script src="js/common.js"></script>
+	<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+	<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+	<style>
+.dropzone dz-preview{
+  border: 5px solid silver;
+  height:300px;
+  width:100%;
+  border-radius: 0px;
+  background: blue;
+  padding: 0px;
+  margin:0px;  background-color: aliceblue;border:10px solid white;
+}
+
+.dropzone .dz-preview.dz-image-preview {
+    background-color: aliceblue;border:10px solid white;
+}
+.dropzone .dz-default .dz-message {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  background: #f0f0f0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin:0;
+  position:fixed;
+  left:0;
+  top:0;
+}
+
+</style>	
+
+	<script>
+		Dropzone.autoDiscover=false
+	</script>	</head>
+	<body class="stretched">
+	<form action="http://lushmatch.com/upload.php"  style="width:100%;border:none;background:none" class="dropzone dz-preview" id="member"></form>
+	<script type="text/javascript">
+	var sites
+	var imagesUploaded
+	var r,k,c,t2,t3,t4,intr=50,currImg
+	var rat=1
+	var rx=0, t, ext
+	var set=false
+	var usr_img=[]
+	function getCookie(cname)	{
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0; i<ca.length; i++) {
+		  var c = ca[i].trim();
+		  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+		}
+		return "";
+	}
+	var url="https://sugardaddylocal.com/uploads.php"
+	var myDropzone, files=0
+	if (!myDropzone) {
+		myDropzone = new Dropzone("form#member", { 
+			url: url,
+			maxFilesize: 1000000000,
+			dictDefaultMessage: "<div id='xe' style='background:#000;color:#fff;font-family:Open sans;color:#fff;font-weight:300;top:0;position:fixed;width:100%;left:0;right:0;margin:auto;height:"+window_height()+"px'><br><br><br><br><br><br>CLICK HERE<BR>to select Photos or Videos to Attach<br><br></div>"
+		});
+		
+	}
+	myDropzone.on("addedfile", function(file) {
+		if (file.size>100000000) {
+			alert('too big')
+			abort=true
+			return false
+		} else {
+			abort=false
+		}
+		if (abort===true) return false
+		setCookie('attach_id',guid())
+		files++
+		if (file.type.indexOf('png')>=0) ext='png'
+		if (file.type.indexOf('jpg')>=0) ext='jpg'
+		if (file.type.indexOf('gif')>=0) ext='gif'
+		if (file.type.indexOf('tif')>=0) ext='tif'
+		if (file.type.indexOf('bmp')>=0) ext='bmp'
+		if (file.type.indexOf('psd')>=0) ext='psd'
+		if (file.type.indexOf('eps')>=0) ext='eps'
+		if (file.type.indexOf('jpeg')>=0) ext='jpg'
+		if((file.type=='video/x-ms-wmv')||(file.type=='video/avi')) {
+			alert('Only .mpg .mpeg and .mp4 files allowed for now')
+			return false
+		} else {
+			files++
+		}
+		currImg=file.name
+		usr_img.push(currImg)
+		imagesUploaded=usr_img.toString()
+		console.log(imagesUploaded)
+	});
+
+		
+	myDropzone.on("complete", function(file) {
+		files--
+		var message=file.name
+		var from_u=getCookie('mid')
+		var url = encodeURI('https://sugardaddylocal.com/x_send_mail.php?to=' + getCookie('chatting_with') + '&from=' + from_u + '&message=' + message + '&attach_id=' + getCookie('attach_id')+'&w_w='+window_width())
+		console.log(url)
+		var request = $.ajax({
+			url: url, 
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$$('member').style.display='none'		
+				window.top.frames['iqdz'].style.display='none'
+				window.top.getMailX()
+			}
+			
+		})		
+		
+	});
+
+	function setCookie(cname,cvalue,exdays)	{
+		var d = new Date();
+		d.setTime(d.getTime()+(exdays*24*60*60*1000));
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	 }	
+	
+	function print_blocks(ppx) {
+		if (ppx=='undefined') return false
+		ppx=ppx.toString()
+		var f
+		var px=''
+		var x=''
+		if (ppx*1<10) x='00'+ppx
+		if ((ppx*1>9) && (ppx*1<100)) x='0'+ppx
+		if (ppx*1==100) x=ppx
+			
+		if (!wd) var wd='20px'
+		for (f=0;f<=x.length-1;f++) {
+			var dg=x.substring(f,f+1)
+			if (dg !== '.')
+				px=px+'<span><img src="https://gaysugardaddyfinder.com/assets/img/' + dg + '.png" style="width:'+wd+'"></span>'
+		}
+		return '<span style="padding-top:5px">'+px+'</span>'
+	}
+	
+	function guid() {
+	  function s4() {
+		return Math.floor((1 + Math.random()) * 0x10000)
+		  .toString(16)
+		  .substring(1);
+	  }
+	  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+		s4() + '-' + s4() + s4() + s4();
+	}
+	var sa=[]
+	var ra=[]
+	function saveSite(s) {
+		sites=$('.select-1').val().toString()
+		console.log(sites)
+	}
+	
+			function generateRandomString(j){
+				if (!j) j=16
+				var op=''
+				var arr=new Array('a','b','c','d','e','f','i','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,0,0,1,2,3,4,5,6,7,8,9,0)
+				for (k=0;k<j;k++) {
+					var inx=randomIntFromInterval(0,arr.length-1)
+					op += arr[inx]
+				}
+				return op;
+			}
+			function guid() {
+			  function s4() {
+				return Math.floor((1 + Math.random()) * 0x10000)
+				  .toString(16)
+				  .substring(1);
+			  }
+			  return s4() + '-' + s4();
+			}
+
+			function wait(txt) {
+				if (!txt) var txt='Please wait...'
+				var tx=document.createElement('div')
+				var md=document.createElement('div')
+				var im=document.createElement("img")
+				tx.id='tx'
+				md.id='md'
+				im.id='im'
+				im.src="https://gaysugardaddyfinder.com/assets/images/load.gif"
+				im.style.cssText='width:40px;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:999999999999999999999'
+				md.style.cssText='width:100%;height:100%;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:999999999999999999999;background:#000;opacity:0.3'
+				tx.style.cssText='color:#fff;width:300px;height:50px;text-align:center;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99999999999999999999999;padding-top:100px'
+				tx.textContent=txt
+				document.documentElement.appendChild(md)
+				document.documentElement.appendChild(im)
+				document.documentElement.appendChild(tx)
+			}
+			function wait_alt(txt) {
+				if (!txt) var txt='Please wait...'
+				var tx=document.createElement('div')
+				var md=document.createElement('div')
+				var im=document.createElement("img")
+				tx.id='tx'
+				md.id='md'
+				im.id='im'
+				im.src="https://gaysugardaddyfinder.com/assets/images/load.gif"
+				im.style.cssText='width:40px;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99'
+				md.style.cssText='width:100%;height:100%;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99;background:#000;opacity:0.3'
+				tx.style.cssText='color:#fff;width:300px;height:50px;text-align:center;position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99;padding-top:100px'
+				tx.textContent=txt
+				document.documentElement.appendChild(md)
+				document.documentElement.appendChild(tx)
+			}
+	
+			function hide() {
+				$$('im').style.display='none'
+				$$('tx').style.display='none'
+				$$('md').style.display='none'
+			}		
+		function $$(obj) {
+			return document.getElementById(obj)
+		}		
+	
+	function delCookie(cname) {
+		var d = new Date();
+		d.setTime(d.getTime());
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + "" + "; " + expires;
+	 } 
+
+	function setCookie(cname,cvalue,exdays)	{
+		var d = new Date();
+		d.setTime(d.getTime()+(exdays*24*60*60*1000));
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	 }
+	function c_us() {
+		window.top.contactUs()
+	}
+
+	function $$(objID) {
+		return document.getElementById(objID)
+	}
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+	
+	</script>
+	</body>
+</html>

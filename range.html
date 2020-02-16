@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>CodePen - rangeslider.js - Add/remove classes depending on value</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.css'>
+<style>
+    body {
+background:#f0f0f0;
+  color: #404040;
+  padding: 50px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rangeslider,
+.rangeslider__fill {
+  transition: background 0.3s;
+}
+
+.rangeslider--is-lowest-value {
+  background-color: white;
+}
+
+.rangeslider--is-highest-value .rangeslider__fill {
+  background-color: hotpink;
+}
+
+  </style>
+
+<body>
+<div style="margin-top:-40px">
+<button style="height:40px;border-radius:5px;border:none" class="button button-default">Prev</button>
+<input value="1" id="txtProfile" style="text-align:center;width:100px;border-radius:5px;height:40px;border:1px solid silver;margin-top:10px;margin-bottom:10px" type="text">
+<button style="height:40px;border-radius:5px;border:none" class="button">Next</button>
+<br>
+<input id="range" type="range" min="1" max="50">
+</div>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script id="rendered-js">
+
+var ptr,tmr
+      $(function () {
+  const cssClasses = [
+  'rangeslider--is-lowest-value',
+  'rangeslider--is-highest-value'];
+
+  $('input[type=range]').
+  rangeslider({
+    polyfill: false,
+    onSlide: function(position, value) {
+		$('#txtProfile').val(value)
+		showProfile(value)
+	},
+	}).
+
+  on('input', function () {
+    const fraction = (this.value - this.min) / (this.max - this.min);
+    if (fraction === 0) {
+      this.nextSibling.classList.add(cssClasses[0]);
+    } else if (fraction === 1) {
+      this.nextSibling.classList.add(cssClasses[1]);
+    } else {
+      this.nextSibling.classList.remove(...cssClasses);
+    }
+  });
+$('input[type=range]').attr({max:9,min:0,step:1})
+$('input[type=range]').rangeslider('update', true);
+});
+
+function setMin(min) {
+	$('input[type=range]').attr({min:min})
+	updateRange()
+}
+function setMax(max) {
+	$('input[type=range]').attr({max:max})
+	updateRange()
+}
+
+function setC(ptr) {
+	$('#txtProfile').val(ptr)
+	$('#range').val(ptr)
+	updateRange()
+}
+function updateRange() {
+	$('input[type=range]').rangeslider('update', true);
+}
+function showProfile(ptr) {
+	clearTimeout(tmr)
+	tmr=setTimeout('loadProfile('+ptr+')',1000)
+}
+function loadProfile(ptr) {
+	window.top.loadProfile(ptr)
+}
+</script>
+</body>
+</html>

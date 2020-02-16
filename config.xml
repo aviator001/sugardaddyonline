@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="sugar.daddy.online" version="1.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>SugarDaddyOnline</name>
+    <description>
+A new experience from the pioneeers of sugar daddy dating - the first site based on disruptive technologies
+</description>
+    <author email="g@terrawire.com" href="http://onesugardaddy.com">
+		Sugar Daddy Life Team
+	</author>
+     <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="orientation" value="portrait"/>
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="stay-in-webview" value="true" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="disable-cursor" value="true" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="ChildBrowser" value="false" />
+    <preference name="ErrorUrl" value="err.html" />
+    <preference name="FullScreen" value="true" />
+	<preference name="android-targetSdkVersion" value="28" />
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <preference name="xwalkMultipleApk" value="false" />
+    <plugin name="cordova-plugin-camera" />
+    <plugin name="cordova-plugin-media-capture" />
+    <plugin name="cordova-plugin-file" version="4.3.2" />
+    <plugin name="cordova-plugin-file-transfer" />
+    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-globalization" />
+    <plugin name="cordova-plugin-media" />
+    <plugin name="cordova-plugin-whitelist" version="1.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" version="1.7.1" />
+    <plugin name="cordova-plugin-android-permissions" spec="~0.10.0" />
+    <plugin name="android-camera-permission" spec="~1.0.0" />
+    <plugin name="phonegap-plugin-local-notification" version="1.0.1" />
+    <plugin name="cordova-android-support-gradle-release" />
+	<gap:plugin name="cordova-plugin-customurlscheme" source="npm">
+	  <param name="URL_SCHEME" value="sdo" />
+	</gap:plugin>
+    <platform name="android">
+        <feature name="Camera">
+            <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+        </feature>
+        <feature name="File">
+            <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+            <param name="onload" value="true" />
+        </feature>
+        <allow-navigation href="cdvfile:*" />
+        <feature name="Capture">
+            <param name="android-package" value="com.android.plugins.Permissions" />
+        </feature>
+        <feature name="Geolocation">
+            <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+        </feature>
+        <feature name="InAppBrowser">
+            <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+        </feature>
+	    <config-file target="res/values/strings.xml" parent="/*">
+        <string name="title">sdo</string>
+        <string name="filter_view_https_sugardaddy">sdo</string>
+		</config-file> 	
+		<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+			<supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <application android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true">
+                <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+                    <intent-filter android:label="@string/launcher_name">
+                        <action android:name="android.intent.action.MAIN" />
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+            </application>
+            <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.MICROPHONE" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<activity
+				android:name="sugar.daddy.online"
+				android:label="@string/title" >
+				<intent-filter android:label="@string/filter_view_https_sugardaddy">
+					<action android:name="android.intent.action.VIEW" />
+					<category android:name="android.intent.category.DEFAULT" />
+					<category android:name="android.intent.category.BROWSABLE" />
+					<data android:scheme="sdo"
+						  android:host="sugar.daddy.online"/>
+				</intent-filter>
+			</activity>			
+        </manifest>
+    </platform>
+    <icon src="favicon.png" />	
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />`
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <engine name="android" spec="^9.0.0" />
+</widget>

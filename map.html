@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+	img[src *="https://lushmatch.com"]{
+        border-radius:20px!Important;
+		box-shadow:inset 2px 2px 2px #000
+      }	 
+    img[src *="https://lushmatch.com/sb"]{
+        border-radius:150px!Important;
+		border:10px solid skyblue;
+      }	  
+    </style>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<script src="https://lushmatch.com/custom_js/base.js"></script>
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>	
+  </head>
+  <body>
+    <div id="map"></div>
+	<button onclick="toggle_markers()" style="position:fixed;z-index:99999999;top:50px;left:10px;background:white;border:2px solid red" class="btn btn-dark">Toggle Heatmap</button>
+    <script>
+		var map
+		var tc
+		var tz
+		var currZoom=10
+		var miles=100
+		var factor=1
+		var currLat=getCookie('lat')
+		var currLng=getCookie('lng')
+		
+		function initMap() {
+			var myLatlng = new google.maps.LatLng(getCookie('lat'),getCookie('lng'))
+			var MY_MAPTYPE_ID = 'custom_style';
+			  var mapOptions = {
+				center: myLatlng,
+				mapTypeId: google.maps.MapTypeId.satellite,
+				zoom: 9,
+				scrollwheel: true,
+				zoomControl: true,  
+				disableDoubleClickZoom: false,
+				navigationControl: true,
+				mapTypeControl: false,
+				scaleControl: true,
+				draggable: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP		
+			  };
+			   var featureOpts = [
+				{
+				  stylers: [
+					{ gamma: 1 },
+					{ weight: 0 }
+				  ]
+				},
+				{
+				  featureType: 'water', 
+				  stylers: [
+					{ color: '#890000' }
+				  ]
+				}
+			  ];
+			  map = new google.maps.Map(document.getElementById('map'),
+				  mapOptions);
+			  var styledMapOptions = {
+				name: 'Custom Style'
+			  };
+			  var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+				map.addListener('zoom_changed', function() {
+					clearTimeout(tz)
+					tz=setTimeout(function(){
+						zoomAdjust(map.getZoom())
+					},1000)
+				});
+				map.addListener('center_changed', function() {
+					clearTimeout(tc)
+					tc=setTimeout(function(){
+						centerAdjust([map.center.lat(),map.center.lng()])
+					},1000)
+				});	
+			 
+			map.set('styles', [
+			  {
+				featureType: 'road',
+				elementType: 'geometry',
+				stylers: [
+				  { color: '#cfcfcf' },
+				  { weight: 1 },
+					 { hue: '#000000' },
+					{ visibility: 'simplified' }
+				]
+			  }, {
+				featureType: 'road',
+				elementType: 'labels',
+				stylers: [
+				  { saturation: -100 },
+				  { invert_lightness: false }
+				]
+			  }, {
+				featureType: 'landscape',
+				elementType: 'geometry',
+				stylers: [
+				  { hue: '#cfcfcf' },
+				  { gamma: 2 },
+				  { saturation: 100 },
+				  { lightness: 196 }
+				]
+			  }, {
+				featureType: 'poi.school',
+				elementType: 'geometry',
+				stylers: [
+				  { hue: '#000000' },
+				  { lightness: 100 },
+				  { saturation: 1 }
+				]
+			  },
+				  
+				{
+				  featureType: 'water',
+				  stylers: [
+					{ color: '#cccccc' }
+				  ]
+				},
+				   {
+				  featureType: "all",
+				  elementType: "all",
+				  stylers: [
+					{ saturation: -100 } // <-- THIS
+				  ]
+				}
+			]);
+			getMapData(getCookie('lat'),getCookie('lng'),miles)
+		}
+		var markers=[]
+		var coords=[]
+		var gradient = [
+			'rgba(0, 255, 255, 0)',
+			'rgba(0, 255, 255, 1)',
+			'rgba(0, 191, 255, 1)',
+			'rgba(0, 127, 255, 1)',
+			'rgba(0, 63, 255, 1)',
+			'rgba(0, 0, 255, 1)',
+			'rgba(0, 0, 223, 1)',
+			'rgba(0, 0, 191, 1)',
+			'rgba(0, 0, 159, 1)',
+			'rgba(0, 0, 127, 1)',
+			'rgba(63, 0, 91, 1)',
+			'rgba(127, 0, 63, 1)',
+			'rgba(191, 0, 31, 1)',
+			'rgba(255, 0, 0, 1)'
+		]		
+		function getMapData(lat,lng,miles) {
+			var url='https://spoiledbymen.com/x_get_map_data.php?lat='+lat+'&lng='+lng+'&miles='+miles+'&limit=200'
+			$.ajax({
+				url:url,
+				success:function(data){
+					if (data=='null') return
+					data=JSON.parse(data)
+					console.log(data)
+					for (var i=0;i<data.length; i++) {
+						var cr=''
+						var s=10+Math.floor(Math.random()*10)*2
+						var icon = {
+							url: 'https://lushmatch.com/sb/'+data[i].filename_1,
+							scaledSize: new google.maps.Size(s, s)
+						};
+						try {
+						var marker = new google.maps.Marker({
+							position: new google.maps.LatLng(data[i].lat,data[i].lng),
+							map: map,
+							title: 'NAME: ' + data[i].login + '\r\nI AM A: ' + data[i].gender + '\r\nAGE: ' + data[i].age + '\r\nFROM: ' + data[i].location,
+							zIndex: i+100,
+							icon: icon
+						});
+						} catch(e) {
+							console.log(e)
+						}
+						coords.push(new google.maps.LatLng(data[i].lat,data[i].lng))
+						markers.push(marker)
+						var infoWindow = new google.maps.InfoWindow(), marker, i;
+						cr+='<table style="margin-top:5px;background:#f0f0f0;width:100%"><tr>'
+						cr+='<td style="text-align:center;width:25%;padding:5px"><img style="width:20px;margin:5px" src="img/text.png"></td>'
+						cr+='<td style="text-align:center;width:25%;padding:5px"><img style="width:20px;margin:5px" src="img/gift.png"></td>'
+						cr+='<td style="text-align:center;width:25%;padding:5px"><img style="width:25px;margin:5px" src="img/video.png"></td>'
+						cr+='<td style="text-align:center;width:25%;padding:5px"><img style="width:20px;margin:5px;margin-right:0px" src="img/info.png"></td>'
+						cr+='</tr></table>'
+								
+						// Add info window to marker    
+						google.maps.event.addListener(marker, 'click', (function(marker, i) {
+							return function() {
+								infoWindow.setContent('<table style="margin:0"><tr><td colspan=2><img src="https://lushmatch.com/sb/'+data[i].filename_1+'" style="width:150px"></td></tr><tr><td><b>NAME:</b></td><td>' + data[i].login + '</td></tr><tr><td><b>I AM:</b></td><td>' + data[i].gender + '</td></tr><tr><td><b>AGE:</b></td><td>' + data[i].age + '</td></tr><tr><td><b>FROM:</b></td><td>' + data[i].location + '</td></tr><tr><td colspan=2>'+cr+'</td></tr></table>');
+								infoWindow.open(map, marker);
+							}
+						})(marker, i));
+						
+					}
+					var pointArray = new google.maps.MVCArray(coords);
+					var heatmap = new google.maps.visualization.HeatmapLayer({
+						data: pointArray
+					});
+					heatmap.setMap(map);
+					heatmap.set('radius',20) 
+					<!-- heatmap.set('gradient',gradient)  -->
+				}
+			})
+		}
+		var mv=true
+		function toggle_markers(){
+			if (mv===true) {
+				hide_markers()
+				mv=false
+			} else {
+				show_markers()
+				mv=true
+			}
+		}
+		function hide_markers() {
+			for (var k=0;k<markers.length;k++) {
+				markers[k].setVisible(false);
+			}
+		}
+		function show_markers() {
+			for (var k=0;k<markers.length;k++) {
+				markers[k].setVisible(true);
+			}
+		}
+		function zoomAdjust() {
+			if (map.getZoom()<currZoom) {
+				factor=currZoom-map.getZoom()
+				miles=factor*50*5
+				currZoom=map.getZoom()
+				getMapData(currLat,currLng,miles)
+			}
+		}		
+		function centerAdjust(latLng) {
+			currLat=latLng[0]
+			currLng=latLng[1]
+			getMapData(currLat,currLng,miles)
+		}
+	</script>
+	<script src="custom_menu.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMOxrf7vlwZGjqd4uz7ID9RyKSZ_NOE4A&callback=initMap&libraries=visualization" async defer></script>
+  </body>
+</html>

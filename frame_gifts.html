@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	body{
+    background:#eee;    
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+label {
+font-weight:bold
+}
+    </style>
+		<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+		        <div class="col-lg-8 pb-5">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="account-fn">First Name</label>
+										<input class="form-control" type="text" id="name" value="" required="">
+									</div>
+								</div>
+								<div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Mobile Number</label>					
+									<input class="form-control" type="text" style="width:100%;height:40px;font-size:16px!Important" id="mobile"  onchange="update(this)">
+								</div>	
+								</div><div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Login</label>					
+									<input class="form-control" disabled type="text" style=";height:40px;font-size:16px!Important" id="login">
+								</div>	
+								
+								</div><div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Email</label>						
+									<input class="form-control"type="text" style=";height:40px;font-size:16px!Important" id="email">
+								</div>
+								
+								</div><div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">I am a </label>					
+									<select class="form-control" type="select" id="gender" style="height:40px;font-size:16px!Important" onchange="update(this);setGender(this.value)">
+										<option name="Sugar Daddy">Sugar Daddy</option>
+										<option name="Sugar Baby">Sugar Baby</option>
+									</select>
+									<input type="hidden" name="looking_for" id="looking_for">
+								</div>
+								<!--  -->
+								<!-- </div><div class="col-md-6"><div class="form-group">					 -->
+									<!-- <label for="account-fn">SEEKING</label>						 -->
+									<!-- <select class="form-control" type="select" id="looking_for" style="height:40px;font-size:16px!Important" onchange="update(this)"> -->
+										<!-- <option name="Sugar Daddy">Sugar Daddy</option> -->
+										<!-- <option name="Sugar Baby">Sugar Baby</option> -->
+									<!-- </select>								 -->
+								<!-- </div> -->
+								
+								</div><div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Password</label>				
+									<input class="form-control" type="text" style=";height:40px;font-size:16px!Important" id="pswd">								
+								</div>				
+								
+								</div><div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Age</label>
+									<input class="form-control" type="text" style=";height:40px;font-size:16px!Important" id="age">						
+								</div>
+								
+								</div>
+<div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">Your Location</label>
+									<input class="form-control"type="text" id="location" style=";height:40px;font-size:16px!Important" onclick="loc()">						
+								</div>								
+								
+								</div>								
+								<div class="col-md-6"><div class="form-group">					
+									<label for="account-fn">About You</label>
+									<textarea class="form-control" id="general_info" style=";height:160px;font-size:16px!Important" onchange="update(this)"></textarea>						
+								</div>								
+								
+								</div>
+								<div class="col-md-6"><div class="form-group">					
+									<input class="form-control btn btn-info" type="button" style="border-radius:20px;;height:40px;font-size:16px!Important;color:#fff;background:" id="go_fb" onclick="update_form()" value="UPDATE ACCOUNT">						
+								</div>		</div>	
+								<div id="xsa" class="col-md-6"><div class="form-group">					
+									<input class="form-control btn btn-danger" type="button" style="border-radius:20px;;height:40px;font-size:16px!Important;color:#fff;background:" id="" onclick="suspend_account()" value="SUSPEND ACCOUNT">						
+								</div>	
+								</div>	
+								</div>
+								<br/>
+								</div>								<br/><br/>
+
+								
+
+								  <div class="www_box2 form-row" style="display:;background:aliceblue;padding:10px;text-align:center;margin:10px;border:10px solid white">
+									<label for="card-element">
+									  Pay Using Stripe
+									</label>
+									<div id="card-element">
+									  A Stripe Element will be inserted here.
+									</div>
+									Used to display form errors.
+									<div id="card-errors" role="alert"></div>
+								  <hr>
+								  <button onclick="pay(500,10,'Monthly Subscription')" class="btn btn-info" style="width:100%;border-radius:0 0 0 0;">Buy Monthly Subscription - $5</button>OR
+								  <button onclick="pay(100,11,'Single Phone Number')"  class="btn btn-warning" style="width:100%;;border-radius:0 0 0 0">Buy Anonymous Phone Number - $1</button>OR
+								  <button onclick="pay(1000,12,'100 SMS Credits')"  class="btn btn-info" style="width:100%;border-radius:0 0 0 0">Buy 100 SMS Credits - $10</button>
+								</div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var start_magic=false
+	var magic_w='65px'
+	var magic_h='65px'
+
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+	function dinit() {
+		var url = 'https://lushmatch.com/x_get_user_info.php?member_id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html", 
+				cache: false,
+				success: function(msg) {
+					console.log(msg)
+					msg=JSON.parse(msg)
+					document.getElementById('mobile').value=msg.mobile
+					document.getElementById('name').value=msg.name
+					document.getElementById('email').value=msg.email
+					document.getElementById('login').value=msg.login
+					document.getElementById('gender').value=msg.gender
+					document.getElementById('looking_for').value=msg.looking_for
+					document.getElementById('age').value=msg.age
+					document.getElementById('general_info').value=msg.general_info
+					document.getElementById('location').value=msg.location
+					window.top.document.getElementById('full_name').innerHTML=msg.login
+					window.top.document.getElementById('joined').innerHTML=msg.xReg_Date
+					window.top.document.getElementById('user_photo').src='https://lushmatch.com/sb/'+msg.filename_1
+					window.top.document.getElementById('user_photo').style.width='100px'
+					window.top.document.getElementById('user_photo').style.height='100px'
+					window.top.document.getElementById('user_photo').style.borderRadius='150px'
+					window.top.document.getElementById('user_photo').style.marginTop='-25px'
+					window.top.document.getElementById('user_photo').style.border='10px solid white'
+					var pswd=msg.pswd
+					document.getElementById('pswd').value=pswd
+					setCookie('gender',msg.gender)
+					setCookie('looking_for',msg.looking_for)
+				}
+			})			
+	}
+	function setGender(gen) {
+		var looking_for=document.createElement('div')
+		looking_for.id='looking_for'
+		if (gen=='Sugar Baby') {
+			looking_for.value='Sugar Daddy'
+			setCookie('gender','Sugar Baby')
+			setCookie('looking_for','Sugar Daddy')
+		} else {
+			looking_for.value='Sugar Baby'
+			setCookie('gender','Sugar Daddy')
+			setCookie('looking_for','Sugar Baby')
+		}
+		update(looking_for)
+	}
+	
+	function update(o) {
+		var v=o.value
+		var f=o.id
+		var t = 'dt_members'
+		var url = 'https://lushmatch.com/x_update_table.php?table=' + t + '&field=' + f + '&value=' + v + '&id=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+				url: url,
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					if (!msg) {
+						if (o.id !== 'gender') {
+							$.alert('Done. Update completed.')
+						}
+					} else {
+					}
+				}
+			})			
+	}
+	setTimeout('dinit()',2000)
+
+var test_mode=false
+// Create a Stripe client.
+if (test_mode===true) {
+	var stripe = Stripe('pk_test_qtprDcPj4ouEvG9O2CaP7EJV');
+} else {
+	var stripe = Stripe('pk_live_usFpglAicQ086PYo5g0n4Jiz');
+}
+
+// Create an instance of Elements.
+var elements = stripe.elements();
+
+// Custom styling can be passed to options when creating an Element.
+// (Note that this demo uses a wider set of styles than the guide below.)
+var style = {
+  base: {
+    color: '#32325d',
+    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
+      color: '#aab7c4'
+    }
+  },
+  invalid: {
+    color: '#fa755a',
+    iconColor: '#fa755a'
+  }
+};
+
+// Create an instance of the card Element.
+var card = elements.create('card', {style: style});
+
+// Add an instance of the card Element into the `card-element` <div>.
+card.mount('#card-element');
+
+// Handle real-time validation errors from the card Element.
+card.addEventListener('change', function(event) {
+  var displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+var amt,plan,desc
+
+function pay(a,p,d) {
+	amt=a
+	plan=p
+	desc=d
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the user if there was an error.
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server.
+      stripeTokenHandler(result.token);
+    }
+  });
+}
+	// Submit the form with the token ID.
+	function stripeTokenHandler(token) {
+		
+		var url='https://lushmatch.com/x_charge.php?stripe_test_mode=' + test_mode + '&token='+token.id+'&login='+getCookie('login')+'&mid='+getCookie('mid')+'&mobile='+getCookie('mobile')+'&email='+getCookie('email')+'&amt='+amt+'&plan='+plan+'&desc='+desc
+		$.ajax({url:url,success:function(data){$.alert(data)}})
+	  }
+		
+		function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(displayPosition);
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+		function update_form() {
+			wait()
+			setTimeout(function(){
+				hide()
+				$.alert('Update Succesfull')
+			},2000)
+		}
+		
+		function loc() {
+			navigator.geolocation.watchPosition(displayPosition);
+		}
+
+		function ntfy(str, xCol) {
+			if (!xCol) xCol = '#fff'
+			document.getElementById('notify').style.bottom = '10px'
+			document.getElementById('notify').style.right = '10px'
+			document.getElementById('notify').style.background = xCol
+			document.getElementById('notify').style.display = 'block'
+			document.getElementById('notify').style.opacity = '1'
+			document.getElementById('notify').style.padding = '10px'
+			document.getElementById('notify_txt').innerHTML = str
+			setTimeout('hide_ntfy()', 5000)
+		}
+
+		function hide_ntfy() {
+			document.getElementById('notify').style.display = 'none'
+			document.getElementById('notify_txt').innerHTML = ''
+		}
+
+		function noProceed() {
+			setCookie('location', city + ', ' + state + ' ' + zip)
+			setCookie('x-location', city + ', ' + state + ' ' + zip)
+			setCookie('street_no', 'NA')
+			setCookie('street', 'NA')
+			setCookie('city', city)
+			setCookie('state', state)
+			setCookie('zip', zip)
+			setCookie('lat', lat)
+			setCookie('lng', lng)
+			setCookie('accurate', 'No')
+		}
+		
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}		
+		  var formatted_address,street_no,street,city,state,zip
+		
+		function error() {}
+		
+		var full_address
+		
+		function displayPosition(position) {
+			var geocoder = new google.maps.Geocoder();
+			var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+			geocoder.geocode({'latLng': latlng}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					formatted_address = results[0].formatted_address
+					var address = "", city = "", state = "", zip = "", country = "";
+					for (var i = 0; i < results[0].address_components.length; i++) {
+						var addr = results[0].address_components[i];
+						if (addr.types[0] == 'country')
+							country = addr.long_name;
+						else if (addr.types[0] == 'street_address') // address 1
+							address = address + addr.long_name;
+						else if (addr.types[0] == 'establishment')
+							address = address + addr.long_name;
+						else if (addr.types[0] == 'route')  // address 2
+							address = address + addr.long_name;
+						else if (addr.types[0] == 'postal_code')       // Zip
+							zip = addr.short_name;
+						else if (addr.types[0] == ['administrative_area_level_1'])       // State
+							state = addr.short_name;
+						else if (addr.types[0] == ['locality'])       // City
+							city = addr.long_name;
+					}
+						street_no=results[0].address_components[0].short_name
+						street=results[0].address_components[1].short_name
+						full_address = formatted_address
+						full_address=street_no + ', ' + street + ' ' + city + ' ' + state + ' ' + zip + ' '  + country
+						console.log('STREET NO: ' + street_no)
+						console.log('STREET: '+street)
+						console.log('CITY: '+city)
+						console.log('STATE: '+state)
+						console.log('ZIP: '+zip)
+						console.log('COUNTRY: '+country)
+						console.log('LOCATION: ' + city + ', ' + state + ' ' + zip)
+						console.log('FULL ADDRESS: ' + formatted_address)
+						setCookie('location', city + ', ' + state + ' ' + zip)
+						setCookie('street_no',street_no)
+						setCookie('street',street)
+						setCookie('city',city)
+						setCookie('state',state)
+						setCookie('zip',zip)
+						setCookie('lat',position.coords.latitude)
+						setCookie('lng',position.coords.longitude)
+						document.getElementById('location').value=city + ', ' + state + ' ' + zip
+						document.getElementById('address').value=city + ', ' + state
+						document.getElementById('street').value=street
+						document.getElementById('cc_city').value=city
+						document.getElementById('cc_state').value=state
+						document.getElementById('zip').value=full_address
+              }
+
+          }
+
+      });
+}
+
+	function suspend_account(){
+		var url='https://lushmatch.com/x_suspend_account.php?mid='+getCookie('mid')
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$.alert({title:'',content:'Account suspended. You will no longer appear in search results or Browse Lists and will not receive any mails or notifications.<br><br> You may come out of hiding and un-suspend account at any time.'})
+				$('#xsa').html('<input class="form-control btn btn-success" type="button" style=";height:40px;font-size:16px!Important;color:#fff;background:" id="" onclick="unsuspend_account()" value="UN-SUSPEND ACCOUNT">')
+			}
+		})
+	}
+
+	function unsuspend_account(){
+		var url='https://lushmatch.com/x_unsuspend_account.php?mid='+getCookie('mid')
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$.alert({title:'',content:'Account re-activated! You will now appear in search results and/or Browse Lists and will once again, receive mails and/or notifications.<br><br> You may hide and go off grid any time when you suspend your account again.'})
+				$('#xsa').html('<input class="form-control btn btn-danger" type="button" style=";height:40px;font-size:16px!Important;color:#fff;background:" id="" onclick="suspend_account()" value="SUSPEND ACCOUNT">')
+			}
+		})
+	}
+	if (getCookie('isMobile')=='mobile') {
+		render_mob()
+	} else {
+	
+	}
+	function render_mob() {
+	}		
+	</script>
+			<script src="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="https://lushmatch.com/assets/js/jquery-ui.js"></script>
+		<script src="https://lushmatch.com/custom_js/base.js"></script>
+		<script src="https://lushmatch.com/custom_js/wait.js"></script>
+		<script src="https://lushmatch.com/custom_js/wait.js"></script>

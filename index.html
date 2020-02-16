@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154956474-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154956474-1');
+		</script>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=1024">
+		<meta name="description" content="A Sugar Daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first Sugar Daddy site to use disruptive SMS messaging. Find a Sugar Daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />		
+		<title>Sugar Daddy Dating App - Live the Good Life</title>
+		<link rel="canonical" href="">
+		<link rel="icon" href="favicon.png">
+		<link href="https://onesugardaddy.com/assets/css/menu.css" rel="stylesheet">
+		<link href="css/login.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet"> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300' rel='stylesheet' type='text/css'>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<style>
+	* 	{
+			max-width:480px!Important;
+			margin:auto;
+			
+		}
+</style>
+<script>
+	var version=1.0
+	setCookie('version',version)
+	setTimeout('setVersion()',1000)
+
+	function handleOpenURL(url) {
+		setCookie('url',url)
+		var q=url.split('=')[1]
+		location.href='search.html?q='+q
+	}
+
+	function qs(name, url) {
+		if (!url) {
+		  url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+
+	function setCookie(cname,cvalue)	{
+		if (window.location.href.indexOf('file://')>=0) {
+			window.localStorage.setItem(cname, cvalue);
+		} else {
+			var d = new Date(); 
+			d.setTime(d.getTime()+(1*24*60*60*1000)); 
+			var expires = "expires="+d.toGMTString(); 
+			document.cookie = cname + "=" + cvalue + "; " + expires; 
+		}
+	} 
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+
+	function delCookie(cname) {
+		if (mob===true) {
+			window.localStorage.removeItem(cname);
+		} else {
+			var d = new Date();
+			d.setTime(d.getTime());
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" + "" + "; " + expires;
+		}
+	}
+	function setVersion() {
+		setCookie('version',version)
+	}
+	
+</script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> 
+		<![endif]-->
+</head>
+	<body style="background:black">
+
+		<div class="page-loader">
+			<img src="assets/img/loader.gif" alt="">
+		</div>
+		<header id="header" style="z-index:99999999999999999999999!Important;background:#000;margin:0;padding:0">
+			<div id="mega-menu" class="header header-sticky primary-menu icons-no default-skin zoomIn align-right" style="margin:0;padding:0">
+				<div class="container" style="background:#000;margin:0;padding:0">
+					<div class="row">
+						<nav class="navbar navbar-default redq" role="navigation">
+						<div class="container">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header"  style="width:300px;position:;margin:auto;left:0;right:0">
+							</div>
+							<div class="collapse navbar-collapse" style="background:">
+								<a class="navbar-brand mobile pull-left" href="#"><img src="https://onesugardaddy.com/favicon.png" style="width:100px"></a>
+
+							<!-- end .nav .navbar-nav -->
+							</div>
+							<!-- end .navbar-collapse -->
+							<!-- </div> -->
+							<!-- end .container-fluid -->
+						</div>
+						<!-- end .container -->
+						</nav>
+						<!-- end nav -->
+					</div>
+					<!-- end .row -->
+				</div>
+				<!-- end .container -->
+			</div>
+		</header> 
+		<img src="https://onesugardaddy.com/images/logo.png" style="margin:auto;width:90%;position:absolute;z-index:999999999999999999;top:80px;left:0;right:0">
+		<div id="large-header" class="large-header" style="margin-top:-70px">
+			<canvas id="demo-canvas"></canvas>
+			<h1 class="main-title" style="font-size:2.2em;width:100%">INSTANTLY <div class="thin wow pulse" data-wow-duration="1.8s" data-wow-delay="0.5s" data-wow-iteration="3">CONNECT</div>
+			<div class="smallh wow zoomIn" style="line-height:20px!Important"> TO THE SUGAR DADDY OR SUGAR BABY OF YOUR DREAMS RIGHT NOW </div><br/>
+			<div class="smallh wow zoomIn"> 100% FREE TO JOIN AND MESSAGE  </div><br/>
+			<button onclick="joinFree()" type="button" class="btn wow fadeInLeft" style="background:white!Important;color:#333!Important;opacity:0.8!Important"><span style="color:#333;box-shadow:0 0 50px rgba(255,255,255,1)!Important">JOIN NOW</span></button>
+			<button onclick="loginForm()" type="button" class="btn wow fadeInRight" style="background:white!Important;color:#333!Important;opacity:0.8!Important"><span style="color:#333;box-shadow:0 0 50px rgba(255,255,255,1)!Important">LOGIN</span></button>
+			<!-- <button onclick="loadExtURL();load();" type="button" class="btn wow fadeInRight" style="background:white!Important;color:#333!Important"><span style="color:#333;box-shadow:0 0 50px rgba(255,255,255,1)!Important">LOGIN WITH FACEBOOK</span></button> -->
+			</h1>
+		</div>
+
+	<div id="send_email" onkeyup="deduct()" class="modal_window" style="padding:20px;border-radius:6px;position:;z-index:9999999999999;display:none;background:#f0f0f0;top:100px;left:0;right:0;margin:auto;width:320px;max-width:320px;height:500px;font-family:Ubuntu Condensed;font-size:24px;"><div id="tip" style='color:brown;font-family:Ubuntu Condensed'>SEND ANONYMOUS SMS<br><br><div style="font-size:18px;color:#333;font-family:Ubuntu Condensed">1. Your number will not be revealed<br>2. Message will show as coming from </div></div><br><br><div contentEditable onblur='fill_txt()' onclick='erase_txt()' id='message_text' style='word-wrap:break-word;font-family:Ubuntu Condensed;font-size:24px;contentEditable:true;color:#0093D9;cursor:hand;cursor:pointer;border-radius:4px;border:3px solid lightblue;height:170px;max-height:170px;color:#333;overflow-y:scroll;overflow-x:hidden;color:grey;background:#fff;padding:20px;background:#fff'>Type Message Here</div><div><div style="left:20px;position:">CHARACTERS REMAINING: <b><div id="cr">160</div></b></div></div><br><br><div style='margin-top:10px'><div style="font-size:22px"  class="btn btn-info" onclick='send_sms()' id="send_mail">SEND</div>&nbsp;<div style="font-size:22px"  class="btn btn-danger" onclick="document.all.modal_text.style.display='none'" id="">GO BACK</div></div></div>
+	<div id="send_sms" onkeyup="deduct()" class="modal_window" style="padding:20px;border-radius:6px;position:;z-index:9999999999999;display:none;background:#f0f0f0;top:100px;left:0;right:0;margin:auto;width:320px;max-width:320px;height:500px;font-family:Ubuntu Condensed;font-size:24px;"><div id="tip" style='color:brown;font-family:Ubuntu Condensed'>SEND ANONYMOUS SMS<br><br><div style="font-size:18px;color:#333;font-family:Ubuntu Condensed">1. Your number will not be revealed<br>2. Message will show as coming from </div></div><br><br><div contentEditable onblur='fill_txt()' onclick='erase_txt()' id='message_text' style='word-wrap:break-word;font-family:Ubuntu Condensed;font-size:24px;contentEditable:true;color:#0093D9;cursor:hand;cursor:pointer;border-radius:4px;border:3px solid lightblue;height:170px;max-height:170px;color:#333;overflow-y:scroll;overflow-x:hidden;color:grey;background:#fff;padding:20px;background:#fff'>Type Message Here</div><div><div style="left:20px;position:">CHARACTERS REMAINING: <b><div id="cr">160</div></b></div></div><br><br><div style='margin-top:10px'><div style="font-size:22px"  class="btn btn-info" onclick='send_sms()' id="send_mail">SEND</div>&nbsp;<div style="font-size:22px"  class="btn btn-danger" onclick="img.style.display='block';document.all.cover.style.display='none';document.all.modal_text.style.display='none';document.all.modal.style.display='none'" id="">GO BACK</div></div></div>
+	<section id="modalLogin" class="popupContainer" style="position:;display:none;z-index:999999999999999999999;background:aliceblue;margin:auto;left:0;right:0;margin-top:20%">
+		<div id="cover" style="display:;position:fixed;width:100%;height:100%;background:#000;opacity:0.7;z-index:;top:0;left:0;bottom:0;right:0"></div>
+		<div class="popupHeader">
+			<!-- Social Login -->
+			<div class="social_login">
+				<div style="width:100%;text-align:center">
+				<div style="font-size:14px">LOGIN WITH</div>
+
+				<div  class="one_half" style="width:50%;text-align:center">
+					<a href="#">
+						<img src="https://terrawire.com/images/lg_google.png" style="width:50px">
+
+					</a>
+				</div>
+				<div  class="one_half"  style="width:50%;text-align:center">
+					<a href="#" class="">
+						<!-- <img onclick="myFacebookLogin()" src="https://terrawire.com/images/face.png" style="width:50px;cursor:hand;cursor:pointer"> -->
+						<img onclick="loadExtURL();load()" src="https://terrawire.com/images/face.png" style="width:50px;cursor:hand;cursor:pointer">
+					</a>
+				</div>
+
+				<div class="centeredText">
+					<br><div>Or: use your Email address</div><br>
+				</div>
+				<div class="action_btns">
+					<div class="one_half" style="padding:3px;margin:0"><a style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(0,0,0,0.1)" href="#" id="login_form" onclick="loginForm()" class="btn">Login</a></div>
+					<div class="one_half last"  style="padding:3px;margin:0"><a style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(0,0,0,0.1)" href="#" id="register_form" onclick="regForm()" class="btn">Sign up</a></div>
+					
+				</div>
+			</div>
+			</div>
+
+			<!-- Username & Password Login form -->
+			<div class="user_login">
+				<form>
+					<label>Email / Username</label>
+					<input id="email" type="text" />
+					<br />
+
+					<label>Password</label>
+					<input id="password" type="password" />
+					<br />
+					<div id="inmsg" class="checkbox">
+
+					</div>
+					<div class="action_btns">
+						<div class="one_half" style="padding:3px;margin:0"><a id="back_btn" style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(0,0,0,0.1)" href="javascript:backLogin()" class="btn btn_back"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last" style="padding:3px;margin:0"><a onclick="login1()" style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(0,0,0,0.1)"href="#" class="btn">Login</a></div>
+					</div>
+				</form>
+				<br />
+				<a href="javascript:showForgot()" class="forgot">Forgot password?</a>
+			</div>
+
+			<!-- Username & Password Login form -->
+			<div class="forgot_password" style="display:none;color:#333">
+				<form>
+					Enter your login name <span style="color:red">OR</span> email <span style="color:red">OR</span> mobile number. Your password will be sent to your mobile phone via sms
+					<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input id="loginF" type="text" placeholder="Enter your Login Name" style="height:50px!Important;border-radius:7px!Important;border:1px solid aliceblue!Important;padding:4px;width:90%"/>
+					<br /><br />OR
+					<input id="email" type="text" placeholder="Enter your Email Address" style="height:50px!Important;border-radius:7px!Important;border:1px solid aliceblue!Important;padding:4px;width:90%"/>
+					<br /><br />OR
+					<input id="mobileF" type="text" placeholder="Enter your Mobile Number" style="height:50px!Important;border-radius:7px!Important;border:1px solid aliceblue!Important;padding:4px;width:90%"/>
+					<br />
+
+					<div class="action_btns">
+						<div class="one_half" style="padding:3px;margin:0"><a id="back_btn_forgot" style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(0,0,0,0.1)" href="javascript:backForgot()" class="btn btn_back"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last" style="padding:3px;margin:0"><a style="background:white!Important;color:#333!Important;box-shadow:0 0 10px rgba(255,0,0,0.1)" href="javascript:sendForgot()" class="btn">Send</a></div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Register Form -->
+			<div class="user_register">
+				</div>
+		</div>
+	</section>
+	<div id="loader" style="display:none;z-index:99999999999999999;position:;top:0;left:0;right:0;bottom:0;opacity:0.3;margin:auto;background:#000;font-family:Open Sans Condensed;"></div>
+	<img id="img_loader" style="display:none;z-index:999999999999999999;position:;top:0;left:0;right:0;bottom:0;opacity:1;margin:auto;width:50px" src="assets/img/load.gif">
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "WebSite",
+	  "url": "https://onesugardaddy.com/",
+	  "potentialAction": {
+		"@type": "SearchAction",
+		"target": "osd://one.sugardaddy.com?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	  }
+	}
+	</script>
+	<script>
+	function qs(name, url) {
+		if (!url) {
+		  url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+
+	function setCookie(cname,cvalue)	{
+		if (window.location.href.indexOf('file://')>=0) {
+			window.localStorage.setItem(cname, cvalue);
+		} else {
+			var d = new Date(); 
+			d.setTime(d.getTime()+(1*24*60*60*1000)); 
+			var expires = "expires="+d.toGMTString(); 
+			document.cookie = cname + "=" + cvalue + "; " + expires; 
+		}
+	} 
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+
+	function delCookie(cname) {
+		if (mob===true) {
+			window.localStorage.removeItem(cname);
+		} else {
+			var d = new Date();
+			d.setTime(d.getTime());
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" + "" + "; " + expires;
+		}
+	}
+</script>
+<script src='cordova.js'></script>
+<script src="https://onesugardaddy.com/assets/js/jquery.js"></script>
+<script src="https://onesugardaddy.com/assets/js/animheader.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script>
+	var watchID = null;
+	setTimeout('onDeviceReady()',1000)
+	
+	function sendForgot() {
+		var url='https://onesugardaddy.com/x_send_password.php?login='+$$('loginF').value+'&mobile='+$$('mobileF').value
+		console.log(url)
+		$.ajax({url:url,success:function(data){
+			$.alert({title:'',content:data})
+		}})
+	}
+	
+	function onDeviceReady() {
+		setCookie('href',location.href)
+		$$('email').value=getCookie('saveUser')
+		$$('password').value=getCookie('savePass')
+		var	options = {
+		  enableHighAccuracy: true,
+		  timeout: 1000,
+		  maximumAge: 0
+		};
+		var	id = navigator.geolocation.getCurrentPosition(a, b, options);
+	}
+
+	function loc() {
+		$.ajax({
+			url: "https://onesugardaddy.com/x_location.php",
+			type: "GET",
+			dataType: "html",
+			success: function(msg){
+				unload()
+				if (!!msg) {
+					var data=JSON.parse(msg)[0]
+					setCookie('city', data.city)
+					setCookie('state', data.state)
+					setCookie('zip', data.zip)
+					setCookie('location', data.city + ' ' + data.state + ' ' + data.zip)
+					unload()
+				}
+			}
+		})
+	}		
+	function b(err) {
+		console.log (err.message)
+		$.ajax({
+			url: "https://onesugardaddy.com/x_location.php",
+			type: "GET",
+			dataType: "html",
+			success: function(msg){
+				if (!!msg) {
+					var data=JSON.parse(msg)[0]
+					setCookie('lat', data.lat)
+					setCookie('lng', data.lng)
+					setCookie('city', data.city)
+					setCookie('state', data.state)
+					setCookie('zip', data.zip)
+					setCookie('location', data.city + ' ' + data.state + ' ' + data.zip)
+					unload()
+
+				}
+			}
+		})
+	}
+		
+	function a(p) {
+		console.log('https://onesugardaddy.com/x_get_address.php?lat='+p.coords.latitude+'&lng='+p.coords.longitude)
+		setCookie('lat',p.coords.latitude)
+		setCookie('lng',p.coords.longitude)
+		setCookie('accurate',"1")
+		$.ajax({
+			url: 'https://onesugardaddy.com/x_get_address.php?lat='+p.coords.latitude+'&lng='+p.coords.longitude,
+			type: "GET",
+			dataType: "html",
+			success: function(msg){
+				if (!!msg) {
+					var data=JSON.parse(msg)
+					console.log(data)
+					setCookie('city', data.city)
+					setCookie('state', data.state)
+					setCookie('zip', data.zip)
+					setCookie('location', data.city + ' ' + data.state + ' ' + data.zip)
+					
+					unload()
+				}
+			}
+		})
+	}
+
+
+	function screen_dimensions() {
+		var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		return new Array(w, h)
+	}
+	
+	var winH, winW
+
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+		
+	function window_width() {
+		if (document.body) {
+		 winW = document.body.offsetWidth;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetWidth ) {
+			winW = document.documentElement.offsetWidth;
+			return winW
+		}
+
+		if (window.innerWidth && window.innerWidth) {
+			 winW = window.innerWidth;
+			 return winW;
+		}
+	}		
+
+	function jwait(objTxt) {
+		if (!objTxt) objTxt='Please Wait'
+		objT.innerHTML=objTxt
+		jModalWn.appendChild(objWait)
+		jModalWn.appendChild(objT)
+		jModalWn.style.display='block'
+	}
+
+	function jhide() {
+		document.getElementById('jModalWn').style.display=='none'
+		jModalWn.style.display='none'
+		objW.style.display='none'
+		objT.style.display='none'
+	}
+
+	var o
+	function login1() {
+		$('#inmsg').html('')
+		var m = $("#email").val(),
+			p = $("#password").val();
+			console.log("https://onesugardaddy.com/x_login.php?user_input=" + m + "&pswd=" + p)
+		$.ajax({
+			url: "https://onesugardaddy.com/x_login.php?user_input=" + m + "&pswd=" + p + '&w=' + window.screen.width,
+			dataType: "html",
+			cache: !1,
+			success: function(em) {
+				console.log(em)
+				var ms = JSON.parse(em);
+				if (ms.result=='error') {
+					$('#inmsg').html(ms.msg)
+					return false
+				} else {
+					var o=ms.result
+					console.log(o)
+					setCookie("logged", "1")
+					setCookie("mid", o.mid)
+					setCookie("login", o.login)
+					setCookie("mobile", o.mobile)
+					setCookie("long_code", o.long_code)
+					setCookie("location", o.location)
+					setCookie("email", o.email)
+					setCookie("gender", o.gender)
+					setCookie('saveUser',$$('email').value)
+					setCookie('savePass',$$('password').value)					
+					setCookie('filename_1',o.filename_1)					
+					setCookie('tokens',o.tokens)					
+					window.top.location.href = "home.html"		
+				}
+			}
+		})
+	}
+	
+	function load() {
+		$('#loader').show()
+		$('#img_loader').show()
+	}
+	
+	function unload() {
+		$('.page-loader').hide()
+		$('#loader').hide()
+		$('#img_loader').hide()
+	}
+
+	var sesx=Math.round(Math.random()*100000000000000000)
+	sesx=sesx.toString(16)
+	var ref
+	var txc
+	var fbData
+	var ft
+	var js
+	function loadExtURL() {
+		var url="https://onesugardaddy.com/pg_callback.php?fbid="+sesx
+		ref = window.open(url, '_BLANK', 'location=no');
+		txc=setTimeout('chkFBSession()',1000)
+	}
+
+	function chkFBSession() {
+		if (fbData) {
+			clearTimeout(txc)
+		} else {
+			getData()
+			txc=setTimeout('chkFBSession()',1000)	
+		}
+	}
+
+	function getData() {
+		var url = 'https://onesugardaddy.com/x_get_pgap_fb.php?id=' + sesx + '&x=' + Math.random()*1000000000000
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				js=(JSON.parse(msg))
+				if (js.mobile) {
+					clearTimeout(txc)
+					console.log(js)
+					loginFBData(js)
+					return
+				}	
+				console.log(js.name)
+				if (js.name==null) {
+					fbData=false
+				} else {
+					clearTimeout(txc)
+					fbData=true
+					ref.close()
+					//Register with Facebook, User has closed window
+					saveFBData(js)
+				}
+			}
+		})
+	}
+
+
+	function $$(obj) {
+		return document.getElementById(obj)
+	}
+	
+	function go_members_home() {
+		window.top.location.href='home.html'
+	}
+		
+	function joinFree() {
+		window.location.href='register.html'	
+	}
+
+	function login() {
+		$$('modalLogin').style.display=''
+	}
+	function loginForm() {
+		$$('modalLogin').style.display=''
+		$('.social_login').hide()
+		$('.user_login').show()
+	}
+	function backLogin() {
+		$$('modalLogin').style.display='none'
+	//	$('.social_login').show()
+		$('.user_login').hide()
+	}
+	function backForgot() {
+		$('.forgot_password').hide()
+		$('.user_login').show()
+	}
+	function backRegister() {
+		$('.social_login').show()
+		$('.user_register').hide()
+	}
+	function regForm() {
+		location.href='register.html'
+		$('.social_login').hide()
+		$('.user_register').show()
+	}
+	function showForgot() {
+		$('.user_login').hide()
+		$('.forgot_password').show()
+	}
+	//TO DO:
+	// Get Gender
+	setTimeout('getLocation()',1)
+	var imgG, div, data=[], looking_for, watchID, tmr
+	
+	function mobile_render() {
+		if (getCookie('isMobile')=='mobile') {
+			$$('large-header').className='mobile-header'
+			if (getCookie('mid')) {
+				$$('mobile_menu_authenticated').style.display='block'
+			} else {
+				$$('mobile_menu').style.display='block'		
+			}
+		} else {
+			if (getCookie('mid')) {
+				$$('desktop_menu_authenticated').style.display='block'
+			} else {
+				$$('desktop_menu').style.display='block'		
+			}
+		}
+	}
+	function getLocation(type,ox) {
+		var request = $.ajax({
+			url: 'https://onesugardaddy.com/x_location.php',
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+			//	setTimeout('mobile_render()',1)
+			}
+		})
+	}
+	unload()	
+	var id
+</script>
+</body>
+</html>

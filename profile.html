@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a Sugar Daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+		<link rel="canonical" href="https://sugardaddylocal.com"
+		<link rel="icon" href="favicon.png">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet" >
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/jquery-confirm.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/css/bootstrap.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/shadows.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/animate.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/magic.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> 
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			body{
+				margin-top:20px;
+				background:#eee;
+			}
+			.team-card-style-1, .team-card-style-3, .team-card-style-5 {
+			  position: relative;
+			  max-width: 360px;
+			  text-align: center;
+			  background:#fff;
+			 box-shadow: 0 22px 36px -12px rgba(64, 64, 64, .13);
+			}
+			.team-contact-link {
+			  display: block;
+			  margin-top: 4px;
+			  transition: all 0.25s;
+			  font-size: 12px;
+			  font-weight: 700;
+			  text-decoration: none;
+			}
+			.team-contact-link > i {
+			  display: inline-block;
+			  font-size: 1.1em;
+			  vertical-align: middle;
+			}
+			.team-card-style-1 .team-position, .team-card-style-3 .team-position, .team-card-style-4 .team-position {
+			  display: block;
+			  margin-bottom: 8px;
+			  color: #8c8c8c;
+			  font-size: 12px;
+			  font-weight: 700;
+			  opacity: 0.6;
+			}
+			.team-card-style-3 .team-name, .team-card-style-4 .team-name, .team-card-style-5 .team-name {
+			  margin-bottom: 16px;
+			  font-size: 18px;
+			  font-weight: 600;
+			}
+			.team-thumb > img {
+			  display: block;
+			  width: 100%;
+			}
+			.team-card-style-1 {
+			  padding-bottom: 36px;
+			}
+			.team-card-style-1 > * {
+			  position: relative;
+			  z-index: 5;
+			}
+			.team-card-style-1::before {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 0;
+			  transition: all 0.3s 0.12s;
+			  content: '';
+			  opacity: 0;
+			}
+			.team-card-style-1 .team-card-inner {
+			  margin-bottom: 16px;
+			  padding-top: 48px;
+			  padding-right: 16px;
+			  padding-bottom: 20px;
+			  padding-left: 16px;
+			  background-color: #fff;
+			}
+			.team-card-style-1 .team-thumb {
+			  width: 108px;
+			  height: 108px;
+			  margin: auto;
+			  margin-bottom: 16px;
+			  border-radius: 50%;
+			  overflow: hidden;
+			}
+			.team-card-style-1 .team-social-bar {
+			  margin-top: 16px;
+			  margin-bottom: 8px;
+			  transform: scale(0.8);
+			}
+			.team-card-style-1 .team-contact-link {
+			  transition-delay: 0.12s;
+			  color: #8c8c8c;
+			  opacity: 0.6;
+			}
+			.team-card-style-1 .team-contact-link:hover {
+			  color: #8c8c8c;
+			  opacity: 1;
+			}
+			.team-card-style-1 .team-card-inner, .team-card-style-1 .team-thumb, .team-card-style-1 .team-social-bar {
+			  transition: all 0.3s 0.12s;
+			}
+			.team-card-style-1 .team-position, .team-card-style-1 .team-name {
+			  transition: color 0.3s 0.12s;
+			}
+			.team-card-style-1 .team-name {
+			  margin-bottom: 0;
+			  font-size: 20px;
+			  font-weight: bold;
+			}
+			.no-touchevents .team-card-style-1:hover::before {
+			  height: 100%;
+			  box-shadow: 0 22px 36px -12px rgba(64, 64, 64, .13);
+			  opacity: 1;
+			}
+			.no-touchevents .team-card-style-1:hover .team-card-inner {
+			  background-color: transparent;
+			  box-shadow: none;
+			}
+			.no-touchevents .team-card-style-1:hover .team-thumb {
+			  transform: scale(1.1);
+			}
+			.no-touchevents .team-card-style-1:hover .team-social-bar {
+			  transform: scale(1);
+			}
+			.no-touchevents .team-card-style-1:hover .team-contact-link, .no-touchevents .team-card-style-1:hover .team-position, .no-touchevents .team-card-style-1:hover .team-name {
+			  color: #fff;
+			}
+			.no-touchevents .team-card-style-1:hover .team-contact-link {
+			  opacity: 1;
+			}
+			.team-card-style-2 {
+			  position: relative;
+			}
+			.team-card-style-2 > img {
+			  display: block;
+			  width: 100%;
+			}
+			.team-card-style-2::before, .team-card-style-2::after {
+			  display: block;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  transition: opacity 0.35s 0.12s;
+			  content: '';
+			  z-index: 1;
+			}
+			.team-card-style-2::before {
+			  background-color: rgba(0, 0, 0, .25);
+			}
+			.team-card-style-2::after {
+			  opacity: 0;
+			}
+			.team-card-style-2 .team-card-inner {
+			  position: absolute;
+			  top: 50%;
+			  width: 100%;
+			  padding: 20px;
+			  transform: translateY(-45%);
+			  transition: all 0.35s 0.12s;
+			  text-align: center;
+			  opacity: 0;
+			  z-index: 5;
+			}
+			.team-card-style-2 .team-name, .team-card-style-2 .team-position, .team-card-style-2 .team-contact-link {
+			  color: #fff;
+			}
+			.team-card-style-2 .team-name {
+			  margin-bottom: 5px;
+			  font-size: 20px;
+			  font-weight: bold;
+			}
+			.team-card-style-2 .team-position {
+			  display: block;
+			  margin-bottom: 16px;
+			  font-size: 12px;
+			  font-weight: 600;
+			  text-transform: uppercase;
+			}
+			.team-card-style-2 .team-social-bar {
+			  margin-top: 16px;
+			  margin-bottom: 8px;
+			}
+			.team-card-style-2 .team-contact-link {
+			  opacity: 1;
+			}
+			.team-card-style-2:hover::before {
+			  opacity: 0;
+			}
+			.team-card-style-2:hover::after {
+			  opacity: 0.7;
+			}
+			.team-card-style-2:hover .team-card-inner {
+			  transform: translateY(-50%);
+			  opacity: 1;
+			}
+			.team-card-style-3, .team-card-style-4 {
+			  position: relative;
+			  padding-top: 30px;
+			  padding-right: 20px;
+			  padding-bottom: 38px;
+			  padding-left: 20px;
+			  transition: all 0.35s;
+			  border: 1px solid #e7e7e7;
+			}
+			.team-card-style-3 .team-thumb, .team-card-style-4 .team-thumb {
+			  width: 90px;
+			  margin: auto;
+			  margin-bottom: 17px;
+			}
+			.team-card-style-3 .team-position, .team-card-style-4 .team-position {
+			  margin-bottom: 0;
+			}
+			.team-card-style-3 .team-contact-link, .team-card-style-4 .team-contact-link {
+			  color: #404040;
+			  font-weight: 600;
+			}
+			.team-card-style-3 .team-contact-link > i, .team-card-style-4 .team-contact-link > i {
+			  color: #8c8c8c !important;
+			}
+			.team-card-style-3 .team-contact-link:hover, .team-card-style-4 .team-contact-link:hover {
+			  color: rgba(64, 64, 64, .6);
+			}
+			.team-card-style-3 .team-social-bar-wrap, .team-card-style-4 .team-social-bar-wrap {
+			  position: absolute;
+			  bottom: -18px;
+			  left: 0;
+			  width: 100%;
+			}
+			.team-card-style-3 .team-social-bar-wrap > .team-social-bar, .team-card-style-4 .team-social-bar-wrap > .team-social-bar {
+			  display: table;
+			  margin: auto;
+			  background-color: #fff;
+			  box: 0 12px 20px 1px rgba(64, 64, 64, .11);
+			}
+			.team-card-style-3:hover, .team-card-style-4:hover {
+			  border-color: transparent;
+			  box: 0 12px 20px 1px rgba(64, 64, 64, .09);
+			}
+			.team-card-style-4 {
+			  padding-top: 24px;
+			  padding-bottom: 31px;
+			  padding-left: 24px;
+			}
+			.team-card-style-4 .team-name {
+			  margin-bottom: 5px;
+			}
+			.team-card-style-4 .team-social-bar-wrap {
+			  position: relative;
+			  bottom: auto;
+			  left: auto;
+			  margin-top: 20px;
+			}
+			.team-card-style-4 .team-social-bar-wrap > .team-social-bar {
+			  margin: 0;
+			}
+			.team-card-style-5 {
+			  padding-bottom: 24px;
+			  transition: box-shadow 0.35s 0.12s;
+			}
+			.team-card-style-5 .team-thumb {
+			  position: relative;
+			  margin-bottom: 24px;
+			}
+			.team-card-style-5 .team-thumb::after {
+			  display: block;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  transition: opacity 0.35s 0.12s;
+			  background-color: #ac32e4;
+			  content: '';
+			  opacity: 0;
+			  z-index: 1;
+			}
+			.team-card-style-5 .team-card-inner {
+			  position: absolute;
+			  bottom: 0;
+			  left: 0;
+			  width: 100%;
+			  padding: 16px;
+			  padding-bottom: 26px;
+			  transform: translateY(10px);
+			  transition: all 0.35s 0.12s;
+			  text-align: center;
+			  opacity: 0;
+			  z-index: 5;
+			}
+			.team-card-style-5 .team-contact-link, .team-card-style-5 .team-contact-link:hover {
+			  color: #fff;
+			}
+			.team-card-style-5 .sb-style-6.sb-light-skin, .team-card-style-5 .sb-style-7.sb-light-skin {
+			  border-color: rgba(255, 255, 255, .35);
+			}
+			.team-card-style-5 .team-name {
+			  margin-bottom: 6px;
+			  padding: 0 16px;
+			}
+			.team-card-style-5 .team-position {
+			  display: block;
+			  padding: 0 16px;
+			  transition: color 0.35s 0.12s;
+			}
+			.team-card-style-5:hover {
+			  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+			}
+			.team-card-style-5:hover .team-thumb::after {
+			  opacity: 0.7;
+			}
+			.team-card-style-5:hover .team-card-inner {
+			  transform: translateY(0);
+			  opacity: 1;
+			}
+			.team-card-style-5:hover .team-position {
+			  color: #ac32e4;
+			}
+			.team-card-style-3 .team-social-bar-wrap>.team-social-bar, .team-card-style-4 .team-social-bar-wrap>.team-social-bar {
+				display: table;
+				margin: auto;
+				background-color: #fff;
+				-webkit-box-shadow: 0 12px 20px 1px rgba(64,64,64,0.11);
+				box-shadow: 0 12px 20px 1px rgba(64,64,64,0.11);
+			}
+			.social-btn {
+				display: inline-block;
+				width: 36px;
+				height: 36px;
+				margin: 0;
+				-webkit-transition: all .3s;
+				transition: all .3s;
+				font-size: 18px;
+				line-height: 36px;
+				vertical-align: middle;
+				text-align: center !important;
+				text-decoration: none;
+			}
+			.sb-twitter {
+				color: #55acee !important;
+			}
+			.sb-github {
+				color: #4183c4 !important;
+			}
+			.sb-linkedin {
+				color: #0976b4 !important;
+			}
+			.sb-skype {
+				color: #00aff0 !important;
+			}
+			.sb-style-2, .sb-style-3, .sb-style-4, .sb-style-5 {
+			  margin-right: 10px;
+			  margin-bottom: 10px;
+			  border-radius: 50%;
+			  background-color: #f5f5f5;
+			}
+			.sb-style-2.sb-light-skin, .sb-style-3.sb-light-skin, .sb-style-4.sb-light-skin, .sb-style-5.sb-light-skin {
+			  background-color: rgba(255, 255, 255, .1);
+			}
+			.sb-style-2:hover, .sb-style-3:hover, .sb-style-4:hover, .sb-style-5:hover, .sb-style-2.hover, .sb-style-3.hover, .sb-style-4.hover, .sb-style-5.hover {
+			  background-color: #fff;
+			  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+			}
+
+			div,span,p,td {
+				font-family:Open sans!Important
+			}
+			input[type=checkbox]{ 
+				background-color: #f0f0f0;
+				width:30px;
+				height:30px;
+			}
+			input[type=checkbox]:checked{
+				background-color: silver;
+				width:30px;
+				height:30px;
+			}
+			.loginP {
+				font-family:Open Sans!Important;
+				font-weight:300;
+				color:maroon;
+				font-size:32px!Important;
+				text-align:center
+			}
+			.genderP {
+				font-family:Open Sans!Important;
+				font-weight:bold;
+				color:#333;
+				font-size:21px!Important;
+				width:100%;
+				text-align:center;
+				font-weight:300
+			}
+			.locationP {
+				font-family:Open Sans;
+				font-weight:300;
+				color:#333;
+				font-size:18px;
+				width:100%;
+				text-align:center;
+			}
+			.general_infoP {
+				font-family:Open Sans;
+				font-weight:300;
+				color:#000;
+				font-size:16px;
+				width:100%;
+				text-align:left;
+				border-radius:4px;
+				background:#fcfcfc;
+				padding:10px;
+			}
+			* {overflow:hidden}
+			.pos {position:!Important}
+#standardFilter {
+	font-family:Open Sans
+}
+.jconfirm-bg {
+	background:white!Important;opacity:1
+}			
+
+.tagify {
+    transition: .13s ease-out
+}
+
+		</style>
+	</head>
+	<body>
+	<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+	<div id="con" class="container"><input type="button" value="FETCH NEXT" style="margin:auto;position:absolute;left:0;right:0;top:0;bottom:0;width:100px;padding:5px;border-radius:6px;background:#f0f0f0;border:none;height:60px" onclick="load_next()">
+		<div id="profiles" class="" style="text-align:center;margin-top:25px;;margin:auto">
+		</div>
+		<div style="text-align:center;width:500px;display:none;margin:auto;left:0;right:0;height:75px;margin-top:110px;position:absolute;z-index:99999999999999">
+			<img id="s1" style="margin:10px;width:25px" src="images/star_off.png">
+			<img id="s2" style="margin:10px;width:25px" src="images/star_off.png">
+			<img id="s3" style="margin:10px;width:25px" src="images/star_off.png">
+			<img id="s4" style="margin:10px;width:25px" src="images/star_off.png">
+			<img id="s5" style="margin:10px;width:25px" src="images/star_off.png">
+		</div>
+	</div>
+	<script>
+		function $$(obj) {
+			return document.getElementById(obj)
+		}
+		function showWait() {
+			if($$('yes')) $$('yes').style.display='none'
+			if($$('no')) $$('no').style.display='none'
+			var di=document.createElement('div')
+			var ii=document.createElement('div')
+			di.style.cssText='opacity:0.1;position:absolute;left:0;right:0;margin:auto;top:0px;height:100%;width:100%;text-align:center;color:#000;font-size:2em;font-weight:300'
+			$$('profiles').innerHTML=''
+			$$('profiles').appendChild(di)
+			$$('profiles').appendChild(ii)
+			ii.innerHTML="<img src='js/loading.gif' style='width:40px;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;background:none'>"	
+		}
+	
+	</script>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script src="https://lushmatch.com/assets/js/jquery-confirm.min.js"></script>
+	<script src="https://lushmatch.com/assets/js/common.js"></script>
+	<script src="https://lushmatch.com/assets/js/events.js"></script>
+	<script src="https://lushmatch.com/assets/js/jquery-ui.js"></script> 
+	<script src="https://onesugardaddy.com/jsSocketNode.js"></script> <script src="track.js"></script>
+	<script src="https://sugardaddylocal.com/js/wait.js"></script>
+
+<script>
+	setTimeout('wait3()',1)
+	var no_search=qs('count')
+	var no=qs('count')
+	if (!no) no=10
+	var currLogin,currPhoto
+	document.onclick=yesNo
+	function yesNo(e) {
+		var dv=('p'+currMID)
+		if (e.target.id=="yes") {
+			setTimeout('like('+dv+')',10)
+		} else if (e.target.id=="no") {
+			setTimeout('dislike('+dv+')',10)
+		}
+	}
+	function viewMessageDetail(xid,xlogin) {
+		setCookie('chatting_with',xid)
+		setCookie('chatting_with_login',xlogin)
+		location.href='viewMessage.html?xid='+xid
+	}
+	
+	var nextMID,smids
+	nextMID=getCookie('nextMID')
+	if (!nextMID) nextMID=qs('id')
+	if (qs('type')=='search') nextMID=qs('id')
+	function getIP() {
+		$$('con').style.height=window.innerHeight+'px'
+	}
+	
+	setTimeout('getIP()',1)
+	setTimeout('getLocation()',1)
+	setTimeout('loadProfiles('+no+')',1)
+	
+	function back_to_search() {
+		location.href='index.html?display=search&search='+qs('search')
+	}
+	
+	function send_mail(id) {
+		setCookie('chatting_with',id)
+		location.href='sendMail.html?to_member_id='+id
+	}
+	
+	function send_sms() {
+		location.href='sendSMS.php?to_member_id='+qs('id')
+	}
+	function view_img(io){
+		var pid=io.id.replace('imgProfile','')
+		currMID=pid
+		location.href='viewAlbum.html?member_id='+pid
+	}
+
+	
+	var imgG, div, data=[], looking_for, watchID, tmr, hidden, shown, active
+	var currMID
+	var mids=[]
+	var str='', fn, active='2'
+	var ctr
+	var imgG, div, data=[], looking_for, watchID, tmr
+	var currUR=100000
+	currMID=qs('id')
+	setCookie('currMID',qs('id'))
+	
+	function mobile_render() {
+	}
+	function getLocation(type,ox) {
+		var request = $.ajax({
+			url: 'https://lushmatch.com/x_location.php',
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+			//	setTimeout('mobile_render()',1)
+			}
+		})
+	}
+	var data1=[]
+	var start_local=qs('start')*1
+	var start_new=qs('start')*1
+	var start_new_local=qs('start')*1
+	var start_popular=qs('start')*1
+	var start_search=qs('start')*1
+	var x_start=0,saved=''
+	var miles=getCookie('x_miles')
+	if (!miles) miles=100
+	function showSearchHeader() {
+		$$('ttl').style.background='aliceblue'
+		$$('ttl').style.opacity='1'
+		$$('tt3').style.opacity='1' 
+		$$('ttl').style.color='#000'
+		$$('ttl').style.fontSize='15px'
+		$$('tt2').innerHTML='<b>Showing Search Results. Click here to return</b>'
+		$$('tt3').innerHTML='<span style="font-size:24px"><b>1</b> of ' + smids.length+'</span>'
+	}
+	window.onresize=rr
+	function rr() {
+		location.reload()
+	}
+	var first=true
+	var profileBatchCount,ur,currUR,urs=[],prevEl
+	var wh=window_height()*1 
+	var tmr
+	var ptr
+	
+	function loadProfile(ptr) {
+		if (!data.length) return
+		if (ptr==undefined) return
+	//	first=true
+		currMID=data[ptr].id
+		console.log(currMID)
+		setTimeout('loadProfiles('+no+')',100)
+	}
+	
+	var shown=[]
+	var shown_id=qs('id')
+	var ps=[]
+	var shown=[]
+	var shown_id=qs('id')
+	var ps=[]
+function getRandomColor(){
+    function rand(min, max) {
+        return min + Math.random() * (max - min);
+    }
+
+    var h = rand(300, 360)|0,
+        s = rand(40, 70)|0,
+        l = rand(65, 72)|0;
+
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}	
+	
+	function loadProfiles(no) {
+		hide()
+		wait3()
+		ctr=0
+		var type=qs('type')
+		var str=''
+		url='https://sugardaddylocal.com/x_browse_new_local.php?mid='+qs('id')
+		var imt,br,bkg='background: #fff',yes_pd=0
+		console.log(url)
+			var mw=window_width()+'px'
+			var mh=mw
+			var pt='0px'
+			var mtop=40
+			var mt=0
+			var tb='bottom'
+			var cph=window.innerHeight-window.innerWidth-120
+			var gip=cph+40
+			var hh=window_height() * 0.15
+			var btm=200
+	
+			mh='150px'
+			br=150
+			imt=30
+			bkg='background:url(https://sugardaddylocal.com/b3.jpg) center; background-size:cover'
+			yes_pd=10
+		var mgt=window_height()/20-15
+		var tt='400px'
+		if (window.screen.height<window.screen.width) {
+			var showw='none'
+			var tt='300px'
+		}
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				shown_id=''
+				hide()
+				<!-- window.top.frames[0].setMin(0) -->
+				<!-- window.top.frames[0].setMax(data.length) -->
+				<!-- ptr=data.indexOf(qs('id')) -->
+				$('#yes').show()
+				$('#no').show()
+				$$('profiles').innerHTML=''
+				//var data1=msg.split('|')[0]
+				data=JSON.parse(msg)
+				var bg=Math.floor(Math.random()*10)
+				if (bg>10) bg=0
+				if (first===true) {
+					if (data) {
+						data=fixdata(data)
+						//data.reverse()
+						first = false
+					}
+				}
+				profileBatchCount=data.length
+
+				var www=''
+				ps=[ ]
+				for (var i=0;i<profileBatchCount;i++) {
+					str=''
+						if (data[i]) {
+							var strT=''
+							var income=data[i].income
+							var race=data[i].race
+							var allowance=data[i].allowance_sd ? data[i].allowance_sd : data[i].allowance_sb
+							if (data[i].tags) {
+							var tags=data[i].tags.split(',')
+							if (tags) {
+								for (var g=0; g<tags.length; g++) {
+									strT+='<span class="tagify" style="background:'+getRandomColor()+';padding:2px;padding-left:6px;padding-right:6px;font-size:12px;border-radius:4px;margin:2px">'+tags[g]+'</span>'
+								}
+							}					
+}							
+							if (race==null) race=''
+							if (income==null) income=''
+							if (allowance==null) allowance=''
+							setCookie('chatting_with_login',data[i].login)   
+							setCookie('chatting_with',data[i].id)
+							var currEl=$$('p'+data[i].id)
+							general_info='No Profile Text'
+							if (data[i].gender=='Sugar Baby') factx='PRINCESS SCORE'
+								else factx='MY REPUTITION'
+							if (data[i].general_info) {
+								general_info=data[i].general_info
+								if (general_info) {
+									if (general_info.length>100) {
+										var gi=data[i].general_info
+										var g=gi.replace(/\'/g, "-")
+										g=g.replace(/"/g, "-")
+										
+										general_info='<div style="font-size:12!px;padding-left:20px;padding-right:20px">'+g.substr(0,100) + '</div><img onclick="$.alert(\''+g+'\')" src="images/more.png" style="width:30px;height:30px">'
+										var general_info=g.substr(0,110) + ' <b STYLE="color:red" onclick="$.alert(\''+g+'\')"> ... MORE > </b>'
+										
+									}
+								}
+								var disp='block'
+							}
+							var wh=window_height()*0.9
+							currLogin=data[i].login
+							var strI=''
+							if (income) var	strI=	'<div style="position:fixed;z-index:999999999999999999999;width:100%;margin:auto;margin-top:-55px;height:30px;color:white;font-size:14px;padding:2px">Income: '+income+'</div>'
+							str+=	'		<div class="col-md-4 col-sm-4 col-xs-12" style="margin:auto;max-height:'+wh+'px!Important;width:100%;max-width:500px;left:0;right:0;padding:0px;">'
+							str+=	'			<div class="team-card-style-1" style="box-shadow:none!Important;height:'+wh+'px!Important;max-height:'+wh+'px!Important;min-height:'+wh+'px!Important;left:0;right:0;">'
+							str+=	'				<div class="team-card-style-1" style="box-shadow:none!Important;background:#fff;height:150px"></div>'
+							str+=	'				<a href="member_preview_all_photos.html?mid=' + data[i].id + '"><img id="imgProfile'+data[i].id+'" src="https://lushmatch.com/sb/'+data[i].filename_1+'" style="width:100%;border:0px solid white;margin:auto;margin-top:-120px"></a>'
+							str+=	'				<div class="team-card-style-1" id="profileText'+i+'" class="team-info">'
+							str+=	'				<div style="position:fixed;top:100px;width:80%;text-align:center;margin:auto;padding:0;border:none;overflow:hidden;word-wrap:break-word">'+strT+'</div>'
+							str+=	'					<div>'
+							str+=	'						<div class="team-card-style-1" style="position:fixed;z-index:99999;width:100%;margin:auto;margin-top:-95px;height:95px;opacity:0.6;background:#333"></div>'
+							str+=	'						<div style="position:fixed;z-index:999999999999999999999;width:100%;margin:auto;margin-top:-90px;height:30px;color:white;font-weight:300;font-size:18px;padding:2px"><b>'+data[i].login.toUpperCase()+', ' + data[i].age+'</div>'
+							str+=	'						<div style="position:fixed;z-index:999999999999999999999;width:100%;margin:auto;margin-top:-72px;height:30px;color:white;font-size:14px;padding:2px"><b>'+race+' ' +data[i].gender+' in ' +data[i].location+'</div>'+strI
+							str+=	'						<table style="position:fixed;z-index:99999999;left:0;right:0;max-width:220px;margin:auto;margin-top:-35px">'
+							str+=	'							<tr>'
+							str+=	'								<td style="width:25%;text-align:center">'
+							str+=	'									<a href="javascript:videoCallx(\''+data[i].login+'\')"><img src="images/video_call.png" style="margin:5px;width:60px;"></a>'
+							str+=	'								</td>'
+							str+=	'								<td style="width:25%;text-align:center">'
+							str+=	'									<a href="javascript:send_mail('+data[i].id+')"><img src="images/contact.png" style="margin:5px;width:80px;"></a>'
+							str+=	'								</td>'
+							str+=	'								<td style="width:25%;text-align:center">'
+							str+=	'									<a href="javascript:toggle_favs()"><img src="images/add_fav.png" style="margin:5px;width:60px;"></a>'
+							str+=	'								</td>'
+							str+=	'							</tr></table>'
+							str+=	'							<table style="font-weight:700;position:fixed;z-index:99999999;left:0;right:0;max-width:220px;margin:auto;margin-top:45px"><tr>'
+							str+=	'								<td style="width:25%;text-align:center;font-size:10px">'
+							str+=	'									<b>VIDEO CALL</b>&nbsp;&nbsp;'
+							str+=	'								</td>'
+							str+=	'								<td style="width:25%;text-align:center;font-size:10px">'
+							str+=	'									<div style="color:#000;padding:4px;border-radius:2px"><b>MSG USER</b></div>'
+							str+=	'								</td>'
+							str+=	'								<td style="width:25%;text-align:center;font-size:10px">'
+							str+=	'								<b>ADD FAV</b>'
+							str+=	'								</td>'
+							str+=	'							</tr>'
+							str+=	'						</table>'
+							str+=	'					</div>'
+							str+=	'					<br><br><br><br>'
+							var gen=data[i].gender.toUpperCase()
+							var gg=gen
+							if (data[i].allowance_sd)	str+=	'						<div style="font-size:12px!Important;padding-left:30px;padding-right:30px">Allowance Offered: '+data[i].allowance_sd+'</div>'
+							if (data[i].allowance_sb)	str+=	'						<div style="font-size:12px!Important;padding-left:30px;padding-right:30px">Seeking Allowance: '+data[i].allowance_sb+'</div>'
+							str+=	'						<div style="max-height:200px;height:150px;font-size:12px!Important;padding-left:30px;padding-right:30px">'+general_info+'</div>'
+							str+=   '					</div>'
+							str+=	'						<table style="width:100%;text-align:center;margin:auto;width:100%;position:fixed;bottom:45px;z-index:99999999999">'
+							str+=	'							<tr><td><a href="javascript:dislike(\'p'+data[i].id+'\')"><img src="images/nav9.png" style="width:70px;margin-bottom:2px"></a><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="javascript:like(\'p'+data[i].id+'\')"><img src="images/nav4.png" style="width:70px;margin-bottom:2px"></a></td></tr><tr style="height:10px"><td colspan=4></td></tr>'
+							str+=	'								<tr style="display:none"><td style="width:15%;text-align:center"><a href="javascript:wishlist('+data[i].id+')" style="text-decoration:none"><img src="images/new_wish.png" style="width:25px"></a></td>'
+							str+=	'									<td style="width:15%;text-align:center"><a href="javascript:coming_soon()"><img src="images/offer.png" style="width:25px;opacity:1"></a></td>'
+							str+=	'									<td style="width:15%;text-align:center"><a href="javascript:coming_soon()"><img src="images/rewards.png" style="width:20px;opacity:2"></a></td>'
+							str+=	'									<td style="width:15%;text-align:center"><a href="javascript:coming_soon()"><img src="images/people.png" style="opacity:2;width:25px"></a></td>'
+							str+=	'								</tr>'
+							str+=	'								<tr style="display:none">'
+							str+=	'									<td style="width:15%;text-align:center;vertical-align:top"><a href="javascript:wishlist('+data[i].id+')" style="text-decoration:none;font-size:10px;color:orange"><b>WISHLIST</b></a></td>'
+							str+=	'									<td style="width:15%;text-align:center;font-size:10px;opacity:1"><a href="javascript:coming_soon()"><b style="color:grey">OFFERS</b></a></td>'
+							str+=	'									<td style="width:15%;text-align:center;font-size:10px;opacity:1"><a href="member_rewards.html"><b style="color:orange">REWARDS</b></a></td>'
+							str+=	'									<td style="width:15%;text-align:center;font-size:10px;opacity:1"><a href="javascript:coming_soon()"><b style="color:grey">REVIEWS</b></a></td>'
+							str+=	'							</tr>'
+							str+=	'						</table>'
+							str+=	'					</div>'
+							str+=	'				</div>'
+							str+=	'			</div>'
+							str+=	'		</div>'							
+							id=data[i].id
+							ur=data[i].user_rights
+							if (mids.indexOf(id)<0) {
+								var div=document.createElement('div')
+								div.id='p'+id
+								div.innerHTML=str
+								if (i==0) saved=div 
+								$$('profiles').appendChild(div)
+								div.className='magictime spaceInLeft'
+								if (mids.indexOf(id)<0) ps.push(div)
+								mids.push(id)
+								urs[i]=ur
+								currMID=id
+								currUR=ur
+								console.log(div)
+								if (data[i].filename_1=='') fn = 'https://lushmatch.com/assets/img/no_photo.png'
+									else fn='https://lushmatch.com/sb/'+data[i].filename_1
+								currPhoto=fn
+								$$('imgProfile'+data[i].id).src=fn
+								if (qs('type')) {
+									if (data.length>1) {
+										detectswipe('p'+id, myfunction);	
+									}
+								}
+								prevEl=data[i].id+''
+							}
+							
+							if (data[i].general_info) {
+								general_info=data[i].general_info
+								if ($$('aboutM')) $$('aboutM').style.display='block'
+							}		
+					} else {
+						console.log('err')
+					}
+					<!-- $$("imgProfile"+i).style.maxHeight=(wh-300)+'px' -->
+					<!-- $$("imgProfile"+i).style.minHeight=(wh-300)+'px' -->
+				}
+				<!-- $$('p'+data[profileBatchCount-1].id).style.position='absolute' -->
+				nextMID = Math.min.apply(Math, mids)
+				setCookie('nextMID',nextMID)
+				if (qs('type')=='search') {
+					start_search=start_search*1+no_search*1
+				} 
+				if (qs('type')=='local') {
+					start_local=start_local+no
+				} else if (qs('type')=='latest') {
+					start_new=start_new+no
+				} else if (qs('type')=='new_local') {
+					start_new_local=start_new_local+no
+				} else if (qs('type')=='popular') {
+					start_popular=start_popular+no
+				}
+				
+		<!-- console.log('ratings:') -->
+				<!-- console.log(urs) -->
+				<!-- console.log('mids:') -->
+				<!-- console.log(mids)			 -->
+				
+			}
+		})
+	}
+	function coming_soon() {
+		$.alert('This feature will be avaialable on Nov 1st 2019')
+	}
+	function getRating(mid) {
+		$.ajax({url:'rating.php?mid='+mid,success:function(data){$$('x_r').html(data)}})
+	}
+	function xtest(x) {
+		console.log(x)
+	}
+	function fixdata(data) {
+	var dat1=[ ]
+		data.reverse()
+		for (var j=0; j<data.length; j++ ) {
+			if (currMID == data[j].id) {
+				for (var k=j; k<data.length; k++ ) {
+					dat1.push(data[k])
+				}
+				return dat1
+			}
+		}	
+	}
+	function wishlist(mid) {
+		location.href='member_wishlist.html?mid='+mid
+	}
+	function getRating(mid) {
+		$.ajax({url:'rating.php?mid='+mid,success:function(data){$$('x_r').html(data)}})
+	}
+	function showText(txt) {
+		$('#aboutM').animate({height: 150}, "fast")
+        $('#aboutM').css("opacity", 0.5);
+        $('#aboutM').css("background", "#000");
+		$('#aboutM').animate({opacity: 0.8}, "fast")
+
+		$$('aboutM').innerHTML=txt
+		setTimeout(function(){
+			$('#aboutM').css("opacity", 0.8);
+			$('#aboutM').animate({height: 25}, "slow")
+			$$('aboutM').innerHTML='+ SHOW FULL PROFILE TEXT'
+			$('#aboutM').css("background", "red");
+		},10000)
+	}
+		setTimeout(function(){
+			$('#aboutM').css("opacity", 1);
+			$('#aboutM').css("background", "red");
+			$('#aboutM').animate({height: 25}, "slow")
+		},100)
+	function aboutMe() {
+		
+	}
+
+	function showText(txt) {
+		$('#aboutM').animate({height: 200}, "slow")
+		$$('aboutM').innerHTML=txt
+		setTimeout(function(){
+			$('#aboutM').animate({height: 25}, "slow")
+			$$('aboutM').innerHTML='+ SHOW FULL PROFILE TEXT'
+		},10000)
+	}
+
+	function toggle_favs() {
+		var url = 'https://lushmatch.com/x_add_fav.php?to=' + currMID + '&from=' + getCookie('mid')
+		console.log(url)
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				$.dialog(msg.trim())
+				if (msg.trim()=='User added to favorites!') {
+					$$('fav'+currMID).src='https://lushmatch.com/yyy_fav.png'
+				} else {
+					$$('fav'+currMID).src='https://lushmatch.com/yyy_fav_off.png'
+				}
+				new_fav_notification(getCookie('chatting_with_login'))
+			}
+		})
+	}
+	var yes_list=[]
+	setTimeout(function(){
+		get_yes_list()
+	},1000)
+	function get_yes_list(){
+		var request = $.ajax({
+			url: 'https://lushmatch.com/x_get_user_yes.php?mid='+getCookie('mid'), 
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				if(msg) yes_list=JSON.parse(msg)
+				console.log(yes_list)
+				setCookie('yes_list',yes_list)
+				new_like_notification(getCookie('chatting_with_login'))
+			}
+		})		
+	}
+	function chk_fav(){
+		var member_id=currMID
+		var oi=document.getElementById('fav'+member_id)
+		var request = $.ajax({
+			url: 'https://lushmatch.com/x_chk_fav.php?member_id='+member_id, 
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				if (msg.trim()=='true') {
+					$$('fav'+currMID).src='https://lushmatch.com/yyy_fav.png'
+					new_fav_notification(getCookie('chatting_with_login'))
+				} else {
+					$$('fav'+currMID).src='https://lushmatch.com/yyy_fav_off.png'
+				}
+			}
+		})		
+	}
+	function msg_send() {
+		objData={
+					msg					: 	document.getElementById('txt'+to_login).textContent,
+					toUser				: 	to_login,
+					type				: 	'NEW_IM',
+					fromUser			: 	getCookie('login'),
+					fromLongCode		: 	getCookie('long_code')
+		}
+		socket.send(JSON.stringify({type:'NEW_IM', data: objData}))
+		console.log(objData)
+
+	}
+	
+	function add_hot_list(member_id,htype) {
+		var member_id=currMID
+		console.log('https://lushmatch.com/x_hot_list.php?htype=id&member_id='+member_id+'&type='+htype+'&mid='+getCookie('mid'))
+		var request = $.ajax({
+			url: 'https://lushmatch.com/x_hot_list.php?htype=id&member_id='+member_id+'&type='+htype+'&mid='+getCookie('mid'), 
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				if (msg=='') {
+				}
+			}
+		})
+	}
+	var scaleb=2
+	var dbm=0
+	var cycle,tmrY,tmrN,scale
+	var x=1
+	var ctr=0
+	function like(el) {
+		dbm++
+		if (typeof el !== "object") {
+			el=$$(el)
+		}
+		add_hot_list(currMID,'CLICKED_YES')
+		setCookie('currMID',currMID)
+		if (yes_list.indexOf(getCookie('currMID'))>=0) {
+			var request = $.ajax({
+				url: 'https://lushmatch.com/x_get_user_info.php?id='+getCookie('currMID'), 
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					var data=JSON.parse(msg)
+					new_match_notification(data.id,data.login,'https://lushmatch.com/sb/'+data.filename_1);
+				}
+			})
+		}
+		scale=2
+		if ($$('yesb')) $$('yesb').style.display=''
+		if ($$('yesb')) $$('yesb').style.opacity=1
+		if ($$('yesb')) $$('yesb').src='images/y.png'
+		
+		setTimeout(function(){
+			recoverYesb()
+		},250)
+		
+		setTimeout(function(){
+			recoverYes()
+		},250)
+		
+		prevMID=currMID
+		currMID=mids[mids.indexOf(currMID)-1]
+		currUR=urs[urs.indexOf(currUR)-1]
+		if (currMID==undefined) currMID = prevMID
+		setCookie('nextMID',currMID)
+
+		nextMID=currMID
+		if (currUR==undefined) currUR = Math.min.apply(Math, urs)
+		//add_hot_list(currMID,'VIEWED_PROFILE')
+		el.className='magictime openDownRight'
+		if (ctr==(profileBatchCount-2)) {
+			ps=[]
+			$('#profiles').html('')
+			load_next()
+		} else {
+			ctr++
+			pullup(ctr)
+		}
+	}
+	
+	function pullup(x) {
+		if (!ps[x]) {
+			load_next()
+			return
+		}
+		ps[x].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+
+	}
+	function load_next() {
+		setTimeout('loadProfiles('+no+')',1)
+	}
+
+	var animate=true
+	function dislike(el) {
+		dbm++
+		if (typeof el !== "object") {
+			el=$$(el)
+		}
+		setCookie('currMID',currMID)
+		scale=2
+		
+		prevMID=currMID
+		currMID=mids[mids.indexOf(currMID)-1]
+		currUR=urs[urs.indexOf(currUR)-1]
+		if (currMID==undefined) currMID = prevMID
+		setCookie('nextMID',currMID)
+
+		if ($$('nob')) $$('nob').style.opacity=op
+		if ($$('nob')) $$('nob').style.display=''
+		if ($$('nob')) $$('nob').src='images/n.png'
+		
+		setTimeout(function(){
+			recoverNob()
+		},250)
+		
+		setTimeout(function(){
+			recoverNo()
+		},250)
+		
+		nextMID=currMID
+		if (currUR==undefined) currUR = Math.min.apply(Math, urs)
+		el.className='magictime openDownLeft'
+		
+		if (ctr==(profileBatchCount-2)) {
+			ctr=1
+			ps=[]
+			$('#profiles').html('')
+			load_next()
+		} else {
+			ctr++
+			pullup(ctr)
+		}
+	}
+	var tmrYb, tmrNb, op=1
+	function recoverYes() {
+
+	}	
+	function recoverYesb() {
+		if (op>=0) {
+			op=op-0.01
+			if ($$('yesb')) $$('yesb').style.opacity=op
+			tmrYb=setTimeout('recoverYesb()',7)
+		} else {
+			scaleb=1
+			op=1
+			if ($$('yesb')) $$('yesb').style.transform='scale('+scaleb+')'
+			if ($$('yesb')) $$('yesb').style.opacity=op
+			$$('yesb').style.display='none'
+			clearTimeout(tmrYb)
+		}
+	}
+	function recoverNo(obj) {
+
+	}
+	function recoverNob() {
+		if (op>=0) {
+			op=op-0.01
+			if ($$('nob')) $$('nob').style.opacity=op
+			tmrNb=setTimeout('recoverNob()',7)
+		} else {
+			op=1
+			if ($$('nob')) $$('nob').style.opacity=op
+			$$('nob').style.display='none'
+			clearTimeout(tmrNb)
+		}
+	}
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+		
+	
+		
+function detectswipe(el,func) {
+	  swipe_det = new Object();
+      swipe_det.sX = 0;
+      swipe_det.sY = 0;
+      swipe_det.eX = 0;
+      swipe_det.eY = 0;
+      var min_x = 100;  //min x swipe for horizontal swipe
+      var max_x = 50;  //max x difference for vertical swipe
+      var min_y = 100;  //min y swipe for vertical swipe
+      var max_y = 50;  //max y difference for horizontal swipe
+      var direc = "";
+      ele = document.getElementById(el);
+	  ele.addEventListener('touchstart',function(e){
+		xtt=e.type
+		var t = e.touches[0];
+        swipe_det.sX = t.screenX; 
+        swipe_det.sY = t.screenY;
+      },false);
+      ele.addEventListener('touchmove',function(e){
+        xtt=e.type
+		e.preventDefault();
+        var t = e.touches[0];
+        swipe_det.eX = t.screenX; 
+        swipe_det.eY = t.screenY;    
+      },false);
+      ele.addEventListener('touchend',function(e){
+        //horizontal detection
+        if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+          if(swipe_det.eX > swipe_det.sX) direc = "r";
+          else direc = "l";
+        }
+        //vertical detection
+        if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+          if(swipe_det.eY > swipe_det.sY) direc = "d";
+          else direc = "u";
+        }
+    
+        if (direc != "") {
+          if(typeof func == 'function') func(el,direc);
+        }
+        direc = "";
+      },false);  
+		
+    }
+
+    function myfunction(el,d) {
+	console.log(el)
+	console.log(d)
+		if(xtt=='touchmove') {
+			if (d=='l') setTimeout('dislike('+el+')',10)
+			if (d=='r') setTimeout('like('+el+')',10)
+			if (d=='u') setTimeout('like('+el+')',10)
+			if (d=='d') setTimeout('dislike('+el+')',10)
+		 } else {
+			return false
+		 }
+    }
+	
+
+	
+	var speed=5
+	window.speed=speed
+	
+	function start_spin(id) {
+		speed=window.speed
+		setTimeout(function(){
+			spin($$(id))
+		},100)
+	}
+	
+	function spin(obj) {
+		obj.style.transform="rotate('5deg')"
+		if (tmr) clearTimeout(tmr)
+		var tmr=setTimeout(function(){
+					spin(obj)
+				},(1-window.speed*1)*100)
+	}
+	
+	function speed_up() {
+		if (speed<10) speed++
+		window.speed=speed
+	}
+	
+	function speed_dn() {
+		if (speed>1) speed
+		window.speed=speed
+	}
+	if (getCookie('shownOnce') !=='yes') {
+		var hd=document.createElement('div')
+		hd.style.cssText='opacity:0.9;box-shadow:5px 5px 10px rgba(0,0,0,0.7);padding:0;position:fixed;z-index:9999999999999999999;top:50px;left:0;right:0;width:100%;height:200px;background:lightyellow;border:0px solid silver;font-family:Open Sans!Important'
+		hd.innerHTML='<table style="margin:0;width:100%"><tr><td style="width:70px;text-align:center;background:black;color:white;font-size:2em"><img src="https://sugardaddylocal.com/images/giphy.gif" style="width:75px"><br><b><strong> TIP! </b></strong></td><td style="text-align:left;padding:15px;font-family:Open Sans!Important; font-size:16px;color:black"><strong><b>HOW DO I VIEW THE NEXT PROFILE?</b></strong><div style="font-family:Open Sans!Important; font-size:14px;color:black">You could SWIPE left or right; Swiping Left addionally indicates that you are not interested in that person; Swiping right means that you are;<br><br>Alternatively, you could also simple click on the 2 [Thumbs Up] or [Thumbs Down] icons below.<br><br><b><strong>CLICK ANYWHERE IN THE BOX TO CLOSE</strong></b></div></td></tr></table>'
+		document.documentElement.appendChild(hd)
+		setCookie('shownOnce','yes')
+		hd.onclick=function(){hd.className='magictime spaceOutRight'}
+	}
+</script>
+</body>
+</html>

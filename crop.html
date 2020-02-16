@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+  <title>DarkroomJS</title>
+  <link rel="stylesheet" href="https://lushmatch.com/demo/darkroom.css">
+  <link rel="stylesheet" href="https://lushmatch.com/demo/css/page.css">
+</head>
+<body>
+	<iframe src="https://lushmatch.com/demo/index.html?fn=qs('fn')" id="vd" seamless style="border:none;position:absolute;width:100%;height:100%;left:0;top:0;overflow:hidden!Important"></iframe>
+</body>
+	<script>
+
+		function $$ (objID) {
+			return document.getElementById(objID)
+		}
+
+		var wl = window.location.href;
+		var mob = (window.location.href.indexOf('file://')>=0);
+
+		function setCookie(cname,cvalue)	{
+			if (mob===true) {
+				window.localStorage.setItem(cname, cvalue);
+			} else {
+				var d = new Date(); 
+				d.setTime(d.getTime()+(1*24*60*60*1000)); 
+				var expires = "expires="+d.toGMTString(); 
+				document.cookie = cname + "=" + cvalue + "; " + expires; 
+			}
+		} 
+
+		function qs(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		function getCookie(cname)	{ 
+			if (mob===true) {
+				var cvalue = window.localStorage.getItem(cname);
+				return cvalue
+			} else {
+				var name = cname + "="; 
+				var ca = document.cookie.split(';'); 
+				for(var i=0; i<ca.length; i++) { 
+				  var c = ca[i].trim(); 
+				  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+				} 
+				return ""; 
+			}
+		} 
+	setTimeout(function(){
+		//Making a video IM Call on our own domain. No more 3rd party intruders.
+		$$('vd').src='https://lushmatch.com/demo/index.html?fn='+qs('fn')
+	},1000)
+
+	</script>
+</html>

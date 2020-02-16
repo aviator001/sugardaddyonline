@@ -1,0 +1,217 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Terrawire Peer to Peer Video</title>
+    <meta name="description" content="Gay Sugar Daddy Gay Sugar Baby Video Chat Live">
+    <meta name="keywords" content="Gay Sugar Daddy Gay Sugar Baby Video Chat Live">
+
+</head><body style="background:url(https://gaysugardaddyfinder.com/assets/images/tv2.gif) repeat">
+<link href="css/shadows.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Bungee+Outline|Monoton" rel="stylesheet">
+<script src="https://terrawire.com:9001/dist/RTCMultiConnection.min.js"></script>
+<script src="https://terrawire.com:9001/socket.io/socket.io.js"></script>
+<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+
+<div id="videos-container">
+	<video controls="" id="cu2so1ovw98" autoplay="" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover;">
+	</video>
+</div>
+
+
+<script>
+setTimeout(function(){
+	$('#it').hide()
+	$('#wt').show()
+	if (qs('action')) {
+		connection.open(qs('login'))
+	} else {
+		connection.join(qs('login'))
+		$('#wt').hide()
+	}
+},5000)
+
+var	mySound = new sound("https://gaysugardaddyfinder.com/assets/images/1985_ring.mp3");
+var connection = new RTCMultiConnection();
+var localID
+connection.autoCloseEntireSession = true;
+connection.socketURL = 'https://terrawire.com:9001/';
+var roomid = '';
+if (localStorage.getItem('rmc-room-id')) {
+    roomid = localStorage.getItem('rmc-room-id');
+} else {
+    roomid = connection.token();
+}
+localStorage.setItem('rmc-room-id', qs('login'));
+var media=true
+if (qs('media')=='no') media=false
+connection.session = {
+    audio: true,
+    video: media
+};
+connection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: true,
+    OfferToReceiveVideo: media
+};
+//	show_dial_out()
+$.dialog({
+    title: '',
+    content: '<img style="width:50px" src="https://lushmatch.com/assets/images/wait.gif"><span style="font-family:audiowide;color:#000;top:5px;position:absolute;"><br>Connecting, Please Wait...</span>',
+	useBootstrap: false,
+	boxWidth:'320px'
+});
+connection.videosContainer = document.getElementById('videos-container');
+connection.onstream = function(event) {
+	$('.jconfirm').hide()
+    if(event.type === 'local') {
+		mySound.play();
+		event.mediaElement.id = event.userid;
+		connection.videosContainer.appendChild(event.mediaElement);
+		event.mediaElement.style.cssText='position:absolute;top:0px;left:0;width:100%;height:100%;object-fit:cover'
+		event.mediaElement.play();
+		setTimeout(function() {
+			event.mediaElement.autoplay=true
+			event.mediaElement.play();
+			$('#'+event.mediaElement.id).click()
+		}, 3000);	}
+    if(event.type === 'remote') {
+		mySound.stop();
+		$('#wt').hide()
+        connection.videosContainer.innerHTML=''
+		connection.receiveFirstRemoteStream = true;
+		event.mediaElement.id = event.userid;
+		event.mediaElement.style.cssText='position:absolute;top:0px;left:0;width:100%;height:100%;object-fit:cover'
+		connection.videosContainer.appendChild(event.mediaElement);
+		event.mediaElement.play();
+		setTimeout(function() {
+			event.mediaElement.autoplay=true
+			event.mediaElement.play();
+			$('#'+event.mediaElement.id).click()
+		}, 3000);
+    }
+};
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("loop", "true");
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+}
+connection.onstreamended = connection.onleave = connection.onclose = function(event) {
+    var video = document.getElementById(event.userid);
+    if (!video) return;
+    video.parentNode.removeChild(video);
+	history.go(-1)
+};
+
+(function keepCheckingForRoom() {
+    if(!connection.receiveFirstRemoteStream) {
+        setTimeout(keepCheckingForRoom, 3000);
+        return;
+    }
+
+    connection.checkPresence(connection.sessionid, function(isRoomExist, roomid) {
+        if(connection.isInitiator) {
+            return;
+        }
+
+        if(connection.peers[connection.sessionid]) {
+            setTimeout(keepCheckingForRoom, 3000);
+            return;
+        }
+        if (isRoomExist === true) {
+            connection.join(roomid);
+            setTimeout(keepCheckingForRoom, 3000);
+            return;
+        }
+        setTimeout(keepCheckingForRoom, 3000);
+    });
+})();
+	var ring
+	function show_dial_out() {
+		mySound = new sound("https://gaysugardaddyfinder.com/assets/images/1985_ring.mp3");
+		var div=document.createElement('div')
+		div.style.cssText='display:none;width:90%;max-width:600px;position:absolute;margin:auto;left:0;right:0;top:0;bottom:0;height:90px;background:#fff;border-radius:6px;font-family:Open Sans;font-weight:300;color:#000;'
+		div.id='wt'
+		div.className='www_box'
+		div.innerHTML='<table><tr><td><img src="https://gaysugardaddyfinder.com/assets/images/phone_calling.gif" style="width:100px"></td><td><div>CALLING '+getCookie('chatting_with_login').toUpperCase()+'...</div><div style="color:silver;font-size:0.8em">Attempting contact via SMS, Voice Call & Email.</div></td></tr></table>'
+		document.documentElement.appendChild(div)
+
+		var div=document.createElement('div')
+		div.style.cssText='width:90%;max-width:600px;position:absolute;margin:auto;left:0;right:0;top:0;bottom:0;height:90px;background:#fff;border-radius:6px;font-family:Open Sans;font-weight:300;color:#000;'
+		div.id='it'
+		div.className='www_box'
+		div.innerHTML='<table><tr><td><img src="https://gaysugardaddyfinder.com/assets/images/loading_x.gif" style="width:30px;PADDING:25px"></td><td><div> ACCESSING LOCAL VIDEO STREAM...</div><div style="color:silver;font-size:0.8em">Preparing to initiate outbound video call</div></td></tr></table>'
+		document.documentElement.appendChild(div)
+	}
+	
+	function qs(name, url) {
+		if (!url) {
+		  url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	function getIP() {
+		$.getJSON("https://jsonip.com/?callback=?", function (data) {
+			setCookie('ip',data.ip);
+		});
+	}
+	
+	function $$(obj) {
+		return document.getElementById(obj)
+	}
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+
+	function setCookie(cname,cvalue)	{
+		if (window.location.href.indexOf('file://')>=0) {
+			window.localStorage.setItem(cname, cvalue);
+		} else {
+			var d = new Date(); 
+			d.setTime(d.getTime()+(1*24*60*60*1000)); 
+			var expires = "expires="+d.toGMTString(); 
+			document.cookie = cname + "=" + cvalue + "; " + expires; 
+		}
+	} 
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+</script><audio src="1985_ring.mp3" loop="true" preload="auto" controls="none" style="display: none;"></audio>
+  <script src="https://cdn.webrtc-experiment.com/common.js"></script>
+  <button onclick="javascript:history.go(-2)" style="font-family:audiowide;width:100px;position:fixed;bottom:10px;height:40px;margin:auto;left:0;right:0;z-index:99999999999999999999;opacity:1" class="btn btn-xl btn-danger">End Call</button>
+
+
+<div class="jconfirm jconfirm-light jconfirm-open" style="display: none;"><div class="jconfirm-bg" style="transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);"></div><div class="jconfirm-scrollpane"><div class="jconfirm-row"><div class="jconfirm-cell"><div class="jconfirm-holder" style="padding-top: 40px; padding-bottom: 40px;"><div class="jc-bs3-container"><div class="jc-bs3-row"><div class="jconfirm-box-container jconfirm-animated jconfirm-no-transition" style="transform: translate(0px, 0px); transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);"><div class="jconfirm-box jconfirm-hilight-shake jconfirm-type-default jconfirm-type-animated" role="dialog" aria-labelledby="jconfirm-box90023" tabindex="-1" style="width: 320px; transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1); transition-property: all, margin;"><div class="jconfirm-closeIcon" style="display: block;">×</div><div class="jconfirm-title-c" style="display: none;"><span class="jconfirm-icon-c"></span><span class="jconfirm-title"></span></div><div class="jconfirm-content-pane no-scroll" style="transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1); height: 0px; max-height: 640.667px;"><div class="jconfirm-content" id="jconfirm-box90023"><div><img style="width:50px" src="https://lushmatch.com/assets/images/wait.gif"><span style="font-family:audiowide;color:#000;top:5px;position:absolute;"><br>Connecting, Please Wait...</span></div></div></div><div class="jconfirm-buttons" style="display: none;"></div><div class="jconfirm-clear"></div></div></div></div></div></div></div></div></div></div></body></html>

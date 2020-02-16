@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <style type="text/css">
+		body{
+			margin-top:20px;
+			background:#f4f4f4;
+		}
+		.thumb-sm {
+			height: 36px;
+			width: 36px;
+		}
+		.card-box {
+			padding: 20px;
+			border-radius: 3px;
+			margin-bottom: 30px;
+			background-color: #fff;
+		}
+		taskList {
+			min-height: 40px;
+			margin-bottom: 0
+		}
+
+		.taskList li {
+			background-color: #fff;
+			border: 1px solid rgba(121, 121, 121, .2);
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 3px
+		}
+
+		.taskList li:last-of-type {
+			margin-bottom: 0
+		}
+
+		.taskList a {
+			font-size: 13px
+		}
+
+		.taskList .checkbox {
+			margin-left: 20px;
+			margin-top: 5px
+		}
+		.text-muted {
+			color: #98a6ad!important;
+		}
+		.ui-menu-item-wrapper {
+			margin:0!Important;
+			padding:0!Important;
+		}
+
+		.menu-item{
+			padding:30px!Important;
+		}
+		.ui-menu-item-wrapper ul {
+			margin:0!Important;
+			padding:0!Important;
+			position:absolute!Important;
+			left:0!Important;
+		}
+		li {
+			margin:0px!Important;
+			padding:30px!Important;
+			border-bottom:1px solid silver
+		}
+		  .ui-autocomplete-loading {
+			background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+		}
+	</style>
+	<body>
+	<iframe id="eCatalog" src="" style="display:none; border:none; width:100%;height:94%;left:0;top:100px;position:fixed;z-index:999999999999999999999;display:;background:aliceblue" seamless></iframe>
+	<div class="content" style="background:#fcfcfc">
+		<div class="container" style="background:#fcfcfc">
+			<div class="row" style="background:#fcfcfc">
+				<div class="col-lg-4" style="background:#fcfcfc">
+						<a href="javascript:window.top.show_catalog()"><img src="images/settings.png" style="z-index:9999;position:fixed;left:10px;top:63px;width:25px;opacity:0.5"></a>
+						<div id="xc" class="form-group" style="padding-top:15px;padding-left:40px;padding-right:40px;z-index:999;position:fixed;left:0;top:0;height:50px;width:100%;background:aliceblue"></div>
+						<a href="javascript:history.go(-1)"><img src="images/del.png" style="z-index:9999;position:fixed;right:10px;top:63px;width:25px;opacity:0.5"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+						<input type="text"  id="xitem" style="padding:5px;padding-left:40px;padding-right:40px;z-index:999;position:fixed;left:0;top:50px;height:50px;width:100%;border-radius:0px;border:5px solid #f0f0f0" placeholder="Search for anything on planet Earth">
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type=text id=tt>
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://lushmatch.com/assets/js/jquery-ui.js"></script>
+	<script src="https://lushmatch.com/custom_js/base.js"></script>
+	<script src="https://lushmatch.com/custom_js/wait.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>	<script type="text/javascript">
+//	document.domain = "sugardaddylocal.com";
+	window.addEventListener('message',function(e) {
+		var key = e.message ? 'message' : 'data';
+		var data = e[key];
+		var session=JSON.parse(data)
+		var cat=session.cat
+		var catID=session.catID
+		setCookie('catID',catID)
+		setCookie('cat',cat)
+		$('#xitem').val('')
+		$('#xitem').focus()
+		window.parent.frames['eCatalog'].style.display='none'
+	},false);
+
+	var cat
+	var sub
+	var arrk=[]
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function setcat(catID,cat) {
+		setCookie('catID',catID)
+		setCookie('cat',cat)
+		$('#xitem').val('')
+		$('#xitem').focus()
+		$$('xc').innerHTML='<span style="font-size:0.8em"><b>CATEGORY</b>: ' + getCookie('cat')+'</span>'
+	}
+	$('#xitem').focus()
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+	function window_width() {
+		if (document.body) {
+		 winW = document.body.offsetWidth;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetWidth ) {
+			winW = document.documentElement.offsetWidth;
+			return winW
+		}
+
+		if (window.innerWidth && window.innerWidth) {
+			 winW = window.innerWidth;
+			 return winW;
+		}
+	}
+		
+		
+	function $$(id) {
+		return document.getElementById(id)
+	}
+	function qs(name, url) {
+		if (!url) {
+		  url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	function setCookie(cname,cvalue)	{
+		if (window.location.href.indexOf('file://')>=0) {
+			window.localStorage.setItem(cname, cvalue);
+		} else {
+			var d = new Date(); 
+			d.setTime(d.getTime()+(1*24*60*60*1000)); 
+			var expires = "expires="+d.toGMTString(); 
+			document.cookie = cname + "=" + cvalue + "; " + expires; 
+		}
+	} 
+
+	function getCookie(cname)	{ 
+		if (window.location.href.indexOf('file://')>=0) {
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+		} else {
+			var name = cname + "="; 
+			var ca = document.cookie.split(';'); 
+			for(var i=0; i<ca.length; i++) { 
+			  var c = ca[i].trim(); 
+			  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+			} 
+			return ""; 
+		}
+	} 
+
+	var tt,desc,act
+	function test() {
+		if (act) clearTimeout(act)
+		act=setTimeout('resetac()',1000)
+	}
+	function resetac() {
+		console.log('looking for item under categoryID ' + getCookie('catID'))
+		$("#xitem").autocomplete({
+			source: "https://sugardaddylocal.com/x_ebay_api.php?catID="+getCookie('catID'),
+			minLength: 3,
+    	    select: function(e, ui){
+				tt=''
+				tt=ui.item.label
+			}
+			
+		}).data( "ui-autocomplete")._renderItem = function( ul, item ) {
+             var pic_path = '<img src="' + item.image + '" id="imgId" width="50px" padding="2px" border="5px solid silver";>';
+                return $( "<li style='padding:0!Important'>" )
+                .data( "item.autocomplete", item )
+                .append( "<a href='ebay_item_detail.html?iid="+item.id+"'><table style='padding:10px!Important;margin:0!Important'><tr><td>" + pic_path + "</td><td style='color:#000000; font-size:1em; padding:10px;font-size:0.9em;padding-right:30px;width:100%'>" + item.label + "</td></tr></table></a>")
+                .appendTo( ul );
+      };		
+	}
+	function add_to_wishlist(iid) {
+		var request = $.ajax({
+			url: "https://sugardaddylocal.com/x_get_item_detail.php?itemID="+iid,
+			type: "GET",
+			cache: false,
+			success: function(msg) {
+				var data=JSON.parse(msg)
+				console.log(data)
+				//var img=data.Item.pictureURL[0]
+			}
+		})
+	}
+	
+	function view_detail(iid) {
+		var request = $.ajax({
+			url: "https://sugardaddylocal.com/x_get_item_detail.php?itemID="+iid,
+			type: "GET",
+			cache: false,
+			success: function(msg) {
+				var data=JSON.parse(msg)
+				console.log(data)
+				$.alert(data)
+				//var img=data.Item.pictureURL[0]
+			}
+		})
+	}
+	function show_catalog(){
+		window.parent.frames['eCatalog'].src='https://sugardaddylocal.com/x_ebay_catalog_tree.php?mid='+getCookie('mid')
+		window.parent.frames['eCatalog'].style.display='block'
+	}
+	function hide_catalog(){
+		window.parent.frames['eCatalog'].style.display='none'
+	}
+	window.onkeypress=test
+         jQuery(document).ready(function($) {
+            $('body').keypress(function(e) {
+              // alert(String.fromCharCode(e.which));
+            });
+         });
+         jQuery.fn.simulateKeyPress = function(character) {
+            jQuery(this).trigger({
+               type: 'keypress',
+               which: character.charCodeAt(0)
+            });
+         };
+         setTimeout(function() {
+            $('#xitem').simulateKeyPress('z');
+         }, 2000);
+	document.getElementById("xitem").focus();
+	$$('xc').innerHTML='<span style="font-size:0.8em"><b>CATEGORY</b>: ' + getCookie('cat')+'</span>'
+
+	var str=''
+	str ='		<div id="bottom_barx" style="position:fixed;bottom:0px;width:100%;margin:auto;left:0;right:0;background:#e0e0e0!Important">'
+	str+='			<table style="left:0;right:0;padding:0;margin:auto;font-size:0;width:100%;width:100%;background:#e0e0e0!Important;">'
+	str+='				<tbody>'
+	str+='					<tr>'
+	str+='						<td style="width:20%;text-align:center;padding:10px"><a href="javascript:history.go(-1)"><img style="width:25px;text-align:center;margin:0!Important;padding:0!Important;cursor:hand;cursor:pointer" src="images/backx.png"></a></td>'
+	str+='						<td style="width:20%;text-align:center;padding:10px"><a href="home.html"><img style="width:30px;text-align:center;margin:0!Important;padding:0!Important;cursor:hand;cursor:pointer" src="img/home2.png"></a></td>'
+	str+='						<td style="width:20%;text-align:center;padding:10px"><a href="javascript:show_wait();search()"><img style="width:30px;text-align:center;margin:0!Important;padding:0!Important" src="img/search2.png"></a></td>'
+	str+='						<td style="width:20%;text-align:center;padding:10px"><a href="javascript:show_wait();killCookie();settings()"><img style="width:30px;text-align:center;margin:0!Important;padding:0!Important" src="img/settings2.png" onclick="javascript:xback()"></td>'
+	str+='						<td style="width:20%;text-align:center;padding:10px"><a href="javascript:show_wait();inbox()"><img style="width:30px;text-align:center;margin:0!Important;padding:0!Important" src="img/messages2.png"></a></td>'
+	str+='					</tr>'
+	str+='				</tbody>'
+	str+='			</table>'
+	str+='		</div>'
+	
+	var dvr=document.createElement('div')
+	dvr.innerHTML=str
+	document.documentElement.appendChild(dvr)
+
+	var top_header=document.createElement('div')
+	top_header.id='top_header'
+	top_header.style.cssText='position:fixed;width:100%;height:70px;max-height:40px!Important;top:0;z-index:99999'
+
+	function killCookie() {
+		setTimeout(function(){
+			setCookie('frameSrc','')
+		},1)		
+	}
+	
+	var str=''
+	str+='<table id="table_header" style="box-shadow:0 0 10px #000;height:40px;background:#666;width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;">'
+	str+='		<tr>'
+	str+='			<td id="tdA" style="text-align:left;width:15%;padding:5px;height:30px;max-height:40px!Important">'
+	str+='				<a href="shortlist.html?view=list"><img style="width:30px" src="images/cart.png"></a>'
+	str+='				<div id="shortlist_count" style="width:25px;height:25px;border-radius:25px;position:absolute;background:red;color:white;font-size:16px;text-align:center;margin-top:-30px;margin-left:23px">0</div>'
+	str+='			</td>'
+	str+='			<td id="tdB" style="width:45%;text-align:left">'
+	str+='				<a href="shortlist.html?view=list"><img style="width:30px;margin-top:3px" src="img/mailicon.png"></a>'
+	str+='				<div id="mail_count" style="width:25px;height:25px;border-radius:25px;position:absolute;background:red;color:white;font-size:16px;text-align:center;margin-top:-28px;margin-left:23px">0</div>'
+	str+='			</td>'
+	str+='			<td id="tdC" style="width:40%;text-align:right">'
+	str+='				<table id="standardHeader" style="width:100%;text-align:right">'
+	str+='					<tr>'
+	str+='						<td id="tdC1">'
+	str+='							<a href="map.html"><img src="img/view_map.png" style="width:20px"></a>'
+	str+='						</td>'
+	str+='						<td id="tdC2">'
+	str+='							<span id="span_list"><a href="javascript:list_view()"><img id="img_list" src="img/view_list.png"></a></span>'
+	str+='							<span id="span_gallery" style="opacity:1"><a href="javascript:gallery_view()"><img id="img_gallery" style="width:20px" src="img/view_gallery.png"></a></span>'
+	str+='						</td>'
+	str+='						<td id="tdC3">'
+	str+='							<a href="javascript:show_drop_down_menu()"><img style="margin-right:5px" src="img/menu.png"></a>'
+	str+='						</td>'
+	str+='					</tr>'
+	str+='				</table>'
+	str+='			</td>'
+	str+='		</tr>'
+	str+='	</table>'
+	str+='	<img id="line_spark" src="images/line_1.png" style="display:none;position:fixed;top:36px;z-index:-1;opacity:1">'
+	str+='	<img id="glow_spark" src="images/glow_w.png" style="display:none;width:35px;height:40px;position:fixed;top:39px;z-index:2;opacity:0.6">'
+	top_header.innerHTML=str	
+	document.documentElement.appendChild(top_header)
+</script>
+
+</body>
+</html>

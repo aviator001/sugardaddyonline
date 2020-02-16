@@ -1,0 +1,24 @@
+Full Node based notification
+Feed
+	add images of members
+Create Member photo album
+Add old 'home' page as a new browse page
+Group Chat
+	Add to app in settings area
+fix view profile
+	make same as profileBrowse
+fix profileBrowse
+	double wait
+	first profile on get next is always the initially clicked profile
+edit profile
+canned messages
+message valet
+	set your preferences about type of person you like
+	create the auto message we should sent automatically on their joining
+send email
+	attachments not working
+	double header
+Help FAQs
+Help Videos
+Help Bot Training
+

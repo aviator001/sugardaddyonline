@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a Sugar Daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+		<link rel="canonical" href="">
+		<link rel="icon" href="https://lushmatch.com/assets/img/favicon.png">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet" >
+		<link href="https://lushmatch.com/assets/css/jquery-confirm.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/shadows.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/menu.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet">
+		<link href="https://lushmatch.com/assets/css/font-awesome.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet"> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans+Condensed:300|Open+Sans:300' rel='stylesheet' type='text/css'>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+<style>
+ul.ui-autocomplete {
+      width:100%;
+	  position:absolute;
+	  bottom:0;
+	  left:0;
+	  font-size:18px!Important;
+	  font-family:Open Sans
+	 }
+ul.ui-autocomplete li.ui-menu-item {
+      width: 100%;
+      float: left;
+	  background:#fcfcfc;
+	  padding:2px;
+	  font-size:18px!Important;
+	  font-family:Open Sans
+}
+.icon_is_read {
+	width:30px;
+	margin-bottom:5px;
+	opacity:0;
+}
+.icon_new_mail {
+	width:30px;
+	margin-bottom:5px;
+	opacity:0.7;
+}
+.jconfirm{
+	color:#333!Important;
+}
+.grh{
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(98,95,95,1) 100%, rgba(0,212,255,1) 100%);
+}
+</style>		
+</head>
+	<body style="background:#fff"><script src="https://m.onesugardaddy.com/custom_menu_updated.js"></script>
+
+
+<div id="tt" class="grh" style="display:none;border-top:5px solid aqua;width:100%;color:white;text-align:center;position:fixed;margin:auto;left:0;right:0;top:50px;height:40px;z-index:99999999999999999">
+	<table style="margin:5px;width:100%;font-family:Open Sans; font-size:16px;font-weight:300"><tr><td style="width:35%">NEW MAIL: <span style="border:none;border-radius:100px;padding:4px;padding-left:10px;padding-right:10px;background:#f0f0f0;color:#000" id="new_mail"></span></td><td style="width:30%"><i class="fa fa-inbox"></i> INBOX </td><td style="width:35%">TOTAL: <span style="border:none;border-radius:6px;padding:2px;background:#fff;color:#000" id="all_mail"></span></td></tr></table>
+</div>
+<div class="grh" style="border-top:5px solid aqua;width:100%;color:white;text-align:center;position:fixed;margin:auto;left:0;right:0;top:50px;height:30px;z-index:99999999999999999">
+	<a href="sent.html" style="color:aqua">VIEW SENT MESSAGES</a>
+</div>
+<div id="gmbh" style="background:aliceblue;text-align:center;position:absolute;top:0px;margin:auto;left:0;right:0">
+	<div class="container" id="container"  style="max-width:100%;margin:auto;margin-top:70px">
+		<div class="row">
+			<div id="mobile_inbox"><h2>NO MESSAGES</h2></div>
+		</div>
+		<img id="imgWait" src="https://lushmatch.com/assets/images/load.gif" alt="waiting for my sugar daddy or sugar baby" style="position:absolute;z-index:999999999999;margin-top:-500px;margin-left:-50px;width:100px;display:none">
+	</div>
+</div><br>
+<div id="cover" style="display:none;position:fixed;width:100%;height:100%;background:#000;opacity:0.7;z-index:99999999;top:0;left:0;bottom:0;right:0"></div>
+<div id="send_sms" onkeyup="deduct()" class="modal_window" style="font-size:0.8em;padding:10px;border-radius:6px;position:absolute;z-index:9999999999999;display:none;background:#f0f0f0;top:50px;left:0;right:0;margin:auto;width:320px;max-width:320px;height:500px;font-family:Open Sans;font-size:24px;"><span id="tip" style='color:brown;font-family:Open Sans'>SEND ANONYMOUS SMS<br><br><span style="font-size:18px;color:#333;font-family:Open Sans">1. Your number will not be revealed</span></span><br><div contentEditable onblur='fill_txt()' onclick='erase_txt()' id='message_text' style='word-wrap:break-word;font-family:Open Sans;font-size:24px;contentEditable:true;color:#0093D9;cursor:hand;cursor:pointer;border-radius:4px;border:3px solid lightblue;height:170px;max-height:170px;color:#333;overflow-y:scroll;overflow-x:hidden;color:grey;background:#fff;padding:20px;background:#fff'>Type Message Here</div><div><span style="left:20px;position:absolute">CHARACTERS REMAINING: <b><span id="cr">160</span></b></span></div><br><br><div style='margin-top:10px'><span style="font-size:16px"  class="btn btn-info" onclick='send_sms()' id="send_mail">SEND</span>&nbsp;<span style="font-size:16px"  class="btn btn-danger" onclick="document.all.modal_text.style.display='none'" id="">GO BACK</span></div></div>
+
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://lushmatch.com/assets/js/jquery-ui.js"></script>
+<script src="https://lushmatch.com/assets/js/common.js"></script>
+<script src="https://lushmatch.com/assets/js/events.js"></script>
+<script src="https://lushmatch.com/assets/js/bootstrap.min.js"></script>
+<script src="https://lushmatch.com/assets/js/scripts.js"></script>
+<script src="https://lushmatch.com/assets/js/jquery-confirm.min.js"></script>
+<script src="https://onesugardaddy.com/jsSocketNode.js"></script> <script src="track.js"></script>
+
+<script>
+
+	//TO DO:
+	// Get Gender
+	// Get Geo Location
+	setTimeout(function(){
+		getMailX()
+		setTimeout(function(){
+			getMailCount()
+			setTimeout(function(){
+				mobile_render()
+			},1000)
+		},1)
+	},1)
+
+	var imgG, div, data=[], looking_for, watchID, tmr
+	var id
+	var bgx=["whitesmoke","aliceblue","lavenderblush","lightcyan","linen","lightyellow","papayawhip","mistyrose","lavender"]
+	var ct=0, smids=[]
+	var x_start_inbox=getCookie('x_start_inbox')
+	if (!x_start_inbox) x_start_inbox=1
+	
+	function getMailCount() {
+		console.log('https://sugardaddylocal.com/x_get_mail_count.php?mid='+getCookie('mid'));
+		var request = $.ajax({
+			url: 'https://sugardaddylocal.com/x_get_mail_count.php?mid='+getCookie('mid'),
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				var data=JSON.parse(msg)
+				$$('new_mail').innerHTML='<b>'+data.new_mail+'</b>'
+				$$('all_mail').innerHTML='<b>'+data.all_mail+'</b>'
+				if (data.new_mail*1>0) {
+					$$('new_mail').style.background='#23FE70'
+					$$('new_mail').style.paddingLeft='10px'
+					$$('new_mail').style.paddingRight='10px'
+					$$('new_mail').style.borderRadius='50px'
+				}
+			}
+		})
+	}
+	
+	function viewProfile(xid) {
+		setCookie('chatting_with',xid)
+		location.href='profileView.html?id='+xid
+	}
+	
+	function viewMessageDetail(xid,xlogin,ximg) {
+		setCookie('chatting_with',xid)
+		setCookie('chatting_with_login',xlogin)
+		setCookie('chatting_with_filename',ximg)
+		location.href='viewMessage.html?xid='+xid
+	}
+	
+	var ctr=0
+	function makeImg(src, alt, title, className) {
+		var img =  document.createElement('img');
+		img.src = src;
+		if ( alt != null ) img.alt = alt;
+		if ( title != null ) img.title = title;
+		if ( className != null ) img.className = className;
+		ctr++
+		return img;
+	}
+		
+		function delMessage(xid,mid) {
+			console.log('https://lushmatch.com/x_del_multi.php?mid='+mid+'&xid='+xid)
+			var request = $.ajax({
+				url: 'https://lushmatch.com/x_del_multi.php?mid='+mid+'&xid='+xid, 
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					getMail()
+				}
+			})	
+		}
+	function getCookie(cname)	{ 
+			var cvalue = window.localStorage.getItem(cname);
+			return cvalue
+	} 
+
+	function setCookie(cname,cvalue)	{
+		window.localStorage.setItem(cname, cvalue);
+	} 
+
+	var winH, winW
+
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+	function $$(oo) {
+		return document.getElementById(oo)
+	}
+	function mobile_render() {
+		if (getCookie('isMobile')=='mobile') {
+			var w_w=window_width()
+		} else {
+			var w_w=500
+			$$('tt').style.top='110px'
+			$$('mobile_inbox').style.marginTop='80px'
+
+		}
+		$$('container').style.width=w_w+'px'
+		$$('gmbh').style.width=w_w+'px'
+		$$('tt').style.width=w_w+'px'
+		$$('tt').style.maxWidth=w_w+'px'
+	}
+	
+</script>
+</body>
+</html>

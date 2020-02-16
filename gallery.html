@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#" debug="true">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+    <meta charset="utf-8">
+    <title>PhotoSwipe: Responsive JavaScript Image Gallery</title>
+    <meta name="description" content="Touch-friendly JavaScript image gallery for mobile and desktop, without dependencies. Responsive layout. Swipe and zoom gestures.">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0"> 
+    <link rel="icon apple-touch-icon" href="test/apple-touch-icon-144x144.png" sizes="144x144" type="image/png">
+    <link href="site-assets/site.css?v=4.1.3-1.0.4" rel="stylesheet" />
+    <link href="https://spoiledbymen.com/ps/website/dist/photoswipe.css?v=4.1.3-1.0.4" rel="stylesheet" />
+    <link href="https://spoiledbymen.com/ps/website/dist/default-skin/default-skin.css?v=4.1.3-1.0.4" rel="stylesheet" />
+    
+    	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+      <script src="https://spoiledbymen.com/ps/website/dist/photoswipe.min.js?v=4.1.3-1.0.4"></script>
+      <script src="https://spoiledbymen.com/ps/website/dist/photoswipe-ui-default.min.js?v=4.1.3-1.0.4"></script>
+
+	  <style>
+	  .pswp--animate_opacity,
+.pswp__bg,
+.pswp__caption,
+.pswp__top-bar,
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right{
+	-webkit-transition: opacity 333ms cubic-bezier(.4,0,.22,1);
+	transition: opacity 333ms cubic-bezier(.4,0,.22,1);
+}
+.jconfirm-bg{
+	background:black!Important
+}
+.jconfirm, *{
+	font-family:Open Sans;
+	font-weight:300;
+}
+input[type=text] {
+	height:30px;
+	border-radius:8px;
+	border:none;
+	padding:5px
+}
+.btn-default {
+background:white!Important;
+color:black!Important;
+}
+.info {
+	background: #00CED1!Important
+}
+.danger {
+	background: red!Important
+}
+	  </style>
+  </head>
+
+  <body>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui">
+
+            <div class="pswp__top-bar" style="margin-top:100px!Important;">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+
+<script>
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+
+			
+
+var pswpElement = document.querySelectorAll('.pswp')[0];
+
+// build items array
+var items = []
+
+loadAlbumImages(qs('album_id'))
+
+function loadAlbumImages(album_id) {
+	if (qs('private')=='1'){
+		var request = $.ajax({
+			url: 'https://sugardaddylocal.com/x_get_album_password.php?album_id='+album_id+'&mid='+qs('mid'),
+			type: "GET",
+			dataType: "html", 
+			cache: false,
+			success: function(msg) {
+				var password=msg
+				$.confirm({
+					title: 'Password Required',
+					theme: 'supervan',
+					content: '' +
+					'<form action="" class="formName">' +
+					'<div class="form-group">' +
+					'<label>Enter Password</label>' +
+					'<div><input type="text" placeholder="Album Password" class="name form-control" required /></div>' +
+					'</div>' +
+					'</form>',
+					buttons: {
+						formSubmit: {
+							text: 'Authenticate',
+							btnClass: 'info',
+							action: function () {
+								var name = this.$content.find('.name').val();
+								if(!name){
+									$.alert('provide a valid Password');
+									return false;
+								}
+								if (name==password) {
+									getPhotos(album_id,password)
+								} else {
+									$.alert('Invalid Password. Authentication fas failed.');
+									return false;
+								}
+							}
+						},
+						cancel: function () {
+							btnClass: 'danger'
+
+							//close
+						},
+					},
+					onContentReady: function () {
+						// bind to events
+						var jc = this;
+						this.$content.find('form').on('submit', function (e) {
+							// if the user submits the form by pressing enter in the field.
+							e.preventDefault();
+							jc.$$formSubmit.trigger('click'); // reference the button and click it
+						});
+					}
+
+		})
+		}
+		})
+		
+	} else {
+		getPhotos(album_id)
+	}
+
+}
+function getPhotos(album_id,password) {
+	if (password) {
+		var url='https://sugardaddylocal.com/x_get_album_media.php?mid='+qs('mid')+'&type='+qs('type')+'&album_id='+album_id+'&password='+password
+	} else {
+		var url='https://sugardaddylocal.com/x_get_album_media.php?mid='+qs('mid')+'&type='+qs('type')+'&album_id='+album_id
+	}
+	console.log(url)
+	var request = $.ajax({
+		url: url,
+		type: "GET",
+		dataType: "html", 
+		cache: false,
+		success: function(msg) {
+			var data=JSON.parse(msg)
+			for (var i=0; i<data.length; i++) {
+				items.push({src: 'https://lushmatch.com/sb/' + data[i].filename_1, w: 1000, h: 1000, caption: 'hello'})
+			}
+
+			// define options (if needed)
+				var options = {
+					index: 3,
+					escKey: false,
+					history:false,
+					// ui option
+					timeToIdle: 4000,
+					closeOnScroll: false,
+					closeEl:false,
+					captionEl: true,
+					fullscreenEl: true,
+					zoomEl: true,
+					shareEl: true,
+					counterEl: true,
+					arrowEl: true,
+					preloaderEl: true,
+
+				// Tap on sliding area should close gallery
+				tapToClose: false,
+
+				// Tap should toggle visibility of controls
+				tapToToggleControls: false,
+
+				// Mouse click on image should close the gallery,
+				// only when image is smaller than size of the viewport
+				clickToCloseNonZoomable: true,
+				closeOnVerticalDrag:false,
+				loop:true
+				};
+
+				// Note that options object is cloned during the initialization.
+				// But you can access it via `gallery.options`.
+				// For example, to dynamically change `escKey`:
+
+				// `options.escKey = false` will not work
+
+				// Initializes and opens PhotoSwipe
+			var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+			gallery.init();			
+		}
+	})	
+
+}
+
+</script>
+<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  </body>
+</html>

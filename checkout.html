@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Sugar Daddy & Sugar Baby Dating | SugarDaddyOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+body{
+    background:#eee;    
+}
+* {
+	font-family:Open Sans
+}
+.widget-author {
+  margin-bottom: 58px;
+}
+.author-card {
+  position: relative;
+  padding-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
+}
+.author-card .author-card-cover {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.author-card .author-card-cover::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0.5;
+}
+.author-card .author-card-cover > .btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0 10px;
+}
+.author-card .author-card-profile {
+  display: table;
+  position: relative;
+  margin-top: -22px;
+  padding-right: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  z-index: 5;
+}
+.author-card .author-card-profile .author-card-avatar, .author-card .author-card-profile .author-card-details {
+  display: table-cell;
+  vertical-align: middle;
+}
+.author-card .author-card-profile .author-card-avatar {
+  width: 85px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+.author-card .author-card-profile .author-card-avatar > img {
+  display: block;
+  width: 100%;
+}
+.author-card .author-card-profile .author-card-details {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.author-card .author-card-profile .author-card-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.author-card .author-card-profile .author-card-position {
+  display: block;
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 600;
+}
+.author-card .author-card-info {
+  margin-bottom: 0;
+  padding: 0 25px;
+  font-size: 13px;
+}
+.author-card .author-card-social-bar-wrap {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+}
+.author-card .author-card-social-bar-wrap .author-card-social-bar {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
+}
+.btn-style-1.btn-white {
+    background-color: #fff;
+}
+.list-group-item i {
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+.mr-1, .mx-1 {
+    margin-right: .25rem !important;
+}
+
+.list-group-item.active:not(.disabled) {
+    border-color: #e7e7e7;
+    background: #fff;
+    color: #ac32e4;
+    cursor: default;
+    pointer-events: none;
+}
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+a.list-group-item, .list-group-item-action {
+    color: #404040;
+    font-weight: 600;
+}
+.list-group-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 0 !important;
+    color: #404040;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+.list-group-item.active:not(.disabled)::before {
+    background-color: #ac32e4;
+}
+
+.list-group-item::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    content: '';
+}
+.f-big {
+	font-size:16px!Important; color:#333; text-shadow:1px 1px 1px #fff
+}
+h2 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;background:
+}
+h3 {
+	font-family:Open Sans;font-weight:300;text-align:center;padding:5px;font-size:24px
+}
+    </style>
+	<script src="https://lushmatch.com/assets/js/jquery.js"></script>
+	<script>
+	dinit()
+	
+	function preview_profile() {
+		location.href="profile.html?id="+getCookie('mid')+'&type=preview'
+	}
+
+	
+	function dinit() {
+			
+	}
+	function choose_upload() {
+			$.confirm({
+				theme: 'modern',
+				title: '<span style="font-family:tahoma">Select Source!</span>',
+				content: '<span style="font-family:tahoma">You can either take a brand new video or photo using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?</span>',
+				buttons: {
+					camera: function () {
+						window.top.location.href='uploadPhoto.html'
+					},
+					gallery: function () {
+						window.top.location.href='upload_photo.html'
+					}
+				}
+			});
+		}
+			
+	var wl = window.location.href;
+	var mob = (window.location.href.indexOf('file://')>=0);
+	var winH, winW
+	function window_height() {
+		if (document.body) {
+		 winH = document.body.offsetHeight;
+		}
+
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetHeight ) {
+			winH = document.documentElement.offsetHeight;
+			return winH
+		}
+
+		if (window.innerHeight && window.innerHeight) {
+			 winH = window.innerHeight;
+			 return winH;
+		}
+	}		
+
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}
+			
+				
+			function $$(id) {
+				return document.getElementById(id)
+			}
+			function qs(name, url) {
+				if (!url) {
+				  url = window.location.href;
+				}
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
+			function setCookie(cname,cvalue)	{
+				if (window.location.href.indexOf('file://')>=0) {
+					window.localStorage.setItem(cname, cvalue);
+				} else {
+					var d = new Date(); 
+					d.setTime(d.getTime()+(1*24*60*60*1000)); 
+					var expires = "expires="+d.toGMTString(); 
+					document.cookie = cname + "=" + cvalue + "; " + expires; 
+				}
+			} 
+
+			function getCookie(cname)	{ 
+				if (window.location.href.indexOf('file://')>=0) {
+					var cvalue = window.localStorage.getItem(cname);
+					return cvalue
+				} else {
+					var name = cname + "="; 
+					var ca = document.cookie.split(';'); 
+					for(var i=0; i<ca.length; i++) { 
+					  var c = ca[i].trim(); 
+					  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+					} 
+					return ""; 
+				}
+			} 
+
+			function delCookie(cname) {
+				if (mob===true) {
+					window.localStorage.removeItem(cname);
+				} else {
+					var d = new Date();
+					d.setTime(d.getTime());
+					var expires = "expires="+d.toGMTString();
+					document.cookie = cname + "=" + "" + "; " + expires;
+				}
+			}
+			
+			function clear_all() {
+				if (mob===true) {
+					 window.localStorage.clear();
+				} else {
+					document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+				}	
+			}
+		function zinit() {
+
+			}
+	function $$(oo) {
+		return document.getElementById(oo)
+	}
+				var general_info
+
+		var imt,br,bkg='background: #fff',yes_pd=0
+		if (window_width()<=500) {
+			var mw=window_width()+'px'
+			var mh=mw
+			var pt='0px'
+			var mtop=40
+			var mt=0
+			var tb='bottom'
+			var cph=window.innerHeight-window.innerWidth-120
+			var gip=cph+40
+			var hh=window_height() * 0.15
+			var btm=200
+		} else {
+			var mh='500px'
+			var mw='500px'
+			var pt='5px'
+			var mtop=610
+			var mt=80
+			var tb='top'
+			var cph=200
+			var hh=800
+			var btm=window_height()*0.7 - 610
+		}
+		if (window_height()<=500) {
+			mh='150px'
+			br=150
+			imt=30
+			bkg='background:url(https://sugardaddylocal.com/b3.jpg) center; background-size:cover'
+			yes_pd=10
+		}
+		var mgt=window_height()/20-15
+		var tt='400px'
+		if (window.screen.height<window.screen.width) {
+			var show='none'
+			var tt='300px'
+		}
+			
+		</script>	
+</head>
+<body>
+<div id="rose_div" style="display:none;z-index:999;position:fixed;left:0;top:0;width:100%;height:100%;background:url(https://sugardaddylocal.com/images/bl_bg.png);background-size:cover"><div style="opacity:1;background:white;width:250px;height:250px;border-radius:500px;margin:auto;margin-top:200px;border:20px dashed #555;border-spacing:border-box"><img src="https://terrawire.com/fx/output/960951140782.png" style="position:absolute;left:0;right:0;top:0;bottom:0;width:35%;margin:auto"></div><button class="btn btn-danger" style="position:absolute;left:0;right:0;width:200px;color:white;margin:auto;margin-top:50px" onclick="send_rose()"> Send Rose Now! </button></div>
+<div class="container mt-5"> 
+    <div class="row">
+
+            <div class="wizard" style="border-bottom:5px solid white;width:100%;margin:auto">
+                <nav class="list-group list-group-flush">
+					<a id="cart" style="background:aliceblue">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div id="media_caption" class="f-big d-inline-block font-weight-medium text-uppercase"> <h2>Checkout</h2></div>
+                            </div>
+                        </div>
+                    </a> 
+					<span id="cart_children">
+						<a id="albums" class="list-group-item">
+							<div class="d-flex justify-content-between align-items-center">
+								<i class="fe-icon-tag mr-1 text-muted"></i>
+								<table style="width:100%;font-size:18px">
+									<tr style="border-bottom:5px solid silver;padding:10px">
+										<td style="width:70%;padding:10px"><b>Item</b></td>
+										<td style="width:10%;padding:10px"><b>Qty</b></td>
+										<td style="width:20%;padding:10px"><b>Cost</b></td>
+									</tr>
+									<tr style="border-bottom:5px solid #f0f0f0;padding:10px;font-size:15px">
+										<td style="width:70%;padding:10px" id="item"></td>
+										<td style="width:10%;padding:10px" id="qty"></td>
+										<td style="width:20%;padding:10px" id="price"></td>
+									</tr>
+									<tr>
+										<td colspan=3>
+											<table>
+												<tr>
+													<td>
+														<button id="sdd" class="btn btn-info">Buy Tokens</button>
+													</td>
+													<td>
+														<button id="vbb" class="btn btn-default">View Balance</button>
+													</td>
+													<td style="text-align:right;padding:10px">
+														<button onclick="show_rose()" id="pay" class="btn btn-info">Send Rose</button>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</a>
+					</span>
+					<table style="background:white;font-size:0.8em">
+														<tr>
+
+										<td style="text-align:left;padding:10px;font-family:tahoma;font-weight:700">
+											<strong><b>What is a SD$, SD$ Coin, or simply, $$?</b></strong>
+											<p style="font-family:Open Sans;font-weight:300;font-size:12px">
+												The SD$ is a proxy currency to be used for site based transactions, to primarily insure fraud prevention and complete member privacy. Because you are not dealing in real currency, we are not obliged to report transaction to the appropriate agency. We leave that entirely up to you and your sound judgement.
+											</p>
+											<strong><b>What does it cost?</b></strong>
+											<p style="font-family:Open Sans;font-weight:300;font-size:12px">
+												1 SD$ can be purchased for 1 USD.											
+											</p>
+											<strong><b>What else can I use it for?</b></strong>
+											<p style="font-family:Open Sans;font-weight:300;font-size:12px">
+												It can then be gifted directly - account to account, or be used to purchase anything from our online marketplace - which incedentally happens to be a store with the wworlds largest catalog of products. Pretty much, if it was built, created or found and was assigned for sale, - we have it here. From cars to real estate to memorabilia to sex dolls to DNA sequencing kits - we sell it all. 
+											</p>
+											<strong><b>Can it be redeemed?</b></strong>
+											<p style="font-family:Open Sans;font-weight:300;font-size:12px">
+												Absolutely! Redeem it at any time from your Accounts > Settings Section.														
+											</p>
+										</td>
+									</tr>
+									</table>
+				</nav>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- Profile Settings-->
+	<iframe id="fc" src="" style="border:none;width:100%;height:1000px" seamless></iframe>
+	</body>
+    
+	<script>
+	
+		$$('item').innerHTML=qs('item')
+		$$('qty').innerHTML=qs('qty')
+		$$('price').innerHTML='$'+qs('price')
+		var start
+		var currObj=$$('profile')
+		
+			function preview_photo_gallery() {
+				location.href='member_preview_all_photos.html?mid='+getCookie('mid')
+			}
+			
+			function preview_video_gallery() {
+				location.href='member_preview_all_videos.html?mid='+getCookie('mid')
+			}
+			
+			function toggle_children(objz) {
+				if ($$(objz+'_children').style.display=='none') {
+					$$(objz+'_children').style.display='block'
+					$$(objz+'_caption').innerHTML=' - ' + objz.substr(0,1).toUpperCase() + objz.substr(1,objz.length-1)
+				} else {
+					$$(objz+'_children').style.display='none'
+					$$(objz+'_caption').innerHTML=' + ' + objz.substr(0,1).toUpperCase() + objz.substr(1,objz.length-1)
+				}
+			}
+			
+			function goback() {
+				history.go(-1)
+			}
+
+			function preview_wishlist() {
+				location.href='member_wishlist.html?mid='+getCookie('mid')
+			}
+			
+
+			function preview_profile() {
+				location.href='profile.html?id='+getCookie('mid')
+			}
+			
+			function choose_upload() {
+				$.confirm({
+					theme: 'modern',
+					title: 'Select Source!',
+					content: 'You can either take a brand new photo or video using your devices camera, or you can upload an existing one from your gallery.<br><br>So, whats it gonna be?',
+					buttons: {
+						camera: function () {
+							location.href='uploadPhoto.html'
+						},
+						gallery: function () {
+							location.href='upload_photo.html'
+						}
+					}
+				});
+			}
+
+		function loadFrame(frameSrc) {
+			setCookie('frameSrc',frameSrc)
+			currObj.className='list-group-item'
+			currObj.style.fontWeight=''
+			window.top.frames['fc'].src='frame_'+frameSrc+'.html'
+			if (start==1) {
+				$('#return').hide()
+				start=0
+			} else {
+				hide_all()
+			}
+			$('#'+frameSrc).show()
+			$$(frameSrc).className='list-group-item active'
+			$$(frameSrc).style.fontWeight='bold'
+			$$("return").style.background='aliceblue'
+			currObj=$$(frameSrc)
+		}
+		function $$(objid) {
+			return document.getElementById(objid)
+		}
+		function show_all() {
+			setCookie('frameSrc','')
+			$('#profile').show()
+			$('#price').show()
+			$('#wish').show()
+			$('#favorites').show()
+			$('#albums').show()
+			$('#reviews').show()
+			$('#canned').show()
+			$('#videos').show()
+			$('#sms').show()
+			$('#blocked').show()
+			$('#history').show()
+			$('#payments').show()
+			$('#billing').show()
+			$('#settings').show()
+			$('#upload').show()
+			$('#return').hide()
+		}
+		
+		function hide_all() {
+			$('#profile').hide()
+			$('#price').hide()
+			$('#wish').hide()
+			$('#favorites').hide()
+			$('#albums').hide()
+			$('#reviews').hide()
+			$('#canned').hide()
+			$('#videos').hide()
+			$('#sms').hide()
+			$('#blocked').hide()
+			$('#history').hide()
+			$('#payments').hide()
+			$('#billing').hide()
+			$('#settings').hide()
+			$('#upload').hide()
+			$('#return').show()
+		}
+
+		<!-- if (getCookie('frameSrc')) { -->
+			<!-- start=0 -->
+			<!-- if (getCookie('frameSrc')) hide_all() -->
+			<!-- loadFrame(getCookie('frameSrc'))  -->
+		<!-- } else { -->
+			<!-- start=1 -->
+			<!-- loadFrame('profile')  -->
+		<!-- } -->
+		function hide_search(){
+			window.parent.frames['ebay'].style.display='none'
+		}
+	var item=qs('item')
+	var qty=qs('qty')
+	var price = qs('price')*100
+	var desc = item + ' - $' + price/100
+	var type = qs('type')
+	var test_mode=false
+	if (test_mode===false) {
+		var sk="sk_live_Ll8NQDRLHgoF3Fs4TfYgkUZY";
+		var pk="pk_live_usFpglAicQ086PYo5g0n4Jiz";
+	} else {
+		var sk="sk_test_JtJdmBlalLHVHZbPQoy6FugX";
+		var pk="pk_test_qtprDcPj4ouEvG9O2CaP7EJV";
+	}
+	var handler = StripeCheckout.configure({
+	  key: pk,
+	  image: 'https://sugardaddylocal.com/images/logoSmall.png',
+	  locale: 'auto',
+	  token: function(token) {
+		setCookie('token', token.id)
+		wait3()
+		var request = $.ajax({
+			url: 'https://sugardaddylocal.com/x_charge.php?mid='+getCookie('mid')+'&tokenID='+token.id+'&cardID='+token.card.id+'&email='+token.email+'&amt='+price+'&type='+type+'&item='+item+'&test_mode='+test_mode, 
+			type: "GET",
+			cache: false,
+			success: function(msg) {
+				hide()
+				var data=JSON.parse(msg)
+				if (data.status=='pass') {
+				show_rose()
+				$.confirm({
+						type: 'green',
+						title: 'Payment Success',
+						lazyOpen: true,
+						bgOpacity: 0.9,
+						content: 'Payment Successful. Your Order Number is ' + data.desc,
+						buttons: {
+							ok: {
+								text: '<span style="font-size:14px!Important">NEXT</span>',
+								btnClass: 'btn-info',
+								action: function(){
+									send_rose()
+								}
+							}					
+						}					
+					});
+				} else {
+					$.confirm({
+						type: 'red',
+						title: 'Payment Failure',
+						lazyOpen: true,
+						bgOpacity: 0.9,
+						content: 'Detailed Message:<br><br>' + data.desc,
+						buttons: {
+							ok: {
+								text: '<span style="font-size:14px!Important">OK</span>',
+								btnClass: 'btn-info',
+								action: function(){
+								}
+							}					
+						}					
+					});
+				}
+			}
+		})
+	  }
+	});		
+	document.getElementById('sdd').addEventListener('click', function(e) {
+		handler.open({
+			email: getCookie('email'),
+			name: getCookie('login'),
+			description: desc,
+			amount: price
+		});
+		e.preventDefault();
+	});
+
+	function show_rose() {
+		$('#rose_div').show()
+	}
+
+	function hide_rose() {
+		$('#rose_div').hide()
+	}
+
+	function send_rose() {
+		<!-- var request = $.ajax({ -->
+			<!-- url: 'https://sugardaddylocal.com/x_send_rose.php?from_mid='+getCookie('mid')+'&to_mid='+qs('to_mid'),  -->
+			<!-- type: "GET", -->
+			<!-- cache: false, -->
+			<!-- success: function(msg) { -->
+				<!-- if(msg=='') { -->
+					objData={
+								msg					: 	'You have a New Rose!',
+								toUser				: 	getCookie('chatting_with_login'),
+								type				: 	'NEW_ROSE',
+								fromUser			: 	getCookie('login'),
+								fromLongCode		: 	getCookie('long_code')
+					}
+					socket.send(JSON.stringify({type:'NEW_ROSE', data: objData}))
+					show_rose()
+					$.confirm({
+						type: 'green',
+						title: 'Rosy Success',
+						lazyOpen: true,
+						bgOpacity: 0.3,
+						content: 'Your rose was delivered!',
+						buttons: {
+							ok: {
+								text: '<span style="font-size:14px!Important">Ok</span>',
+								btnClass: 'btn-info',
+								action: function(){
+									hide_rose()
+								}
+							}					
+						}					
+					})
+				}
+			<!-- } -->
+		<!-- }) -->
+	<!-- } -->
+	
+
+	</script>
+	<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+	<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+	<script src="https://sugardaddylocal.com/jsSocketNode.js"></script> <script src="track.js"></script>
+	<script src="https://sugardaddylocal.com/js/wait.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script></body>
+</html>

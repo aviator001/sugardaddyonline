@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<meta name="description" content="A sugar daddy dating site that connects handsome wealthy and caring men to hot young women. Worlds first sugar daddy site to use disruptive SMS messaging. Find a sugar daddy today!" />		
+		<meta name="Author" content="Gautam Sharma" />		
+		<meta name="format-detection" content="telephone=no"/>
+		<title>sugar daddy dating | lushmatch.com</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="icon" href="https://lushmatch.com/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://lushmatch.com/assets/css/stream.css"/>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+		<link href="https://lushmatch.com/assets/css/jquery-ui.css" rel="stylesheet" />
+		<link href="https://lushmatch.com/assets/css/bootstrap.css" rel="stylesheet">
+		<style>
+			html,body {
+				margin: 0 0;
+				width: 100%;
+				overflow: none;
+				-webkit-overflow-scrolling: touch;
+				max-width:500px!Important;
+			}	
+			li {padding:5px;color:#666;border-top:1px solid rgba(10,10,10,0.9);background:#111}
+			.dropdown-menu {padding:5px;opacity:1;border-radius:2px}
+			.mm{border-radius:0 0 5px 5px;position:fixed;width:200px;height:100%;left:0px;top:55px;padding:0px;z-index:99999999999999999999999;text-align:left;display:block}
+			iframe { width: 100%; }
+			.lm {padding:10px;font-family:Open Sans;font-size:20px;color:#111;left:10px;margin:0}
+			li {background:#f0f0f0}
+			.tspacer {
+				background:#fff;
+				opacity:0.7;
+				font-family:Open Sans;
+				font-size:18px
+			}
+			.tspacer1 {
+				background:#fff;
+				opacity:0.7;
+				font-family:Open Sans;
+				font-size:18px;
+				height:32px;
+			}		
+			.tspacer2 {
+				background:#000;
+				opacity:0.5;
+				font-family:Open Sans;
+				font-size:22px;
+				height:50px;
+				color:#fff;
+				padding-top:10px;
+			}
+			.tspacer3 {
+				background:red;
+				opacity:0.6;
+				font-family:Open Sans;
+				font-size:22px;
+				height:50px;
+				color:#fff;
+				padding-top:10px;
+			}
+			.homeImg{
+				width:80px;
+				height:33px!Important;
+			}
+			.hh {
+				font-size:21px;
+				font-weight: 300;
+			}
+			.hhh {
+				font-size:24px;
+				font-weight: 300;
+			}
+			html,body,div,span,p,table,td,tr,section,label,tbody, input,iframe, button,select, slide {
+				font-family:Open Sans!Important;
+			}
+			h1,h2,h3,h4,h5,h6,h7 {
+				font-family:Poiret One!Important;
+			}
+		</style>
+		<script src="cordova.js"></script>
+		<script src="https://sugardaddylocal.com/js/jquery.js"></script>
+		<script src="https://lushmatch.com/custom_js/wait.js"></script>
+	</head>
+	<body>
+	<script>var padding=15</script>
+	<script>
+		setTimeout('init()',10)
+		if (!getCookie('mid')) {
+			$.confirm({
+				title: 'Error',
+				content:'Login is required for access to this page.',
+				theme: 'supervan',
+				buttons: {
+					ok: function () {
+						location.href='index.html?force=login'						
+					}
+				}
+			});
+		}
+		permissions.requestPermission(permissions.CAMERA, success, error);
+	 
+		function error() {
+		  console.warn('Camera permission is not turned on');
+		}
+		 
+		function success( status ) {
+		  if( !status.hasPermission ) error();
+		}
+
+
+		var imx=0
+		function takeVideo(){
+			navigator.device.capture.captureVideo(function(videoData){
+			},attachMedia.captureVideoError, {
+			limit : 1,
+			duration: 60,
+			saveToPhotoAlbum:true
+			});
+		};
+
+		function onPhotoURISuccess(imageURI) {
+			uploadFile(imageURI,"library");
+		}
+		
+		function getVideo(source, type) {
+			navigator.camera.getPicture(onPhotoURISuccess, onFail2, { quality:50, destinationType: destinationType.FILE_URI, sourceType: source, mediaType: type});
+		}
+		
+		function onFail2(message) {
+			alert('Error');
+		}
+		
+		function take_photo() {
+			navigator.camera.getPicture(onSuccess, onFail, { 
+				destinationType: Camera.DestinationType.DATA_URL,
+				quality: 50,
+				correctOrientation: true,
+				allowEdit: true
+			});
+		}
+		function take_photo2() {
+			navigator.camera.getPicture(onSuccess, onFail, { 
+				quality: 50,
+				destinationType: navigator.camera.DestinationType.DATA_URL,
+				sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+			});
+		}
+
+	/* don't need, it should automatically get saved*/
+		
+		function onSuccess(imageData) {
+			wait()
+			var image = document.createElement('img');
+			var sp = document.createElement('span');
+			image.id="img"+imx
+			image.style.width="100px"
+			image.style.height="100px"
+			image.style.border="10px dashed red"
+			image.className="www_box"
+			image.src = "data:image/jpeg;base64," + imageData;
+			sp.appendChild(image)
+			document.getElementById('album').appendChild(sp)
+			uploadPhoto(image.src)		
+			imx++
+		}
+
+
+		function onFail(message) {
+			alert('Failed because: ' + message);
+		}
+
+		function onFailv(message) {
+			alert('Failed because: ' + message);
+		}
+
+		function uploadPhoto(imageData) {
+			var fname=getCookie('login') + '_' + Math.round(Math.random()*10000000000) + '.jpg'
+		    $.ajax({url: "https://lushmatch.com/iupload.php",
+		        type: 'POST',
+		        data: {filename: fname, image: imageData, login: getCookie('login'), mid: getCookie('mid'), email: getCookie('email')},
+		        success: function(data, status, xhr) {
+					hide()
+					document.getElementById('img'+imx).outerHTML='<img style="width100px;height:100px;border:10px solid #a3d900" src="https://lushmatch.com/sb/'+fname+'">'
+					win()
+				}
+			});      
+		}
+		function win() {
+			$.alert({
+				title: 'Success',
+				content: 'Images uploaded, saved and cataloged. Whats next?',
+				btnClose:true,
+				buttons: {
+					b1: {
+						text: 'My Albums',
+						btnClass: 'btn-white',
+						action: function(){
+							location.href='frame_albums.html'
+						}
+					},
+					b2: {
+						text: 'My Uploads',
+						btnClass: 'btn-white',
+						action: function(){
+							location.href='show_uploads.html'
+						}
+					},
+					b3: {
+						text: 'Take More',
+						btnClass: 'btn-blue',
+						action: function(){
+							history.go(0)
+						}
+					},
+					b4: {
+						text: 'To Settings',
+						btnClass: 'btn-red',
+						action: function(){
+							location.href='settings.html'
+						}
+					}
+				}
+			});
+		}
+
+		function fail(error) {
+			alert("An error has occurred: "+error)
+		}	
+
+		var currPage='uploadPhoto.html'
+
+		function fs(el) {
+		if (!el) el = document.documentElement
+		, rfs = // for newer Webkit and Firefox
+			   el.requestFullScreen
+			|| el.webkitRequestFullScreen
+			|| el.mozRequestFullScreen
+			|| el.msRequestFullScreen
+		;
+		if(typeof rfs!="undefined" && rfs){
+		  rfs.call(el);
+		} else if(typeof window.ActiveXObject!="undefined"){
+		  // for Internet Explorer
+		  var wscript = new ActiveXObject("WScript.Shell");
+		  if (wscript!=null) {
+			 wscript.SendKeys("{F11}");
+		  }
+		}
+		}
+
+		function $$(ox) {
+			return document.getElementById(ox)
+		}
+		function screen_dimensions() {
+			var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			return new Array(w, h)
+		}
+		
+		var winH, winW
+
+		function window_height() {
+			if (document.body) {
+			 winH = document.body.offsetHeight;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetHeight ) {
+				winH = document.documentElement.offsetHeight;
+				return winH
+			}
+
+			if (window.innerHeight && window.innerHeight) {
+				 winH = window.innerHeight;
+				 return winH;
+			}
+		}		
+			
+		function window_width() {
+			if (document.body) {
+			 winW = document.body.offsetWidth;
+			}
+
+			if (document.compatMode=='CSS1Compat' &&
+				document.documentElement &&
+				document.documentElement.offsetWidth ) {
+				winW = document.documentElement.offsetWidth;
+				return winW
+			}
+
+			if (window.innerWidth && window.innerWidth) {
+				 winW = window.innerWidth;
+				 return winW;
+			}
+		}	
+		var to_u=qs('member_id')
+		
+		function send_message() {
+			var message=document.getElementById('mail_pad').value
+			message=message.replace(/\&/g,'\&amp;')
+			message=message.replace(/'/g,"\'")
+			message=message.replace(/"/g,'\"')
+			message=message.replace(/\//g,'\/')
+
+			var from_u=getCookie('mid')
+			var url = encodeURI('https://lushmatch.com/x_send_mail.php?to=' + getCookie('chatting_with') + '&from=' + from_u + '&message=' + message + '&attach_id=' + getCookie('attach_id'))
+			console.log(url)
+			jwait('sending')
+			var request = $.ajax({
+				url: url, 
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					jhide()
+				}
+				
+			})
+		}
+
+		function jhide() {
+			setTimeout(function(){
+				$('#jModalWn').hide()
+				history.go(-1)
+			},1000)
+		}
+		function remote_script(x_url,x_id) {
+			var request = $.ajax({
+				url: x_url, 
+				type: "GET",
+				dataType: "html",
+				cache: false,
+				success: function(msg) {
+					if (msg=='') {
+						jalert('Mail sent succesfully')
+						history.go(-2)
+					} else {
+						jalert(msg)
+					}
+				}
+			})
+		}
+		
+		$("#searchLocation").autocomplete({
+			source: "x_ac_location.php",
+			minLength: 1,
+			select: function( event, ui ) {
+				$('#searchLocation').val( ui.item.value);
+			}
+		});
+
+		$("#quickSearchTerm").autocomplete({
+			position: { my : "left top", at: "left top", of: ".portfolio-filter-list" },
+			source: "x_ac_location.php",
+			minLength: 1,
+			select: function( event, ui ) {
+				$('#quickSearchTerm').val( ui.item.value);
+			}
+		});
+		if ($( "#quickSearchTerm" )) $( "#quickSearchTerm" ).autocomplete( "option", "appendTo", "#xresults" );
+
+		function upload_photos() {
+			location.href='upload_photos.html?member_id='+getCookie('mid')
+		}
+		function view_profile() {
+			location.href='profile.html?id='+getCookie('chatting_with')
+		}
+		function qs(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		var ar=[]
+		var mr=[]
+
+		function sddh(moo) {
+			var meow=document.getElementById('m'+moo)
+			meow.style.display='none'
+		}
+		
+		function sddm(meowmeow) {
+			var burger=document.getElementById('m'+meowmeow)
+			burger.style.display='block'
+		}
+
+		var wl = window.location.href;
+		var mob = (window.location.href.indexOf('file://')>=0);
+
+		function setCookie(cname,cvalue)	{
+			if (window.location.href.indexOf('file://')>=0) {
+				window.localStorage.setItem(cname, cvalue);
+			} else {
+				var d = new Date(); 
+				d.setTime(d.getTime()+(1*24*60*60*1000)); 
+				var expires = "expires="+d.toGMTString(); 
+				document.cookie = cname + "=" + cvalue + "; " + expires; 
+			}
+		} 
+
+		function getCookie(cname)	{ 
+			if (window.location.href.indexOf('file://')>=0) {
+				var cvalue = window.localStorage.getItem(cname);
+				return cvalue
+			} else {
+				var name = cname + "="; 
+				var ca = document.cookie.split(';'); 
+				for(var i=0; i<ca.length; i++) { 
+				  var c = ca[i].trim(); 
+				  if (c.indexOf(name)==0) return c.substring(name.length,c.length); 
+				} 
+				return ""; 
+			}
+		} 
+
+		function delCookie(cname) {
+			if (mob===true) {
+				window.localStorage.removeItem(cname);
+			} else {
+				var d = new Date();
+				d.setTime(d.getTime());
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname + "=" + "" + "; " + expires;
+			}
+		}
+		
+		function clear_all() {
+			if (mob===true) {
+				 window.localStorage.clear();
+			} else {
+				document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+			}	
+		}		
+		
+		function init() {
+			if (getCookie('mid')) {
+			}
+		}
+	</script>
+	<div class="container"  style="position:absolute;left:0;top:0;right:0;bottom:0;width:100%;height:100%;background:#c0c0c0">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;margin:20px;padding:20px;font-weight:300;font-family:Open Sans;font-size:16px;color:#000;text-shadow: 1px 1px 1px solid white">
+				<div style="font-size:24px;font-weight:300;color:white"><br>NOW USING CAMERA</div>
+				TO TAKE A PHOTO CLICK ON THE CAMERA ICON BELOW
+				<br>
+				<img src="https://sugardaddylocal.com/assets/a26.png" style="width:70px;margin:auto;margin-top:10px;cursor:hand;cursor:pointer" onclick="take_photo()">
+			</div>
+			<div class="col-md-12" style="text-align:center;position:absolute;bottom:60px;width:100%">
+				<button onclick="history.go(-1)" class="btn btn-default">CANCEL</button> <a href='upload_photo.html'><button class="btn btn-default">UPLOAD FROM <b>GALLERY</b></button></a>
+			</div>
+			<div style="width:100%;padding:10px;text-align:center" id="album"></div>
+			<video style="display:none" src="" id="vid"></video>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>		
+	<script src="https://sugardaddylocal.com/custom_menu_updated.js"></script>
+
+</html>
