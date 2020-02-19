@@ -28,6 +28,7 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script>
+			var pageJustLoaded=true
 			var wl = window.location.href;
 			var mob = (window.location.href.indexOf('file://')>=0);
 			function getCookie(cname)	{ 
@@ -355,15 +356,19 @@
 				}
 				if (qs('view')) { 
 					if (qs('view')=='list') {
-						$$('img_list').src='images/list_selected.png'
-						$$('img_gallery').src='images/view_gallery.png'
-						$$('img_list').style.width='40px'
+						if ($$('img_gallery')) {
+							$$('img_list').src='images/list_selected.png'
+							$$('img_gallery').src='images/view_gallery.png'
+							$$('img_list').style.width='40px'
+						}
 						getProfilesNewLocal_list()
 					} else {
 						getProfilesNewLocal()
-						$$('img_list').src='images/view_list.png'
-						$$('img_gallery').src='images/gallery_selected.png'
-						$$('img_gallery').style.width='40px'
+						if ($$('img_gallery')) {
+							$$('img_list').src='images/view_list.png'
+							$$('img_gallery').src='images/gallery_selected.png'
+							$$('img_gallery').style.width='40px'
+						}
 					}
 				} else {
 					if (getCookie('view_result')=='list') {
@@ -385,11 +390,13 @@
 				$$('ne').innerHTML=''
 				view_type='list'
 				if (getCookie('type')=='new') {
-					getProfilesNew_list()
+					getProfilesNew()
 				} else if (getCookie('type')=='local') {
-					getProfilesLocal_list()
+					getProfilesLocal()
+				} else if (getCookie('type')=='popular') {
+					getProfilesPopular()
 				} else {
-					getProfilesNewLocal_list()
+					getProfilesNewLocal()
 				}
 			}
 			
@@ -407,6 +414,8 @@
 					getProfilesNew()
 				} else if (getCookie('type')=='local') {
 					getProfilesLocal()
+				} else if (getCookie('type')=='popular') {
+					getProfilesPopular()
 				} else {
 					getProfilesNewLocal()
 				}
@@ -414,13 +423,43 @@
 			
 			window.onclick=view_profile
 			function view_profile(e) {
+				pageJustLoaded=false
+				url=''
 				setCookie('currMID','')
 				if (e.target.id) {
+					if (e.target.id=='btn4') {
+						wait()
+						setCookie('type','popular')
+						switchBrowse(4)
+						return
+					}
+					if (e.target.id=='btn1') {
+						wait()
+						setCookie('type','popular')
+						switchBrowse(1)
+						return
+					}
+					if (e.target.id=='btn2') {
+						wait()
+						setCookie('type','popular')
+						switchBrowse(2)
+						return
+					}
+					if (e.target.id=='btn3') {
+						wait()
+						setCookie('type','popular')
+						switchBrowse(3)
+						return
+					}
 
 					var data_id=e.target.getAttribute('data-id')
 					var data_start=e.target.getAttribute('data-start')
 					var data_count=e.target.getAttribute('data-count')
 
+					if (e.target.getAttribute('data-type')=='popular') {
+						url='profileBrowse.html?id='+data_id+'&type=popular&start='+x_start_popular+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=local'
+						x_start_popular=x_start_popular+no
+					}
 					if (e.target.id.indexOf('img_local_')>-1) {
 						url='profileBrowse.html?id='+data_id+'&type=local&start='+x_start_local+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=local'
 						x_start_local=x_start_local+no
@@ -430,22 +469,28 @@
 						x_start_new=x_start_new+no
 					}
 					if (e.target.getAttribute('data-type')=='new_local') {
-						url='profileBrowse.html?id='+data_id+'&type=new_local&start='+mega_new_local+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&count='+data_count
-						mega_new_local=mega_new_local+no
+						url='profileBrowse.html?id='+data_id+'&type=new_local&start='+x_start_new_local+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&count='+data_count
+						x_start_new_local=x_start_new_local+no
 					}
 					if (e.target.getAttribute('data-type')=='vp_new_local') {
-						url='profileBrowse.html?id='+e.target.id.split('_')[1]+'&type=new_local&start='+mega_new_local+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&count='+data_count
-						mega_new_local=mega_new_local+no
+						url='profileBrowse.html?id='+e.target.id.split('_')[1]+'&type=new_local&start='+x_start_new_local+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&count='+data_count
+						x_start_new_local=x_start_new_local+no
 					}
-					location.href=url
+					
+					if (url.indexOf('undefined')<0) {
+						wait()
+						location.href=url
+					}
 				}
 			}
 			$$('ne').innerHTML=''
 			var padH=100
-			var mega_new_local=0
+			var x_start_new_local=0
+			var x_start_new=0
+			var x_start_local=0
+			var x_start_popular=0
 			var ids=''
 			var x_start=0,cStr='',url,newidth,pad,data,lx,lt
-
 
 			function getProfilesNewLocal() {
 				if (!getCookie('x_gender') || getCookie('x_gender')=='null' || getCookie('x_gender')=='') {
@@ -468,7 +513,7 @@
 				hy=hy-100
 				no=20
 				
-				var url = 'https://sugardaddylocal.com/x_browse_new_local.php?start='+mega_new_local+'&count='+no+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=new_local&lat='+getCookie('lat')+'&lng='+getCookie('lng')
+				var url = 'https://sugardaddylocal.com/x_browse_new_local.php?start='+x_start_new_local+'&count='+no+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=new_local&lat='+getCookie('lat')+'&lng='+getCookie('lng')
 				console.log(url)
 				var request = $.ajax({
 					url: url,
@@ -477,17 +522,55 @@
 					cache: false,
 					success: function(msg) {
 						var data=JSON.parse(msg)
-						render(data,'ne')
+						render(data,'ne','new_local')
 						setTimeout('update_shortlist()',10)
 						setTimeout('update_browse_new_local_logs()',10)
 					}
 				})				
 			}
 			
-			function render(data, containerID) {
-				hide()
+			function getProfilesPopular() {
+				if (!getCookie('x_gender') || getCookie('x_gender')=='null' || getCookie('x_gender')=='') {
+					if (getCookie('gender')=='Sugar Daddy') x_gender='Sugar Daddy'
+						else x_gender='Sugar Baby'
+				} else {
+					x_gender=getCookie('x_gender')
+				}
+				x_photos=getCookie('x_photos')
+				x_zip=getCookie('x_zip')
+				x_miles=getCookie('x_miles')
+				max_age=getCookie('x_max_age')
+				min_age=getCookie('x_min_age')
+				setCookie('type','popular')
+				var newidth
+				newidth='100%'
+				setCookie('view_result','gallery')
+				max_img_height=320
+				hy=max_img_width
+				hy=hy-100
+				no=20
+				
+				var url = 'https://sugardaddylocal.com/x_browse_popular.php?start='+x_start_popular+'&count='+no+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles=10000&type=popular&lat='+getCookie('lat')+'&lng='+getCookie('lng')
+				console.log(url)
+				var request = $.ajax({
+					url: url,
+					type: "GET",
+					dataType: "html", 
+					cache: false,
+					success: function(msg) {
+						var data=JSON.parse(msg)
+						console.log(data)
+						render(data,'ne', 'popular')
+						setTimeout('update_shortlist()',10)
+						setTimeout('update_browse_popular_logs()',10)
+					}
+				})				
+			}
+			
+			function render(data, containerID, type) {
 				var pad=document.createElement("div")
-				data.reverse()
+				if (type =='popular') data=data.data
+				if (type =='popular') data.reverse()
 				var lx=data.length
 				var lt=-700
 				for (var i=0;i<data.length;i++) {
@@ -506,9 +589,9 @@
 								imgG.style.borderRadius='5px 5px 0 0'
 								imgG.style.marginTop='0%'
 								imgG.setAttribute('data-id',data[i].id)
-								imgG.setAttribute('data-start',mega_new_local)
+								imgG.setAttribute('data-start','x_start_'+type)
 								imgG.setAttribute('data-count',no)
-								imgG.setAttribute('data-type','new_local')
+								imgG.setAttribute('data-type',type)
 								var vp=document.createElement('img')
 								var cr=''
 								var corner=document.createElement('img')
@@ -550,11 +633,11 @@
 								dpg.appendChild(cStr)
 								vp.src="images/view_profile.png"
 								vp.id='vp_'+id
-								vp.style.cssText='position: absolute; z-index:99999999; bottom: '+(max_img_height/2)+'px; left: 0px; width: 100%; height: 40px'
+								vp.style.cssText='position: absolute; z-index:9999; bottom: '+(max_img_height/2)+'px; left: 0px; width: 100%; height: 40px'
 								vp.setAttribute('data-id',data[i].id)
-								vp.setAttribute('data-start',mega_new_local)
+								vp.setAttribute('data-start','x_start_'+type)
 								vp.setAttribute('data-count',no)
-								vp.setAttribute('data-type','new_local')
+								vp.setAttribute('data-type',type)
 								corner.outerHTML='<a onclick="shortlist('+id+')"><img src="images/corner.png" id="corner_'+id+'" style="position: absolute; z-index:9999; top: 0px; right: 0px; width: 75px; height: 75px"></a>'
 								$$(containerID).appendChild(dpg)
 					}
@@ -655,7 +738,7 @@
 				no=(screen.height/max_img_height)*2
 				no=20
 				var x_start=0,cStr=''
-				var url = 'https://sugardaddylocal.com/x_browse_new_local.php?start='+mega_new_local+'&count='+no+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=new_local'
+				var url = 'https://sugardaddylocal.com/x_browse_new_local.php?start='+x_start_new_local+'&count='+no+'&gender='+x_gender+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&zip='+x_zip+'&miles='+x_miles+'&type=new_local'
 				var request = $.ajax({
 					url: url,
 					type: "GET",
@@ -684,7 +767,7 @@
 								imgG.style.right='0'
 								imgG.style.margin='20px'
 								imgG.setAttribute('data-id',data[i].id)
-								imgG.setAttribute('data-start',mega_new_local)
+								imgG.setAttribute('data-start',x_start_new_local)
 								imgG.setAttribute('data-count',no)
 								imgG.setAttribute('data-x-gender',x_gender)
 								imgG.setAttribute('data-max-age',max_age)
@@ -724,7 +807,7 @@
 								$$('ne').appendChild(dpg)
 							}
 						}
-						mega_new_local=mega_new_local+no
+						x_start_new_local=x_start_new_local+no
 						setTimeout('update_shortlist()',10)
 						setTimeout('update_browse_new_local_logs()',10)
 					}
@@ -1185,6 +1268,19 @@
 		location.href='viewAlbum.html?member_id='+pid
 	}
 
+	function update_browse_popular_logs() {
+		type=1
+		var url='https://sugardaddylocal.com/x_log_browse.php?browse_type=popular&mid='+getCookie('mid')+'&ids='+ids.substr(0,ids.length-1)+'&start='+x_start_new_local+'&per_page='+no
+		console.log(url)
+		var request = $.ajax({
+			url: url,
+			type: "GET",
+			dataType: "html", 
+			cache: false,
+			success: function(msg) {
+			}
+		})
+	}
 	function update_browse_new_local_logs() {
 		type=1
 		var url='https://sugardaddylocal.com/x_log_browse.php?browse_type=new_local&mid='+getCookie('mid')+'&ids='+ids.substr(0,ids.length-1)+'&start='+x_start_new_local+'&per_page='+no
@@ -1256,7 +1352,7 @@
 				min_age=getCookie('x_min_age')
 				
 			}
-				var mega_new_local=0
+				var x_start_new_local=0
 				var mega_local=0
 				var mega_new=0
 			
@@ -1311,75 +1407,94 @@
 				setCookie('x_max_age','')
 				history.go(0)
 			}
-			
-			function switchBrowse(x) {
-				$$('btn1').style.background='white'
-				$$('btn2').style.background='white'
-				$$('btn3').style.background='white'
-				$$('btn1').style.border='1px solid silver'
-				$$('btn2').style.border='1px solid silver'
-				$$('btn3').style.border='1px solid silver'
-				$$('btn'+x).style.background='#45F8BD'
-				$$('btn'+x).style.border='none'
-				$$('ne').innerHTML=''
-				if (x==1) {
-					mega_new_local=0
-					type=1
-					if (getCookie('view_result')=='list') getProfilesNewLocal_list()
-						else getProfilesNewLocal()
-					setTimeout(function(){
-						toggle_state()
-					},1000)
-				}
-				if (x==2) {
-					mega_local=0
-					type=2
-					if (getCookie('view_result')=='list') getProfilesLocal_list()
-						else getProfilesLocal()
-					setTimeout(function(){
-						toggle_state()
-					},1000)
-				}
-				if (x==3) {
-					mega_new=0
-					type=3
-					if (getCookie('view_result')=='list') getProfilesNew_list()
-						else getProfilesNew()
-					setTimeout(function(){
-						toggle_state()
-					},1000)
-				}
-				if (x==4) {
-					setCookie('type','online')
-					mega_online=0
-					type=4
-					whos_online()
-					setTimeout(function(){
-						toggle_state()
-					},1000)
-				}
-				if (x==5) {
-					setCookie('type','recent')
-					mega_recently=0
-					type=5
-					if (getCookie('view_result')=='list') getProfilesActiveRecently_list()
-						else getProfilesActiveRecently()
-					setTimeout(function(){
-						toggle_state()
-					},1000)
-				}
-			}	
+
 	setTimeout(function(){
-		if (getCookie('view_result')=='list') {
-			$$('img_list').src='images/list_selected.png'
-			$$('img_list').style.width='40px'
+		if (getCookie('type')=='new') {
+			switchBrowse(2)
+		} else if (getCookie('type')=='local') {
+			switchBrowse(3)
+		} else if (getCookie('type')=='popular') {
+			switchBrowse(4)
 		} else {
-			$$('img_gallery').src='images/gallery_selected.png'
-			$$('img_gallery').style.width='40px'
+			switchBrowse(1)
+		}
+				
+		if (getCookie('view_result')=='list') {
+			if ($$('img_list')) {
+				$$('img_list').src='images/list_selected.png'
+				$$('img_list').style.width='40px'
+			}
+		} else {
+			if ($$('img_gallery')) { 
+				$$('img_gallery').src='images/gallery_selected.png'
+				$$('img_gallery').style.width='40px'
+			}
 		}
 	},1000)
+
+
+
+	function switchBrowse(x) {
+		$$('btn1').style.background='white'
+		$$('btn2').style.background='white'
+		$$('btn3').style.background='white'
+		$$('btn4').style.background='white'
+		$$('btn1').style.border='1px solid silver'
+		$$('btn2').style.border='1px solid silver'
+		$$('btn3').style.border='1px solid silver'
+		$$('btn4').style.border='1px solid silver'
+		$$('btn'+x).style.background='#45F8BD'
+		$$('btn'+x).style.border='none'
+		$$('ne').innerHTML=''
+		if (x==1) {
+			mega_new_local=0
+			type=1
+			if (getCookie('view_result')=='list') getProfilesNewLocal_list()
+				else getProfilesNewLocal()
+			setTimeout(function(){
+				toggle_state()
+			},1000)
+		}
+		if (x==2) {
+			mega_local=0
+			type=2
+			if (getCookie('view_result')=='list') getProfilesLocal_list()
+				else getProfilesLocal()
+			setTimeout(function(){
+				toggle_state()
+			},1000)
+		}
+		if (x==3) {
+			mega_new=0
+			type=3
+			if (getCookie('view_result')=='list') getProfilesNew_list()
+				else getProfilesNew()
+			setTimeout(function(){
+				toggle_state()
+			},1000)
+		}
+		if (x==4) {
+			setCookie('type','popular')
+			mega_online=0
+			type=4
+			getProfilesPopular()
+			setTimeout(function(){
+				toggle_state()
+			},1000)
+		}
+		if (x==5) {
+			setCookie('type','recent')
+			mega_recently=0
+			type=5
+			if (getCookie('view_result')=='list') getProfilesActiveRecently_list()
+				else getProfilesActiveRecently()
+			setTimeout(function(){
+				toggle_state()
+			},1000)
+		}
+	}		
 </script>
 
-<script src="https://m.onesugardaddy.com/custom_menu_updated.js"></script>
+<script src="https://m.onesugardaddy.com/custom_js_android.js"></script>
 <script src="https://onesugardaddy.com/jsSocketNode.js"></script>
 </html>

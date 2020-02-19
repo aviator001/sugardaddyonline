@@ -444,7 +444,7 @@
 		</style>
 	</head>
 	<body>
-	<script src="https://m.onesugardaddy.com/custom_menu_updated.js"></script>
+	<script src="https://onesugardaddy.com/custom_js_android.js"></script>
 	<div id="con" class="container"><input type="button" value="FETCH NEXT" style="margin:auto;position:absolute;left:0;right:0;top:0;bottom:0;width:100px;padding:5px;border-radius:6px;background:#f0f0f0;border:none;height:60px" onclick="load_next()">
 		<div id="profiles" class="" style="text-align:center;margin-top:25px;;margin:auto">
 		</div>
@@ -571,6 +571,9 @@
 	var miles=getCookie('x_miles')
 	if (!miles) miles=100
 	if (!start_new_local) start_new_local=0
+	if (!start_popular) start_popular=0
+	if (!start_local) start_local=0
+	if (!start_new) start_new=0
 	function showSearchHeader() {
 		$$('ttl').style.background='aliceblue'
 		$$('ttl').style.opacity='1'
@@ -639,7 +642,10 @@ function getRandomColor(){
 				url='https://onesugardaddy.com/x_browse_new.php?start='+start_new+'&type='+qs('type')+'&count='+no+'&gender='+getCookie('gender')+'&mid='+qs('id')+'&max_age='+getCookie('max_age')+'&min_age='+getCookie('min_age')+'&photos='+getCookie('x_photos')+'&zip='+getCookie('x_zip')+'&miles='+getCookie('x_miles')
 			} else if (qs('type')=='new_local') {
 				url='https://sugardaddylocal.com/x_browse_new_local.php?start='+start_new_local+'&type='+qs('type')+'&count='+no+'&gender='+getCookie('gender')+'&mid='+shown_id+'&max_age='+getCookie('x_max_age')+'&min_age='+getCookie('x_min_age')+'&photos='+getCookie('x_photos')+'&zip='+getCookie('x_zip')+'&miles='+getCookie('x_miles')
+			} else if (qs('type')=='popular') {
+				url='https://sugardaddylocal.com/x_browse_popular.php?start='+start_popular+'&type='+qs('type')+'&count='+no+'&gender='+getCookie('gender')+'&mid='+shown_id+'&max_age='+getCookie('x_max_age')+'&min_age='+getCookie('x_min_age')+'&photos='+getCookie('x_photos')+'&zip='+getCookie('x_zip')+'&miles='+getCookie('x_miles')
 			}
+			console.log(url)
 		}
 		var imt,br,bkg='background: #fff',yes_pd=0
 			var mw=window_width()+'px'
@@ -680,6 +686,7 @@ function getRandomColor(){
 				$$('profiles').innerHTML=''
 				//var data1=msg.split('|')[0]
 				data=JSON.parse(msg)
+				if (qs('type')=='popular') data=data.data
 				var bg=Math.floor(Math.random()*10)
 				if (bg>10) bg=0
 				if (first===true) {

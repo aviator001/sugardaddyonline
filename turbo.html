@@ -102,6 +102,8 @@
 	</tbody>
 </table>
 </div>	
+	<iframe id="sframe" style="display:none" ></iframe>
+
 <div id="send_sms" onkeyup="deduct()" class="modal_window" style="font-size:0.8em;padding:10px;border-radius:6px;position:absolute;z-index:9999999999999;display:none;background:#f0f0f0;top:50px;left:0;right:0;margin:auto;width:320px;max-width:320px;height:500px;font-family:Open Sans;font-size:24px;"><span id="tip" style='color:brown;font-family:Open Sans'>SEND ANONYMOUS SMS<br><br><span style="font-size:18px;color:#333;font-family:Open Sans">1. Your number will not be revealed</span></span><br><div contentEditable onblur='fill_txt()' onclick='erase_txt()' id='message_text' style='word-wrap:break-word;font-family:Open Sans;font-size:24px;contentEditable:true;color:#0093D9;cursor:hand;cursor:pointer;border-radius:4px;border:3px solid lightblue;height:170px;max-height:170px;color:#333;overflow-y:scroll;overflow-x:hidden;color:grey;background:#fff;padding:20px;background:#fff'>Type Message Here</div><div><span style="left:20px;position:absolute">CHARACTERS REMAINING: <b><span id="cr">160</span></b></span></div><br><br><div style='margin-top:10px'><span style="font-size:16px"  class="btn btn-info" onclick='send_sms()' id="send_mail">SEND</span>&nbsp;<span style="font-size:16px"  class="btn btn-danger" onclick="document.all.modal_text.style.display='none'" id="">GO BACK</span></div></div>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://lushmatch.com/assets/js/jquery-ui.js"></script>
@@ -336,6 +338,8 @@
 			}
 		})
 	}
+	
+
 	var type
 	function nextPage() {
 		type=getCookie('type')
@@ -446,10 +450,26 @@
 
 	window.onclick=view_profile
 	function view_profile(e) {
+		if (!getCookie('x_gender') || getCookie('x_gender')=='null' || getCookie('x_gender')=='') {
+			if (getCookie('gender')=='Sugar Daddy') x_gender='Sugar Daddy'
+				else x_gender='Sugar Baby'
+		} else {
+			x_gender=getCookie('x_gender')
+		}
+		x_photos=getCookie('x_photos')
+		x_zip=getCookie('x_zip')
+		x_miles=getCookie('x_miles')
+		max_age=getCookie('x_max_age')
+		min_age=getCookie('x_min_age')
+				
 		if (e.target.id) {
 			if (e.target.id.indexOf('img_')>-1) {
 				var sp=e.target.id.split('_')
-				location.href='profileBrowse.html?id='+sp[sp.length-1]+'&type=browse&browse='+getCookie('type')+'&start=' + (start*1)
+				var src='profileBrowse.html?id='+sp[sp.length-1]+'&type='+getCookie('type')+'&start=' + (start*1) + '&gender='+x_gender+'&miles='+x_miles+'&max_age='+max_age+'&min_age='+min_age+'&photos='+x_photos+'&count='+no+'&showBack=1'
+				var sframe=$$('sframe')
+				sframe.src=src
+				sframe.className=''
+				sframe.style.cssText='position:fixed;z-index:9999999999999999;top:0;left:0;border:0;width:100%;height:100%;display:block'
 			}
 			if (e.target.id.indexOf('search_')>-1) {
 				location.href='profileSearch?id='+e.target.id.split('_')[1]+'&type=search&search='+$$('searchLocation').value+'&x_start=' + (start*1-no)
