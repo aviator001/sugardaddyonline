@@ -623,6 +623,42 @@
 		})
 	}
 
+	function getUserInfo() {
+		var request = $.ajax({
+			url: 'https://onesugardaddy.com/x_get_user_info.php?id='+qs('xid'), 
+			type: "GET",
+			dataType: "html",
+			cache: false,
+			success: function(msg) {
+				var data=JSON.parse(msg)
+				var str=''
+				str+='<table id="table_header" style="box-shadow:0 0 10px #000;height:40px;background:#666;width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;">'
+				str+='		<tr>'
+				str+='			<td id="tdB" style="width:25%;text-align:center">'
+				str+='			<img src="https://lushmatch.com/sb/'+data.filename_1+'" style="width:35px;height:35px;border-radius:70px"></td>'
+				str+='			<td id="tdA" style="text-align:left;width:55%;padding:5px;height:30px;max-height:40px!Important;color:#fff">Chatting With '+data.login
+				str+='			</td>'
+				str+='			<td id="tdC" style="width:40%;text-align:right">'
+				str+='				<table id="standardHeader" style="width:100%;text-align:right">'
+				str+='					<tr>'
+				str+='						<td id="tdC1">'
+				str+='						</td>'
+				str+='						<td id="tdC2">'
+				str+='						</td>'
+				str+='						<td id="tdC3">'
+				str+='							<a href="settings.html"><img style="margin-right:5px" src="img/menu.png"></a>'
+				str+='						</td>'
+				str+='					</tr>'
+				str+='				</table>'
+				str+='			</td>'
+				str+='		</tr>'
+				str+='	</table>'
+				top_header.innerHTML=str	
+				document.documentElement.appendChild(top_header)				
+			}
+		})
+	}
+
 	function xsend(e) {
 		if (e.keyCode==13) {
 			$('#x_send').click()
@@ -676,34 +712,11 @@
 		},1)		
 	}
 	
-	var str=''
-	str+='<table id="table_header" style="box-shadow:0 0 10px #000;height:40px;background:#666;width:100%;margin:auto;left:0;right:0;margin-top:0px;font-family:Open Sans Condensed;font-size:14px!Important;">'
-	str+='		<tr>'
-	str+='			<td id="tdB" style="width:25%;text-align:center">'
-	str+='			<img src="https://lushmatch.com/sb/'+getCookie('chatting_with_filename')+'" style="width:35px;height:35px;border-radius:70px"></td>'
-	str+='			<td id="tdA" style="text-align:left;width:55%;padding:5px;height:30px;max-height:40px!Important;color:#fff">Chatting With '+getCookie('chatting_with_login')
-	str+='			</td>'
-	str+='			<td id="tdC" style="width:40%;text-align:right">'
-	str+='				<table id="standardHeader" style="width:100%;text-align:right">'
-	str+='					<tr>'
-	str+='						<td id="tdC1">'
-	str+='						</td>'
-	str+='						<td id="tdC2">'
-	str+='						</td>'
-	str+='						<td id="tdC3">'
-	str+='							<a href="javascript:show_drop_down_menu()"><img style="margin-right:5px" src="img/menu.png"></a>'
-	str+='						</td>'
-	str+='					</tr>'
-	str+='				</table>'
-	str+='			</td>'
-	str+='		</tr>'
-	str+='	</table>'
-	top_header.innerHTML=str	
-	document.documentElement.appendChild(top_header)
+
 window.keypress=xsend	
 if (tmr2) clearInterval(tmr2)
-getMailX() 
-setTimeout('getMessages()',100)
+setTimeout('getMailX()',100)
+setTimeout('getUserInfo()',2000)
 </script>
 </body>
 </html>

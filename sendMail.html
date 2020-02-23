@@ -854,7 +854,7 @@ function $$(ox) {
 			cache: false,
 			success: function(msg) {
 				hide()
-				socket.emit('pm', {to:getCookie('chatting_with_login'),from:getCookie('login'),message:message});
+				sock.emit('pm', {to:getCookie('chatting_with_login'),from:getCookie('login'),message:message});
 				hf()
 			}
 			
@@ -863,7 +863,7 @@ function $$(ox) {
 	var objData=[]
 	var usrs=[]
 	function mt(to_login,from_login,message) {
-		socket.emit('pm', {to:to_login,from:from_login,message:message});
+		sock.emit('pm', {to:to_login,from:from_login,message:message});
 	}
 		function render(data,login) {
 			console.clear()
