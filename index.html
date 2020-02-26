@@ -102,7 +102,7 @@
 function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
     //calling api after login success
-     facebookConnectPlugin.api("/me?fields=email,name,picture,user_birthday",
+     facebookConnectPlugin.api("/me?fields=email,name,picture,birthday",
      ["public_profile","email","user_birthday"]
      ,function(userData){
          //API success callback
