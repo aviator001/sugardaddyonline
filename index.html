@@ -102,13 +102,19 @@
 function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
     //calling api after login success
-     facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender",
+     facebookConnectPlugin.api("/me?fields=email,name,picture,user_birthday",
      ["public_profile","email","user_birthday"]
      ,function(userData){
          //API success callback
          alert(JSON.stringify(userData));
-		 		
-	console.log(JSON.stringify(userData));
+		facebookConnectPlugin.api(
+		  userData.id+'/photos',
+		  'GET',
+		  {"fields":"height,width"},
+		  function(response) {
+			  alert(JSON.stringify(userData))
+		  }
+		);		 		
 		 
       },function(error){
          //API error callback
