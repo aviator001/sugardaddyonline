@@ -50,8 +50,8 @@ A new experience from the pioneeers of sugar daddy dating - the first site based
 	  <param name="URL_SCHEME" value="sdo" />
 	</gap:plugin>
 	<plugin name="cordova-plugin-facebook4" spec="5.0.0">
-        <variable name="APP_ID" value="2043862865881951" />
-        <variable name="APP_NAME" value="LushMatch" />
+        <variable name="APP_ID" value="1203807789827275" />
+        <variable name="APP_NAME" value="sugar.daddy.online" />
     </plugin>
     <platform name="android">
         <feature name="Camera">
