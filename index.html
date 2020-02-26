@@ -98,6 +98,28 @@
 	function setVersion() {
 		setCookie('version',version)
 	}
+
+function signupWithFB(){
+  facebookConnectPlugin.login(["public_profile","email"],function(result){
+    //calling api after login success
+     facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender",
+     ["public_profile","email"]
+     ,function(userData){
+         //API success callback
+         alert(JSON.stringify(userData));
+		 		
+	console.log(JSON.stringify(userData));
+		 
+      },function(error){
+         //API error callback
+alert(JSON.stringify(error));
+		 
+      });
+   },function(error){
+      //authenication error callback
+alert(JSON.stringify(error));
+     });
+}
 	
 </script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -138,7 +160,7 @@
 				<!-- end .container -->
 			</div>
 		</header> 
-		<img src="https://onesugardaddy.com/images/logo.png" style="margin:auto;width:90%;position:absolute;z-index:999999999999999999;top:80px;left:0;right:0">
+		<img onclick="signupWithFB()" src="https://onesugardaddy.com/images/logo.png" style="margin:auto;width:90%;position:absolute;z-index:999999999999999999;top:80px;left:0;right:0">
 		<div id="large-header" class="large-header" style="margin-top:-70px">
 			<canvas id="demo-canvas"></canvas>
 			<h1 class="main-title" style="font-size:2.2em;width:100%">INSTANTLY <div class="thin wow pulse" data-wow-duration="1.8s" data-wow-delay="0.5s" data-wow-iteration="3">CONNECT</div>

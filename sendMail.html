@@ -673,7 +673,7 @@
 				<table style="vertical-align:center;margin:auto;text-align:left;width:100%">
 					<tr>
 						<td style="font-family:Open Sans Condensed;width:80%;padding-left:25px">
-							<a href="javascript:start1()" style="color:#aaa"><h3><b>Make A Video Call</b></h3><span style="position:absolute;margin-top:-10px;font-family:Open Sans;font-size:12px;color:#000">Start a video call with member</span></a>
+							<a href="javascript:vc()" style="color:#aaa"><h3><b>Make A Video Call</b></h3><span style="position:absolute;margin-top:-10px;font-family:Open Sans;font-size:12px;color:#000">Start a video call with member</span></a>
 						</td>
 						<td style="width:20%">
 							<img src="images/video_call.png" style="width:70px;margin-top:10px">
@@ -865,21 +865,22 @@ function $$(ox) {
 	function mt(to_login,from_login,message) {
 		sock.emit('pm', {to:to_login,from:from_login,message:message});
 	}
-		function render(data,login) {
-			console.clear()
-			console.log(data)
-			str=''
-			for (var i=0;i<data.users.length;i++) {
-				if (!usrs || usrs.indexOf(data.users[i])<0) {
-					usrs.push(data.users[i])
-					if (login==data.users[i]) bg='background:gold'
-						else bg=''
-					str+='<div><button class="btn btn-xs" style="'+bg+';min-width:150px;max-width:150px" onclick="send(\''+data.users[i]+'\')">Message ' + usrs + '</button></div>'
-					bg=''
-				}
+
+	function render(data,login) {
+		console.clear()
+		console.log(data)
+		str=''
+		for (var i=0;i<data.users.length;i++) {
+			if (!usrs || usrs.indexOf(data.users[i])<0) {
+				usrs.push(data.users[i])
+				if (login==data.users[i]) bg='background:gold'
+					else bg=''
+				str+='<div><button class="btn btn-xs" style="'+bg+';min-width:150px;max-width:150px" onclick="send(\''+data.users[i]+'\')">Message ' + usrs + '</button></div>'
+				bg=''
 			}
-			//document.getElementById('wo').innerHTML=str
 		}
+		//document.getElementById('wo').innerHTML=str
+	}
 	
 	function vc() {
 		videoCall(getCookie('chatting_wwith_login'))
