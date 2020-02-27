@@ -86,6 +86,7 @@ ul.ui-autocomplete li.ui-menu-item {
 			<link href="https://onesugardaddy.com/assets/css/jquery-ui.css" rel="stylesheet" />
 		<link href="https://onesugardaddy.com/assets/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src='cordova.js'></script>
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
 		<div class="modal" id="modal" style="position:;z-index:999;background:#000;opacity:0.8;height:100%;width:100%;top:0;left:0;display:none;cursor:hand;cursor:pointer"></div>
@@ -171,82 +172,52 @@ ul.ui-autocomplete li.ui-menu-item {
 										<div id="pswd_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
 								</div>
-							<div class="row">			
-								<div class="col-md-6">				
-									<input type="button" value="NEXT" STYLE="font-size:18px;width:150px;height:50px;text-shadow:none;font-family:Open Sans" class="btn btn-danger push-bottom" id="next_g1" onclick="next_g1()"><br>
+								<div class="col-md-6" style="text-align:left;font-weight:300">										
+									<label class="block">Your Gender</label>										
+									<input type="radio" name="gender" id="SB" value="SB" class="form-control" checked="checked" onclick="setGender('Sugar Baby','Sugar Daddy')">
+									<i style="margin-left:10px;font-size:32px" class="fa fa-male">
+										<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Baby','Sugar Daddy')">Sugar Baby</span>
+									</i>
+									<br>
+									<input type="radio" name="gender" id="SD" value="SD" class="form-control" onclick="setGender('Sugar Daddy','Sugar Baby')">
+									<i style="margin-left:10px;font-size:32px;color:red" class="fa fa-male">
+										<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Daddy','Sugar Baby')">Sugar Daddy</span>
+									</i>
 								</div>
-							</div>
-						</div>
-						<div id="g2" style="display:none">
-							<div class="row">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-6" style="text-align:left;font-weight:300">										
-										<label class="block">Your Gender</label>										
-										<input type="radio" name="gender" id="SB" value="SB" class="form-control" checked="checked" onclick="setGender('Sugar Baby','Sugar Daddy')">
-										<i style="margin-left:10px;font-size:32px" class="fa fa-male">
-											<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Baby','Sugar Daddy')">Sugar Baby</span>
-										</i>
-										<br>
-										<input type="radio" name="gender" id="SD" value="SD" class="form-control" onclick="setGender('Sugar Daddy','Sugar Baby')">
-										<i style="margin-left:10px;font-size:32px;color:red" class="fa fa-male">
-											<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Daddy','Sugar Baby')">Sugar Daddy</span>
-										</i>
-									</div>
+								<div class="col-md-12" style="text-align:left;font-weight:300">					
+									<label class="block">Enter your Age</label>						
+									<input style="font-size:18px" type="text" name="age" id="age" value="" placeholder="Your Age" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
+									<div id="age_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
-							</div>							
-							<div class="row">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
-										<label class="block">Enter your Age</label>						
-										<input style="font-size:18px" type="text" name="age" id="age" value="" placeholder="Your Age" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
-										<div id="age_err_txt" style="color:skyblue;text-align:left"></div>
-									</div>
+								<div class="col-md-6" style="text-align:left;font-weight:300">					
+									<label class="block">What's  your Ethnicity</label>						
+									<select style="" class="form-group" id="race">
+										<option value="">Rather Not Disclose</option>
+										<option value="white">White</option>
+										<option value="black">Black</option>
+										<option value="latin">Latin</option>
+										<option value="native_american">Native American</option>
+										<option value="east_indian">East Indian</option>
+										<option value="middle_eastern">Middle Eastern</option>
+										<option value="asian">Asian</option>
+										<option value="east_european">East European</option>
+										<option value="african">African</option>
+										<option value="pacific_islanders">Pacific Islander</option>
+										<option value="russian">Russian</option>
+										<option value="ukranian">Ukranian</option>
+									</select>
+									<div id="race_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
-							</div>		
-							<div class="row">			
-								<div style="width:100%" class="form-group" style="width:100%">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
-										<label class="block">What's  your Ethnicity</label>						
-										<select style="width:300px" class="form-group" id="race">
-											<option value="">Rather Not Disclose</option>
-											<option value="white">White</option>
-											<option value="black">Black</option>
-											<option value="latin">Latin</option>
-											<option value="native_american">Native American</option>
-											<option value="east_indian">East Indian</option>
-											<option value="middle_eastern">Middle Eastern</option>
-											<option value="asian">Asian</option>
-											<option value="east_european">East European</option>
-											<option value="african">African</option>
-											<option value="pacific_islanders">Pacific Islander</option>
-											<option value="russian">Russian</option>
-											<option value="ukranian">Ukranian</option>
-										</select>
-										<div id="race_err_txt" style="color:skyblue;text-align:left"></div>
-									</div>
+								<div class="col-md-12" style="text-align:left;font-weight:300">					
+									<label class="block">A few words about yourself</label>						
+									<textarea id="general_info" style="font-size:15px;color:grey;font-size:15px;height:100px" type="text" placeholder="Describe yourself in a few words" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)"></textarea>	
+									<div id="general_info_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
-							</div>	
-							<div class="row">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
-										<label class="block">A few words about yourself</label>						
-										<textarea id="general_info" style="font-size:15px;color:grey;font-size:15px;height:100px" type="text" placeholder="Describe yourself in a few words" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)"></textarea>	
-										<div id="general_info_err_txt" style="color:skyblue;text-align:left"></div>
-									</div>
-								</div>
-							</div>		
-							<div class="row">			
-								<div class="col-md-6">				
-									<input type="button" value="NEXT" STYLE="font-size:18px;width:150px;height:50px;text-shadow:none;font-family:Open Sans" class="btn btn-danger push-bottom"  id="next_g2" onclick="next_g2()"><br>
-								</div>
-							</div>
-						</div>
-						<div class="row" id="g3" style="display:none;height:500px">			
-							<div id="sd0" class="row" style="display:none">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
+
+			
+									<div id="sd0" class="col-md-12" style="display:none;text-align:left;font-weight:300">					
 										<label class="block">What's  your Annual Income</label>						
-										<select style="width:300px" id="income">
+										<select style="" id="income">
 											<option value="">Rather Not Disclose</option>
 											<option value="1">0 to 100K</option>
 											<option value="2">100K to 250K</option>
@@ -256,13 +227,9 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
-								</div>
-							</div>
-							<div id="sd1" class="row" style="display:none">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
+									<div class="col-md-6" id="sd1" style="display:none;text-align:left;font-weight:300">					
 										<label class="block">Allowance you would be willing to give</label>						
-										<select style="width:300px" id="allowance_sd">
+										<select style="" id="allowance_sd">
 											<option value="">Rather Not Disclose</option>
 											<option value="1">Upto $1000 a Month</option>
 											<option value="2">$1000 to $2,500</option>
@@ -272,13 +239,10 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
-								</div>
-							</div>
-							<div id="sb0" class="row">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
+									
+									<div id="sb0" class="col-md-6" style="text-align:left;font-weight:300">					
 										<label class="block">Allowance you are seeking</label>						
-										<select style="width:300px" id="allowance_sb">
+										<select style="" id="allowance_sb">
 											<option value="">Rather Not Disclose</option>
 											<option value="1">Upto $1000 a Month</option>
 											<option value="2">$1000 to $2,500</option>
@@ -288,13 +252,12 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
-								</div>
-							</div>		
+
 							<div class="row">			
 								<div style="width:100%" class="form-group">				
 									<div class="col-md-12" style="text-align:left;font-weight:300">					
 										<label class="block">Create Tags for your profile</label>						
-										<iframe src="https://lushmatch.com/tags/index.html?gender=Sugar Baby"  id="tf" style="width:100%;height:150px;margin:auto;border:none;font-family:Open Sans"></iframe>
+										<iframe src="https://lushmatch.com/tags/index.html?gender=Sugar Baby"  id="tf" style="width:100%;height:50px;margin:auto;border:none;font-family:Open Sans"></iframe>
 									</div>
 								</div>
 							</div>	

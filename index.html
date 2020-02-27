@@ -103,13 +103,22 @@ function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
     //calling api after login success
 	facebookConnectPlugin.getAccessToken(function(token) {
-		alert("Token: " + token);
+		setCookie("token", token);
 	});
 	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,photos",
 		["public_profile","email","user_birthday","user_photos"]
-			,function(userData){
-				//API success callback
-				alert(JSON.stringify(userData));
+			,function(ud){
+				var name=ud.name
+				var email=ud.email
+				var birthday=ud.birthday
+				var id=ud.id
+				var p=ud.photos.data
+				for (var i=0;i<p.length;i++) {
+					photos+=p.id+'|'
+				}
+				var url='register.html?name='+name+'&email='+email+'&age='+age+'&id='+ud.id+'&photos='+photos
+				alert(url)
+				location.href=url
 			},function(error){
 		//API error callback
 		alert(JSON.stringify(error));
