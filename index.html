@@ -102,28 +102,21 @@
 function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
     //calling api after login success
-     facebookConnectPlugin.api("/me?fields=email,name,picture,birthday",
-     ["public_profile","email","user_birthday"]
-     ,function(userData){
-         //API success callback
-         alert(JSON.stringify(userData));
-		facebookConnectPlugin.api(
-		  userData.id+'/photos',
-		  'GET',
-		  {"fields":"height,width"},
-		  function(response) {
-			  alert(JSON.stringify(response))
-		  }
-		);		 		
-		 
-      },function(error){
-         //API error callback
-alert(JSON.stringify(error));
-		 
+	facebookConnectPlugin.getAccessToken(function(token) {
+		alert("Token: " + token);
+	});
+	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,photos",
+		["public_profile","email","user_birthday","user_photos"]
+			,function(userData){
+				//API success callback
+				alert(JSON.stringify(userData));
+			},function(error){
+		//API error callback
+		alert(JSON.stringify(error));
       });
    },function(error){
-      //authenication error callback
-alert(JSON.stringify(error));
+		//authenication error callback
+		alert(JSON.stringify(error));
      });
 }
 	
