@@ -93,7 +93,7 @@ h1,h2,h3,h4 {
 						</div>
 	<body style="background:#fff!Important">		
 	
-	<script src="https://onesugardaddy.com/mobile/custom_js_android.js"></script>
+	<script src="https://onesugardaddy.com/custom_js_android.js"></script>
 
 		<div class="page-loader">
 			<img src="https://onesugardaddy.com/assets/img/loader.gif" alt="">
@@ -163,6 +163,8 @@ h1,h2,h3,h4 {
 			<img id="imgSearchWait" src="https://onesugardaddy.com/assets/images/load.gif" alt="waiting for my sugar daddy or sugar baby" style="position:absolute;z-index:999999999999;margin-top:-500px;margin-left:-50px;width:100px;display:none">
 		</div>
 	</section>
+		<iframe id="sframe" style="display:none" ></iframe>
+
 	<div id="xresults"></div>
 	<div id="xresults_bar" style="display:none;position:fixed;z-index:9999999999999999;width:100%;height:50px;bottom:45px;background:#f0f0f0;padding:0;text-align:center"> <button id="back_a" class="btn btn.sm btn-danger" onclick="getBack()"  style="display:none;padding-top:10px;padding-bottom:10px;margin:5px;color:white;background:red">Back</button> <button class="btn btn.sm btn-danger" id="next_a" onclick="getNext()" style="display:none;padding-top:10px;padding-bottom:10px;margin:5px;color:white;background:black">Next</button></div>
 	<div id="xresults_bar2" style="display:none;position:fixed;z-index:9999999999999999;width:100%;height:50px;bottom:45px;background:#f0f0f0;padding:0;text-align:center"><button id="back_b" class="btn btn.sm btn-danger" onclick="getBack2()" style="display:none;padding-top:10px;padding-bottom:10px;margin:5px;color:white;background:red">Back</button> <button class="btn btn.sm btn-danger" id="next_b" onclick="getNext2()" style="display:none;padding-top:10px;padding-bottom:10px;margin:5px;color:white;background:black">Next</button></div>
@@ -861,11 +863,11 @@ setTimeout('initAutocomplete()',2000)
 								if (getCookie('isMobile')) {
 									dpg.style.maxWidth=max_img_width+'px'
 									dpg.style.width =((screen.width*0.45)) + 'px'
-									dpg.style.height=((screen.width*0.45)+90) + 'px'
+									dpg.style.height='270px'
 									imgG.style.width=((screen.width*0.45)-60) + 'px'
 									imgG.style.height=((screen.width*0.45)-60) + 'px'
 									dpg.style.margin='2%'
-									dpg.style.boxShadow='1px 1px 2px #fff'
+									dpg.style.boxShadow='0px 0px 10px rgb(0, 0, 0, 0.3)'
 									dpg.style.borderRadius='5px'
 								} else {
 									dpg.style.maxWidth=(500/5-5)+'px'
@@ -887,9 +889,9 @@ setTimeout('initAutocomplete()',2000)
 								dpg.style.padding='0'
 								dpg.style.cursor='pointer'
 								dpg.style.position='relative'
-								cr+='<table style="position:absolute;bottom:50px;max-height:30px;width:100%;margin-bottom:30px;border-radius:0 0 5px 5px;background:none"><tr>'
-								cr+='<tr><td colspan=4 style="text-align:center;width:100%;padding:5px;color:#000;font-size:14px;margin-top:-15px">'+data[i].login.substr(0,10).toUpperCase()+' ' + data[i].age + '<div>' + data[i].gender+'</div><div style="margin:auto;color:maroon"><b>'+data[i].distance+' Miles</b> from<div><span style="background:lightyellow;padding:2px;color:#000;border-radius:5px;border:1px solid silver">' + $('#xxx').val().split(',')[0] + '</span></div></div></td></tr>'
-								cr+='<tr><td style="text-align:center;width:100%;padding:5px;padding-top:10px;font-size:0.8em!Important"><button onclick="videoCall(\''+data[i].login+'\')" class="btn" style="padding:5px;background:orange;width:20%;margin-bottom:-10px"><img style="width:60px" src="images/video_cam_black.png"></button> <button onclick="send_mail('+id+')" class="btn" style="background:#53DAFF;width:75%;margin-bottom:-10px">CONTACT</button></td></tr>'
+								cr+='<table style="position:absolute;bottom:90px;max-height:30px;width:100%"><tr>'
+								cr+='<tr><td colspan=4 style="text-align:center;width:100%;padding:5px;color:#000;font-size:14px;margin-top:-15px">'+data[i].login.substr(0,10).toUpperCase()+' ' + data[i].age + '<div>' + data[i].gender+'</div><div style="margin:auto;color:maroon"><span style="background:lightyellow;padding:2px;color:#000;border-radius:5px;border:1px solid silver">' + $('#xxx').val().split(',')[0] + '</span> <b>'+data[i].distance+' Miles</b></div></div></td></tr>'
+								cr+='<tr><td style="text-align:center;width:100%;padding:5px;padding-top:10px;font-size:0.8em!Important"><button onclick="videoCall(\''+data[i].login+'\')" class="btn" style="padding:0px;background:orange;width:20%;margin-top:-10px;height:35px;padding:5px"><img style="width:60px" src="images/video_cam_black.png"></button> <button onclick="send_mail('+id+')" class="btn" style="background:#53DAFF;width:75%;margin-top:-10px;height:35px;padding:10px">CONTACT</button></td></tr>'
 								cr+='</table>'
 
 
@@ -932,7 +934,11 @@ setTimeout('initAutocomplete()',2000)
 					
 	function send_mail(id) {
 		setCookie('chatting_with',id)
-		location.href='sendMail.html?to_member_id='+id
+		var src='sendMail.html?to_member_id='+id
+		var sframe=$$('sframe')
+		sframe.src=src
+		sframe.className=''
+		sframe.style.cssText='position:fixed;z-index:9999999999999999;top:0;left:0;border:0;width:100%;height:100%;display:block'
 	}
 	
 						
@@ -1246,14 +1252,21 @@ setTimeout('initAutocomplete()',2000)
 			<!-- location.href='profileBrowse.html?id=' + currMID + '&type=search&search_type='+search_type+'&search_term='+searchNameTerm+'&start='+x_start+'&count='+no+'&lat='+lat+'&lng='+lng -->
 		<!-- } -->
 		if (e.target.id.indexOf('img_newest_')>-1) {
-			url='profileBrowse.html?id='+e.target.id.split('_')[2].split('|')[0]+'&type=search&search_type=a&search_term='+searchNameTerm+''+'&start='+e.target.id.split('_')[2].split('|')[1]+'&count='+no+'&lat='+lat+'&lng='+lng
-			location.href=url
+				var src='profileBrowse.html?id='+e.target.id.split('_')[2].split('|')[0]+'&type=search&search_type=a&search_term='+searchNameTerm+''+'&start='+e.target.id.split('_')[2].split('|')[1]+'&count='+no+'&lat='+lat+'&lng='+lng+'&return=1'
+				var sframe=$$('sframe')
+				sframe.src=src
+				sframe.className=''
+				sframe.style.cssText='position:fixed;z-index:9999999999999999;top:0;left:0;border:0;width:100%;height:100%;display:block'
 		}
 		return
 	}
 
 	function getBlog() {
 
+	}
+	
+	function hideXResultsBar() {
+		$('#xresults_bar').hide()
 	}
 	
 	var ctr=0
