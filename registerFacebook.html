@@ -518,7 +518,7 @@ function render_albums() {
 		acounts.push(album.count)
 		asrcs.push(album.cover_photo.picture)
 	  });	
-	for (var i=0; i<als.length; i++) {
+	for (var i=0; i<aids.length; i++) {
 		var ah=document.createElement('div')
 		ah.className='row'
 		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+')"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
@@ -544,7 +544,8 @@ function render_photos(id) {
 }
 
 function import_albums() {
-	facebookConnectPlugin.api('/me?fields=albums.limit(100){name,count,cover_photo{picture}}', response => {
+	alert('sending')
+	facebookConnectPlugin.api('/me?fields=albums{name,count,cover_photo{picture}}', response => {
 	  alert(JSON.stringify(response.albums))
 	   fbAlbumsPhotosObj = response.albums;
 	   return fbAlbumsPhotosObj
