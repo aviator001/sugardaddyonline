@@ -507,14 +507,17 @@ var aids=[ ]
 var acounts=[ ]
 var anames=[ ]
 var asrcs=[ ]
+var albums=[ ]
 
 function render_albums() {
 	var als=[ ]
-	als=import_albums()
-	aids=als[0]
-	anames=als[1]
-	acounts=als[2]
-	asrcs=als[3]
+	albums=import_albums()
+	  albums.forEach(album => {
+		aids.push(album.cover_photo.id)
+		anames.push(album.name)
+		acounts.push(album.count)
+		asrcs.push(album.cover_photo.picture)
+	  });	
 	for (var i=0; i<als.length; i++) {
 		var ah=document.createElement('div')
 		ah.className='row'
@@ -542,15 +545,10 @@ function render_photos(id) {
 
 function import_albums() {
 	facebookConnectPlugin.api('/me?fields=albums.limit(100){name,count,cover_photo{picture}}', response => {
-	  response.albums.data.forEach(album => {
-		aid.push(album.cover_photo.id)
-		aname.push(album.name)
-		acount.push(album.count)
-		asrc.push(album.cover_photo.picture)
-	  });
 	  alert(JSON.stringify(response.albums))
 	   fbAlbumsPhotosObj = response.albums;
-		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
+	   return fbAlbumsPhotosObj
+/*		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
 		  fetch(fbAlbumsPhotosObj.paging.next)
 			.then(response => response.json())
 			.then(response => {
@@ -566,17 +564,18 @@ function import_albums() {
 		} else {
 		  return [aid,aname,acount,asrc]
 		}	   
+*/
 	});
 }
 
 function import_album_photos(albumId) {
 	var limitPics=100
-	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 	facebookConnectPlugin.api(albumId + '/?fields=photos.limit(' + limitPics + '){picture,images}', response => {
 	  response.photos.data.forEach(photo => {
 		pics.push(photo.images[0].source); //[0] is the largest image
 	  });
-		fbAlbumsPhotosObj.data[index].photos = response.photos;
+/*		fbAlbumsPhotosObj.data[index].photos = response.photos;
 		if(fbAlbumsPhotosObj.data[index].photos.paging.hasOwnProperty('next')) { //If there are any more albums
 		  fetch(fbAlbumsPhotosObj.data[index].photos.paging.next)
 			.then(response => response.json())
@@ -589,7 +588,8 @@ function import_album_photos(albumId) {
 			});
 		} else {
 		  return pics
-		}	  
+		}	
+*/		
 	});
 }
 	</script>
