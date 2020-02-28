@@ -482,8 +482,8 @@ function signupWithFB(){
 	facebookConnectPlugin.getAccessToken(function(token) {
 		setCookie("token", token);
 	});
-	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,photos",
-		["public_profile","email","user_birthday","user_photos"]
+	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums{name,count,cover_photo{picture}}",
+		["public_profile","email","user_birthday","user_photos","albums"]
 			,function(ud){
 				alert(JSON.stringify(ud))
 				var name=ud.name
