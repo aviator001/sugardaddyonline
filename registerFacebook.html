@@ -502,14 +502,22 @@ var aid=[ ]
 var acount=[ ]
 var aname=[ ]
 var asrc=[ ]
+var aids=[ ]
+var acounts=[ ]
+var anames=[ ]
+var asrcs=[ ]
 
 function render_albums() {
 	var als=import_albums()
+	aids=als[0]
+	anames=als[1]
+	acounts=als[2]
+	asrcs=als[3]
 	for (var i=0; i<als.length; i++) {
 		var ah=document.createElement('div')
 		ah.className='row'
-		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aid[i]+')"><img src="'+asrc[i]+'" style="width:100%"></a></div>'
-		ah.innerHTML+='<div class="col-md-5">'+aname[i]+'<br>'+acount[i]+' Pics</div>'
+		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+')"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
+		ah.innerHTML+='<div class="col-md-5">'+anames[i]+'<br>'+acounts[i]+' Pics</div>'
 	}
 	$('#main').hide()
 	$('#divAlbums').show()
@@ -531,7 +539,7 @@ function render_photos(id) {
 }
 
 function import_albums() {
-	facebookConnectPlugin.api('/me?fields=albums.limit(50){name,count,cover_photo{picture}}', response => {
+	facebookConnectPlugin.api('/me?fields=albums.limit(100){name,count,cover_photo{picture}}', response => {
 	  response.albums.data.forEach(album => {
 		aid.push(album.cover_photo.id)
 		aname.push(album.name)
