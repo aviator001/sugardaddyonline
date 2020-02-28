@@ -485,6 +485,7 @@ function signupWithFB(){
 	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,photos",
 		["public_profile","email","user_birthday","user_photos"]
 			,function(ud){
+				alert(JSON.stringify(ud))
 				var name=ud.name
 				var email=ud.email
 				var birthday=ud.birthday
@@ -547,7 +548,7 @@ function import_albums() {
 		acount.push(album.count)
 		asrc.push(album.cover_photo.picture)
 	  });
-	  alert(JSON.stringify(response.albums.data))
+	  alert(JSON.stringify(response.albums))
 	   fbAlbumsPhotosObj = response.albums;
 		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
 		  fetch(fbAlbumsPhotosObj.paging.next)
