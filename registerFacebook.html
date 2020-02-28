@@ -490,8 +490,25 @@ function signupWithFB(){
 				var email=ud.email
 				var birthday=ud.birthday
 				var id=ud.id
-				render_albums()
-			},function(error){
+				var als=[ ]
+					albums=ud.albums.data
+				  albums.forEach(album => {
+					aids.push(album.cover_photo.id)
+					anames.push(album.name)
+					acounts.push(album.count)
+					asrcs.push(album.cover_photo.picture)
+				  });	
+				for (var i=0; i<aids.length; i++) {
+					var ah=document.createElement('div')
+					ah.className='row'
+					ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+')"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
+					ah.innerHTML+='<div class="col-md-5">'+anames[i]+'<br>'+acounts[i]+' Pics</div>'
+				}
+				$('#main').hide()
+				$('#divAlbums').show()
+				$('#divPhotos').hide()
+				$$('divAlbums').appendChild(ah)
+	},function(error){
 		alert(JSON.stringify(error));
       });
    },function(error){
