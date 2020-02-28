@@ -508,7 +508,8 @@ var anames=[ ]
 var asrcs=[ ]
 
 function render_albums() {
-	var als=import_albums()
+	var als=[ ]
+	als=import_albums()
 	aids=als[0]
 	anames=als[1]
 	acounts=als[2]
@@ -546,6 +547,7 @@ function import_albums() {
 		acount.push(album.count)
 		asrc.push(album.cover_photo.picture)
 	  });
+	  alert(JSON.stringify(response.albums.data))
 	   fbAlbumsPhotosObj = response.albums;
 		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
 		  fetch(fbAlbumsPhotosObj.paging.next)
