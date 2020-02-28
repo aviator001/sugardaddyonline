@@ -98,37 +98,30 @@
 	function setVersion() {
 		setCookie('version',version)
 	}
-
+var token
 function signupWithFB(){
-  facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
-    //calling api after login success
-	facebookConnectPlugin.getAccessToken(function(token) {
-		setCookie("token", token);
-	});
-	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,photos",
-		["public_profile","email","user_birthday","user_photos"]
-			,function(ud){
-				var name=ud.name
-				var email=ud.email
-				var birthday=ud.birthday
-				var id=ud.id
-				var p=ud.photos.data
-				for (var i=0;i<p.length;i++) {
-					photos+=p.id+'|'
-				}
-				var url='register.html?name='+name+'&email='+email+'&age='+age+'&id='+ud.id+'&photos='+photos
-				alert(url)
-				location.href=url
-			},function(error){
-		//API error callback
-		alert(JSON.stringify(error));
-      });
-   },function(error){
-		//authenication error callback
-		alert(JSON.stringify(error));
-     });
+	location.href='registerFacebook.html'
 }
-	
+/*
+https://graph.facebook.com/v6.0/10150108769430365/photos?access_token=EAARG21ewxMsBAOMrZC1SYuWEjBZBnd3zlTYmDn8MyutPeNXZAvnpi9ZBA30xwcku7Qbj2Vj7KVKqHcls5EbZAqNwR1SVDPvyyKl1ZADoC2dUcvHzSNeHW0hP0T3tKziNDMjfCzGmF6F62x4VfZCTrI8haspnefKyI2qmiDIPFlO1MGu52zZCgvtp7xorfKKuE9HmGNq00kmGGFrvI4ctNnfyRSpGMsWlZAsAfzBsBXpAUWgZDZD&pretty=0&limit=100&after=MTAxNTM2MjYyMTcwOTAzNjUZD
+
+FB.api(
+  '/me',
+  'GET',
+  {"fields":"albums","transport":"cors","limit":"100"},
+  function(response) {
+      // Insert your code here
+  }
+);
+
+FB.api(
+    "/{album-id}",
+    function (response) {
+      if (response && !response.error) {
+      }
+    }
+);
+*/	
 </script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
