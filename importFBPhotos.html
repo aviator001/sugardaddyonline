@@ -575,10 +575,10 @@ function render_photos(id,x_url) {
 	$$('divPhotos').innerHTML+='<div class="row">'
 
 	if (data.photos.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\')" class="btn btn-danger">PREVIOUS</button>'
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 	}
 	if (data.photos.paging.next) {
-		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\')" class="btn btn-danger">NEXT</button>'
+		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
 	}
 
 	
@@ -586,7 +586,7 @@ function render_photos(id,x_url) {
 	}
 })
 }
-function next(after) {
+function next(after,id) {
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
 	$('#divPhotos').html('')
@@ -628,7 +628,7 @@ function next(after) {
 })
 }
 
-function previous(before) {
+function previous(before,id) {
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
 	$('#divPhotos').html('')
