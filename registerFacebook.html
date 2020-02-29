@@ -493,6 +493,9 @@ function signupWithFB(){
 					albums=ud.albums.data
 					alert(JSON.stringify(albums))
 					alert(albums.length)
+					$('#main').hide()
+					$('#divAlbums').show()
+					$('#divPhotos').hide()					
 					for (var j=0;j<albums.length;j++) {
 						var ah=document.createElement('div')
 						ah.className='row'
@@ -501,9 +504,8 @@ function signupWithFB(){
 						ah.innerHTML+='<div class="col-md-5">'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
 						$$('divAlbums').appendChild(ah)
 					}
-				$('#main').hide()
-				$('#divAlbums').show()
-				$('#divPhotos').hide()
+					alert(ah.innerHTML)
+
 	},function(error){
 		alert(JSON.stringify(error));
       });
