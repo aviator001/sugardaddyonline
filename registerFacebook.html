@@ -552,7 +552,7 @@ function render_photos(id) {
 	var limitPics=100
 /*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 	var photo=[ ]
-	var url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(100)%7Bpicture%2Cimages%7D&transport=cors&access_token="+token
+	var url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(100)%7Bpicture%2Cimages%7D&transport=cors&access_token="+getCookie('token')
 	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
 		alert(JSON.stringify(data))
