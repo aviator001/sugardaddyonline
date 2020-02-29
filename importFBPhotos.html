@@ -536,7 +536,7 @@ function render_albums() {
 	for (var i=0; i<aids.length; i++) {
 		var ah=document.createElement('div')
 		ah.className='row'
-		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+',1)"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
+		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+')"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
 		ah.innerHTML+='<div class="col-md-5">'+anames[i]+'<br>'+acounts[i]+' Pics</div>'
 	}
 	$('#main').hide()
@@ -548,6 +548,7 @@ var pics=[ ]
 function render_photos(id,x_url) {
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
+	$('#divPhotos').html('')
 	var limitPics=100
 /*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 	var photo=[ ]
@@ -558,6 +559,7 @@ function render_photos(id,x_url) {
 		else url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
 	$.ajax({url:url,success:function(data){
 	  photo=data.photos.data
+	  $('#divPhotos').html(JSON.stringify(photo))
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
