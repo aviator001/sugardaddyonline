@@ -558,6 +558,7 @@ function render_photos(id,x_url) {
 		else url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
 	$.ajax({url:url,success:function(data){
 	  photo=data.photos.data
+  	alert(data.photos)
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
@@ -576,7 +577,6 @@ function render_photos(id,x_url) {
 	if (data.photos.paging.previous) {
 		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.previous+'\')" class="btn btn-danger">PREVIOUS</button>'
 	}
-	alert(data.photos.paging.next)
 	if (data.photos.paging.next) {
 		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.next+'\')" class="btn btn-danger">NEXT</button>'
 	}
