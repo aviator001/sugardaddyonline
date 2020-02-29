@@ -555,8 +555,7 @@ function render_photos(id,x_url) {
 	var tkk=tk
 	var url
 	if (!tk) tkk=getCookie('token')
-	if (x_url) url=x_url
-		else url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
+	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
 	$.ajax({url:url,success:function(data){
 	  photo=data.photos.data
 	  $('#divPhotos').html(JSON.stringify(photo))
@@ -576,38 +575,101 @@ function render_photos(id,x_url) {
 	$$('divPhotos').innerHTML+='<div class="row">'
 
 	if (data.photos.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.previous+'\')" class="btn btn-danger">PREVIOUS</button>'
+		$$('divPhotos').innerHTML+='<button onclick="previous(1,\''+data.photos.paging.cursors.before+'\')" class="btn btn-danger">PREVIOUS</button>'
 	}
 	if (data.photos.paging.next) {
 		alert(data.photos.paging.next)
-		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.next+'\')" class="btn btn-danger">NEXT</button>'
+		$$('divPhotos').innerHTML+='<button onclick="next(1,\''+data.photos.paging.cursors.after+'\')" class="btn btn-danger">NEXT</button>'
 	}
 
 	
 	$$('divPhotos').innerHTML+='</div>'
 	}
 })
-/*
-facebookConnectPlugin.api(
-  '/10150108769430365/',
-  'GET',
-  {"fields":"photos.limit(100){picture,images}","transport":"cors"},
-  function(response) {
-	  alert(JSON.stringify(response))
-	  photo=response.photos.data
-	  response.photos.data.forEach(photo => {
-		pics.push(photo.images[0].source); //[0] is the largest image
-	  });
-	str='<div class="container"><div class="row">'
-	for (var i=0; i<als.length; i++) {
-		str+='<div class="col-xs-1"><a href="javascript:import_photo(\''+als[i]+'\')"><img src="'+als[i]+'" style="width:100%"></a></div>'
+}
+function next(after) {
+	$('#divAlbums').hide()
+	$('#divPhotos').show()
+	$('#divPhotos').html('')
+	var limitPics=100
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
+	var photo=[ ]
+	var tkk=tk
+	var url
+	if (!tk) tkk=getCookie('token')
+	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&after="+after
+	$.ajax({url:url,success:function(data){
+	  photo=data.photos.data
+	  $('#divPhotos').html(JSON.stringify(photo))
+	  str='<div class="container"><div class="row">'
+	for (var i=0; i<photo.length; i++) {
+		if (photo[i].images[0].source) {
+			try {
+				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+				$$('divPhotos').innerHTML=str
+			} catch (error) {
+				str+=error
+			}
+		}
 	}
-	$$('divPhotos').innerHTML=str+'</div></div>'
-	  
-	  */
 
+	$$('divPhotos').innerHTML=str+'</div>'
+	$$('divPhotos').innerHTML+='<div class="row">'
 
-	  }
+	if (data.photos.paging.previous) {
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\')" class="btn btn-danger">PREVIOUS</button>'
+	}
+	if (data.photos.paging.next) {
+		$$('divPhotos').innerHTML+='<button onclick="next(1,\''+data.photos.paging.cursors.after+'\')" class="btn btn-danger">NEXT</button>'
+	}
+
+	
+	$$('divPhotos').innerHTML+='</div>'
+	}
+})
+}
+
+function previous(before) {
+	$('#divAlbums').hide()
+	$('#divPhotos').show()
+	$('#divPhotos').html('')
+	var limitPics=100
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
+	var photo=[ ]
+	var tkk=tk
+	var url
+	if (!tk) tkk=getCookie('token')
+	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&before="+before
+	$.ajax({url:url,success:function(data){
+	  photo=data.photos.data
+	  $('#divPhotos').html(JSON.stringify(photo))
+	  str='<div class="container"><div class="row">'
+	for (var i=0; i<photo.length; i++) {
+		if (photo[i].images[0].source) {
+			try {
+				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+				$$('divPhotos').innerHTML=str
+			} catch (error) {
+				str+=error
+			}
+		}
+	}
+
+	$$('divPhotos').innerHTML=str+'</div>'
+	$$('divPhotos').innerHTML+='<div class="row">'
+
+	if (data.photos.paging.previous) {
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\')" class="btn btn-danger">PREVIOUS</button>'
+	}
+	if (data.photos.paging.next) {
+		$$('divPhotos').innerHTML+='<button onclick="next(1,\''+data.photos.paging.cursors.after+'\')" class="btn btn-danger">NEXT</button>'
+	}
+
+	
+	$$('divPhotos').innerHTML+='</div>'
+	}
+})
+}
 
 
 function import_albums() {
