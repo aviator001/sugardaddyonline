@@ -545,23 +545,23 @@ function render_albums() {
 }
 var pics=[ ]
 function render_photos(id) {
+	$('#divAlbums').hide()
+	$('#divPhotos').show()
 	alert(id)
 	var limitPics=100
 /*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
-	facebookConnectPlugin.api(id + '/?fields=photos.limit(' + limitPics + '){picture,images}', response => {
+	facebookConnectPlugin.api(id + '/?fields=photos.limit(100){picture,images}&transport=cors', response => {
 	  alert(JSON.stringify(response))
 	  response.photos.data.forEach(photo => {
 		pics.push(photo.images[0].source); //[0] is the largest image
 	  });
-	});
 	alert(pics.length)
+	});
 	als=pics
-	$('#divAlbums').hide()
-	$('#divPhotos').show()
+
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<als.length; i++) {
 		str+='<div class="col-xs-1"><a href="javascript:import_photo(\''+als[i]+'\')"><img src="'+als[i]+'" style="width:100%"></a></div>'
-		$$('divPhotos').innerHTML=str
 	}
 	$$('divPhotos').innerHTML=str+'</div></div>'
 }
