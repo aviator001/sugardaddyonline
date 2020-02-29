@@ -576,7 +576,7 @@ function render_photos(id,x_url) {
 	if (data.photos.paging.previous) {
 		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.previous+'\')" class="btn btn-danger">PREVIOUS</button>'
 	}
-
+	alert(data.photos.paging.next)
 	if (data.photos.paging.next) {
 		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.next+'\')" class="btn btn-danger">NEXT</button>'
 	}
