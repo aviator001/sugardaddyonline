@@ -90,7 +90,7 @@ ul.ui-autocomplete li.ui-menu-item {
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
 		<div  id="divAlbums" style="width:100%;height:100%;background:#f0f0f0"></div>
-		<div  id="divPhotos"></div>
+		<div  id="divPhotos" style="width:100%;height:100%;background:#f0f0f0"></div>
 		<div id="main">
 		<div class="modal" id="modal" style="position:;z-index:999;background:#000;opacity:0.8;height:100%;width:100%;top:0;left:0;display:none;cursor:hand;cursor:pointer"></div>
 		<div id="modal_text" class="modal_window" onclick="javascript:history.go(0)" id="modal_window" style="padding:20px;border-radius:6px;position:;z-index:9999;display:none;background:#f0f0f0;top:0;bottom:0;left:0;right:0;margin:auto;width:300px;height:420px;font-family:Open Sans;font-size:18px;"><b>Error - Location Required</b><br>In order to use this site, you must agree to share your current location. We will never disclose this information to anyone, but we need this to provide you with the best experience. If you need help on how to enable your location, <a href="https://support.google.com/chrome/answer/142065?hl=en"><span style='color:brown'><b>Click Here</b></span></a><br><br><span style='color:#0093D9;cursor:hand;cursor:pointer'>Clear location settings and then click HERE to try again!</span></div>
@@ -563,8 +563,14 @@ function render_photos(id) {
 
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
-		str+='<div class="col-xs-1"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="width:100%"></a></div>'
-		$$('divPhotos').innerHTML=str
+		if (photo[i].images[0].source) {
+			try {
+				str+='<div class="col-xs-1"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="width:100%"></a></div>'
+				$$('divPhotos').innerHTML=str
+			} catch (error) {
+				str+=error
+			}
+		}
 	}
 	$$('divPhotos').innerHTML=str+'</div></div>'
 	}
