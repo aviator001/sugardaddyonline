@@ -550,15 +550,20 @@ function render_photos(id) {
 	alert(id)
 	var limitPics=100
 /*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
-	facebookConnectPlugin.api(id + '/?fields=photos.limit(100){picture,images}&transport=cors', response => {
-	  alert(JSON.stringify(response.photos.data))
+var photo=[ ]
+facebookConnectPlugin.api(
+  '/'+id+'/',
+  'GET',
+  {"fields":"photos.limit(100){picture,images}","transport":"cors"},
+  function(response) {
+	  photo=response.photos.data
+	  alert(JSON.stringify(photo))
 /*	  response.photos.data.forEach(photo => {
 		pics.push(photo.images[0].source); //[0] is the largest image
-	  });
-*/
-	alert(pics.length)
-	});
-	als=pics
+	  });*/
+  }
+);
+
 
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<als.length; i++) {
