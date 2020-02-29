@@ -481,6 +481,7 @@ var albums=[ ]
 function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
 	facebookConnectPlugin.getAccessToken(function(token) {
+		alert(token)
 		setCookie("token", token);
 	});
 	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums.limit(50){name,count,cover_photo{picture}}",
