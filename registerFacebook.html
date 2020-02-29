@@ -558,7 +558,7 @@ function render_photos(id) {
 //	url='https://graph.facebook.com/v6.0/10150108769430365/?fields=photos.limit(100)%7Bpicture%2Cimages%7D&transport=cors&access_token=EAARG21ewxMsBAFQjOGOsItZCFneZCKW0tPmFZA4xNROZCPzpcPZB96rHFQ4JCPwi9qX2lzRsAo9KkOEgnEJ7H07PgleNoZCeoijZASWavZBaisAu2R4q42bT7ZByj9VoyYPZAananleZBnGszm44hQp5KFEFwIbSEAmeAF9YIh9CP9aZAZCZA3fuhSF725tq9kioRExgHtPS6baEGTZAaiZCoN5bkbZAc3pUuUrpkWpuLVslzKNq6zAZDZD'
 	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
-		$('#divPhotos').html(url)
+		$('#divPhotos').html(data)
 	}
 })
 /*
