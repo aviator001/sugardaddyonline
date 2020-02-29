@@ -496,16 +496,14 @@ function signupWithFB(){
 					$('#main').hide()
 					$('#divAlbums').show()
 					$('#divPhotos').hide()					
+					var str=''
+					var ah=document.createElement('div')
+					ah.className='row'
 					for (var i=0;i<albums.length;i++) {
-						alert(albums[i].name)
-						var ah=document.createElement('div')
-						ah.className='row'
-						var str=''
-						str+='<div class="col-md-1"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img src="'+albums[i].cover_photo.picture+'" style="width:100%"></a></div>'
-						str+='<div class="col-md-5">'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
-						$$('divAlbums').innerHTML=str
+						str+='<div class="col-xs-1"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img src="'+albums[i].cover_photo.picture+'" style="width:100%"></a><br>'+albums[i].name+'<br>'+albums[i].count+'</div>'
 					}
-
+					ah.innerHTML=str
+					$$('divAlbums').appendChild(ah)
 	},function(error){
 		alert(JSON.stringify(error));
       });
