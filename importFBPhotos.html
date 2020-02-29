@@ -600,7 +600,7 @@ function next(after,id) {
 	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&after="+after
 	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
-	  photo=data.photos.data
+	  photo=data.data
 	 
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
@@ -642,7 +642,7 @@ function previous(before,id) {
 	if (!tk) tkk=getCookie('token')
 	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&before="+before
 	$.ajax({url:url,success:function(data){
-	  photo=data.photos.data
+	  photo=data.data
 	  $('#divPhotos').html(JSON.stringify(photo))
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
