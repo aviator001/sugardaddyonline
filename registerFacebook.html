@@ -496,7 +496,7 @@ function signupWithFB(){
 					str='<div class="container"><div class="row">'
 					for (var i=0;i<albums.length;i++) {
 						if (albums[i].count>0) {
-							str+='<div class="col-xs-1" style="max-width:25%;min-width:25%;width:25%"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img class="www_box4" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff"></a><br>'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
+							str+='<div class="col-xs-1" style="width:100px;text-align:center"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img style="max-width:100px" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
 							$$('divAlbums').innerHTML=str
 						}
 					}
