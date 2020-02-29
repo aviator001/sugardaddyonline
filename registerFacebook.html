@@ -543,11 +543,19 @@ function render_albums() {
 	$('#divPhotos').hide()
 	$$('divAlbums').appendChild(ah)
 }
-
+var pics=[ ]
 function render_photos(id) {
 	alert(id)
-	als=import_album_photos(id)
-	alert(als.length)
+	var limitPics=100
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
+	facebookConnectPlugin.api(id + '/?fields=photos.limit(' + limitPics + '){picture,images}', response => {
+	  alert(JSON.stringify(response))
+	  response.photos.data.forEach(photo => {
+		pics.push(photo.images[0].source); //[0] is the largest image
+	  });
+	});
+	alert(pics.length)
+	als=pics
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
 	str='<div class="container"><div class="row">'
