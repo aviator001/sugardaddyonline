@@ -552,12 +552,12 @@ function render_photos(id) {
 /*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 var photo=[ ]
 facebookConnectPlugin.api(
-  '/'+id+'/',
+  '/10150108769430365/',
   'GET',
   {"fields":"photos.limit(100){picture,images}","transport":"cors"},
   function(response) {
+	  alert(JSON.stringify(response))
 	  photo=response.photos.data
-	  alert(JSON.stringify(photo))
 /*	  response.photos.data.forEach(photo => {
 		pics.push(photo.images[0].source); //[0] is the largest image
 	  });*/
