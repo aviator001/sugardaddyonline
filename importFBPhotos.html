@@ -573,12 +573,12 @@ function render_photos(id,x_url) {
 	$$('divPhotos').innerHTML=str+'</div>'
 	$$('divPhotos').innerHTML+='<div class="row">'
 
-	if (data.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.paging.previous+'\')" class="btn btn-danger">PREVIOUS</button>'
+	if (data.photos.paging.previous) {
+		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.previous+'\')" class="btn btn-danger">PREVIOUS</button>'
 	}
 
-	if (data.paging.next) {
-		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.paging.next+'\')" class="btn btn-danger">NEXT</button>'
+	if (data.photos.paging.next) {
+		$$('divPhotos').innerHTML+='<button onclick="render_photos(1,\''+data.photos.paging.next+'\')" class="btn btn-danger">NEXT</button>'
 	}
 
 	
