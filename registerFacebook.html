@@ -548,24 +548,18 @@ var pics=[ ]
 function render_photos(id) {
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
-	alert(id)
 	var limitPics=100
-/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 	var photo=[ ]
 	var tkk=tk
 	if (!tk) tkk=getCookie('token')
 	var url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(100)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
-//	url='https://graph.facebook.com/v6.0/10150108769430365/?fields=photos.limit(100)%7Bpicture%2Cimages%7D&transport=cors&access_token=EAARG21ewxMsBAFQjOGOsItZCFneZCKW0tPmFZA4xNROZCPzpcPZB96rHFQ4JCPwi9qX2lzRsAo9KkOEgnEJ7H07PgleNoZCeoijZASWavZBaisAu2R4q42bT7ZByj9VoyYPZAananleZBnGszm44hQp5KFEFwIbSEAmeAF9YIh9CP9aZAZCZA3fuhSF725tq9kioRExgHtPS6baEGTZAaiZCoN5bkbZAc3pUuUrpkWpuLVslzKNq6zAZDZD'
-	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
 	  photo=data.photos.data
-	  alert(JSON.stringify(data.photos.data))
-
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
-				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'"  style="border:10px solid #fff;max-width:100px;min-width:100px; width:100px"></a></div>'
+				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
 				$$('divPhotos').innerHTML=str
 			} catch (error) {
 				str+=error
@@ -599,9 +593,7 @@ facebookConnectPlugin.api(
 
 
 function import_albums() {
-	alert('sending')
 	facebookConnectPlugin.api('/me?fields=albums{name,count,cover_photo{picture}}', response => {
-	  alert(JSON.stringify(response.albums))
 	   fbAlbumsPhotosObj = response.albums;
 	   return fbAlbumsPhotosObj
 /*		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
