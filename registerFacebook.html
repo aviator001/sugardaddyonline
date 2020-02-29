@@ -485,13 +485,13 @@ function signupWithFB(){
 	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums{name,count,cover_photo{picture}}",
 		["public_profile","email","user_birthday","user_photos"]
 			,function(ud){
-				alert(JSON.stringify(ud))
 				var name=ud.name
 				var email=ud.email
 				var birthday=ud.birthday
 				var id=ud.id
 				var als=[ ]
 					albums=ud.albums.data
+					alert(JSON.stringify(albums))
 				  albums.forEach(album => {
 					aids.push(album.cover_photo.id)
 					anames.push(album.name)
