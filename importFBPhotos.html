@@ -536,7 +536,7 @@ function render_albums() {
 	for (var i=0; i<aids.length; i++) {
 		var ah=document.createElement('div')
 		ah.className='row'
-		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+')"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
+		ah.innerHTML+='<div class="col-md-1"><a href="javascript:render_photos('+aids[i]+',1)"><img src="'+asrcs[i]+'" style="width:100%"></a></div>'
 		ah.innerHTML+='<div class="col-md-5">'+anames[i]+'<br>'+acounts[i]+' Pics</div>'
 	}
 	$('#main').hide()
