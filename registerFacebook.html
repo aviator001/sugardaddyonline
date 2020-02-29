@@ -89,7 +89,7 @@ ul.ui-autocomplete li.ui-menu-item {
 	<script src='cordova.js'></script>
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
-		<div  id="divAlbums" style="width:100%;height:100%"></div>
+		<div  id="divAlbums" style="width:100%;height:100%;background:#f0f0f0"></div>
 		<div  id="divPhotos"></div>
 		<div id="main">
 		<div class="modal" id="modal" style="position:;z-index:999;background:#000;opacity:0.8;height:100%;width:100%;top:0;left:0;display:none;cursor:hand;cursor:pointer"></div>
@@ -496,7 +496,7 @@ function signupWithFB(){
 					str='<div class="row">'
 					for (var i=0;i<albums.length;i++) {
 						if (albums[i].count>0) {
-							str+='<div class="col-md-1"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img class="www_box" src="'+albums[i].cover_photo.picture+'" style="width:100%"></a><br>'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
+							str+='<div class="col-md-1"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img class="www_box2" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff"></a><br>'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
 							$$('divAlbums').innerHTML=str+'</div>'
 						}
 					}
