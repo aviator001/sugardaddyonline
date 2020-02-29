@@ -89,7 +89,7 @@ ul.ui-autocomplete li.ui-menu-item {
 	<script src='cordova.js'></script>
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
-		<div  id="divAlbums"></div>
+		<div  id="divAlbums" style="width:100%;height:100%"></div>
 		<div  id="divPhotos"></div>
 		<div id="main">
 		<div class="modal" id="modal" style="position:;z-index:999;background:#000;opacity:0.8;height:100%;width:100%;top:0;left:0;display:none;cursor:hand;cursor:pointer"></div>
@@ -493,6 +493,7 @@ function signupWithFB(){
 				var str=''
 				facebookConnectPlugin.api('/me?fields=albums.limit(50){name,count,cover_photo{picture}}', response => {
 				  response.albums.data.forEach(album => {
+					alert(album.name)
 					cover_photos.push(album.cover_photo.picture); //All we need is picture
 					str+='<div class="col-xs-1"><a href="javascript:render_photos('+album.cover_photo.id+')"><img src="'+album.cover_photo.picture+'" style="width:100%"></a><br>'+album.name+'<br>'+album.count+' Pics</div>'
 				  });
