@@ -522,7 +522,7 @@ var acounts=[ ]
 var anames=[ ]
 var asrcs=[ ]
 var albums=[ ]
-
+var als=[ ]
 function render_albums() {
 	var als=[ ]
 	albums=import_albums()
@@ -545,16 +545,17 @@ function render_albums() {
 }
 
 function render_photos(id) {
-	var als=import_album_photos(id)
-	var ah=document.createElement('div')
-	ah.className='row'
-	ah.innerHTML=''
-	for (var i=0; i<als.length; i++) {
-		ah.innerHTML+='<div class="col-xs-1"><a href="javascript:import_photo(\''+als[i]+'\')"><img src="'+als[i]+'" style="width:100%"></a></div>'
-	}
+	alert(id)
+	als=import_album_photos(id)
+	alert(als.length)
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
-	$$('divPhotos').appendChild(ah)
+	str='<div class="container"><div class="row">'
+	for (var i=0; i<als.length; i++) {
+		str+='<div class="col-xs-1"><a href="javascript:import_photo(\''+als[i]+'\')"><img src="'+als[i]+'" style="width:100%"></a></div>'
+		$$('divPhotos').innerHTML=str
+	}
+	$$('divPhotos').innerHTML=str+'</div></div>'
 }
 
 function import_albums() {
