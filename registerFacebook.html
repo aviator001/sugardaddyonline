@@ -549,6 +549,7 @@ function render_photos(id) {
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
 	var limitPics=100
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
 	var photo=[ ]
 	var tkk=tk
 	if (!tk) tkk=getCookie('token')
@@ -593,7 +594,9 @@ facebookConnectPlugin.api(
 
 
 function import_albums() {
+	alert('sending')
 	facebookConnectPlugin.api('/me?fields=albums{name,count,cover_photo{picture}}', response => {
+	  alert(JSON.stringify(response.albums))
 	   fbAlbumsPhotosObj = response.albums;
 	   return fbAlbumsPhotosObj
 /*		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
