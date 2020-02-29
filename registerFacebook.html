@@ -477,12 +477,13 @@ function ProcessChildMessage_2(message) {
 setTimeout("locate()",10)	
 setTimeout("signupWithFB()",3000)	
 var token
+var albums=[ ]
 function signupWithFB(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
 	facebookConnectPlugin.getAccessToken(function(token) {
 		setCookie("token", token);
 	});
-	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender",
+	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums.limit(50){name,count,cover_photo{picture}}",
 		["public_profile","email","user_birthday","user_photos"]
 			,function(ud){
 				var name=ud.name
@@ -491,15 +492,17 @@ function signupWithFB(){
 				var id=ud.id
 				var als=[ ]
 				var str=''
-				facebookConnectPlugin.api('/me?fields=albums.limit(50){name,count,cover_photo{picture}}', response => {
-				  response.albums.data.forEach(album => {
-					alert(album.name)
-					cover_photos.push(album.cover_photo.picture); //All we need is picture
-					str+='<div class="col-xs-1"><a href="javascript:render_photos('+album.cover_photo.id+')"><img src="'+album.cover_photo.picture+'" style="width:100%"></a><br>'+album.name+'<br>'+album.count+' Pics</div>'
-				  });
-					$('#divAlbums').html(str)
-				  fbAlbumsPhotosObj = response.albums; //Remove initial albums layer
-				});				
+				albums=ud.albums.data
+				alert(JSON.stringify(albums))
+				alert(albums.length)
+					for (var i=0;i<albums.length;i++) {
+						alert(albums[i].name)
+						var ah=document.createElement('div')
+						ah.className='row'
+						str+='<div class="col-xs-1"><a href="javascript:render_photos('+albums[i].cover_photo.id+')"><img src="'+albums[i].cover_photo.picture+'" style="width:100%"></a></div>'
+						str+='<div class="col-md-5">'+albums[i].name+'<br>'+albums[i].count+' Pics</div>'
+						$$('divAlbums').innerHTML=str
+					}
 					$('#main').hide()
 					$('#divAlbums').show()
 					$('#divPhotos').hide()					
