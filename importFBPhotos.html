@@ -617,11 +617,11 @@ function next(after,id) {
 	$$('divPhotos').innerHTML=str+'</div>'
 	$$('divPhotos').innerHTML+='<div class="row">'
 
-	if (data.photos.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+	if (data.data.paging.previous) {
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 	}
-	if (data.photos.paging.next) {
-		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+	if (data.data.paging.next) {
+		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.data.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
 	}
 
 	
