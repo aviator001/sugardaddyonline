@@ -600,7 +600,7 @@ function next(after,id) {
 	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
 	  photo=data.data
-	alert(JSON.stringify(data.data.paging))
+	alert(JSON.stringify(data.paging))
 
 	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
