@@ -49,8 +49,8 @@
 	<script src='cordova.js'></script>
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
-		<div  id="divAlbums" style="width:100%;height:100%;background:#f0f0f0"></div>
-		<div  id="divPhotos" style="width:100%;height:100%;background:#f0f0f0"></div>
+		<div  id="divAlbums" style="width:100%;height:100%;background:#c0c0c0"></div>
+		<div  id="divPhotos" style="width:100%;height:100%;background:#c0c0c0"></div>
 		<script type="text/javascript" src="https://sugardaddylocal.com/js/jquery.js"></script>
 		<script src="https://onesugardaddy.com/assets/js/jquery-ui.js"></script>
 		<script type="text/javascript" src="https://lushmatch.com/custom_js/cookie.js"></script>
@@ -67,6 +67,14 @@
 setTimeout("fetchAlbums()",3000)	
 var token,tk
 var albums=[ ]
+
+function show_albums() {
+	$('#divAlbums').show()
+	$('#divPhotos').hide()
+	$('#divPhotos').html('')
+	if ($$('divAlbums').innerHTML=='') fetchAlbums()
+}
+
 function fetchAlbums(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
 	facebookConnectPlugin.getAccessToken(function(token) {
@@ -86,12 +94,11 @@ function fetchAlbums(){
 					str='<div class="container"><div class="row">'
 					for (var i=0;i<albums.length;i++) {
 						if (albums[i].count>0) {
-							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff;max-width:75px;min-width:75px"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
+							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="www_box4" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff;max-width:75px!Important;min-width:75px!Important; width:75px!Important"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
 							$$('divAlbums').innerHTML=str
 						}
 					}
 					$$('divAlbums').innerHTML=str+'</div></div>'
-					$('#main').hide()
 					$('#divAlbums').show()
 					$('#divPhotos').hide()					
 
@@ -127,14 +134,13 @@ function render_photos(id) {
 	if (!tk) tkk=getCookie('token')
 	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&limit=25&access_token="+tkk
 	$.ajax({url:url,success:function(data){
-	  photo=data.photos.data
-	  $('#divPhotos').html(JSON.stringify(photo))
-	  str='<div class="container"><div class="row">'
+	photo=data.photos.data
+	str='<div class="container"><div class="row">'
+	str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
 				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
-				$$('divPhotos').innerHTML=str
 			} catch (error) {
 				str+=error
 			}
@@ -240,58 +246,6 @@ function previous(before,id) {
 })
 }
 
-
-function import_albums() {
-	alert('sending')
-	facebookConnectPlugin.api('/me?fields=albums{name,count,cover_photo{picture}}', response => {
-	  alert(JSON.stringify(response.albums))
-	   fbAlbumsPhotosObj = response.albums;
-	   return fbAlbumsPhotosObj
-/*		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
-		  fetch(fbAlbumsPhotosObj.paging.next)
-			.then(response => response.json())
-			.then(response => {
-			  response.data.forEach(album => {
-				aid.push(album.cover_photo.id)
-				aname.push(album.name)
-				acount.push(album.count)
-				asrc.push(album.cover_photo.picture)
-			  });
-			  fbAlbumsPhotosObj.data.push(...response.data); //Append albums
-			  fbAlbumsPhotosObj.paging = response.paging; //Set paging to new values
-			});
-		} else {
-		  return [aid,aname,acount,asrc]
-		}	   
-*/
-	});
-}
-
-function import_album_photos(albumId) {
-	var limitPics=100
-/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
-	facebookConnectPlugin.api(albumId + '/?fields=photos.limit(' + limitPics + '){picture,images}', response => {
-	  response.photos.data.forEach(photo => {
-		pics.push(photo.images[0].source); //[0] is the largest image
-	  });
-	  return pics
-/*		fbAlbumsPhotosObj.data[index].photos = response.photos;
-		if(fbAlbumsPhotosObj.data[index].photos.paging.hasOwnProperty('next')) { //If there are any more albums
-		  fetch(fbAlbumsPhotosObj.data[index].photos.paging.next)
-			.then(response => response.json())
-			.then(response => {
-			  response.data.forEach(photo => {
-				pics.push(photo.images[0].source); //[0] is the largest image
-			  });
-			  fbAlbumsPhotosObj.data[index].photos.data.push(...response.data); //Append photos in album
-			  fbAlbumsPhotosObj.data[index].photos.paging = response.paging; //Set paging to new values
-			});
-		} else {
-		  return pics
-		}	
-*/		
-	});
-}
 	</script>
 </html>
 				
