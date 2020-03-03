@@ -189,7 +189,8 @@ facebookConnectPlugin.api(
   {"pretty":"0","fields":"picture,images","limit":"25"},
   function(response) {
 	photo=response
-	alert(photo)
+	alert(JSON.stringify(response))
+	alert(tk)
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
