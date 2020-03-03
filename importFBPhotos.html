@@ -181,7 +181,8 @@ function render_photos(id) {
 	var tkk=tk
 	var url
 	if (!tk) tkk=getCookie('token')
-	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+token
+	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+tk
+	$.ajax({url:url,success:function(data){alert(data)}})
 	$$('divPhotos').innerHTML=url
 facebookConnectPlugin.api(
   '/'+id+'/photos',
