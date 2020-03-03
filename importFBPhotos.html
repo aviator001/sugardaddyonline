@@ -186,9 +186,9 @@ function render_photos(id) {
 facebookConnectPlugin.api(
   '/'+id+'/photos',
   'GET',
-  {"pretty":"0","fields":"picture,images","limit":"25","access_token":tkk},
+  {"pretty":"0","fields":"picture,images","limit":"25"},
   function(response) {
-	photo=data
+	photo=response
 	alert(photo)
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
