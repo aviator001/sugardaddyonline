@@ -171,7 +171,8 @@ function show_albums() {
 	if ($$('divAlbums').innerHTML=='') fetchAlbums()
 }
 
-function render_photos(id,x_url) {
+function render_photos(id) {
+	alert(id)
 	$('#divAlbums').hide()
 	$('#divPhotos').show()
 	$('#divPhotos').html('')
@@ -181,10 +182,10 @@ function render_photos(id,x_url) {
 	var url
 	if (!tk) tkk=getCookie('token')
 	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
+	$$('divPhotos').innerHTML='<br><br>'+url
 	$.ajax({url:url,success:function(data){
 	photo=data.photos.data
 	str='<div class="container"><div class="row">'
-	alert(photo.length)
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
