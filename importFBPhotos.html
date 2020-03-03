@@ -182,9 +182,11 @@ function render_photos(id) {
 	var url
 	if (!tk) tkk=getCookie('token')
 	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+tkk
+	$$('divPhotos').innerHTML=url
 	$.ajax({url:url,success:function(data){
 	alert(data)
 	photo=data.data
+	alert(photo)
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
