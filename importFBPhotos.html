@@ -30,27 +30,262 @@
 			max-width:800px!Important;
 			margin:auto;
 		}
-
-	a {text-decoration:none}
-	.jconfirm {
-		background:#333;
-		opacity:0.9;
-		text-align:center;
-	}
-	.jconfirm-box, container,jconfirm-box-container{
-		text-align:center;
-		max-width:320px;
-	}
 </style>
+		<style>
+			.tooltipsy {
+				color: #0093D9;
+				background-size:cover;
+				border: none;
+				border-radiuse:4px;
+				text-shadow:0px 0px 1px #333;
+				opacity: 
+			}
+			.eee, .content{
+				width:400px;
+			}
+			.biggy {
+				margin-left:-100px;margin-top:-200px;width:200px;height:200px;border:5px solid white;
+				opacity:1;
+				box-shadow:0 0 25px #333
+			}
+				a {text-decoration:none}
+			.jconfirm {
+				background:#333;
+				opacity:0.9;
+				text-align:center;
+			}
+			.jconfirm-box, container,jconfirm-box-container{
+				text-align:center;
+				max-width:320px;
+			}
+		</style>
 	<link href='https://fonts.googleapis.com/css?family=Poiret+One|Open+Sans|Open Sans' rel='stylesheet' type='text/css'>
+	<style>
+		div, span, td, p, input {
+			font-family:Open Sans!Important;
+			font-size:14px!Important;
+			font-weight:300!Important;
+		}
+		ul.ui-autocomplete {
+      width:100%;
+	  position:absolute;
+	  bottom:0;
+	  left:0;
+	  font-size:18px!Important;
+	  font-family:Open Sans
+	 }
+ul.ui-autocomplete li.ui-menu-item {
+      width: 100%;
+      float: left;
+	  background:#fcfcfc;
+	  padding:2px;
+	  font-size:18px!Important;
+	  font-family:Open Sans
+}
+	</style>
 			<link href="https://onesugardaddy.com/assets/css/jquery-ui.css" rel="stylesheet" />
 		<link href="https://onesugardaddy.com/assets/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 	<script src='cordova.js'></script>
 	</head> 
 	<body style="overflow-y:auto;background:#f0f0f0">
-		<div  id="divAlbums" style="width:100%;height:100%;background:#c0c0c0"></div>
-		<div  id="divPhotos" style="width:100%;height:100%;background:#c0c0c0"></div>
+		<div  id="divAlbums" style="width:100%;height:100%;background:#f0f0f0"></div>
+		<div  id="divPhotos" style="width:100%;height:100%;background:#f0f0f0"></div>
+		<div id="main">
+		<div class="modal" id="modal" style="position:;z-index:999;background:#000;opacity:0.8;height:100%;width:100%;top:0;left:0;display:none;cursor:hand;cursor:pointer"></div>
+		<div id="modal_text" class="modal_window" onclick="javascript:history.go(0)" id="modal_window" style="padding:20px;border-radius:6px;position:;z-index:9999;display:none;background:#f0f0f0;top:0;bottom:0;left:0;right:0;margin:auto;width:300px;height:420px;font-family:Open Sans;font-size:18px;"><b>Error - Location Required</b><br>In order to use this site, you must agree to share your current location. We will never disclose this information to anyone, but we need this to provide you with the best experience. If you need help on how to enable your location, <a href="https://support.google.com/chrome/answer/142065?hl=en"><span style='color:brown'><b>Click Here</b></span></a><br><br><span style='color:#0093D9;cursor:hand;cursor:pointer'>Clear location settings and then click HERE to try again!</span></div>
+		<div class="usersOnline pull-right" id="search_results" style="display:none;position:;top:0;bottom:0px;right:10px;z-index:99999999999;overflow-y:auto;overflow-x:hidden;width:420px;height:100%" onscroll="scrolled(this)"><table border=0></table></div>
+		<div id="dark1" class="dark_a" style="opacity:0;display:none"></div> 
+		<div id="" class="www_wrapper" style="box-shadow:none!Important;border-radius:5px;overflow-x:hidden;overflow-y:hidden;width:100%">
+			<section id="section" style="text-align:center;margin:0;padding:0;overflow-y:auto;overflow-x:hidden;height:100%" align=center>
+				<div id="main_content">
+					<div style="position:;width:100%;height:100%;top:0px;left:0px;right:0px;bottom:0px;background:#000;opacity:0.9;z-index:9999100000;display:none" id="pay_modal"></div>	
+					<div style="position:;top:0;left:0;right:0;bottom:0;opacity:1.0;z-index:9999100001;display:none;margin:auto;FONT-FAMILY:Open Sans;FONT-SIZE:14PX;color:#fff" id="wait">		
+						<div style="background:red;position:;top:0;left:0;right:0;bottom:0;opacity:1.0;z-index:9999100001;margin:auto;width:300px;height:200px">			
+							<div  style="top:0;left:0;right:0;bottom:0;opacity:1.0;margin:auto"><img src="https://lushmatch.com/assets/img/loader.gif"></div>			
+							<div style="padding-top:75px;position:;top:0;left:0;right:0;bottom:0;opacity:1.0;z-index:9999100001;margin-left:40%:auto;" id="spl_text"></div>
+						</div>
+					</div>	
+					<div style="padding:10px;margin:auto;position:;top:0px;left:0px;right:0px;bottom:0px;cursor:hand;cursor:pointer;text-align:left;padding-left:5px;font-family:Open Sans;font-size:20px;display:none;position:;z-index:9999999999999; background:#f0f0f0; border-radius:6px; width: 300px; height:220px" id="bo">PHONE VERIFICATION<br><font style='font-family:Open Sans;font-size:18px;color:#333'>To verify your account, please enter below the 4 digit pin we sent as a text to your phone<br>
+						<table style="background:#f0f0f0" align=center style='margin-top:10px;height:50px;width:150px' cellspacing=10>
+							<tr>
+								<td>
+									<input autofocus maxlength='1' type='text' id='v1' maxlength=1 onkeyup="document.all.v2.focus()" style='margin:5px;border:2px solid skyblue;height:40px;width:30px;text-align:center;color:#333;background:#f0f0f0;font-family:Open Sans;font-size:18px'>
+								</td>
+								<td>
+									<input type='text' onkeyup="document.all.v3.focus()" maxlength="1" onfocus='this.value=' id='v2' style='margin:5px;border:2px solid skyblue;height:40px;width:30px;text-align:center;color:#333;background:#f0f0f0;font-family:Open Sans;font-size:18px'>
+								</td>
+								<td>
+									<input type='text' id='v3' onkeyup="document.all.v4.focus()" style='margin:5px;border:2px solid skyblue;height:40px;width:30px;text-align:center;color:#333;background:#f0f0f0;font-family:Open Sans;font-size:18px'>
+								</td>
+								<td>
+									<input type='text' id='v4' style='margin:5px;border:2px solid skyblue;height:40px;width:30px;text-align:center;color:#333;background:#f0f0f0;font-family:Open Sans;font-size:18px'>
+								</td>
+							</tr>
+							<tr>
+								<td colspan=4>
+									<br><input type=button value="verify" onclick="validate_code()" class="btn btn-primary btn-active">
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-12" style="position:;margin:auto;left:0;right:0;margin-bottom:5px;overflow:auto;font-family:Open Sans;position:;z-index:99999999999999999999999999999999">
+						<div class="white-row"  style="box-shadow:0 0 20px #333;font-family:Open Sans;margin-top:50px;margin-bottom:50px">		
+							<div id="form_errors" class="alert alert-info" style="display:none"></div>
+							<div id="g1" style="display:">
+								<div class="row">			
+									<div style="width:100%" class="form-group">				
+										<div class="col-md-12" style="text-align:left;font-weight:300;font-family:Open Sans">					
+											<label>Mobile Number</label>					
+											<input type="text" name="mobile" id="mobile" value="" placeholder="Your Mobile # [Optional]" class="form-control input-box" style="color:grey;font-size:18px;font-family:Open Sans">					
+
+											<div id="mobile_err_txt" style="color: skyblue;text-align:left"></div>
+											<span style="font-size:14px!Important;color:silver">100% OPTIONAL, However we strongly recommend to be the 1st to cmeet new members and sms instantly and anonymously</span>
+										</div>
+									</div>
+								</div>
+								<div style="width:100%" class="form-group">
+									<div class="col-md-12" style="text-align:left;font-weight:300;font-style:normal;color:#333;text-shadow:none">					
+										<label class="block">Your Location</label>						
+										<input type="text" name="location1" id="location1" value="" placeholder="Your Location" class="form-control input-box" onclick="clear_error(this)" style="color:grey;font-size:18px">						
+										<div id="location1_err_txt" style="color:skyblue;text-align:left"></div>				
+									</div>
+								</div>
+			
+								<div style="width:100%" class="form-group">
+									<div class="col-md-12" style="text-align:left;font-weight:300;font-style:normal;color:#333;text-shadow:none">					
+										<label class="block">E-mail Address</label>						
+										<input type="text" name="email" id="email" value="" placeholder="Your Email Address" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
+										<div id="email_err_txt" style="color:skyblue;text-align:left"></div>				
+									</div>
+								</div>
+	
+								<div style="width:100%" class="form-group">				
+									<div class="col-md-12" style="text-align:left;font-weight:300;font-style:normal;color:#333;text-shadow:none">					
+										<label class="block">Create a Login Name</label>						
+										<input style="width:100%;font-size:18px" type="user" name="login" id="login" value="" placeholder="Your Login Name" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
+										<div id="login_err_txt" style="color:skyblue;text-align:left"></div>
+									</div>
+								</div>
+		
+								<div style="width:100%" class="form-group">				
+									<div class="col-md-12" style="text-align:left;font-weight:300">					
+										<label class="block">Create a Password</label>						
+										<input type="password" name="pswd" id="pswd" onblur="validate_field_register(this)" placeholder="Create Password" class="form-control input-box" onclick="clear_error(this)" style="color:grey;font-size:18px">						
+										<div id="pswd_err_txt" style="color:skyblue;text-align:left"></div>
+									</div>
+								</div>
+								<div class="col-md-6" style="text-align:left;font-weight:300">										
+									<label class="block">Your Gender</label>										
+									<input type="radio" name="gender" id="SB" value="SB" class="form-control" checked="checked" onclick="setGender('Sugar Baby','Sugar Daddy')">
+									<i style="margin-left:10px;font-size:32px" class="fa fa-male">
+										<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Baby','Sugar Daddy')">Sugar Baby</span>
+									</i>
+									<br>
+									<input type="radio" name="gender" id="SD" value="SD" class="form-control" onclick="setGender('Sugar Daddy','Sugar Baby')">
+									<i style="margin-left:10px;font-size:32px;color:red" class="fa fa-male">
+										<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Daddy','Sugar Baby')">Sugar Daddy</span>
+									</i>
+								</div>
+								<div class="col-md-12" style="text-align:left;font-weight:300">					
+									<label class="block">Enter your Age</label>						
+									<input style="font-size:18px" type="text" name="age" id="age" value="" placeholder="Your Age" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
+									<div id="age_err_txt" style="color:skyblue;text-align:left"></div>
+								</div>
+								<div class="col-md-6" style="text-align:left;font-weight:300">					
+									<label class="block">What's  your Ethnicity</label>						
+									<select style="" class="form-group" id="race">
+										<option value="">Rather Not Disclose</option>
+										<option value="white">White</option>
+										<option value="black">Black</option>
+										<option value="latin">Latin</option>
+										<option value="native_american">Native American</option>
+										<option value="east_indian">East Indian</option>
+										<option value="middle_eastern">Middle Eastern</option>
+										<option value="asian">Asian</option>
+										<option value="east_european">East European</option>
+										<option value="african">African</option>
+										<option value="pacific_islanders">Pacific Islander</option>
+										<option value="russian">Russian</option>
+										<option value="ukranian">Ukranian</option>
+									</select>
+									<div id="race_err_txt" style="color:skyblue;text-align:left"></div>
+								</div>
+								<div class="col-md-12" style="text-align:left;font-weight:300">					
+									<label class="block">A few words about yourself</label>						
+									<textarea id="general_info" style="font-size:15px;color:grey;font-size:15px;height:100px" type="text" placeholder="Describe yourself in a few words" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)"></textarea>	
+									<div id="general_info_err_txt" style="color:skyblue;text-align:left"></div>
+								</div>
+
+			
+									<div id="sd0" class="col-md-12" style="display:none;text-align:left;font-weight:300">					
+										<label class="block">What's  your Annual Income</label>						
+										<select style="" id="income">
+											<option value="">Rather Not Disclose</option>
+											<option value="1">0 to 100K</option>
+											<option value="2">100K to 250K</option>
+											<option value="3">250K to 500K</option>
+											<option value="4">500K to 1MM</option>
+											<option value="5">1MM+</option>
+										</select>
+										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
+									</div>
+									<div class="col-md-6" id="sd1" style="display:none;text-align:left;font-weight:300">					
+										<label class="block">Allowance you would be willing to give</label>						
+										<select style="" id="allowance_sd">
+											<option value="">Rather Not Disclose</option>
+											<option value="1">Upto $1000 a Month</option>
+											<option value="2">$1000 to $2,500</option>
+											<option value="3">$2,500 to $5,000</option>
+											<option value="4">$5,000 to $10,000</option>
+											<option value="5">$10,000+</option>
+										</select>
+										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
+									</div>
+									
+									<div id="sb0" class="col-md-6" style="text-align:left;font-weight:300">					
+										<label class="block">Allowance you are seeking</label>						
+										<select style="" id="allowance_sb">
+											<option value="">Rather Not Disclose</option>
+											<option value="1">Upto $1000 a Month</option>
+											<option value="2">$1000 to $2,500</option>
+											<option value="3">$2,500 to $5,000</option>
+											<option value="4">$5,000 to $10,000</option>
+											<option value="5">$10,000+</option>
+										</select>
+										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
+									</div>
+
+							<div class="row">			
+								<div style="width:100%" class="form-group">				
+									<div class="col-md-12" style="text-align:left;font-weight:300">					
+										<label class="block">Create Tags for your profile</label>						
+										<iframe src="https://lushmatch.com/tags/index.html?gender=Sugar Baby"  id="tf" style="width:100%;height:50px;margin:auto;border:none;font-family:Open Sans"></iframe>
+									</div>
+								</div>
+							</div>	
+							<div class="col-md-6">				
+								<button STYLE="font-size:18px;width:150px;height:50px;text-shadow:none;font-family:Open Sans;position:fixed;bottom:5px;margin:auto;left:0;right:0" class="btn btn-danger push-bottom" data-loading-text="Loading..."  onclick="validate_form()">FINISH SIGNUP</button><br>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+		</div>
+		<input type="hidden" name="mobile_original" id="mobile_original" value="">
+		<input type="hidden" name="email_original" id="email_original" value="">
+		<input type="hidden" name="login_original" id="login_original" value="">
+		<input type="hidden" name="pswd_original" id="pswd_original" value="">
+		<input type="hidden" name="age_original" id="age_original" value="">
+		<input type="hidden" name="gender" id="gender" value="">
+		<input type="hidden" name="looking_for" id="looking_for" value="">		<!-- /REGISTER -->	
+		<script>
+			var start_magic=false
+			var magic_w='65px'
+			var magic_h='65px'
+		</script>	
 		<script type="text/javascript" src="https://sugardaddylocal.com/js/jquery.js"></script>
 		<script src="https://onesugardaddy.com/assets/js/jquery-ui.js"></script>
 		<script type="text/javascript" src="https://lushmatch.com/custom_js/cookie.js"></script>
@@ -62,19 +297,13 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAuvU_A1iMThoe1i6Joi26nSTDQkjKlDA&libraries=places"></script>
+		
 	</body>
 	<script>
+
 setTimeout("fetchAlbums()",3000)	
 var token,tk
 var albums=[ ]
-
-function show_albums() {
-	$('#divAlbums').show()
-	$('#divPhotos').hide()
-	$('#divPhotos').html('')
-	if ($$('divAlbums').innerHTML=='') fetchAlbums()
-}
-
 function fetchAlbums(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
 	facebookConnectPlugin.getAccessToken(function(token) {
@@ -94,11 +323,12 @@ function fetchAlbums(){
 					str='<div class="container"><div class="row">'
 					for (var i=0;i<albums.length;i++) {
 						if (albums[i].count>0) {
-							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="www_box4" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff;max-width:75px!Important;min-width:75px!Important; width:75px!Important"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
+							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff;max-width:75px;min-width:75px"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
 							$$('divAlbums').innerHTML=str
 						}
 					}
 					$$('divAlbums').innerHTML=str+'</div></div>'
+					$('#main').hide()
 					$('#divAlbums').show()
 					$('#divPhotos').hide()					
 
@@ -134,13 +364,14 @@ function render_photos(id) {
 	if (!tk) tkk=getCookie('token')
 	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&limit=25&access_token="+tkk
 	$.ajax({url:url,success:function(data){
-	photo=data.photos.data
-	str='<div class="container"><div class="row">'
-	str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+	  photo=data.photos.data
+	  $('#divPhotos').html(JSON.stringify(photo))
+	  str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
 				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+				$$('divPhotos').innerHTML=str
 			} catch (error) {
 				str+=error
 			}
@@ -246,6 +477,58 @@ function previous(before,id) {
 })
 }
 
+
+function import_albums() {
+	alert('sending')
+	facebookConnectPlugin.api('/me?fields=albums{name,count,cover_photo{picture}}', response => {
+	  alert(JSON.stringify(response.albums))
+	   fbAlbumsPhotosObj = response.albums;
+	   return fbAlbumsPhotosObj
+/*		if(fbAlbumsPhotosObj.paging.hasOwnProperty('next')) { //If there are any more albums
+		  fetch(fbAlbumsPhotosObj.paging.next)
+			.then(response => response.json())
+			.then(response => {
+			  response.data.forEach(album => {
+				aid.push(album.cover_photo.id)
+				aname.push(album.name)
+				acount.push(album.count)
+				asrc.push(album.cover_photo.picture)
+			  });
+			  fbAlbumsPhotosObj.data.push(...response.data); //Append albums
+			  fbAlbumsPhotosObj.paging = response.paging; //Set paging to new values
+			});
+		} else {
+		  return [aid,aname,acount,asrc]
+		}	   
+*/
+	});
+}
+
+function import_album_photos(albumId) {
+	var limitPics=100
+/*	const index = fbAlbumsPhotosObj.data.findIndex(album => album.id == albumId); //Get index of album */
+	facebookConnectPlugin.api(albumId + '/?fields=photos.limit(' + limitPics + '){picture,images}', response => {
+	  response.photos.data.forEach(photo => {
+		pics.push(photo.images[0].source); //[0] is the largest image
+	  });
+	  return pics
+/*		fbAlbumsPhotosObj.data[index].photos = response.photos;
+		if(fbAlbumsPhotosObj.data[index].photos.paging.hasOwnProperty('next')) { //If there are any more albums
+		  fetch(fbAlbumsPhotosObj.data[index].photos.paging.next)
+			.then(response => response.json())
+			.then(response => {
+			  response.data.forEach(photo => {
+				pics.push(photo.images[0].source); //[0] is the largest image
+			  });
+			  fbAlbumsPhotosObj.data[index].photos.data.push(...response.data); //Append photos in album
+			  fbAlbumsPhotosObj.data[index].photos.paging = response.paging; //Set paging to new values
+			});
+		} else {
+		  return pics
+		}	
+*/		
+	});
+}
 	</script>
 </html>
 				
