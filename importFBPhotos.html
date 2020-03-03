@@ -181,15 +181,14 @@ function render_photos(id) {
 	var tkk=tk
 	var url
 	if (!tk) tkk=getCookie('token')
-//	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
-	url='https://graph.facebook.com/v6.0/'+id+'/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token='+tkk
+	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+tkk
 	$.ajax({url:url,success:function(data){
 	photo=data.data
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
-				str+='<div style="text-align:center" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px!Important;min-width:150px!Important;min-height:150px;max-height:150px!Important"></a></div>'
+				str+='<div style="text-align:center"  class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px!Important;min-width:150px!Important;min-height:150px;max-height:150px!Important"></a></div>'
 				
 			} catch (error) {
 				str+=error
