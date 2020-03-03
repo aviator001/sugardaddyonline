@@ -181,11 +181,14 @@ function render_photos(id) {
 	var tkk=tk
 	var url
 	if (!tk) tkk=getCookie('token')
-	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+tkk
+	url="https://onesugardaddy.com/fbImages.php?album_id="+id+"&token="+token
 	$$('divPhotos').innerHTML=url
-	$.ajax({url:url,success:function(data){
-	alert(data)
-	photo=data.data
+facebookConnectPlugin.api(
+  '/'+id+'/photos',
+  'GET',
+  {"pretty":"0","fields":"picture,images","limit":"25","access_token":tkk},
+  function(response) {
+	photo=data
 	alert(photo)
 	str='<div class="container"><div class="row">'
 	for (var i=0; i<photo.length; i++) {
@@ -209,7 +212,11 @@ function render_photos(id) {
 	}
 	$$('divPhotos').innerHTML=str+'</div>'
 	}
-})
+
+	}
+);
+	
+
 }
 function next(after,id) {
 	$('#divAlbums').hide()
