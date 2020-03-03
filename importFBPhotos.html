@@ -98,9 +98,9 @@ ul.ui-autocomplete li.ui-menu-item {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 	<script src='cordova.js'></script>
 	</head> 
-	<body style="overflow-y:auto;background:#f0f0f0">
+	<body style="background:#f0f0f0">
 		<div  id="divAlbums" style="width:100%;height:100%;background:#c0c0c0"></div>
-		<div  id="divPhotos" style="width:100%;height:100%;background:#c0c0c0"></div>
+		<div  id="divPhotos" style="max-width:100%;height:100%;background:#c0c0c0"></div>
 		<script type="text/javascript" src="https://sugardaddylocal.com/js/jquery.js"></script>
 		<script src="https://onesugardaddy.com/assets/js/jquery-ui.js"></script>
 		<script type="text/javascript" src="https://lushmatch.com/custom_js/cookie.js"></script>
@@ -119,6 +119,15 @@ ul.ui-autocomplete li.ui-menu-item {
 setTimeout("fetchAlbums()",3000)	
 var token,tk
 var albums=[ ]
+
+
+function show_albums() {
+	$('#divAlbums').show()
+	$('#divPhotos').hide()
+	$('#divPhotos').html('')
+	if ($$('divAlbums').innerHTML=='') fetchAlbums()
+}
+
 function fetchAlbums(){
   facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
 	facebookConnectPlugin.getAccessToken(function(token) {
@@ -138,7 +147,7 @@ function fetchAlbums(){
 					str='<div class="container"><div class="row">'
 					for (var i=0;i<albums.length;i++) {
 						if (albums[i].count>0) {
-							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="www_box3 sq-th" src="'+albums[i].cover_photo.picture+'" style="border:10px solid #fff;max-width:75px!Important;min-width:75px!Important;max-height:75px!Important;min-height:75px!Important"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
+							str+='<div class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="www_box3 sq-th" src="'+albums[i].cover_photo.picture+'" style="border:5px solid #fff;max-width:100px!Important;min-width:100px!Important;max-height:100px!Important;min-height:100px!Important"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
 							$$('divAlbums').innerHTML=str
 						}
 					}
@@ -181,18 +190,19 @@ function render_photos(id) {
 	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&limit=25&access_token="+tkk
 	$.ajax({url:url,success:function(data){
 	photo=data.photos.data
+	str='<div class="container"><div class="row">'
 	str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
 	if (data.photos.paging.previous) {
-		str+='<button style="margin:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn">PREVIOUS</button>'
+		str+='<button style="margin:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-default">PREVIOUS</button>'
 	}
 	if (data.photos.paging.next) {
-		str+='<button style="margin:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn">NEXT</button>'
+		str+='<button style="margin:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-default">NEXT</button>'
 	}
 	str+='</div><div class="row">'
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
-				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+				str+='<div style="text-align:center;padding:10px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
 			} catch (error) {
 				str+=error
 			}
@@ -203,10 +213,10 @@ function render_photos(id) {
 	$$('divPhotos').innerHTML+='<div class="row">'
 
 	if (data.photos.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-default">PREVIOUS</button>'
 	}
 	if (data.photos.paging.next) {
-		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-default">NEXT</button>'
 	}
 
 	
@@ -225,14 +235,21 @@ function next(after,id) {
 	var url
 	if (!tk) tkk=getCookie('token')
 	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&after="+after
-	$('#divPhotos').html(url)
 	$.ajax({url:url,success:function(data){
-		photo=data.data
-		str='<div class="container"><div class="row">'
-		for (var i=0; i<photo.length; i++) {
+	photo=data.data
+	str='<div class="container"><div class="row">'
+	str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+	if (data.photos.paging.previous) {
+		str+='<button style="margin:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-default">PREVIOUS</button>'
+	}
+	if (data.photos.paging.next) {
+		str+='<button style="margin:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-default">NEXT</button>'
+	}
+	str+='</div><div class="row">'
+	for (var i=0; i<photo.length; i++) {
 			if (photo[i].images[0].source) {
 				try {
-					str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+					str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box4 sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
 					$$('divPhotos').innerHTML=str
 				} catch (error) {
 					str+=error
@@ -274,7 +291,7 @@ function previous(before,id) {
 	for (var i=0; i<photo.length; i++) {
 		if (photo[i].images[0].source) {
 			try {
-				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
+				str+='<div class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box4 sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:150px;min-width:150px; width:150px"></a></div>'
 				$$('divPhotos').innerHTML=str
 			} catch (error) {
 				str+=error
@@ -285,11 +302,12 @@ function previous(before,id) {
 	$$('divPhotos').innerHTML=str+'</div>'
 	$$('divPhotos').innerHTML+='<div class="row">'
 
-	if (data.photos.paging.previous) {
-		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+
+	if (data.paging.previous) {
+		$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 	}
-	if (data.photos.paging.next) {
-		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+	if (data.paging.next) {
+		$$('divPhotos').innerHTML+='<button onclick="next(\''+data.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
 	}
 
 	
