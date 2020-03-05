@@ -61,26 +61,10 @@
 		</style>
 	<link href='https://fonts.googleapis.com/css?family=Poiret+One|Open+Sans|Open Sans' rel='stylesheet' type='text/css'>
 	<style>
-		div, span, td, p, input {
-			font-family:Open Sans!Important;
-			font-size:14px!Important;
-			font-weight:300!Important;
-		}
-		ul.ui-autocomplete {
-      width:100%;
-	  position:absolute;
-	  bottom:0;
-	  left:0;
-	  font-size:18px!Important;
-	  font-family:Open Sans
-	 }
-ul.ui-autocomplete li.ui-menu-item {
-      width: 100%;
-      float: left;
-	  background:#fcfcfc;
-	  padding:2px;
-	  font-size:18px!Important;
-	  font-family:Open Sans
+div, span, td, p, input {
+	font-family:Open Sans!Important;
+	font-size:14px!Important;
+	font-weight:300!Important;
 }
 .sq {
 	object-fit:cover;
@@ -91,9 +75,9 @@ ul.ui-autocomplete li.ui-menu-item {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 	<script src='cordova.js'></script>
 	</head> 
-	<body style="overflow-y:auto;background:#f0f0f0">
-		<div  id="divAlbums" style="width:100%;height:100%;background:#f0f0f0"></div>
-		<div  id="divPhotos" style="width:100%;height:100%;background:#f0f0f0"></div>
+	<body style="overflow-y:auto;background:#ecebea">
+		<div  id="divAlbums" style="width:100%;height:100%;background:#ecebea"></div>
+		<div  id="divPhotos" style="width:100%;height:100%;background:#ecebea"></div>
 		<script type="text/javascript" src="https://sugardaddylocal.com/js/jquery.js"></script>
 		<script src="https://onesugardaddy.com/assets/js/jquery-ui.js"></script>
 		<script type="text/javascript" src="https://lushmatch.com/custom_js/cookie.js"></script>
@@ -105,176 +89,190 @@ ul.ui-autocomplete li.ui-menu-item {
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAuvU_A1iMThoe1i6Joi26nSTDQkjKlDA&libraries=places"></script>
-		
+		<a href="javascript:show_albums()"><img id="btnShow" src="https://onesugardaddy.com/import.png" style="width:200px;margin:auto;margin-top:30%"></a>
 	</body>
 	<script>
-setTimeout("fetchAlbums()",100)	
 var token,tk
 var albums=[ ]
+	$('#divAlbums').html('')
+	function show_albums() {
+		$('#divAlbums').show()
+		$('#divPhotos').hide()
+		$('#divPhotos').html('')
+		if ($$('divAlbums').innerHTML=='') fetchAlbums()
+	}
+	function fetchAlbums(){
+		$('#btnShow').hide()
+	  facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
+		facebookConnectPlugin.getAccessToken(function(token) {
+			tk=token
+			setCookie("token", token);
+		});
+		facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums.limit(50){name,count,cover_photo{picture}}",
+			["public_profile","email","user_birthday","user_photos"]
+				,function(ud){
+					var name=ud.name
+					var email=ud.email
+					var birthday=ud.birthday
+					var id=ud.id
+					var als=[ ]
+					var str=''
+					albums=ud.albums.data
+						str='<div class="container"><div class="row">'
+						for (var i=0;i<albums.length;i++) {
+							if (albums[i].count>0) {
+								str+='<div style="text-align:center"  class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="sq www_box" src="'+albums[i].cover_photo.picture+'" style="border:5px solid #fff;max-width:100px!Important;min-width:100px!Important;min-height:100px;max-height:100px!Important"></a></div><div class="col-xs-3" style="margin:5px;text-align:left"><a href="javascript:render_photos('+albums[i].id+')">'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
+							}
+						}
+						$$('divAlbums').innerHTML=str+'</div></div>'
+						$('#divAlbums').show()
+						$('#divPhotos').hide()					
 
-function show_albums() {
-	$('#divAlbums').show()
-	$('#divPhotos').hide()
-	$('#divPhotos').html('')
-	if ($$('divAlbums').innerHTML=='') fetchAlbums()
-}
-function fetchAlbums(){
-  facebookConnectPlugin.login(["public_profile","email","user_birthday"],function(result){
-	facebookConnectPlugin.getAccessToken(function(token) {
-		tk=token
-		setCookie("token", token);
-	});
-	facebookConnectPlugin.api("/me?fields=email,name,picture,birthday,gender,albums.limit(50){name,count,cover_photo{picture}}",
-		["public_profile","email","user_birthday","user_photos"]
-			,function(ud){
-				var name=ud.name
-				var email=ud.email
-				var birthday=ud.birthday
-				var id=ud.id
-				var als=[ ]
-				var str=''
-				albums=ud.albums.data
-					str='<div class="container"><div class="row">'
-					for (var i=0;i<albums.length;i++) {
-						if (albums[i].count>0) {
-							str+='<div style="text-align:center"  class="col-xs-3" style="margin:5px;text-align:center"><a href="javascript:render_photos('+albums[i].id+')"><img class="sq www_box" src="'+albums[i].cover_photo.picture+'" style="border:5px solid #fff;max-width:100px!Important;min-width:100px!Important;min-height:100px;max-height:100px!Important"></a><br>'+albums[i].name.toUpperCase()+'<br><b>'+albums[i].count+' Pics</b></div>'
+		},function(error){
+			alert(JSON.stringify(error));
+		  });
+	   },function(error){
+			alert(JSON.stringify(error));
+		 });
+	}	
+
+	function render_photos(id,x_url) {
+		$('#divAlbums').hide()
+		$('#divPhotos').show()
+		$('#divPhotos').html('')
+		var photo=[ ]
+		var tkk=tk
+		var url
+		if (!tk) tkk=getCookie('token')
+		url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(10)%7Bpicture%2Cimages%7D&limit=10&transport=cors&access_token="+tkk
+		try {
+			$.ajax({url:url,success:function(data){
+				photo=data.photos.data
+				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+				}
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+				}
+				str+='<div class="container"><div class="row">'
+				for (var i=0; i<photo.length; i++) {
+					if (photo[i].images[0].source) {
+						try {
+							str+='<div style="text-align:center;padding:5px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
+							
+						} catch (error) {
+							str+=error
 						}
 					}
-					$$('divAlbums').innerHTML=str+'</div></div>'
-					$('#divAlbums').show()
-					$('#divPhotos').hide()					
-
-	},function(error){
-		alert(JSON.stringify(error));
-      });
-   },function(error){
-		alert(JSON.stringify(error));
-     });
-}	
-var fbAlbumsPhotosObj=[ ]
-var aid=[ ]
-var acount=[ ]
-var aname=[ ]
-var asrc=[ ]
-var aids=[ ]
-var acounts=[ ]
-var anames=[ ]
-var asrcs=[ ]
-var albums=[ ]
-var als=[ ]
-var pics=[ ]
-
-function render_photos(id,x_url) {
-	$('#divAlbums').hide()
-	$('#divPhotos').show()
-	$('#divPhotos').html('')
-	var limitPics=100
-	var photo=[ ]
-	var tkk=tk
-	var url
-	if (!tk) tkk=getCookie('token')
-	url="https://graph.facebook.com/v6.0/"+id+"/?fields=photos.limit(25)%7Bpicture%2Cimages%7D&transport=cors&access_token="+tkk
-	$.ajax({url:url,success:function(data){
-		photo=data.photos.data
-		str='<div class="container"><div class="row">'
-		str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
-		for (var i=0; i<photo.length; i++) {
-			if (photo[i].images[0].source) {
-				try {
-					str+='<div style="text-align:center;padding:5px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
-					
-				} catch (error) {
-					str+=error
 				}
-			}
-		}
-		str+='</div>'
-		str+='<div class="row">'
-		str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
-		if (data.photos.paging.previous) {
-			str+='<button onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
-		}
-		if (data.photos.paging.next) {
-			str+='<button onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
-		}
-		$$('divPhotos').innerHTML=str+'</div>'
-		}
-	})
-}
-function next(after,id) {
-	$('#divAlbums').hide()
-	$('#divPhotos').show()
-	$('#divPhotos').html('')
-	var limitPics=100
-	var photo=[ ]
-	var tkk=tk
-	var url
-	if (!tk) tkk=getCookie('token')
-	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&after="+after
-	$('#divPhotos').html(url)
-	$.ajax({url:url,success:function(data){
-		photo=data.data
-		str='<div class="container"><div class="row">'
-		for (var i=0; i<photo.length; i++) {
-			if (photo[i].images[0].source) {
-				try {
-					str+='<div style="text-align:center;margin:10px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
-				} catch (error) {
-					str+=error
+				str+='</div>'
+				str+='<div class="row">'
+				str+='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 				}
-			}
-		}
-		str+='</div>'
-		str+='<div class="row">'
-		str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
-
-		if (data.paging.previous) {
-			$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
-		}
-		if (data.paging.next) {
-			$$('divPhotos').innerHTML+='<button onclick="next(\''+data.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
-		}
-		$$('divPhotos').innerHTML+='</div>'
-		}
-	})
-}
-
-function previous(before,id) {
-	$('#divAlbums').hide()
-	$('#divPhotos').show()
-	$('#divPhotos').html('')
-	var limitPics=100
-	var photo=[ ]
-	var tkk=tk
-	var url
-	if (!tk) tkk=getCookie('token')
-	url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=25&transport=cors&access_token="+tkk+"&before="+before
-	$.ajax({url:url,success:function(data){
-		photo=data.data
-		str='<div class="container"><div class="row">'
-		for (var i=0; i<photo.length; i++) {
-			if (photo[i].images[0].source) {
-				try {
-					str+='<div style="text-align:center;margin:10px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
-				} catch (error) {
-					str+=error
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
 				}
-			}
+				$$('divPhotos').innerHTML=str+'</div>'
+				}
+			})
+		} catch (error) {
+			alert(JSON.stringify(error));
 		}
-		str+='</div>'
-		str+='<div class="row">'
-		str+='<button onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
-		if (data.paging.previous) {
-			$$('divPhotos').innerHTML+='<button onclick="previous(\''+data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+	}
+	function next(after,id) {
+		$('#divAlbums').hide()
+		$('#divPhotos').show()
+		$('#divPhotos').html('')
+		var photo=[ ]
+		var tkk=tk
+		var url
+		if (!tk) tkk=getCookie('token')
+		url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=10&transport=cors&access_token="+tkk+"&after="+after
+		try {
+			$.ajax({url:url,success:function(data){
+				photo=data.data
+				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+				}
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+				}
+				str+='<div class="container"><div class="row">'
+				for (var i=0; i<photo.length; i++) {
+					if (photo[i].images[0].source) {
+						try {
+							str+='<div style="text-align:center;padding:5px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
+						} catch (error) {
+							str+=error
+						}
+					}
+				}
+				str+='</div>'
+				str+='<div class="row">'
+				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+				}
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+				}
+				$$('divPhotos').innerHTML+='</div>'
+				}
+			})
+		} catch (error) {
+			alert(JSON.stringify(error));
 		}
-		if (data.paging.next) {
-			$$('divPhotos').innerHTML+='<button onclick="next(\''+data.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
-		}
-		$$('divPhotos').innerHTML+='</div>'
-		}
-	})
-}
+	}
 
+	function previous(before,id) {
+		$('#divAlbums').hide()
+		$('#divPhotos').show()
+		$('#divPhotos').html('')
+		var photo=[ ]
+		var tkk=tk
+		var url
+		if (!tk) tkk=getCookie('token')
+		url="https://graph.facebook.com/v6.0/"+id+"/photos?fields=picture%2Cimages&limit=10&transport=cors&access_token="+tkk+"&before="+before
+		try {
+			$.ajax({url:url,success:function(data){
+				photo=data.data
+				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+				}
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+				}
+				str+='<div class="container"><div class="row">'
+				for (var i=0; i<photo.length; i++) {
+					if (photo[i].images[0].source) {
+						try {
+							str+='<div style="text-align:center;padding:5px" class="col-xs-6"><a href="javascript:import_photo(\''+photo[i].images[0].source+'\')"><img class="www_box sq" src="'+photo[i].images[0].source+'" style="border:10px solid #fff;max-width:100%!Important;min-width:100%!Important;"></a></div>'
+						} catch (error) {
+							str+=error
+						}
+					}
+				}
+				str+='</div>'
+				str+='<div class="row">'
+				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				if (data.photos.paging.previous) {
+					str+='<button style="margin-left:10px" onclick="previous(\''+data.photos.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
+				}
+				if (data.photos.paging.next) {
+					str+='<button style="margin-left:10px" onclick="next(\''+data.photos.paging.cursors.after+'\','+id+')" class="btn btn-danger">NEXT</button>'
+				}
+				$$('divPhotos').innerHTML+='</div>'
+				}
+			})
+		} catch (error) {
+			alert(JSON.stringify(error));
+		}
+	}
 	</script>
 </html>
 				
