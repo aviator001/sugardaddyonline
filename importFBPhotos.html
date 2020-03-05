@@ -213,7 +213,7 @@ var albums=[ ]
 				}
 				str+='</div>'
 				str+='<div class="row">'
-				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				str+='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
 				if (data.paging.previous) {
 					str+='<button style="margin-left:10px" onclick="previous(\''+data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 				}
@@ -259,7 +259,7 @@ var albums=[ ]
 				}
 				str+='</div>'
 				str+='<div class="row">'
-				str='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
+				str+='<button style="margin-left:10px" onclick="show_albums()" class="btn btn-info">SHOW ALBUMS</button>'
 				if (data.paging.previous) {
 					str+='<button style="margin-left:10px" onclick="previous(\''+data.paging.cursors.before+'\','+id+')" class="btn btn-danger">PREVIOUS</button>'
 				}
