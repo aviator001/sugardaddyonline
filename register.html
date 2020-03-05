@@ -95,7 +95,7 @@ ul.ui-autocomplete li.ui-menu-item {
 		<div id="dark1" class="dark_a" style="opacity:0;display:none"></div> 
 		<div id="" class="www_wrapper" style="box-shadow:none!Important;border-radius:5px;overflow-x:hidden;overflow-y:hidden;width:100%">
 			<section id="section" style="text-align:center;margin:0;padding:0;overflow-y:auto;overflow-x:hidden;height:100%" align=center>
-				<div id="main_content">
+				<div id="main_content" style="padding:20px">
 					<div style="position:;width:100%;height:100%;top:0px;left:0px;right:0px;bottom:0px;background:#000;opacity:0.9;z-index:9999100000;display:none" id="pay_modal"></div>	
 					<div style="position:;top:0;left:0;right:0;bottom:0;opacity:1.0;z-index:9999100001;display:none;margin:auto;FONT-FAMILY:Open Sans;FONT-SIZE:14PX;color:#fff" id="wait">		
 						<div style="background:red;position:;top:0;left:0;right:0;bottom:0;opacity:1.0;z-index:9999100001;margin:auto;width:300px;height:200px">			
@@ -126,10 +126,7 @@ ul.ui-autocomplete li.ui-menu-item {
 							</tr>
 						</table>
 					</div>
-					<div class="col-md-12" style="position:;margin:auto;left:0;right:0;margin-bottom:5px;overflow:auto;font-family:Open Sans;position:;z-index:99999999999999999999999999999999">
-						<div class="white-row"  style="box-shadow:0 0 20px #333;font-family:Open Sans;margin-top:50px;margin-bottom:50px">		
 							<div id="form_errors" class="alert alert-info" style="display:none"></div>
-							<div id="g1" style="display:">
 								<div class="row">			
 									<div style="width:100%" class="form-group">				
 										<div class="col-md-12" style="text-align:left;font-weight:300;font-family:Open Sans">					
@@ -140,7 +137,6 @@ ul.ui-autocomplete li.ui-menu-item {
 											<span style="font-size:14px!Important;color:silver">100% OPTIONAL, However we strongly recommend to be the 1st to cmeet new members and sms instantly and anonymously</span>
 										</div>
 									</div>
-								</div>
 								<div style="width:100%" class="form-group">
 									<div class="col-md-12" style="text-align:left;font-weight:300;font-style:normal;color:#333;text-shadow:none">					
 										<label class="block">Your Location</label>						
@@ -184,11 +180,14 @@ ul.ui-autocomplete li.ui-menu-item {
 										<span style="margin-left:10px;font-size:18px;font-family:Open Sans;" onclick="setGender('Sugar Daddy','Sugar Baby')">Sugar Daddy</span>
 									</i>
 								</div>
-								<div class="col-md-12" style="text-align:left;font-weight:300">					
+								<div style="width:100%" class="form-group">				
+								<div class="col-md-6" style="text-align:left;font-weight:300">					
 									<label class="block">Enter your Age</label>						
 									<input style="font-size:18px" type="text" name="age" id="age" value="" placeholder="Your Age" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)" style="color:grey;font-size:18px">						
 									<div id="age_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
+								</div>
+								<div style="width:100%" class="form-group">				
 								<div class="col-md-6" style="text-align:left;font-weight:300">					
 									<label class="block">What's  your Ethnicity</label>						
 									<select style="" class="form-group" id="race">
@@ -208,13 +207,15 @@ ul.ui-autocomplete li.ui-menu-item {
 									</select>
 									<div id="race_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
+								</div>
+								<div style="width:100%" class="form-group">				
 								<div class="col-md-12" style="text-align:left;font-weight:300">					
 									<label class="block">A few words about yourself</label>						
 									<textarea id="general_info" style="font-size:15px;color:grey;font-size:15px;height:100px" type="text" placeholder="Describe yourself in a few words" class="form-control input-box" onclick="clear_error(this)" onblur="validate_field_register(this)"></textarea>	
 									<div id="general_info_err_txt" style="color:skyblue;text-align:left"></div>
 								</div>
-
-			
+								</div>
+								<div style="width:100%" class="form-group">				
 									<div id="sd0" class="col-md-12" style="display:none;text-align:left;font-weight:300">					
 										<label class="block">What's  your Annual Income</label>						
 										<select style="" id="income">
@@ -227,6 +228,8 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
+									</div>
+								<div style="width:100%" class="form-group">				
 									<div class="col-md-6" id="sd1" style="display:none;text-align:left;font-weight:300">					
 										<label class="block">Allowance you would be willing to give</label>						
 										<select style="" id="allowance_sd">
@@ -239,6 +242,8 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
+									</div>
+								<div style="width:100%" class="form-group">				
 									
 									<div id="sb0" class="col-md-6" style="text-align:left;font-weight:300">					
 										<label class="block">Allowance you are seeking</label>						
@@ -252,18 +257,13 @@ ul.ui-autocomplete li.ui-menu-item {
 										</select>
 										<div id="income_err_txt" style="color:skyblue;text-align:left"></div>
 									</div>
-
-							<div class="row">			
-								<div style="width:100%" class="form-group">				
-									<div class="col-md-12" style="text-align:left;font-weight:300">					
-										<label class="block">Create Tags for your profile</label>						
-										<iframe src="https://lushmatch.com/tags/index.html?gender=Sugar Baby"  id="tf" style="width:100%;height:50px;margin:auto;border:none;font-family:Open Sans"></iframe>
 									</div>
-								</div>
-							</div>	
-							<div class="col-md-6">				
-								<button STYLE="font-size:18px;width:150px;height:50px;text-shadow:none;font-family:Open Sans;position:fixed;bottom:5px;margin:auto;left:0;right:0" class="btn btn-danger push-bottom" data-loading-text="Loading..."  onclick="validate_form()">FINISH SIGNUP</button><br>
+								<div style="width:100%" class="form-group">				
+							<div class="col-md-12" style="text-align:left">				
+								<button STYLE="font-size:18px;width:150px;height:40px;text-shadow:none;font-family:Open Sans;margin:auto;left:0;right:0" class="btn btn-danger push-bottom" data-loading-text="Loading..."  onclick="validate_form()">FINISH SIGNUP</button><br><br>
 							</div>
+							</div>
+						</div>
 						</div>
 
 					</div>
@@ -291,8 +291,9 @@ ul.ui-autocomplete li.ui-menu-item {
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		<script type="text/javascript" src="https://onesugardaddy.com/register.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-	</body>
+		</body>
 	<script>
 	['https://maps.googleapis.com/maps/api/js?key=AIzaSyDAuvU_A1iMThoe1i6Joi26nSTDQkjKlDA&libraries=places'].forEach(function(src) {
 		script = document.createElement('script');
@@ -300,7 +301,11 @@ ul.ui-autocomplete li.ui-menu-item {
 		script.async = false;
 		document.head.appendChild(script);
 	});	
-	
+	function tags() {
+		$.confirm({
+			content:'url:https://lushmatch.com/tags/index.html?gender=Sugar Baby'
+		})
+	}
 		function next_g1(){
 			setTimeout(function(){
 				$$('g1').className='animated flipOutY'
