@@ -253,7 +253,7 @@
 <span id="main_table"></span>
 <script src="https://onesugardaddy.com/js/jquery.js"></script>
 <script src="https://onesugardaddy.com/assets/js/common.js"></script>
-<script src="https://sugardaddylocal.com/js/wait.js"></script>
+<script src="https://onesugardaddy.com/js/wait.js"></script>
 <script src="https://onesugardaddy.com/assets/js/events.js"></script>
 <script src="https://onesugardaddy.com/assets/js/bootstrap.min.js"></script>
 <script src="https://onesugardaddy.com/assets/js/scripts.js"></script>
@@ -486,8 +486,8 @@
 			$$('ne').innerHTML=''
 			var padH=100
 			var x_start_new_local=0
-			var x_start_new=0
-			var x_start_local=0
+			var mega_new=0
+			var mega_local=0
 			var x_start_popular=0
 			var ids=''
 			var x_start=0,cStr='',url,newidth,pad,data,lx,lt
@@ -525,6 +525,7 @@
 						render(data,'ne','new_local')
 						setTimeout('update_shortlist()',10)
 						setTimeout('update_browse_new_local_logs()',10)
+						x_start_new_local=x_start_new_local+no
 					}
 				})				
 			}
@@ -563,6 +564,7 @@
 						render(data,'ne', 'popular')
 						setTimeout('update_shortlist()',10)
 						setTimeout('update_browse_popular_logs()',10)
+						x_start_popular=x_start_popular+no
 					}
 				})				
 			}
@@ -665,7 +667,7 @@
 				hy=hy-100
 				no=20
 				
-				var url = 'https://sugardaddylocal.com/x_browse_local.php?start='+mega+'&type=local&count='+no+'&gender='+getCookie('gender')
+				var url = 'https://sugardaddylocal.com/x_browse_local.php?start='+mega_local+'&type=local&count='+no+'&gender='+getCookie('gender')
 				console.log(url)
 				var request = $.ajax({
 					url: url,
@@ -701,7 +703,7 @@
 				hy=max_img_width
 				hy=hy-100
 				no=20
-				var url = 'https://sugardaddylocal.com/x_browse_new.php?start='+mega+'&type=new&count='+no+'&gender='+getCookie('gender')
+				var url = 'https://sugardaddylocal.com/x_browse_new.php?start='+mega_new+'&type=new&count='+no+'&gender='+getCookie('gender')
 				console.log(url)
 				var request = $.ajax({
 					url: url,
@@ -711,7 +713,7 @@
 					success: function(msg) {
 						var data=JSON.parse(msg)
 						render(data,'ne')
-						mega_local=mega_local+no
+						mega_new=mega_new+no
 						setTimeout('update_shortlist()',10)
 						setTimeout('update_browse_new_local_logs()',10)
 					}
